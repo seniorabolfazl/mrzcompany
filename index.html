@@ -10,14 +10,59 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            /* غیرفعال کردن انتخاب متن برای امنیت بیشتر */
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         
         body {
-            background-color: #0b0f19;
+            background-color: #060a13;
             color: #e2e8f0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
             padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* صفحه لودینگ امنیتی */
+        #security-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #060a13;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #1e293b;
+            border-top: 4px solid #38bdf8;
+            border-bottom: 4px solid #e11d48;
+            border-radius: 50%;
+            animation: spin 1.2s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #38bdf8;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .wrapper {
@@ -27,27 +72,22 @@
             gap: 25px;
         }
 
-        /* سایدبار سمت راست/چپ */
+        /* سایدبار هوشمند */
         .sidebar {
-            width: 280px;
-            background: linear-gradient(180deg, #121826 0%, #0f172a 100%);
+            width: 290px;
+            background: linear-gradient(180deg, #0f1524 0%, #0b101d 100%);
             border: 1px solid #1e293b;
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 20px;
             height: fit-content;
             position: sticky;
             top: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 15px rgba(56, 189, 248, 0.05);
             transition: border 0.3s ease;
         }
 
-        html[dir="rtl"] .sidebar {
-            border-left: 3px solid #38bdf8;
-        }
-
-        html[dir="ltr"] .sidebar {
-            border-right: 3px solid #38bdf8;
-        }
+        html[dir="rtl"] .sidebar { border-left: 4px solid #38bdf8; }
+        html[dir="ltr"] .sidebar { border-right: 4px solid #38bdf8; }
 
         .sidebar-title {
             font-size: 1.1rem;
@@ -73,8 +113,8 @@
             border: none;
             display: block;
             color: #94a3b8;
-            padding: 10px 12px;
-            border-radius: 6px;
+            padding: 11px 14px;
+            border-radius: 8px;
             font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -84,43 +124,44 @@
         html[dir="rtl"] .sidebar-menu button { text-align: right; }
         html[dir="ltr"] .sidebar-menu button { text-align: left; }
 
-        html[dir="rtl"] .sidebar-menu button:hover { padding-right: 18px; color: #38bdf8; background-color: #1e293b;}
-        html[dir="ltr"] .sidebar-menu button:hover { padding-left: 18px; color: #38bdf8; background-color: #1e293b;}
+        html[dir="rtl"] .sidebar-menu button:hover { padding-right: 20px; color: #38bdf8; background-color: #172237;}
+        html[dir="ltr"] .sidebar-menu button:hover { padding-left: 20px; color: #38bdf8; background-color: #172237;}
 
         .sidebar-menu button.active {
             background-color: #0c4a6e;
             color: #38bdf8;
             font-weight: bold;
+            box-shadow: inset 0 0 8px rgba(56, 189, 248, 0.2);
         }
 
-        html[dir="rtl"] .sidebar-menu button.active { border-right: 3px solid #38bdf8; padding-right: 15px; }
-        html[dir="ltr"] .sidebar-menu button.active { border-left: 3px solid #38bdf8; padding-left: 15px; }
+        html[dir="rtl"] .sidebar-menu button.active { border-right: 3px solid #38bdf8; padding-right: 16px; }
+        html[dir="ltr"] .sidebar-menu button.active { border-left: 3px solid #38bdf8; padding-left: 16px; }
 
-        /* باکس ابزار جدید هدر: سرچ و دوزبانه */
+        /* باکس ابزار ارتقایافته هدر */
         .site-header-tools {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
             gap: 15px;
-            background: rgba(18, 24, 38, 0.7);
+            background: rgba(15, 21, 37, 0.85);
             padding: 12px 20px;
-            border-radius: 12px;
+            border-radius: 14px;
             border: 1px solid #1e293b;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .search-box-container {
             position: relative;
             flex: 1;
-            max-width: 380px;
+            max-width: 350px;
         }
 
         .search-field {
             width: 100%;
             padding: 10px 18px;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(10, 15, 28, 0.9);
             border: 1px solid #334155;
             border-radius: 20px;
             color: #ffffff;
@@ -132,16 +173,39 @@
 
         .search-field:focus {
             border-color: #38bdf8;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+        }
+
+        /* پکیج سمت چپ هدر شامل شمارنده و دکمه زبان */
+        .header-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* شمارنده مقالات چسبیده به دکمه زبان */
+        .header-counter-badge {
+            background: linear-gradient(135deg, #1e1b4b 0%, #31102f 100%);
+            border: 1px solid #e11d48;
+            color: #f43f5e;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.25);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .lang-switcher-window {
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(10, 15, 28, 0.9);
             border: 1px solid #334155;
-            border-radius: 8px;
-            padding: 4px 6px;
+            border-radius: 20px;
+            padding: 3px 5px;
             display: flex;
-            gap: 6px;
+            gap: 4px;
         }
 
         .lang-toggle-btn {
@@ -151,20 +215,18 @@
             font-size: 0.8rem;
             font-weight: bold;
             cursor: pointer;
-            padding: 4px 10px;
-            border-radius: 5px;
+            padding: 5px 12px;
+            border-radius: 15px;
             transition: all 0.2s ease;
             font-family: inherit;
         }
 
-        .lang-toggle-btn:hover {
-            color: #38bdf8;
-        }
+        .lang-toggle-btn:hover { color: #38bdf8; }
 
         .lang-toggle-btn.active {
             background: #0284c7;
             color: #ffffff;
-            box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
         }
 
         /* بخش اصلی محتوا */
@@ -173,7 +235,7 @@
         }
 
         @keyframes fadeInWindow {
-            from { opacity: 0; transform: scale(0.97) translateY(10px); }
+            from { opacity: 0; transform: scale(0.98) translateY(8px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
         
@@ -188,9 +250,9 @@
         
         /* پروفایل بالای صفحه */
         .profile-resume-box {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #131b2e 0%, #0b1120 100%);
+            border: 1px solid #1e293b;
+            border-radius: 14px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -214,7 +276,7 @@
             border: 4px solid #38bdf8;
             object-fit: cover;
             object-position: top;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
             background-color: #1e293b;
         }
 
@@ -227,6 +289,7 @@
             color: #38bdf8;
             font-size: 2.2rem;
             margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.1);
         }
 
         .resume-details .title-sub {
@@ -240,9 +303,9 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
             margin-top: 15px;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(7, 11, 22, 0.7);
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid #1e293b;
         }
 
@@ -257,12 +320,12 @@
         
         /* کارت‌ها */
         .card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 10px;
+            background-color: #0f1626;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
             padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
         }
         
         h2 {
@@ -289,8 +352,8 @@
         }
 
         .doc-nav-btn {
-            background-color: #0f172a;
-            border: 1px solid #334155;
+            background-color: #090e1a;
+            border: 1px solid #1e293b;
             color: #94a3b8;
             padding: 12px;
             border-radius: 8px;
@@ -304,25 +367,25 @@
         .doc-nav-btn:hover {
             border-color: #38bdf8;
             color: #38bdf8;
-            background-color: #121b2e;
+            background-color: #111a2e;
         }
 
         .doc-nav-btn.active {
             background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
             color: #ffffff;
             border-color: #38bdf8;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
         }
 
         /* پنجره‌های داخلی مستندات علمی */
         .scientific-window {
             display: none;
-            background-color: #131c2e;
+            background-color: #0b111f;
             border: 1px solid #1e293b;
             border-top: 4px solid #38bdf8;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
         .scientific-window.active {
@@ -331,43 +394,38 @@
         }
 
         .doc-summary {
-            background-color: #0f172a;
+            background-color: #060b14;
             padding: 15px;
-            border-radius: 4px;
+            border-radius: 6px;
             margin-top: 15px;
             color: #cbd5e1;
             font-size: 0.95rem;
-            transition: border 0.2s ease;
         }
 
-        html[dir="rtl"] .doc-summary { border-right: 3px solid #e11d48; }
-        html[dir="ltr"] .doc-summary { border-left: 3px solid #e11d48; }
+        html[dir="rtl"] .doc-summary { border-right: 4px solid #e11d48; }
+        html[dir="ltr"] .doc-summary { border-left: 4px solid #e11d48; }
 
         /* لایه حفاظت حقوقی */
         .file-legal-overlay {
             margin-top: 25px;
-            background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
+            background: linear-gradient(90deg, #131926 0%, #070b14 100%);
             border: 1px dashed #334155;
-            border-radius: 6px;
+            border-radius: 8px;
             padding: 15px;
             font-size: 0.85rem;
             color: #94a3b8;
         }
 
-        .file-legal-overlay strong {
-            color: #38bdf8;
-        }
+        .file-legal-overlay strong { color: #38bdf8; }
 
-        .badge-container {
-            margin-top: 15px;
-        }
+        .badge-container { margin-top: 15px; }
         
         .badge {
             display: inline-block;
             background-color: #0c4a6e;
             color: #38bdf8;
-            padding: 5px 12px;
-            border-radius: 6px;
+            padding: 6px 14px;
+            border-radius: 8px;
             font-size: 0.9rem;
             margin: 4px;
             border: 1px solid #0284c7;
@@ -378,17 +436,17 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
-            background-color: #1e293b;
-            border-radius: 8px;
+            background-color: #0f1626;
+            border-radius: 10px;
             overflow: hidden;
         }
         
         .project-table th {
-            background-color: #0f172a;
+            background-color: #060b14;
             color: #38bdf8;
             padding: 15px;
             font-size: 1rem;
-            border-bottom: 2px solid #334155;
+            border-bottom: 2px solid #1e293b;
         }
 
         html[dir="rtl"] .project-table th, html[dir="rtl"] .project-table td { text-align: right; }
@@ -396,7 +454,7 @@
         
         .project-table td {
             padding: 15px;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid #1e293b;
             font-size: 0.95rem;
             color: #cbd5e1;
         }
@@ -404,9 +462,7 @@
         .status-online { color: #2ecc71; font-weight: bold; }
         .status-progress { color: #f1c40f; font-weight: bold; }
 
-        .contact-list {
-            list-style: none;
-        }
+        .contact-list { list-style: none; }
         
         .contact-list li {
             margin-bottom: 15px;
@@ -449,21 +505,24 @@
             padding-top: 20px;
         }
 
-        /* کلاس سیستم فیلترینگ سرچ */
-        .search-hidden {
-            display: none !important;
-        }
+        .search-hidden { display: none !important; }
 
         @media (max-width: 768px) {
             .wrapper { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
             .site-header-tools { flex-direction: column; align-items: stretch; }
+            .header-controls-right { justify-content: space-between; }
             .search-box-container { max-width: 100%; }
-            .lang-switcher-window { justify-content: center; }
         }
     </style>
 </head>
 <body>
+
+    <!-- صفحه اسکن امنیتی / آنتی ویروس اولیه -->
+    <div id="security-loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text" id="loaderText">SYSTEM SECURITY CHECK: ACTIVE</div>
+    </div>
 
     <div class="wrapper">
         
@@ -485,9 +544,16 @@
                 <div class="search-box-container">
                     <input type="text" id="siteSearchInput" class="search-field" placeholder="جستجو در مطالب سایت...">
                 </div>
-                <div class="lang-switcher-window">
-                    <button class="lang-toggle-btn active" id="langFaBtn" onclick="toggleLanguage('fa')">FA</button>
-                    <button class="lang-toggle-btn" id="langEnBtn" onclick="toggleLanguage('en')">EN</button>
+                
+                <!-- بخش جدید: کنترل‌های سمت راست هدر شامل شمارنده مقالات چسبیده به دکمه تغییر زبان -->
+                <div class="header-controls-right">
+                    <div class="header-counter-badge" id="headerArticlesCount">
+                        📝 مقالات ثبت شده: ۴ مورد
+                    </div>
+                    <div class="lang-switcher-window">
+                        <button class="lang-toggle-btn active" id="langFaBtn" onclick="toggleLanguage('fa')">FA</button>
+                        <button class="lang-toggle-btn" id="langEnBtn" onclick="toggleLanguage('en')">EN</button>
+                    </div>
                 </div>
             </div>
             
@@ -547,6 +613,7 @@
             <div id="articles" class="tab-content">
                 <section class="card searchable-item">
                     <h2 id="scieTitle">نشریه علمی و دپارتمان مستندات مخازن</h2>
+                    
                     <p id="scieDesc" style="color: #94a3b8; margin-bottom: 20px;">جهت مانیتورینگ دقیق و باز کردن اسناد، روی هر پنجره کلیک کنید تا اطلاعات اختصاصی آن با انیمیشن بارگذاری شود:</p>
                     
                     <div class="doc-navigation">
@@ -623,7 +690,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            </tbody>
+                        </tbody>
                     </table>
                 </section>
             </div>
@@ -648,12 +715,14 @@
     </div>
 
     <script>
-        // بانک جامع ترجمه دوزبانه برای تمام متون داینامیک سایت
+        // بانک جامع ترجمه دوزبانه
         const translations = {
             fa: {
                 title: "وب‌سایت رسمی و پورتفولیو | ابوالفضل میرزایی",
                 searchPlace: "جستجو در مطالب سایت...",
                 menuTitle: "منو سیستم هوشمند",
+                loaderText: "سیستم مانیتورینگ امنیتی: فعال",
+                headerArticlesCount: "📝 مقالات ثبت شده: ۴ مورد",
                 tabs: [
                     "⊙ هویت دانشگاهی و فردی",
                     "⊙ اهداف، پروژه‌ها و چشم‌اندازها",
@@ -711,7 +780,7 @@
                 th: ["عنوان فرآیند / سابقه فعالیت", "بستر و ابزار کلیدی", "وضعیت پروژه / سطح تجربی"],
                 tableData: [
                     ["پورتفولیو رسمی دیجیتال بر بستر وب", "HTML5 / CSS Tab System Architecture", "<td class='status-online'>● عملیاتی و آنلاین</td>"],
-                    ["اماده سازی مقاله تعیین تخلخل سنگ اذرین مخزن", "Articles and books on reservoir management", "<td class='status-online'>●در حال اماده سازی و جمع اوری اطلاعات / مبتدی</td>"],
+                    ["اماده سازی مقاله تعیین تخلخل سنگ اذرین مخزن", "Articles and books on reservoir management", "<td class='status-online'>● در حال اماده سازی و جمع اوری اطلاعات / مبتدی</td>"],
                     ["تحلیل الگوهای تجاری و مارکت آیتم", "Free Market Analysis", "<td class='status-online'>● با سابقه فعالیت کاربردی</td>"],
                     ["پروژه‌ها و مقالات پژوهشی ترم ۲ شریف", "Academic Research &amp; Python", "<td class='status-progress'>● در حال انجام و عیب‌یابی</td>"],
                     ["مدیریت عملیات و خدمات صنایع غذایی (بستنی‌فروشی)", "Advanced Service Management", "<td class='status-online'>● سطح پیشرفته (Advanced)</td>"]
@@ -730,6 +799,8 @@
                 title: "Official Website & Portfolio | Abolfazl Mirzaei",
                 searchPlace: "Search site contents...",
                 menuTitle: "Smart System Menu",
+                loaderText: "SECURITY MONITORING SYSTEM: ACTIVE",
+                headerArticlesCount: "📝 Registered Papers: 4 Items",
                 tabs: [
                     "⊙ Academic & Personal Identity",
                     "⊙ Objectives, Projects & Visions",
@@ -806,7 +877,7 @@
 
         let currentLanguage = 'fa';
 
-        // دکمه‌های ناوبری اصلی تب‌های سایدبار
+        // توابع جابجایی تب‌ها
         function openTab(evt, tabId) {
             var tabContents = document.getElementsByClassName("tab-content");
             for (var i = 0; i < tabContents.length; i++) {
@@ -822,7 +893,6 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // سوییچ بین پنجره‌های داخلی بخش مستندات علمی
         function openScientificWindow(evt, windowId) {
             var sciWindows = document.getElementsByClassName("scientific-window");
             for (var i = 0; i < sciWindows.length; i++) {
@@ -838,7 +908,6 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // رندر کردن جدول سوابق به صورت پویا بر اساس زبان
         function renderProjectTable() {
             const thRow = document.getElementById('thRow');
             thRow.innerHTML = '';
@@ -849,13 +918,7 @@
             const tbody = document.querySelector('#pTable tbody');
             tbody.innerHTML = '';
             translations[currentLanguage].tableData.forEach(row => {
-                tbody.innerHTML += `
-                    <tr>
-                        <td>${row[0]}</td>
-                        <td>${row[1]}</td>
-                        ${row[2]}
-                    </tr>
-                `;
+                tbody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td>${row[2]}</tr>`;
             });
         }
 
@@ -867,7 +930,6 @@
             const enBtn = document.getElementById('langEnBtn');
             const searchInput = document.getElementById('siteSearchInput');
 
-            // پیکربندی دایرکشن و تغییر رنگ فعال دکمه زبان
             if(lang === 'fa') {
                 rootHtml.setAttribute('dir', 'rtl');
                 rootHtml.setAttribute('lang', 'fa');
@@ -880,18 +942,17 @@
                 faBtn.classList.remove('active');
             }
 
-            // تغییر تایتل مرورگر و پلیس‌هولدر سرچ
             document.getElementById('siteTitle').textContent = translations[lang].title;
             searchInput.placeholder = translations[lang].searchPlace;
             document.getElementById('menuTitle').textContent = translations[lang].menuTitle;
+            document.getElementById('loaderText').textContent = translations[lang].loaderText;
+            document.getElementById('headerArticlesCount').textContent = translations[lang].headerArticlesCount;
 
-            // ترجمه دکمه‌های سایدبار
             translations[lang].tabs.forEach((tabText, idx) => {
                 const btn = document.getElementById(`btn-tab${idx+1}`);
                 if(btn) btn.textContent = tabText;
             });
 
-            // ترجمه مشخصات و بیوگرافی (تب ۱)
             document.getElementById('profName').textContent = translations[lang].profName;
             document.getElementById('profSub').textContent = translations[lang].profSub;
             document.getElementById('profAbout').textContent = translations[lang].profAbout;
@@ -900,51 +961,43 @@
             document.getElementById('infoField').innerHTML = translations[lang].infoItems.field;
             document.getElementById('infoDev').innerHTML = translations[lang].infoItems.dev;
 
-            // ترجمه بخش اهداف (تب ۲)
             document.getElementById('mishTitle').textContent = translations[lang].mishTitle;
             document.getElementById('mishDesc').textContent = translations[lang].mishDesc;
             document.getElementById('mishList').innerHTML = translations[lang].mishList;
 
-            // ترجمه مهارت‌ها (تب ۳)
             document.getElementById('techTitle').textContent = translations[lang].techTitle;
             document.getElementById('techDesc').textContent = translations[lang].techDesc;
 
-            // ترجمه نشریه علمی (تب ۴)
             document.getElementById('scieTitle').textContent = translations[lang].scieTitle;
             document.getElementById('scieDesc').textContent = translations[lang].scieDesc;
             translations[lang].scieBtns.forEach((btnText, idx) => {
                 document.getElementById(`scieBtn${idx+1}`).textContent = btnText;
             });
 
-            // ترجمه ۴ پنجره علمی داخلی
             for(let i=1; i<=4; i++) {
                 document.getElementById(`w${i}-h`).textContent = translations[lang][`w${i}`].h;
                 document.getElementById(`w${i}-fn`).innerHTML = translations[lang][`w${i}`].fn;
                 document.getElementById(`w${i}-env`).textContent = translations[lang][`w${i}`].env;
                 document.getElementById(`w${i}-sum`).innerHTML = translations[lang][`w${i}`].sum;
-                document.getElementById(`w${i}-leg').innerHTML = translations[lang][`w${i}`].leg;
+                document.getElementById(`w${i}-leg`).innerHTML = translations[lang][`w${i}`].leg;
             }
 
-            // ترجمه جدول (تب ۵)
             document.getElementById('projTitle').textContent = translations[lang].projTitle;
             renderProjectTable();
 
-            // ترجمه راه‌های ارتباطی (تب ۶)
             document.getElementById('contTitle').textContent = translations[lang].contTitle;
             document.getElementById('contDesc').textContent = translations[lang].contDesc;
             translations[lang].contacts.forEach((txt, idx) => {
                 document.getElementById(`c${idx+1}`).innerHTML = txt;
             });
 
-            // فوتر
             document.getElementById('siteFooter').textContent = translations[lang].footer;
 
-            // ریست کردن فیلتر سرچ پس از تغییر زبان
             searchInput.value = '';
             clearSearchFilters();
         }
 
-        // منطق سیستم سرچ آنلاین در کل مطالب متنی پورتفولیو
+        // منطق سیستم سرچ
         document.getElementById('siteSearchInput').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
             const items = document.querySelectorAll('.searchable-item, .sidebar-menu li');
@@ -969,7 +1022,59 @@
             hiddenItems.forEach(el => el.classList.remove('search-hidden'));
         }
 
-        // لود اولیه جدول و زبان پیشفرض (فارسی)
+        // ==========================================
+        // 🛡️ سیستم هوشمند آنتی‌کپی و حفاظت حقوقی پورتفولیو
+        // ==========================================
+        
+        // ۱. قفل کلیک راست روی تمام اجزای سایت
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // ۲. قفل کردن شورت‌کات‌های کیبورد (F12, Ctrl+C, Ctrl+U و غیره)
+        document.addEventListener('keydown', function(e) {
+            // مسدود کردن F12
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            // مسدود کردن Ctrl+Shift+I (Inspect)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+                return false;
+            }
+            // مسدود کردن Ctrl+Shift+C (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                e.preventDefault();
+                return false;
+            }
+            // مسدود کردن Ctrl+U (View Source)
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+                return false;
+            }
+            // مسدود کردن Ctrl+C (Copy)
+            if (e.ctrlKey && e.keyCode === 67) {
+                e.preventDefault();
+                return false;
+            }
+            // مسدود کردن Ctrl+X (Cut)
+            if (e.ctrlKey && e.keyCode === 88) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // ۳. حذف لودر امنیتی پس از لود کامل و تایید آنتی‌ویروس
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('security-loader');
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 1000); // ۱ ثانیه افکت اسکن امنیتی اولیه
+        });
+
+        // لود اولیه پورتفولیو
         renderProjectTable();
     </script>
 </body>
