@@ -1274,17 +1274,18 @@
     </div>
 
     <script>
-        // ۱. اتصال پایگاه داده Supabase
         const SUPABASE_URL = "https://eqmo9x-eegnafwllng-sbyncnovoxekgov7exh4uqo.supabase.co"; 
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxbW85eC1lZWduYWZ3bGxuZy1zYnluY25vdm94ZWtnb3Y3ZXhoNHVxb8IsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzE3MTExMTExLCJleHAiOjIwMTcxMTExMTEx... placeholder"; 
-        
-        let supabase = null;
+        // حواست باشد کلمه placeholder را از انتهای کلید واقعی‌ات پاک کنی و فقط توکن داخل کوتیشن باشد
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxbW85eC1lZWduYWZ3bGxuZy1zYnluY25vdm94ZWtnb3Y3ZXhoNHVxb8IsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzE3MTExMTExLCJleHAiOjIwMTcxMTExMTEx..."; 
+
+        // این بخش را چک کن: اگر بالاتر let supabase = null؛ را داری، اینجا دیگر نباید بنویسی const supabase یا let supabase!
+        // فقط باید مقدار آن را مقداردهی کنی:
         try {
-            if(window.supabase && SUPABASE_URL && !SUPABASE_URL.includes("YOUR_")) {
-                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+            if (typeof createClient !== 'undefined') {
+                supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
             }
-        } catch(e) {
-            console.log("Supabase Offline Mode Active.");
+        } catch (err) {
+            console.error("Supabase initialization failed:", err);
         }
 
         let audioCtx = null;
