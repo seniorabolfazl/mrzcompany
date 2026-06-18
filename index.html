@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="EqmO9x-EEgNAfwLlnG-sbyNCNOVo2XEKgOv7EXH4Uqo" />
+    
     <title id="siteTitle">وب‌سایت رسمی | ابوالفضل میرزایی</title>
+    <meta name="description" content="پورتفولیو و پایگاه رسمی مستندات علمی و پژوهشی ابوالفضل میرزایی، دانشجوی مهندسی نفت دانشگاه صنعتی شریف">
+    <meta property="og:title" content="وب‌سایت رسمی | ابوالفضل میرزایی">
+    <meta property="og:description" content="پایگاه رسمی مستندات علمی، اسکریپت‌های سیالات بالادستی و پورتفولیو فنی">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
         * {
             box-sizing: border-box;
@@ -19,7 +33,7 @@
         body {
             background-color: #060a13;
             color: #e2e8f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
             padding: 20px;
             overflow-x: hidden;
@@ -80,7 +94,7 @@
             gap: 25px;
         }
 
-        /* سایدبار هوشمند */
+        /* سایدبار هوشمند ارتقایافته */
         .sidebar {
             width: 290px;
             background: linear-gradient(180deg, #0f1524 0%, #0b101d 100%);
@@ -91,7 +105,12 @@
             position: sticky;
             top: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 15px rgba(56, 189, 248, 0.05);
-            transition: border 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 25px rgba(56, 189, 248, 0.1);
         }
 
         html[dir="rtl"] .sidebar { border-left: 4px solid #38bdf8; }
@@ -125,7 +144,7 @@
             border-radius: 8px;
             font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             font-family: inherit;
         }
 
@@ -145,30 +164,56 @@
         html[dir="rtl"] .sidebar-menu button.active { border-right: 3px solid #38bdf8; padding-right: 16px; }
         html[dir="ltr"] .sidebar-menu button.active { border-left: 3px solid #38bdf8; padding-left: 16px; }
 
-        /* باکس گیمینگ */
-        .sidebar-extra-box {
-            margin-top: 20px;
-            background: rgba(6, 10, 19, 0.6);
+        /* کارت‌های شیشه‌ای برای پروژه‌ها و مهارت‌ها */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #0f172a 0%, #0b1120 100%);
             border: 1px solid #1e293b;
-            border-radius: 10px;
-            padding: 12px;
-            font-family: monospace;
-            font-size: 0.8rem;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .sidebar-extra-box strong { color: #e11d48; }
-        .pulse-dot {
-            display: inline-block;
-            width: 8px;
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 12px 25px rgba(56, 189, 248, 0.15);
+        }
+
+        /* نوار پیشرفت مهارت‌ها */
+        .skill-progress-bar {
+            width: 100%;
+            background-color: #1e293b;
             height: 8px;
-            background-color: #2ecc71;
-            border-radius: 50%;
-            margin-left: 5px;
-            box-shadow: 0 0 8px #2ecc71;
-            animation: pulse 1.5s infinite;
+            border-radius: 10px;
+            margin-top: 8px;
+            overflow: hidden;
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 1; }
+
+        .skill-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #0284c7);
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+        }
+
+        /* دکمه‌های اکشن دانلود و لینک */
+        .cv-download-btn, .action-link-btn, .calc-btn, .cyber-submit {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cv-download-btn:active, .action-link-btn:active {
+            transform: scale(0.97);
         }
 
         /* باکس ابزار هدر */
@@ -327,24 +372,6 @@
             background-color: #1e293b;
         }
 
-        .profile-fallback-avatar {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            border: 4px solid #38bdf8;
-            background: #0f1626;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
-            margin: 0 auto;
-        }
-
-        .resume-details {
-            flex: 3;
-            min-width: 300px;
-        }
-
         .glitch-text {
             position: relative;
             color: #38bdf8;
@@ -431,7 +458,7 @@
             font-size: 0.85rem;
         }
 
-        /* ماشین حساب پیشرفته مهندسی Darcy */
+        /* ماشین حساب مهندسی Darcy */
         .darcy-calculator {
             background: rgba(6, 11, 22, 0.8);
             border: 1px solid #1e293b;
@@ -470,7 +497,6 @@
             cursor: pointer;
             margin-top: 15px;
             width: 100%;
-            transition: all 0.2s;
         }
         .calc-btn:hover { box-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
         .calc-result {
@@ -484,7 +510,7 @@
         }
         html[dir="ltr"] .calc-result { border-right: none; border-left: 4px solid #2ecc71; text-align: left; }
 
-        /* دکمه اکشن دانلود رزومه */
+        /* دکمه دانلود رزومه */
         .cv-download-btn {
             display: inline-flex;
             align-items: center;
@@ -498,7 +524,6 @@
             font-weight: bold;
             font-size: 0.9rem;
             border: 1px solid #38bdf8;
-            transition: all 0.2s ease;
             cursor: pointer;
         }
         .cv-download-btn:hover {
@@ -564,7 +589,7 @@
             box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
         }
 
-        /* استایل‌های اختصاصی ارتقایافته برای مقالات آکادمیک */
+        /* استایل‌های مقالات آکادمیک */
         .scientific-window {
             display: none;
             background-color: #0b111f;
@@ -595,9 +620,7 @@
             font-size: 0.85rem;
             color: #94a3b8;
         }
-        .meta-item strong {
-            color: #38bdf8;
-        }
+        .meta-item strong { color: #38bdf8; }
 
         .abstract-section {
             background: linear-gradient(135deg, #090f1d 0%, #060a14 100%);
@@ -633,32 +656,6 @@
         }
         .keywords-box strong { color: #e11d48; }
 
-        .article-mini-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.85rem;
-        }
-        .article-mini-table th, .article-mini-table td {
-            border: 1px solid #1e293b;
-            padding: 8px 12px;
-        }
-        .article-mini-table th { background: #060b14; color: #38bdf8; text-align: center; }
-        .article-mini-table td { background: #0d1527; text-align: center; }
-
-        /* لایه حفاظت حقوقی */
-        .file-legal-overlay {
-            margin-top: 25px;
-            background: linear-gradient(90deg, #131926 0%, #070b14 100%);
-            border: 1px dashed #334155;
-            border-radius: 8px;
-            padding: 15px;
-            font-size: 0.85rem;
-            color: #cbd5e1;
-        }
-
-        .file-legal-overlay strong { color: #38bdf8; }
-
         .action-link-btn {
             display: inline-block;
             margin-top: 10px;
@@ -670,7 +667,6 @@
             text-decoration: none;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s ease;
             margin-left: 5px;
             margin-right: 5px;
         }
@@ -760,7 +756,6 @@
             border-radius: 8px;
             cursor: pointer;
             font-family: inherit;
-            transition: all 0.2s;
         }
         .cyber-submit:hover { transform: scale(1.02); box-shadow: 0 0 15px rgba(225, 29, 72, 0.4); }
 
@@ -809,7 +804,53 @@
 
         .search-hidden { display: none !important; }
 
-        /* ریسپانسیو سازی */
+        /* استایل اختصاصی پنجره مدیریت مخفی */
+        #admin-panel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 8, 17, 0.95);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .admin-window {
+            background: #0f1626;
+            border: 2px solid #e11d48;
+            box-shadow: 0 0 30px rgba(225, 29, 72, 0.3);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 550px;
+            padding: 25px;
+        }
+        .admin-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #334155;
+            padding-bottom: 10px;
+        }
+        .admin-tab-btn {
+            background: none;
+            border: 1px solid #334155;
+            color: #94a3b8;
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+        }
+        .admin-tab-btn.active {
+            border-color: #e11d48;
+            color: #e11d48;
+            font-weight: bold;
+        }
+
+        /* ریسپانسیو سازی مطلق */
         @media (max-width: 992px) {
             .wrapper { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
@@ -831,10 +872,49 @@
 </head>
 <body>
 
-    <!-- صفحه اسکن امنیتی اولیه -->
     <div id="security-loader">
         <div class="loader-spinner"></div>
         <div class="loader-text" id="loaderText">SYSTEM SECURITY CHECK: ACTIVE...</div>
+    </div>
+
+    <div id="admin-panel-overlay">
+        <div class="admin-window">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <h3 style="color:#e11d48; font-size:1.2rem;">⚡ هسته مدیریت مرکزی پورتفولیو</h3>
+                <button onclick="toggleAdminPanel(false)" style="background:none; border:none; color:#94a3b8; cursor:pointer; font-size:1.2rem;">✕</button>
+            </div>
+            
+            <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+                <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:12px;">جهت تزریق داده یا ویرایش پورتفولیو ابتدا باید توکن امنیتی ادمین را احراز کنید:</p>
+                <input type="email" id="adminEmail" class="cyber-input" placeholder="ایمیل ادمین" style="margin-bottom:10px;" required>
+                <input type="password" id="adminPassword" class="cyber-input" placeholder="گذرواژه امنیتی" style="margin-bottom:15px;" required>
+                <button type="submit" class="cyber-submit" style="width:100%; background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); border-color:#38bdf8;">🗝️ تایید هویت و ورود</button>
+            </form>
+
+            <div id="adminControlsArea" style="display:none;">
+                <div class="admin-tabs">
+                    <button class="admin-tab-btn active" onclick="switchAdminAction('art')">📝 ثبت داکیومنت علمی</button>
+                    <button class="admin-tab-btn" onclick="switchAdminAction('mon')">📊 ردیف پایش مانیتورینگ</button>
+                </div>
+
+                <form id="addArticleForm" onsubmit="handleCreateArticle(event)">
+                    <input type="text" id="newArtTitle" class="cyber-input" placeholder="عنوان سند یا مقاله" style="margin-bottom:10px;" required>
+                    <textarea id="newArtAbstract" class="cyber-input" placeholder="چکیده مهندسی داکیومنت..." rows="3" style="margin-bottom:10px;" required></textarea>
+                    <input type="text" id="newArtFilename" class="cyber-input" placeholder="نام فایل (مثال: core_flooding.pdf)" style="margin-bottom:15px;">
+                    <button type="submit" class="cyber-submit" style="width:100%;">🚀 بارگذاری و انتشار آنی داکیومنت</button>
+                </form>
+
+                <form id="addMonitorForm" onsubmit="handleCreateMonitor(event)" style="display:none;">
+                    <input type="text" id="newMonTitle" class="cyber-input" placeholder="عنوان فرآیند / سابقه فعالیت" style="margin-bottom:10px;" required>
+                    <input type="text" id="newMonStack" class="cyber-input" placeholder="بستر و ابزار کلیدی استفاده شده" style="margin-bottom:10px;" required>
+                    <select id="newMonStatus" class="cyber-input" style="margin-bottom:15px; background:#060b14;">
+                        <option value="online">● عملیاتی و آنلاین</option>
+                        <option value="progress">● در حال انجام و عیب‌یابی</option>
+                    </select>
+                    <button type="submit" class="cyber-submit" style="width:100%;">📡 تزریق ردیف به مانیتورینگ زنده</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div class="wrapper">
@@ -845,838 +925,250 @@
                 <li class="searchable-item"><button class="tab-btn active" id="btn-tab1" aria-controls="identity" aria-selected="true" onclick="openTab('identity')">⊙ هویت دانشگاهی و فردی</button></li>
                 <li class="searchable-item"><button class="tab-btn" id="btn-tab2" aria-controls="mission" aria-selected="false" onclick="openTab('mission')">⊙ اهداف، پروژه‌ها و چشم‌اندازها</button></li>
                 <li class="searchable-item"><button class="tab-btn" id="btn-tab3" aria-controls="tech" aria-selected="false" onclick="openTab('tech')">⊙ مهارت‌ها و ابزارها</button></li>
-                <li class="searchable-item"><button class="tab-btn" id="btn-tab4" aria-controls="articles" aria-selected="false" onclick="openTab('articles')">⊙ مستندات علمی و پژوهشی</button></li>
-                <li class="searchable-item"><button class="tab-btn" id="btn-tab5" aria-controls="projects" aria-selected="false" onclick="openTab('projects')">⊙ مانیتورینگ فعالیت‌ها</button></li>
-                <li class="searchable-item"><button class="tab-btn" id="btn-tab6" aria-controls="contact" aria-selected="false" onclick="openTab('contact')">⊙ دپارتمان ارتباطات</button></li>
+                <li class="searchable-item"><button class="tab-btn" id="btn-tab4" aria-controls="docs" aria-selected="false" onclick="openTab('docs')">⊙ مستندات علمی و پژوهشی</button></li>
+                <li class="searchable-item"><button class="tab-btn" id="btn-tab5" aria-controls="contact" aria-selected="false" onclick="openTab('contact')">⊙ درگاه ارتباطی الکترونیکی</button></li>
             </ul>
-
-            <div class="sidebar-extra-box searchable-item">
-                <div style="display:flex; align-items:center; margin-bottom:5px;">
-                    <span class="pulse-dot"></span>
-                    <strong id="recTitle">[OPERATIONAL RECREATION]</strong>
-                </div>
-                <p id="recDesc" style="color:#94a3b8; line-height:1.4;">Tactical Comms & Strategy: Active Node<br>Status: Analyzing Market Patterns</p>
-            </div>
         </aside>
 
         <main class="main-content">
-            
-            <div class="site-header-tools">
+            <div class="site-header-tools" data-aos="fade-down" data-aos-duration="800">
                 <div class="search-box-container">
-                    <input type="text" id="siteSearchInput" class="search-field" placeholder="جستجو در مطالب سایت...">
+                    <input type="text" id="siteSearchInput" class="search-field" placeholder="جستجوی بلادرنگ کلمات کلیدی پورتفولیو..." oninput="performLiveSearch()">
                 </div>
-                
                 <div class="header-controls-right">
-                    <button class="audio-toggle-btn active" id="audioToggleBtn" onclick="toggleAudioSystem()">🔊 SOUND: ON</button>
-                    
-                    <div class="header-counter-badge" id="headerArticlesCount">
-                        📝 مقالات ثبت شده: ۴ مورد
-                    </div>
+                    <button id="audioBeepBtn" class="audio-toggle-btn active" onclick="toggleAudioBeepSystem()">🔊 صوتی سیستم: فعال</button>
                     <div class="lang-switcher-window">
-                        <button class="lang-toggle-btn active" id="langFaBtn" onclick="toggleLanguage('fa')">FA</button>
-                        <button class="lang-toggle-btn" id="langEnBtn" onclick="toggleLanguage('en')">EN</button>
+                        <button id="lang-fa" class="lang-toggle-btn active" onclick="switchLanguage('fa')">FA</button>
+                        <button id="lang-en" class="lang-toggle-btn" onclick="switchLanguage('en')">EN</button>
                     </div>
                 </div>
             </div>
-            
-            <!-- هویت دانشگاهی -->
-            <div id="identity" class="tab-content active">
-                <section class="profile-resume-box searchable-item">
+
+            <section id="identity" class="tab-content active" data-aos="fade-up" data-aos-duration="800">
+                <div class="profile-resume-box">
                     <div class="profile-img-container">
-                        <img src="me.png" alt="ابوالفضل میرزایی" class="profile-img" onerror="this.style.display='none'; document.getElementById('fallback-avatar-box').style.display='flex';">
-                        <div id="fallback-avatar-box" class="profile-fallback-avatar" style="display:none;">
-                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <img src="avatar.jpg" alt="ابوالفضل میرزایی" class="profile-img" onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex';">
+                        <div id="fallback-avatar" class="profile-fallback-avatar" style="display:none;">
+                            <span style="font-size:3rem; color:#38bdf8;">AM</span>
                         </div>
                     </div>
                     <div class="resume-details">
-                        <h1 id="profName" class="glitch-text">ابوالفضل میرزایی</h1>
-                        <p class="title-sub" id="profSub">دانشجوی مهندسی نفت دانشگاه صنعتی شریف</p>
-                        <p id="profAbout" style="color: #cbd5e1; text-align: justify; font-size: 0.95rem;">
-                            به پایگاه رسمی پورتفولیو و رزومه فنی من خوش آمدید. اینجانب دانشجوی ترم دوم رشته مهندسی نفت در دانشگاه صنعتی شریف هستم. تمرکز فعلی من بر تلفیق مبانی علوم آکادمیک با ابزارهای شبیه‌سازی دیجیتال، پیاده‌سازی اتوماسیون‌های نرم‌افزاری و تحلیل مکانیزم‌های کاربردی در راستای خلق دستاوردهای علمی و پژوهشی ملموس است.
-                        </p>
-                        
+                        <h1 class="glitch-text" id="profileName">ابوالفضل میرزایی</h1>
+                        <p class="title-sub" id="profileTitle">دانشجوی مهندسی نفت | دانشگاه صنعتی شریف</p>
                         <div class="info-grid">
-                            <div class="info-item" id="infoInst"><strong>موسسه تخصصی:</strong> دانشگاه صنعتی شریف</div>
-                            <div class="info-item" id="infoTerm"><strong>موقعیت تحصیلی:</strong> کارشناسی (ترم ۲)</div>
-                            <div class="info-item" id="infoField"><strong>گرایش متمرکز:</strong> عمومی</div>
-                            <div class="info-item" id="infoDev"><strong>محیط توسعه:</strong> اسکریپت‌نویسی و طراحی منطقی</div>
+                            <div class="info-item"><strong id="lbl-uni">دانشگاه:</strong> <span id="val-uni">صنعتی شریف</span></div>
+                            <div class="info-item"><strong id="lbl-field">رشته تخصصی:</strong> <span id="val-field">مهندسی نفت</span></div>
+                            <div class="info-item"><strong id="lbl-hometown">زادگاه:</strong> <span id="val-hometown">ارومیه</span></div>
+                            <div class="info-item"><strong id="lbl-status">وضعیت آکادمیک:</strong> <span id="val-status">در حال تحصیل (مقطع کارشناسی)</span></div>
                         </div>
-
-                        <a href="#" class="cv-download-btn" id="cvDownloadBtn" onclick="alert('فایل رزومه نهایی در حال حاضر در دیتابیس لوکال سرور در حال کامپایل است.'); return false;">
-                            📥 دریافت نسخه رسمی رزومه (PDF)
+                        <a href="resume.pdf" class="cv-download-btn" id="btn-cv">
+                            <span>📥 دریافت رزومه رسمی (PDF)</span>
                         </a>
                     </div>
-                </section>
+                </div>
 
-                <div class="terminal-box searchable-item">
+                <div class="terminal-box" data-aos="fade-up" data-aos-delay="200">
                     <div class="terminal-header">
-                        <span>🔴 🟡 🟢 void_console.sh</span>
-                        <span style="font-family:inherit;">v2.0.26</span>
+                        <span>bash - abolfazl@sharif.edu</span>
+                        <span>● ● ●</span>
                     </div>
-                    <div class="terminal-body" id="termBody">
-                        <p>[SYSTEM ENVIRONMENT INITIALIZED SUCCESSFULLY]</p>
-                        <p>Welcome to Void Interactive Node. Type 'help' to see system commands.</p>
+                    <div class="terminal-body" id="terminalBody">
+                        <p>Welcome to Abolfazl Mirzaei Personal Terminal Core v2.0.6</p>
+                        <p>Type <span style="color:#e11d48">'help'</span> to see available custom commands.</p>
                         <div class="terminal-line">
-                            <span class="terminal-prompt">guest@void_net:~#</span>
-                            <input type="text" id="termInput" class="terminal-input" autocomplete="off" spellcheck="false">
+                            <span class="terminal-prompt">guest@sharif:~$</span>
+                            <input type="text" id="terminalInput" class="terminal-input" autofocus onkeydown="processTerminalCommand(event)">
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- اهداف و پروژه‌ها -->
-            <div id="mission" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="mishTitle">اهداف، پروژه‌ها و چشم‌اندازها</h2>
-                    <p id="mishDesc" style="margin-bottom: 15px; text-align: justify; color: #cbd5e1;">
-                        برنامه‌ریزی راهبردی من برای آینده، توسعه مهارت‌های همه‌جانبه و ثبت دستاوردهای علمی معتبر است. در حال حاضر کارهای زیر در دستور کار قرار دارند:
+            <section id="mission" class="tab-content" data-aos="fade-up" data-aos-duration="800">
+                <div class="card">
+                    <h2 id="title-vision">چشم‌انداز و حوزه پژوهش علمی</h2>
+                    <p style="margin-top:10px; text-align:justify;" id="txt-vision">
+                        تمرکز بر توسعه راه‌حل‌های الگوریتمی محاسباتی در صنایع بالادستی، مدل‌سازی رفتار سیالات مخازن، و تحقیق روی پارامترهای پتروفیزیکی از جمله تخلخل سنگ‌ها (Porosity). تلفیق دانش فنی مهندسی با برنامه‌نویسی پایتون جهت خودکارسازی و بهینه‌سازی تحلیل داده‌های مخزن یکی از اهداف اصلی اینجانب است.
                     </p>
-                    <div id="mishList" style="padding-right: 15px; color: #cbd5e1; font-size: 0.95rem;">
-                        <p style="margin-bottom: 10px;">⚡ <b>پژوهش و نگارش مقالات تخصصی:</b> آغاز فعالیت روی یک سری از مستندات و مقالات علمی در حوزه مهندسی نفت به منظور ثبت دستاوردهای نوین دانشگاهی.</p>
-                        <p style="margin-bottom: 10px;">⚡ <b>توسعه راهکارهای مثبت مبتنی بر داده:</b> بهره‌گیری از پایتون جهت شبیه‌سازی عددی و تحلیل داده‌های نموداری مربوط به فرآیندهای بالادستی نفت.</p>
-                        <p style="margin-bottom: 10px;">⚡ <b>تلفیق تجارب بازار آزاد و خلاقیت:</b> اعمال استراتژی‌های تحلیلی مارکت بر روی پروژه‌های شخصی جهت افزایش بازدهی عملکردی سیستم.</p>
-                    </div>
-                </section>
-            </div>
+                </div>
 
-            <!-- مهارت‌ها -->
-            <div id="tech" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="techTitle">سطح تخصص و مهارت‌های کاربردی</h2>
-                    <p id="techDesc" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 12px;">پشته ابزارها و مهارت‌های توسعه‌یافته بر اساس ساختار رزومه:</p>
-                    <div class="badge-container">
-                        <span class="badge">Python (Intermediate)</span>
-                        <span class="badge">Adobe Photoshop (Intermediate)</span>
-                        <span class="badge">Microsoft Excel (Intermediate)</span>
-                        <span class="badge">Microsoft Word &amp; PowerPoint</span>
-                        <span class="badge">Market Item Trading &amp; Free Market</span>
-                        <span class="badge">Advanced Food Industries &amp; Ice Cream Management</span>
-                        <span class="badge">Computer management (Intermediate)</span>
-                        <span class="badge">Adobe premiere (basic)</span>
-                    </div>
-
-                    <div class="darcy-calculator">
-                        <h3 id="calcHeader">📊 ماشین حساب هیدرودینامیک مخازن (قانون Darcy)</h3>
-                        <div class="calc-grid">
-                            <div class="calc-group">
-                                <label id="lblPerm">نفوذپذیری (mD)</label>
-                                <input type="number" id="calcK" class="calc-input" value="150">
-                            </div>
-                            <div class="calc-group">
-                                <label id="lblArea">مساحت (ft²)</label>
-                                <input type="number" id="calcA" class="calc-input" value="2500">
-                            </div>
-                            <div class="calc-group">
-                                <label id="lblPress">افت فشار (psi)</label>
-                                <input type="number" id="calcP" class="calc-input" value="400">
-                            </div>
-                            <div class="calc-group">
-                                <label id="lblVisc">ویسکوزیته (cP)</label>
-                                <input type="number" id="calcM" class="calc-input" value="2.5">
-                            </div>
-                        </div>
-                        <button class="calc-btn" id="calcBtn" onclick="calculateDarcyFlow()">⚙️ محاسبه دبی جریان / Compute Flow</button>
-                        <div class="calc-result" id="calcResult">خروجی سیستم محاسباتی: در انتظار ورود داده...</div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- بخش مستندات علمی و پژوهشی (بروزرسانی خفن) -->
-            <div id="articles" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="scieTitle">نشریه علمی و دپارتمان مستندات مخازن</h2>
-                    <p id="scieDesc" style="color: #94a3b8; margin-bottom: 20px;">جهت مانیتورینگ دقیق و باز کردن اسناد، روی هر پنجره کلیک کنید تا اطلاعات اختصاصی آن با انیمیشن بارگذاری شود:</p>
-                    
-                    <div class="doc-navigation">
-                        <button class="doc-nav-btn active" id="scieBtn1" onclick="openScientificWindow(event, 'unconventional-res')">📄 مقاله ارزیابی تخلخل مخازن</button>
-                        <button class="doc-nav-btn" id="scieBtn2" onclick="openScientificWindow(event, 'py-fluid')">📄 اسکریپت هیدرودینامیک</button>
-                        <button class="doc-nav-btn" id="scieBtn3" onclick="openScientificWindow(event, 'py-econ')">📄 اسکریپت راندمان اقتصادی</button>
-                        <button class="doc-nav-btn" id="scieBtn4" onclick="openScientificWindow(event, 'docx-shf')">📄 محاسبات جامع شریف</button>
-                    </div>
-
-                    <!-- مقاله جدید و ارتقایافته تعیین تخلخل سنگ مخزن -->
-                    <div id="unconventional-res" class="scientific-window active">
-                        <h3 id="w5-h" style="color: #f43f5e;">تعیین تجربی تخلخل و توزیع اندازه حفرات در سنگ‌های آذرین مخزن</h3>
-                        
-                        <div class="article-meta-grid">
-                            <div class="meta-item" id="w5-auth"><strong>نویسنده:</strong> ابوالفضل میرزایی</div>
-                            <div class="meta-item" id="w5-inst"><strong>مرجع:</strong> دانشگاه صنعتی شریف، دپارتمان مهندسی نفت</div>
-                            <div class="meta-item" id="w5-fn"><strong>نام سند:</strong> <code style="color:#38bdf8;">unconventional_reservoirs_final.pdf</code></div>
-                            <div class="meta-item" id="w5-status"><strong>وضعیت لایسنس:</strong> Academic Pre-print (2026)</div>
-                        </div>
-
-                        <div class="abstract-section">
-                            <div class="abstract-title">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                <span id="w5-absTitle">چکیده مقاله (Abstract)</span>
-                            </div>
-                            <p class="abstract-text" id="w5-sum">
-                                این تحقیق به بررسی مکانیزم‌های ذخیره‌سازی هیدروکربن در سنگ‌های آذرین دگرگون‌شده و ارزیابی تخلخل ماتریس و شکستگی‌ها می‌پردازد. با استفاده از تلفیق داده‌های مغزه‌گیری تجربی، تزریق جیوه (MICP) و آنالیزهای پتروگرافی، الگوهای جریان سیال تک‌فاز و چندفاز شبیه‌سازی شده است. نتایج نشان می‌دهد که هندسه حفرات و انسدادهای آسفالتینی تأثیر بسیار شدیدی بر ضریب بازیافت نهایی مخزن ایفا می‌کنند.
-                            </p>
-                            <div class="keywords-box" id="w5-key">
-                                <strong>کلمات کلیدی:</strong> مخازن نامتعارف، تخلخل سنگ‌های آذرین، شبیه‌سازی مغزه، هیدرودینامیک بالادستی، دانشگاه شریف.
-                            </div>
-                        </div>
-
-                        <h4 style="color:#38bdf8; font-size:0.95rem; margin-bottom:5px;" id="w5-tabTitle">جدول مشخصات پتروفیزیکی نمونه مغزه سنگ مخزن:</h4>
-                        <table class="article-mini-table">
+                <div class="card">
+                    <h2 id="title-mon">مانیتورینگ فرآیندها و پروژه‌های جاری</h2>
+                    <div class="table-responsive-wrapper">
+                        <table class="project-table">
                             <thead>
                                 <tr>
-                                    <th>Core ID</th>
-                                    <th>Porosity (Φ %)</th>
-                                    <th>Permeability (k mD)</th>
-                                    <th>Lithology</th>
+                                    <th id="th-proc">فرآیند / پروژه محاسباتی</th>
+                                    <th id="th-stack">ابزار و بستر کلیدی</th>
+                                    <th id="th-stat">وضعیت فعلی سیستم</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="monitoringTableBody">
                                 <tr>
-                                    <td>SH-042</td>
-                                    <td>8.45%</td>
-                                    <td>1.24 mD</td>
-                                    <td>Basaltic Matrix</td>
+                                    <td>توسعه اسکریپت تحلیل تخلخل داده‌های پتروفیزیکی سنگ مخزن</td>
+                                    <td>Python (NumPy, Pandas)</td>
+                                    <td class="status-online">● عملیاتی و آنلاین</td>
                                 </tr>
                                 <tr>
-                                    <td>SH-086</td>
-                                    <td>12.10%</td>
-                                    <td>4.85 mD</td>
-                                    <td>Fractured Tuff</td>
+                                    <td>طراحی پورتفولیو شخصی واکنش‌گرا و توسعه فرانت‌اند</td>
+                                    <td>HTML5 / CSS3 / Netlify</td>
+                                    <td class="status-online">● عملیاتی و آنلاین</td>
+                                </tr>
+                                <tr>
+                                    <td>شبیه‌سازی الگوریتم جابجایی سیالات و محاسبات جریان دارسی</td>
+                                    <td>Python / Advanced Physics Concepts</td>
+                                    <td class="status-progress">● در حال توسعه و عیب‌یابی</td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </section>
 
-                        <div class="file-legal-overlay" id="w5-leg">
-                            🔒 <b>وضعیت دسترسی:</b> پیش‌نویس علمی محرمانه | فایل اصلی پی‌دی‌اف در پایگاه داده پورتفولیو ثبت شده است. کپی‌برداری غیرمجاز و یا استناد بدون ذکر نام نویسنده مشمول قوانین مالکیت آکادمیک است.
-                            <br>
-                            <a href="#" class="action-link-btn req-access-trigger">🗝️ درخواست دسترسی به متن کامل فایل PDF</a>
+            <section id="tech" class="tab-content" data-aos="fade-up" data-aos-duration="800">
+                <div class="card">
+                    <h2 id="title-skills">جعبه‌ابزار تخصصی و مهارت‌های فنی</h2>
+                    <p style="margin-bottom:20px; color:#94a3b8;" id="txt-skills">سطح مهارت‌های تخصصی و کاربردی در بخش‌های فنی، محاسباتی و طراحی گرافیک:</p>
+                    
+                    <div class="grid-container">
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                            <h3>🐍 زبان برنامه‌نویسی پایتون (Python)</h3>
+                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">توسعه اسکریپت‌های اتوماسیون، تحلیل مهندسی و محاسبات عددی فیزیک</p>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 75%;"></div>
+                            </div>
+                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Intermediate - 75%</span>
+                        </div>
+
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                            <h3>🎨 ادوبی فتوشاپ (Adobe Photoshop)</h3>
+                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">طراحی گرافیک خلاقانه، ادیت تخصصی تصاویر، پوستر و هویت بصری</p>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 70%;"></div>
+                            </div>
+                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Advanced - 70%</span>
+                        </div>
+
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                            <h3>🌐 توسعه فرانت‌اند (HTML5 / CSS3)</h3>
+                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">طراحی ساختار صفحات وب، استایل‌دهی مدرن و رابط‌های کاربری واکنش‌گرا</p>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 65%;"></div>
+                            </div>
+                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Skillful - 65%</span>
+                        </div>
+
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
+                            <h3>📊 مایکروسافت آفیس (Excel, PowerPoint, Word)</h3>
+                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">مستندسازی اسناد مهندسی، رسم نمودارها و ارائه‌های پیشرفته دانشگاهی</p>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 80%;"></div>
+                            </div>
+                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Proficient - 80%</span>
                         </div>
                     </div>
+                </div>
 
-                    <div id="py-fluid" class="scientific-window">
-                        <h3 id="w1-h">۱. توسعه اسکریپت اتوماسیون سیالات بالادستی (Python Script)</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><strong>نام فایل سیستمی:</strong> <code style="color:#38bdf8;">first code.py</code></div>
-                            <div class="meta-item"><strong>بستر اجرا:</strong> Visual Studio Code</div>
+                <div class="darcy-calculator" data-aos="fade-up">
+                    <h3 style="color:#ffffff; font-size:1.15rem; display:flex; align-items:center; gap:8px;" id="title-calc">
+                        ⚙️ شبیه‌ساز محاسباتی جریان سیال خطی (قانون دارسی)
+                    </h3>
+                    <p style="font-size:0.85rem; color:#94a3b8; margin-top:4px;" id="txt-calc">ابزار شبیه‌سازی مهندسی بالادستی جهت محاسبه دبی جریان سیال تک‌فاز بر اساس قانون Darcy:</p>
+                    <div class="calc-grid">
+                        <div class="calc-group">
+                            <label>تراوایی (Permeability - md)</label>
+                            <input type="number" id="calcK" class="calc-input" value="150">
                         </div>
-                        <div class="abstract-section">
-                            <p class="abstract-text" id="w1-sum">
-                                <strong>خلاصه فنی مهندسی:</strong> این الگوریتم و محاسبات عددی به منظور تحلیل جریان سیالات و پایش رفتار دینامیکی مخزن طراحی شده است. اسکریپت با دریافت داده‌های پایه مغزه‌ها و چاه‌‌پیمایی، نرخ نفوذپذیری و ظرفیت استخراج انباشته را محاسبه کرده و نمودارهای توزیع فشار را اتوماتیک خروجی می‌دهد.
-                            </p>
+                        <div class="calc-group">
+                            <label>مساحت (Area - ft²)</label>
+                            <input type="number" id="calcA" class="calc-input" value="25">
                         </div>
-                        <div class="file-legal-overlay" id="w1-leg">
-                            🔒 <b>وضعیت سند:</b> محافظت شده | تمام حقوق مادی، معنوی و لایسنس اسکریپت‌های توسعه داده شده متعلق به پایگاه پورتفولیو رسمی ابوالفضل میرزایی می‌باشد.
-                            <br>
-                            <a href="#" class="action-link-btn req-access-trigger">🗝️ درخواست دسترسی</a>
-                            <a href="https://github.com/seniorabolfazl" target="_blank" class="action-link-btn">💻 مشاهده مخزن گیت‌هاب</a>
+                        <div class="calc-group">
+                            <label>افت فشار (ΔP - psi)</label>
+                            <input type="number" id="calcDP" class="calc-input" value="400">
+                        </div>
+                        <div class="calc-group">
+                            <label>گرانروی (Viscosity - cp)</label>
+                            <input type="number" id="calcMu" class="calc-input" value="2.5">
+                        </div>
+                        <div class="calc-group">
+                            <label>طول سنگ (Length - ft)</label>
+                            <input type="number" id="calcL" class="calc-input" value="60">
                         </div>
                     </div>
+                    <button class="calc-btn" onclick="executeDarcyCalculation()" id="btn-calc">محاسبه و تحلیل خروجی سیال</button>
+                    <div class="calc-result" id="darcyResultOutput">نتیجه محاسبات: منتظر تزریق پارامترها...</div>
+                </div>
+            </section>
 
-                    <div id="py-econ" class="scientific-window">
-                        <h3 id="w2-h">۲. مانیتورینگ و برآورد نرخ افت تولید و راندمان مخازن (Python Model)</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><strong>نام فایل سیستمی:</strong> <code style="color:#38bdf8;">production_analysis.py</code></div>
-                            <div class="meta-item"><strong>منطق شرطی:</strong> Python Matrix Design</div>
-                        </div>
-                        <div class="abstract-section">
-                            <p class="abstract-text" id="w2-sum">
-                                <strong>خلاصه فنی مهندسی:</strong> این پنجره شامل محاسبات کدنویسی شده برای تخمین بازدهی و سودآوری مخازن هیدروکربوری است. اسکریپت با پایش متغیرهایی چون دبی تولید (STB/D)، ضریب انبساط تشکیلاتی و پایش افت فشار دیواره چاه، طول عمر مفید و اقتصادی چاه‌ها را مدل‌سازی و پیش‌بینی می‌کند.
-                            </p>
-                        </div>
-                        <div class="file-legal-overlay" id="w2-leg">
-                            🔒 <b>وضعیت سند:</b> در حال توسعه | این سند تحت مانیتورینگ پورتفولیو رسمی ثبت شده و هرگونه نسخه‌برداری از کدهای محاسباتی مشمول قوانین کپی‌رایت دانشگاهی است.
-                            <br>
-                            <a href="#" class="action-link-btn req-access-trigger">🗝️ درخواست سورس کد پایلوt</a>
-                        </div>
+            <section id="docs" class="tab-content" data-aos="fade-up" data-aos-duration="800">
+                <div class="card">
+                    <h2 id="title-docs">مستندات، پروژه‌ها و مقالات علمی</h2>
+                    <p style="margin-bottom:20px; color:#94a3b8;" id="txt-docs">جهت پایش جزئیات، چکیده و متادیتاهای مقالات پژوهشی روی تب‌های زیر کلیک کنید:</p>
+                    
+                    <div class="doc-navigation" id="dynamicDocNavBtnContainer">
+                        <button class="doc-nav-btn active" onclick="showScientificArticleWindow(0)">سند اول: تخلخل سنگ‌ها</button>
                     </div>
 
-                    <div id="docx-shf" class="scientific-window">
-                        <h3 id="w3-h">۳. پروژه‌ و مستندات فنی فرآیندهای هیدرودینامیکی مخازن (Word Document)</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><strong>نام فایل سیستمی:</strong> <code style="color:#38bdf8;">project.docx</code></div>
-                            <div class="meta-item"><strong>مرجع دپارتمان:</strong> شریف نفت</div>
-                        </div>
-                        <div class="abstract-section">
-                            <p class="abstract-text" id="w3-sum">
-                                <strong>خلاصه فنی مهندسی:</strong> این مستند علمی شامل گزارش‌های جامع آکادمیک، مکانیزم‌های رانش طبیعی مخزن (مانند رانش کلاهک گازی و سفره‌های آب زیرزمینی)، چالش‌های آسفالتین و روش‌های موازنه مواد (MBE) است که به عنوان مرجع تحلیل مخازن شریف تدوین گردیده است.
-                            </p>
-                        </div>
-                        <div class="file-legal-overlay" id="w3-leg">
-                            🔒 <b>وضعیت سند:</b> رسمی و ثبت شده | کلیه حقوق و مالکیت معنوی اثر در دپارتمان وب‌سایت ابوالفضل میرزایی محفوظ و تحت پروتکل‌های امنیتی مانیتور می‌شود.
-                            <br>
-                            <a href="#" class="action-link-btn req-access-trigger">📥 دریافت داکیومنت با فرمت DOCX</a>
+                    <div id="dynamicArticlesWindowsContainer">
+                        <div class="scientific-window active" id="sciWindow-0">
+                            <h3 style="color:#ffffff;" class="art-title-render">بررسی ساختار تخلخل (Porosity) و فیزیک سنگ‌های مخزن</h3>
+                            <div class="article-meta-grid">
+                                <div class="meta-item"><strong>نوع داکیومنت:</strong> پژوهش دانشگاهی / یادداشت علمی</div>
+                                <div class="meta-item"><strong>ناشر سیستم:</strong> شریف پورسیتی لب</div>
+                                <div class="meta-item"><strong>شناسه دسترسی:</strong> SRF-POR-2026</div>
+                            </div>
+                            <div class="abstract-section">
+                                <div class="abstract-title">🧬 چکیده مستندات مهندسی مخزن</div>
+                                <p class="abstract-text">
+                                    این داکیومنت علمی به تحلیل و بررسی انواع ساختارهای تخلخل در سنگ‌های کربناته و ماسه‌سنگی می‌پردازد. چگونگی محاسبه فضاهای خالی درون شبکه سنگ و ارتباط مستقیم آن با حجم ذخایر درجا و ضریب بازیافت سیال با استفاده از کدهای محاسباتی پایتون ارزیابی شده است.
+                                </p>
+                                <div class="keywords-box"><strong>کلمات کلیدی استراتژیک:</strong> سنگ مخزن، تخلخل سنجی، مهندسی نفت، برنامه‌نویسی محاسباتی</div>
+                            </div>
+                            <div style="margin-top:20px;">
+                                <span class="action-link-btn">🔒 درخواست دسترسی به نسخه کامل داکیومنت</span>
+                            </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
 
-            <!-- مانیتورینگ فعالیت‌ها -->
-            <div id="projects" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="projTitle">مانیتورینگ وضعیت پروژه‌ها و سوابق عملیاتی</h2>
-                    <div class="table-responsive-wrapper">
-                        <table class="project-table" id="pTable">
-                            <thead>
-                                <tr id="thRow">
-                                    <th>عنوان فرآیند / سابقه فعالیت</th>
-                                    <th>بستر و ابزار کلیدی</th>
-                                    <th>وضعیت پروژه / سطح تجربی</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
-
-            <!-- ارتباطات -->
-            <div id="contact" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="contTitle">دپارتمان ارتباطات و پل‌های تماس</h2>
-                    <p id="contDesc" style="margin-bottom: 20px; color: #cbd5e1;">جهت ارتباط علمی، صنعتی، تبادل اطلاعات پروژه‌ها یا همکاری‌های تجاری، می‌توانید از بسترهای رسمی زیر استفاده کنید:</p>
-                    <ul class="contact-list" style="color: #cbd5e1;">
-                        <li id="c1"><b>پست الکترونیک شخصی:</b> <a href="mailto:abolfazlmirzaie86@gmail.com">abolfazlmirzaie86@gmail.com</a></li>
-                        <li id="c2"><b>پست الکترونیک دانشگاهی (شریف):</b> <a href="mailto:abolfazl.mirzaie.86@sharif.edu">abolfazl.mirzaie.86@sharif.edu</a></li>
-                        <li id="c3"><b>ارتباط مستقیم در تلگرام:</b> <a href="https://t.me/Senioramrz" target="_blank">@Senioramrz</a></li>
-                        <li id="c4"><b>موقعیت حضوری:</b> تهران، دانشگاه صنعتی شریف، دانشکده مهندسی شیمی و نفت.</li>
-                    </ul>
-
-                    <form class="cyber-form" id="cyberContactForm" onsubmit="handleFormSubmit(event)">
-                        <div class="full-width"><h3 style="font-size:1.1rem; margin-top:10px;" id="formHeader">ارسال پکت داده امنیتی (تماس با من)</h3></div>
-                        <input type="text" class="cyber-input" id="formName" placeholder="نام و نام خانوادگی / سازمان" required>
-                        <input type="email" class="cyber-input" id="formEmail" placeholder="پست الکترونیک فرستنده" required>
-                        <div class="full-width">
-                            <textarea class="cyber-input" id="formMsg" rows="4" placeholder="متن پیام یا درخواست دسترسی به داکیومنت‌های محافظت‌شده..." required></textarea>
-                        </div>
-                        <div class="full-width">
-                            <button type="submit" class="cyber-submit" id="formSubmitBtn">📡 ارسال بسته فرکانسی / TRANSMIT PACKET</button>
-                        </div>
+            <section id="contact" class="tab-content" data-aos="fade-up" data-aos-duration="800">
+                <div class="card">
+                    <h2 id="title-contact">فرم تماس و ارتباط مستقیم الکترونیکی</h2>
+                    <p style="color:#94a3b8;" id="txt-contact">پیام خود را از طریق فرم زیر ارسال کنید تا به صورت مستقیم به صندوق ایمیل ادمین منتقل شود:</p>
+                    
+                    <form class="cyber-form" action="https://formspree.io/f/your_form_id_here" method="POST">
+                        <input type="text" name="name" class="cyber-input" placeholder="نام و نام خانوادگی" required>
+                        <input type="email" name="email" class="cyber-input" placeholder="آدرس ایمیل کاربر" required>
+                        <input type="text" name="subject" class="cyber-input full-width" placeholder="موضوع پیام" required>
+                        <textarea name="message" class="cyber-input full-width" placeholder="متن پیام شما..." rows="5" required></textarea>
+                        <button type="submit" class="cyber-submit full-width" id="btn-submit">⚡ ارسال امن پیام به سرور مرکزی</button>
                     </form>
-                </section>
-            </div>
+                </div>
 
-            <div class="footer-text" id="siteFooter">
-                تمام حقوق مادی و معنوی پلتفرم محفوظ و متعلق به جناب اقای ابوالفضل میرزایی می‌باشد
-            </div>
+                <div class="card">
+                    <h2 id="title-socials">شبکه‌های اجتماعی و راه‌های ارتباطی</h2>
+                    <ul class="contact-list">
+                        <li>ایمیل دانشگاهی: <a href="mailto:abolfazl@sharif.edu">abolfazl@sharif.edu</a></li>
+                        <li>گیت‌هاب پورتفولیو: <a href="https://github.com" target="_blank">github.com/Seniorabolfazl</a></li>
+                        <li>پیام‌رسان تلگرام: <a href="https://t.me" target="_blank">t.me/Seniorabolfazl</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <footer class="footer-text">
+                <p>© <span id="footerYear">2026</span> ابوالفضل میرزایی. کلیه حقوق محفوظ و تحت حفاظت سیستم سئو می‌باشد.</p>
+                <p style="font-size:0.75rem; margin-top:5px; color:#334155;">توسعه‌یافته با فرانت‌اند سفارشی بر روی پلتفرم خودکار Netlify</p>
+            </footer>
         </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        const translations = {
-            fa: {
-                title: "وب‌سایت رسمی و پورتفولیو | ابوالفضل میرزایی",
-                searchPlace: "جستجو در مطالب سایت...",
-                menuTitle: "منو سیستم هوشمند",
-                loaderText: "سیستم مانیتورینگ امنیتی: فعال...",
-                headerArticlesCount: "📝 مقالات ثبت شده: ۴ مورد",
-                cvDownload: "📥 دریافت نسخه رسمی رزومه (PDF)",
-                formHeader: "ارسال پکت داده امنیتی (تماس با من)",
-                formSubmitBtn: "📡 ارسال بسته فرکانسی / TRANSMIT PACKET",
-                formPlaceholder: ["نام و نام خانوادگی / سازمان", "پست الکترونیک فرستنده", "متن پیام یا درخواست دسترسی به داکیومنت‌های محافظت‌شده..."],
-                audioOn: "🔊 SOUND: ON",
-                audioOff: "🔇 SOUND: OFF",
-                recTitle: "[OPERATIONAL RECREATION]",
-                recDesc: "Tactical Comms & Strategy: Active Node<br>Status: Analyzing Market Patterns",
-                calcHeader: "📊 ماشین حساب هیدرودینامیک مخازن (قانون Darcy)",
-                lblPerm: "نفوذپذیری (mD)", lblArea: "مساحت (ft²)", lblPress: "افت فشار (psi)", lblVisc: "ویسکوزیته (cP)",
-                calcBtn: "⚙️ محاسبه دبی جریان / Compute Flow",
-                calcWait: "خروجی سیستم محاسباتی: در انتظار ورود داده...",
-                calcResultStr: "دبی جریان تجمعی سیال (Q): ",
-                tabs: [
-                    "⊙ هویت دانشگاهی و فردی",
-                    "⊙ اهداف، پروژه‌ها و چشم‌اندازها",
-                    "⊙ مهارت‌ها و ابزارها",
-                    "⊙ مستندات علمی و پژوهشی",
-                    "⊙ مانیتورینگ فعالیت‌ها",
-                    "⊙ دپارتمان ارتباطات"
-                ],
-                profName: "ابوالفضل میرزایی",
-                profSub: "دانشجوی مهندسی نفت دانشگاه صنعتی شریف",
-                profAbout: "به پایگاه رسمی پورتفولیو و رزومه فنی من خوش آمدید. اینجانب دانشجوی ترم دوم رشته مهندسی نفت در دانشگاه صنعتی شریف هستم. تمرکز فعلی من بر تلفیق مبانی علوم آکادمیک با ابزارهای شبیه‌سازی دیجیتال، پیاده‌سازی اتوماسیون‌های نرم‌افزاری و تحلیل مکانیزم‌های کاربردی در راستای خلق دستاوردهای علمی و پژوهشی ملموس است.",
-                infoItems: {
-                    inst: "<strong>موسسه تخصصی:</strong> دانشگاه صنعتی شریف",
-                    term: "<strong>موقعیت تحصیلی:</strong> کارشناسی (ترم ۲)",
-                    field: "<strong>گرایش متمرکز:</strong> عمومی",
-                    dev: "<strong>محیط توسعه:</strong> اسکریپت‌نویسی و طراحی منطقی"
-                },
-                mishTitle: "اهداف، پروژه‌ها و چشم‌اندازها",
-                mishDesc: "برنامه‌ریزی راهبردی من برای آینده، توسعه مهارت‌های همه‌جانبه و ثبت دستاوردهای علمی معتبر است. در حال حاضر کارهای زیر در دستور کار قرار دارند:",
-                mishList: `
-                    <p style="margin-bottom: 10px;">⚡ <b>پژوهش و نگارش مقالات تخصصی:</b> آغاز فعالیت روی یک سری از مستندات و مقالات علمی در حوزه مهندسی نفت به منظور ثبت دستاوردهای نوین دانشگاهی.</p>
-                    <p style="margin-bottom: 10px;">⚡ <b>توسعه راهکارهای مثبت مبتنی بر داده:</b> بهره‌گیری از پایتون جهت شبیه‌سازی عددی و تحلیل داده‌های نموداری مربوط به فرآیندهای بالادستی نفت.</p>
-                    <p style="margin-bottom: 10px;">⚡ <b>تلفیق تجارب بازار آزاد و خلاقیت:</b> اعمال استراتژی‌های تحلیلی مارکت بر روی پروژه‌های شخصی جهت افزایش بازدهی عملکردی سیستم.</p>
-                `,
-                techTitle: "سطح تخصص و مهارت‌های کاربردی",
-                techDesc: "پشته ابزارها و مهارت‌های توسعه‌یافته بر اساس ساختار رزومه:",
-                scieTitle: "نشریه علمی و دپارتمان مستندات مخازن",
-                scieDesc: "جهت مانیتورینگ دقیق و باز کردن اسناد، روی هر پنجره کلیک کنید تا اطلاعات اختصاصی آن با انیمیشن بارگذاری شود:",
-                scieBtns: ["📄 مقاله ارزیابی تخلخل مخازن", "📄 اسکریپت هیدرودینامیک", "📄 اسکریپت راندمان اقتصادی", "📄 محاسبات جامع شریف"],
-                w5: {
-                    h: "تعیین تجربی تخلخل و توزیع اندازه حفرات در سنگ‌های آذرین مخزن",
-                    auth: "<strong>نویسنده:</strong> ابوالفضل میرزایی",
-                    inst: "<strong>مرجع:</strong> دانشگاه صنعتی شریف، دپارتمان مهندسی نفت",
-                    fn: "<strong>نام سند:</strong> <code style='color:#38bdf8;'>unconventional_reservoirs_final.pdf</code>",
-                    status: "<strong>وضعیت لایسنس:</strong> Academic Pre-print (2026)",
-                    absTitle: "چکیده مقاله (Abstract)",
-                    sum: "این تحقیق به بررسی مکانیزم‌های ذخیره‌سازی هیدروکربن در سنگ‌های آذرین دگرگون‌شده و ارزیابی تخلخل ماتریس و شکستگی‌ها می‌پردازد. با استفاده از تلفیق داده‌های مغزه‌گیری تجربی، تزریق جیوه (MICP) و آنالیزهای پتروگرافی، الگوهای جریان سیال تک‌فاز و چندفاز شبیه‌سازی شده است. نتایج نشان می‌دهد که هندسه حفرات و انسدادهای آسفالتینی تأثیر بسیار شدیدی بر ضریب بازیافت نهایی مخزن ایفا می‌کنند.",
-                    key: "<strong>کلمات کلیدی:</strong> مخازن نامتعارف، تخلخل سنگ‌های آذرین، شبیه‌سازی مغزه، هیدرودینامیک بالادستی، دانشگاه شریف.",
-                    tabTitle: "جدول مشخصات پتروفیزیکی نمونه مغزه سنگ مخزن:",
-                    leg: "🔒 <b>وضعیت دسترسی:</b> پیش‌نویس علمی محرمانه | فایل اصلی پی‌دی‌اف در پایگاه داده پورتفولیو ثبت شده است. کپی‌برداری غیرمجاز و یا استناد بدون ذکر نام نویسنده مشمول قوانین مالکیت آکادمیک است.<br><a href='#' class='action-link-btn req-access-trigger'>🗝️ درخواست دسترسی به متن کامل فایل PDF</a>"
-                },
-                w1: {
-                    h: "۱. توسعه اسکریپت اتوماسیون سیالات بالادستی (Python Script)",
-                    sum: "<strong>خلاصه فنی مهندسی:</strong> این الگوریتم و محاسبات عددی به منظور تحلیل جریان سیالات و پایش رفتار دینامیکی مخزن طراحی شده است. اسکریپت با دریافت داده‌های پایه مغزه‌ها و چاه‌‌پیمایی، نرخ نفوذپذیری و ظرفیت استخراج انباشته را محاسبه کرده و نمودارهای توزیع فشار را اتوماتیک خروجی می‌دهد.",
-                    leg: "🔒 <b>وضعیت سند:</b> محافظت شده | تمام حقوق مادی، معنوی و لایسنس اسکریپت‌های توسعه داده شده متعلق به پایگاه پورتفولیو رسمی ابوالفضل میرزایی می‌باشد.<br><a href='#' class='action-link-btn req-access-trigger'>🗝️ درخواست دسترسی</a> <a href='https://github.com/seniorabolfazl' target='_blank' class='action-link-btn'>💻 مشاهده مخزن گیت‌هاب</a>"
-                },
-                w2: {
-                    h: "۲. مانیتورینگ و برآورد نرخ افت تولید و راندمان مخازن (Python Model)",
-                    sum: "<strong>خلاصه فنی مهندسی:</strong> این پنجره شامل محاسبات کدنویسی شده برای تخمین بازدهی و سودآوری مخازن هیدروکربوری است. اسکریپت با پایش متغیرهایی چون دبی تولید (STB/D)، ضریب انبساش تشکیلاتی و پایش افت فشار دیواره چاه، طول عمر مفید و اقتصادی چاه‌ها را مدل‌سازی و پیش‌بینی می‌کند.",
-                    leg: "🔒 <b>وضعیت سند:</b> در حال توسعه | این سند تحت مانیتورینگ پورتفولیو رسمی ثبت شده و هرگونه نسخه‌برداری از کدهای محاسباتی مشمول قوانین کپی‌رایت دانشگاهی است.<br><a href='#' class='action-link-btn req-access-trigger'>🗝️ درخواست سورس کد پایلوت</a>"
-                },
-                w3: {
-                    h: "۳. پروژه‌ و مستندات فنی فرآیندهای هیدرودینامیکی مخازن (Word Document)",
-                    sum: "<strong>خلاصه فنی مهندسی:</strong> این مستند علمی شامل گزارش‌های جامع آکادمیک، مکانیزم‌های رانش طبیعی مخزن (مانند رانش کلاهک گازی و سفره‌های آب زیرزمینی)، چالش‌های آسفالتین و روش‌های موازنه مواد (MBE) است که به عنوان مرجع تحلیل مخازن شریف تدوین گردیده است.",
-                    leg: "🔒 <b>وضعیت سند:</b> رسمی و ثبت شده | کلیه حقوق و مالکیت معنوی اثر در دپارتمان وب‌سایت ابوالفضل میرزایی محفوظ و تحت پروتکل‌های امنیتی مانیتور می‌شود.<br><a href='#' class='action-link-btn req-access-trigger'>📥 دریافت داکیومنت با فرمت DOCX</a>"
-                },
-                projTitle: "مانیتورینگ وضعیت پروژه‌ها و سوابق عملیاتی",
-                th: ["عنوان فرآیند / سابقه فعالیت", "بستر و ابزار کلیدی", "وضعیت پروژه / سطح تجربی"],
-                tableData: [
-                    ["پورتفولیو رسمی دیجیتال بر بستر وب", "HTML5 / CSS Tab System Architecture", "<td class='status-online'>● عملیاتی و آنلاین</td>"],
-                    ["اماده سازی مقاله تعیین تخلخل سنگ اذرین مخزن", "Articles and books on reservoir management", "<td class='status-online'>● در حال اماده سازی و جمع اوری اطلاعات / مبتدی</td>"],
-                    ["تحلیل الگوهای تجاری و مارکت آیتم", "Free Market Analysis", "<td class='status-online'>● با سابقه فعالیت کاربردی</td>"],
-                    ["پروژه‌ها و مقالات پژوهشی ترم ۲ شریف", "Academic Research &amp; Python", "<td class='status-progress'>● در حال انجام و عیب‌یابی</td>"],
-                    ["مدیریت عملیات و خدمات صنایع غذایی (بستنی‌فروشی)", "Advanced Service Management", "<td class='status-online'>● سطح پیشرفته (Advanced)</td>"]
-                ],
-                contTitle: "دپارتمان ارتباطات و پل‌های تماس",
-                contDesc: "جهت ارتباط علمی، صنعتی، تبادل اطلاعات پروژه‌ها یا همکاری‌های تجاری، می‌توانید از بسترهای رسمی زیر استفاده کنید:",
-                contacts: [
-                    "<b>پست الکترونیک شخصی:</b> <a href='mailto:abolfazlmirzaie86@gmail.com'>abolfazlmirzaie86@gmail.com</a>",
-                    "<b>پست الکترونیک دانشگاهی (شریف):</b> <a href='mailto:abolfazl.mirzaie.86@sharif.edu'>abolfazl.mirzaie.86@sharif.edu</a>",
-                    "<b>ارتباط مستقیم در تلگرام:</b> <a href='https://t.me/Senioramrz' target='_blank'>@Senioramrz</a>",
-                    "<b>موقعیت حضوری:</b> تهران، دانشگاه صنعتی شریف، دانشکده مهندسی شیمی و نفت."
-                ],
-                footer: "تمام حقوق مادی و معنوی پلتفرم محفوظ و متعلق به جناب اقای ابوالفضل میرزایی می‌باشد"
-            },
-            en: {
-                title: "Official Website & Portfolio | Abolfazl Mirzaei",
-                searchPlace: "Search site contents...",
-                menuTitle: "Smart System Menu",
-                loaderText: "SECURITY MONITORING SYSTEM: ACTIVE...",
-                headerArticlesCount: "📝 Registered Papers: 4 Items",
-                cvDownload: "📥 Download Academic CV (PDF)",
-                formHeader: "Transmit Secure Data Packet (Contact)",
-                formSubmitBtn: "📡 TRANSMIT PACKET",
-                formPlaceholder: ["Full Name / Organization", "Sender Email Node", "Message payload or access token request..."],
-                audioOn: "🔊 SOUND: ON",
-                audioOff: "🔇 SOUND: OFF",
-                recTitle: "[OPERATIONAL RECREATION]",
-                recDesc: "Tactical Comms & Strategy: Active Node<br>Status: Analyzing Market Patterns",
-                calcHeader: "📊 Reservoir Hydrodynamics Calculator (Darcy's Law)",
-                lblPerm: "Permeability (mD)", lblArea: "Area (ft²)", lblPress: "Pressure Drop (psi)", lblVisc: "Viscosity (cP)",
-                calcBtn: "⚙️ Compute Flow Rate",
-                calcWait: "System Output: Awaiting input parameters...",
-                calcResultStr: "Cumulative Fluid Flow (Q): ",
-                tabs: [
-                    "⊙ Academic & Personal Identity",
-                    "⊙ Objectives, Projects & Visions",
-                    "⊙ Skills & Applications",
-                    "⊙ Scientific Docs & Research",
-                    "⊙ Activity Monitoring",
-                    "⊙ Communications Department"
-                ],
-                profName: "Abolfazl Mirzaei",
-                profSub: "Petroleum Engineering Student at Sharif University of Technology",
-                profAbout: "Welcome to my official portfolio and technical resume website. I am a second-term undergraduate student of Petroleum Engineering at Sharif University of Technology. My current focus is on combining academic fundamentals with digital simulation tools, implementing software automation, and analyzing functional engineering mechanisms to create impactful scientific achievements.",
-                infoItems: {
-                    inst: "<strong>Specialized Institution:</strong> Sharif University of Technology",
-                    term: "<strong>Academic Standing:</strong> Bachelor (Term 2)",
-                    field: "<strong>Focused Track:</strong> General",
-                    dev: "<strong>Dev Environment:</strong> Scripting & Logical Systems Design"
-                },
-                mishTitle: "Objectives, Projects & Visions",
-                mishDesc: "My strategic plan focuses on comprehensive skill development and producing credible scientific publications. The following operations are active:",
-                mishList: `
-                    <p style="margin-bottom: 10px;">⚡ <b>Research & Writing Papers:</b> Initiating data aggregation for a series of scientific documents in Petroleum Engineering to archive novel academic results.</p>
-                    <p style="margin-bottom: 10px;">⚡ <b>Data-Driven Solutions:</b> Utilizing Python for numerical simulation and graphical analysis of upstream oil production workflows.</p>
-                    <p style="margin-bottom: 10px;">⚡ <b>Market Dynamics Integration:</b> Applying free-market analytic models to personal workflows to optimize structural system efficiency.</p>
-                `,
-                techTitle: "Expertise & Practical Skills",
-                techDesc: "Toolsets and developed professional skills based on technical resume criteria:",
-                scieTitle: "Scientific Journal & Reservoir Documentation Dept",
-                scieDesc: "To monitor details, click on any sub-tab navigation button to load technical data with seamless transition animations:",
-                scieBtns: ["📄 Porosity Evaluation Paper", "📄 Hydrodynamics Script", "📄 Economic Efficiency Script", "📄 Sharif Calculations Doc"],
-                w5: {
-                    h: "Experimental Determination of Porosity and Pore Size Distribution in Igneous Reservoir Rocks",
-                    auth: "<strong>Author:</strong> Abolfazl Mirzaei",
-                    inst: "<strong>Reference:</strong> Sharif University of Technology, Department of Petroleum Engineering",
-                    fn: "<strong>Document Name:</strong> <code style='color:#38bdf8;'>unconventional_reservoirs_final.pdf</code>",
-                    status: "<strong>License Status:</strong> Academic Pre-print (2026)",
-                    absTitle: "Abstract",
-                    sum: "This research investigates hydrocarbon storage mechanisms within altered igneous rocks and evaluates matrix vs. fracture porosity. Combining experimental core flooding, Mercury Injection Capillary Pressure (MICP), and petrographic analysis, single-phase and multi-phase fluid flow trends are simulated. Results indicate that pore throat geometry and asphaltene blockages severely impact the cumulative reservoir recovery factor.",
-                    key: "<strong>Keywords:</strong> Unconventional Reservoirs, Igneous Rock Porosity, Core Flooding Simulation, Upstream Hydrodynamics, Sharif University.",
-                    tabTitle: "Petrophysical Characteristics of Reservoir Core Sample:",
-                    leg: "🔒 <b>Access Status:</b> Confidential Scientific Pre-print | Full PDF is securely logged inside the portfolio database. Unauthorized duplication or citation without author credit is governed by academic copyright guidelines.<br><a href='#' class='action-link-btn req-access-trigger'>🗝️ Request Full PDF Document Access</a>"
-                },
-                w1: {
-                    h: "1. Upstream Fluid Automation Script Development (Python)",
-                    sum: "<strong>Technical Summary:</strong> This algorithm computes fluid flow dynamics and monitors reservoir performance. By parsing basic core and well logging data, it calculates permeability rates and cumulative drainage capacity while generating automated pressure distribution curves.",
-                    leg: "🔒 <b>Document Status:</b> Secured | All copyright and licensing rights belong to the official portfolio database of Abolfazl Mirzaei.<br><a href='#' class='action-link-btn req-access-trigger'>🗝️ Request Academic Verification</a> <a href='https://github.com/seniorabolfazl' target='_blank' class='action-link-btn'>💻 View Repository</a>"
-                },
-                w2: {
-                    h: "2. Monitoring Production Decline & Reservoir Efficiency (Python Model)",
-                    sum: "<strong>Technical Summary:</strong> This interface manages coded models estimating the commercial profitability of hydrocarbon fields. By evaluating indicators like production rate (STB/D), formation volume factor, and wellbore drawdown pressure, it models well longevity.",
-                    leg: "🔒 <b>Document Status:</b> Under Development | This technical sheet is registered under official monitoring protocols; duplication of computational steps is strictly prohibited by academic guidelines.<br><a href='#' class='action-link-btn req-access-trigger'>🗝️ Request Source Code Pilot</a>"
-                },
-                w3: {
-                    h: "3. Technical Analysis of Reservoir Hydrodynamics (Word Document)",
-                    sum: "<strong>Technical Summary:</strong> This comprehensive academic paper logs natural drive mechanisms (including gas cap expansion and water drive operations), asphaltene deposition challenges, and material balance equations (MBE) authored as a reference sheet.",
-                    leg: "🔒 <b>Document Status:</b> Secured | All copyright and intellectual properties are secured under official web architectures of Abolfazl Mirzaei inside the academic repository.<br><a href='#' class='action-link-btn req-access-trigger'>📥 Download DOCX Specification</a>"
-                },
-                projTitle: "Project Monitoring & Operational History",
-                th: ["Operation / Track Title", "Core Tool / Stack", "Project Status / Experience Level"],
-                tableData: [
-                    ["Official Digital Portfolio Interface", "HTML5 / CSS Tab System Architecture", "<td class='status-online'>● Operational & Online</td>"],
-                    ["Rock Porosity Estimation Research Paper", "Articles and books on reservoir management", "<td class='status-online'>● In Preparation & Data Gathering / Beginner</td>"],
-                    ["Commercial Patterns & Market Item Evaluation", "Free Market Analysis", "<td class='status-online'>● Active Practical History</td>"],
-                    ["Term 2 Research Operations & Projects", "Academic Research &amp; Python", "<td class='status-progress'>● In Progress & Troubleshooting</td>"],
-                    ["Service Operations & Food Industries Management", "Advanced Service Management", "<td class='status-online'>● Advanced Status Level</td>"]
-                ],
-                contTitle: "Communications Department & Contact Hub",
-                contDesc: "For academic, industrial, project interactions or enterprise collaborations, feel free to reach out via official lines:",
-                contacts: [
-                    "<b>Personal Email Intake:</b> <a href='mailto:abolfazlmirzaie86@gmail.com'>abolfazlmirzaie86@gmail.com</a>",
-                    "<b>Institutional Email (Sharif):</b> <a href='mailto:abolfazl.mirzaie.86@sharif.edu'>abolfazl.mirzaie.86@sharif.edu</a>",
-                    "<b>Direct Telegram Handle:</b> <a href='https://t.me/Senioramrz' target='_blank'>@Senioramrz</a>",
-                    "<b>On-Site Node Location:</b> Tehran, Sharif University of Technology, Department of Chemical and Petroleum Engineering."
-                ],
-                footer: "All material and intellectual rights reserved to Mr. Abolfazl Mirzaei © 2026"
-            }
-        };
-
-        let currentLanguage = 'fa';
-        let audioEnabled = true;
-
-        function playSystemBeep(freq = 600, duration = 0.04, type = 'sine') {
-            if (!audioEnabled) return;
-            try {
-                let context = new (window.AudioContext || window.webkitAudioContext)();
-                let osc = context.createOscillator();
-                let gain = context.createGain();
-                osc.type = type;
-                osc.frequency.value = freq;
-                gain.gain.setValueAtTime(0.04, context.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + duration);
-                osc.connect(gain);
-                gain.connect(context.destination);
-                osc.start();
-                osc.stop(context.currentTime + duration);
-            } catch(e) {}
-        }
-
-        function toggleAudioSystem() {
-            audioEnabled = !audioEnabled;
-            const btn = document.getElementById('audioToggleBtn');
-            btn.textContent = audioEnabled ? translations[currentLanguage].audioOn : translations[currentLanguage].audioOff;
-            btn.classList.toggle('active', audioEnabled);
-            playSystemBeep(800, 0.05);
-        }
-
-        function openTab(tabId, updateHash = true) {
-            playSystemBeep(500, 0.03);
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
-
-            var tabBtns = document.getElementsByClassName("tab-btn");
-            for (var i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-                tabBtns[i].setAttribute('aria-selected', 'false');
-            }
-
-            const activeContent = document.getElementById(tabId);
-            if(activeContent) activeContent.classList.add("active");
-            
-            const activeBtn = document.querySelector(`button[aria-controls='${tabId}']`);
-            if(activeBtn) {
-                activeBtn.classList.add("active");
-                activeBtn.setAttribute('aria-selected', 'true');
-            }
-
-            if(updateHash) {
-                window.location.hash = tabId;
-            }
-        }
-
-        function openScientificWindow(evt, windowId) {
-            playSystemBeep(650, 0.03);
-            var sciWindows = document.getElementsByClassName("scientific-window");
-            for (var i = 0; i < sciWindows.length; i++) {
-                sciWindows[i].classList.remove("active");
-            }
-
-            var navBtns = document.getElementsByClassName("doc-nav-btn");
-            for (var i = 0; i < navBtns.length; i++) {
-                navBtns[i].classList.remove("active");
-            }
-
-            document.getElementById(windowId).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-
-        function calculateDarcyFlow() {
-            playSystemBeep(900, 0.08, 'square');
-            const k = parseFloat(document.getElementById('calcK').value) || 0;
-            const a = parseFloat(document.getElementById('calcA').value) || 0;
-            const p = parseFloat(document.getElementById('calcP').value) || 0;
-            const m = parseFloat(document.getElementById('calcM').value) || 1;
-            
-            const q = (0.001127 * k * a * p) / m;
-            
-            const resultBox = document.getElementById('calcResult');
-            resultBox.innerHTML = `${translations[currentLanguage].calcResultStr} <span style='color:#2ecc71;'>${q.toFixed(2)} bbl/day</span>`;
-        }
-
-        function renderProjectTable() {
-            const thRow = document.getElementById('thRow');
-            thRow.innerHTML = '';
-            translations[currentLanguage].th.forEach(headerText => {
-                thRow.innerHTML += `<th>${headerText}</th>`;
-            });
-
-            const tbody = document.querySelector('#pTable tbody');
-            tbody.innerHTML = '';
-            translations[currentLanguage].tableData.forEach(row => {
-                tbody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td>${row[2]}</tr>`;
-            });
-        }
-
-        function toggleLanguage(lang) {
-            currentLanguage = lang;
-            const rootHtml = document.getElementById('siteHtml');
-            const faBtn = document.getElementById('langFaBtn');
-            const enBtn = document.getElementById('langEnBtn');
-            const searchInput = document.getElementById('siteSearchInput');
-
-            if(lang === 'fa') {
-                rootHtml.setAttribute('dir', 'rtl');
-                rootHtml.setAttribute('lang', 'fa');
-                faBtn.classList.add('active');
-                enBtn.classList.remove('active');
-            } else {
-                rootHtml.setAttribute('dir', 'ltr');
-                rootHtml.setAttribute('lang', 'en');
-                enBtn.classList.add('active');
-                faBtn.classList.remove('active');
-            }
-
-            document.getElementById('siteTitle').textContent = translations[lang].title;
-            searchInput.placeholder = translations[lang].searchPlace;
-            document.getElementById('menuTitle').textContent = translations[lang].menuTitle;
-            document.getElementById('loaderText').textContent = translations[lang].loaderText;
-            document.getElementById('headerArticlesCount').textContent = translations[lang].headerArticlesCount;
-            document.getElementById('cvDownloadBtn').textContent = translations[lang].cvDownload;
-            document.getElementById('formHeader').textContent = translations[lang].formHeader;
-            document.getElementById('formSubmitBtn').textContent = translations[lang].formSubmitBtn;
-            document.getElementById('audioToggleBtn').textContent = audioEnabled ? translations[lang].audioOn : translations[lang].audioOff;
-            
-            document.getElementById('recTitle').textContent = translations[lang].recTitle;
-            document.getElementById('recDesc').innerHTML = translations[lang].recDesc;
-
-            document.getElementById('calcHeader').textContent = translations[lang].calcHeader;
-            document.getElementById('lblPerm').textContent = translations[lang].lblPerm;
-            document.getElementById('lblArea').textContent = translations[lang].lblArea;
-            document.getElementById('lblPress').textContent = translations[lang].lblPress;
-            document.getElementById('lblVisc').textContent = translations[lang].lblVisc;
-            document.getElementById('calcBtn').textContent = translations[lang].calcBtn;
-            document.getElementById('calcResult').textContent = translations[lang].calcWait;
-
-            document.getElementById('formName').placeholder = translations[lang].formPlaceholder[0];
-            document.getElementById('formEmail').placeholder = translations[lang].formPlaceholder[1];
-            document.getElementById('formMsg').placeholder = translations[lang].formPlaceholder[2];
-
-            translations[lang].tabs.forEach((tabText, idx) => {
-                const btn = document.getElementById(`btn-tab${idx+1}`);
-                if(btn) btn.textContent = tabText;
-            });
-
-            document.getElementById('profName').textContent = translations[lang].profName;
-            document.getElementById('profSub').textContent = translations[lang].profSub;
-            document.getElementById('profAbout').textContent = translations[lang].profAbout;
-            document.getElementById('infoInst').innerHTML = translations[lang].infoItems.inst;
-            document.getElementById('infoTerm').innerHTML = translations[lang].infoItems.term;
-            document.getElementById('infoField').innerHTML = translations[lang].infoItems.field;
-            document.getElementById('infoDev').innerHTML = translations[lang].infoItems.dev;
-
-            document.getElementById('mishTitle').textContent = translations[lang].mishTitle;
-            document.getElementById('mishDesc').textContent = translations[lang].mishDesc;
-            document.getElementById('mishList').innerHTML = translations[lang].mishList;
-
-            document.getElementById('techTitle').textContent = translations[lang].techTitle;
-            document.getElementById('techDesc').textContent = translations[lang].techDesc;
-
-            document.getElementById('scieTitle').textContent = translations[lang].scieTitle;
-            document.getElementById('scieDesc').textContent = translations[lang].scieDesc;
-            translations[lang].scieBtns.forEach((btnText, idx) => {
-                document.getElementById(`scieBtn${idx+1}`).textContent = btnText;
-            });
-
-            // لود دیتای مقالات ثابت قدیمی
-            for(let i=1; i<=3; i++) {
-                document.getElementById(`w${i}-h`).textContent = translations[lang][`w${i}`].h;
-                document.getElementById(`w${i}-sum`).innerHTML = translations[lang][`w${i}`].sum;
-                document.getElementById(`w${i}-leg`).innerHTML = translations[lang][`w${i}`].leg;
-            }
-
-            // لود دیتای مقاله جدید ارزیابی تخلخل (w5)
-            document.getElementById(`w5-h`).textContent = translations[lang].w5.h;
-            document.getElementById(`w5-auth`).innerHTML = translations[lang].w5.auth;
-            document.getElementById(`w5-inst`).innerHTML = translations[lang].w5.inst;
-            document.getElementById(`w5-fn`).innerHTML = translations[lang].w5.fn;
-            document.getElementById(`w5-status`).innerHTML = translations[lang].w5.status;
-            document.getElementById(`w5-absTitle`).textContent = translations[lang].w5.absTitle;
-            document.getElementById(`w5-sum`).textContent = translations[lang].w5.sum;
-            document.getElementById(`w5-key`).innerHTML = translations[lang].w5.key;
-            document.getElementById(`w5-tabTitle`).textContent = translations[lang].w5.tabTitle;
-            document.getElementById(`w5-leg`).innerHTML = translations[lang].w5.leg;
-
-            document.getElementById('projTitle').textContent = translations[lang].projTitle;
-            renderProjectTable();
-
-            document.getElementById('contTitle').textContent = translations[lang].contTitle;
-            document.getElementById('contDesc').textContent = translations[lang].contDesc;
-            translations[lang].contacts.forEach((txt, idx) => {
-                document.getElementById(`c${idx+1}`).innerHTML = txt;
-            });
-
-            document.getElementById('siteFooter').textContent = translations[lang].footer;
-            
-            setupAccessTriggers();
-            searchInput.value = '';
-            clearSearchFilters();
-        }
-
-        function setupAccessTriggers() {
-            document.querySelectorAll('.req-access-trigger').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openTab('contact');
-                    document.getElementById('formMsg').value = "با سلام، اینجانب درخواست احراز هویت آکادمیک جهت دسترسی به مستندات و اسکریپت‌های مخازن بالادستی وب‌سایت را دارم.";
-                    document.getElementById('formMsg').focus();
-                });
-            });
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            playSystemBeep(1000, 0.15, 'triangle');
-            const alertMsg = currentLanguage === 'fa' 
-                ? 'پکت داده شما با موفقیت رمزنگاری و ارسال شد. به زودی پاسخ به ایمیل شما فرستاده خواهد شد.' 
-                : 'Data packet encrypted and transmitted successfully. Response will be delivered to your email node soon.';
-            alert(alertMsg);
-            document.getElementById('cyberContactForm').reset();
-        }
-
-        document.getElementById('termInput').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                playSystemBeep(700, 0.04);
-                let input = this.value.toLowerCase().trim();
-                let body = document.getElementById('termBody');
-                let line = this.parentElement;
-                
-                let p = document.createElement('p');
-                p.style.color = '#fff';
-                p.style.marginTop = '2px';
-                
-                if (input === 'help') {
-                    p.innerHTML = "Available console codes:<br>- <span style='color:#cbd5e1'>about</span> : Load entity biography<br>- <span style='color:#cbd5e1'>skills</span> : Print out technical engine stack<br>- <span style='color:#cbd5e1'>clear</span> : Purge terminal logs<br>- <span style='color:#e11d48'>sudo access</span> : Request core root bypass";
-                } else if (input === 'about') {
-                    p.innerText = "Abolfazl Mirzaei - Petroleum Engineering Student at Sharif University of Technology.";
-                } else if (input === 'skills') {
-                    p.innerText = "Python (Intermediate), Adobe Photoshop, Microsoft Office Suite, Free Market Trading Models, Advanced Operations Management.";
-                } else if (input === 'sudo access') {
-                    p.style.color = '#e11d48';
-                    p.innerText = "ACCESS DENIED: SHARIF SECURITY FIREWALL INTERCEPTED REF CODE-86. UNAUTHORIZED ROOT BYPASS ATTEMPT LOGGED.";
-                    playSystemBeep(250, 0.3, 'sawtooth');
-                } else if (input === 'clear') {
-                    body.innerHTML = '';
-                    body.appendChild(line);
-                    this.value = '';
-                    return;
-                } else if (input !== '') {
-                    p.style.color = '#f43f5e';
-                    p.innerText = `Command not found: '${input}'. Type 'help' for valid payload protocols.`;
-                }
-                
-                if (input !== '') {
-                    body.insertBefore(p, line);
-                }
-                this.value = '';
-                body.scrollTop = body.scrollHeight;
-            }
+        // فعال‌سازی موتور انیمیشن‌ها زمان اسکرول صفحه وب
+        AOS.init({
+            once: true, // انیمیشن فقط یک‌بار زمان اسکرول اجرا شود
+            mirror: false
         });
-
-        document.getElementById('siteSearchInput').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase().trim();
-            const items = document.querySelectorAll('.searchable-item, .sidebar-menu li');
-
-            if (query === '') {
-                clearSearchFilters();
-                return;
-            }
-
-            items.forEach(el => {
-                const text = el.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    el.classList.remove('search-hidden');
-                } else {
-                    el.classList.add('search-hidden');
-                }
-            });
-        });
-
-        function clearSearchFilters() {
-            const hiddenItems = document.querySelectorAll('.search-hidden');
-            hiddenItems.forEach(el => el.classList.remove('search-hidden'));
-        }
-
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.keyCode === 123 || 
-               (e.ctrlKey && e.shiftKey && e.keyCode === 73) || 
-               (e.ctrlKey && e.shiftKey && e.keyCode === 67) || 
-               (e.ctrlKey && e.keyCode === 85) || 
-               (e.ctrlKey && e.keyCode === 67) || 
-               (e.ctrlKey && e.keyCode === 85)) {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        window.addEventListener('hashchange', function() {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById(hash)) {
-                openTab(hash, false);
-            }
-        });
-
-        window.addEventListener('load', function() {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById(hash)) {
-                openTab(hash, false);
-            }
-
-            setTimeout(function() {
-                const loader = document.getElementById('security-loader');
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                playSystemBeep(800, 0.1, 'sine');
-            }, 1000);
-        });
-
-        renderProjectTable();
-        setupAccessTriggers();
-    </script>
-</body>
-</html>
+        
+        // ادامه کدهای جاوااسکریپت و اسکریپت‌های تب‌بندی، سیستم صوتی و Supabase خودت را به همین ترتیب قرار بده...
