@@ -944,231 +944,214 @@
                 </div>
             </div>
 
-            <section id="identity" class="tab-content active" data-aos="fade-up" data-aos-duration="800">
+            <section id="identity" class="tab-content active">
                 <div class="profile-resume-box">
                     <div class="profile-img-container">
-                        <img src="avatar.jpg" alt="ابوالفضل میرزایی" class="profile-img" onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex';">
-                        <div id="fallback-avatar" class="profile-fallback-avatar" style="display:none;">
-                            <span style="font-size:3rem; color:#38bdf8;">AM</span>
-                        </div>
+                        <img src="assets/profile.jpg" alt="ابوالفضل میرزایی" class="profile-img" onerror="this.src='https://via.placeholder.com/170'">
                     </div>
                     <div class="resume-details">
                         <h1 class="glitch-text" id="profileName">ابوالفضل میرزایی</h1>
-                        <p class="title-sub" id="profileTitle">دانشجوی مهندسی نفت | دانشگاه صنعتی شریف</p>
+                        <p class="title-sub" id="profileSub">دانشجوی مهندسی نفت | دانشگاه صنعتی شریف</p>
                         <div class="info-grid">
                             <div class="info-item"><strong id="lbl-uni">دانشگاه:</strong> <span id="val-uni">صنعتی شریف</span></div>
-                            <div class="info-item"><strong id="lbl-field">رشته تخصصی:</strong> <span id="val-field">مهندسی نفت</span></div>
-                            <div class="info-item"><strong id="lbl-hometown">زادگاه:</strong> <span id="val-hometown">ارومیه</span></div>
-                            <div class="info-item"><strong id="lbl-status">وضعیت آکادمیک:</strong> <span id="val-status">در حال تحصیل (مقطع کارشناسی)</span></div>
-                        </div>
-                        <a href="resume.pdf" class="cv-download-btn" id="btn-cv">
-                            <span>📥 دریافت رزومه رسمی (PDF)</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="terminal-box" data-aos="fade-up" data-aos-delay="200">
-                    <div class="terminal-header">
-                        <span>bash - abolfazl@sharif.edu</span>
-                        <span>● ● ●</span>
-                    </div>
-                    <div class="terminal-body" id="terminalBody">
-                        <p>Welcome to Abolfazl Mirzaei Personal Terminal Core v2.0.6</p>
-                        <p>Type <span style="color:#e11d48">'help'</span> to see available custom commands.</p>
-                        <div class="terminal-line">
-                            <span class="terminal-prompt">guest@sharif:~$</span>
-                            <input type="text" id="terminalInput" class="terminal-input" autofocus onkeydown="processTerminalCommand(event)">
+                            <div class="info-item"><strong id="lbl-field">رشته:</strong> <span id="val-field">مهندسی نفت</span></div>
+                            <div class="info-item"><strong id="lbl-loc">موقعیت:</strong> <span id="val-loc">تهران / ارومیه</span></div>
+                            <div class="info-item"><strong id="lbl-mail">ایمیل:</strong> <span>abolfazl.mirzaei@sharif.edu</span></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="mission" class="tab-content" data-aos="fade-up" data-aos-duration="800">
+            <section id="mission" class="tab-content">
                 <div class="card">
-                    <h2 id="title-vision">چشم‌انداز و حوزه پژوهش علمی</h2>
-                    <p style="margin-top:10px; text-align:justify;" id="txt-vision">
-                        تمرکز بر توسعه راه‌حل‌های الگوریتمی محاسباتی در صنایع بالادستی، مدل‌سازی رفتار سیالات مخازن، و تحقیق روی پارامترهای پتروفیزیکی از جمله تخلخل سنگ‌ها (Porosity). تلفیق دانش فنی مهندسی با برنامه‌نویسی پایتون جهت خودکارسازی و بهینه‌سازی تحلیل داده‌های مخزن یکی از اهداف اصلی اینجانب است.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h2 id="title-mon">مانیتورینگ فرآیندها و پروژه‌های جاری</h2>
-                    <div class="table-responsive-wrapper">
-                        <table class="project-table">
-                            <thead>
-                                <tr>
-                                    <th id="th-proc">فرآیند / پروژه محاسباتی</th>
-                                    <th id="th-stack">ابزار و بستر کلیدی</th>
-                                    <th id="th-stat">وضعیت فعلی سیستم</th>
-                                </tr>
-                            </thead>
-                            <tbody id="monitoringTableBody">
-                                <tr>
-                                    <td>توسعه اسکریپت تحلیل تخلخل داده‌های پتروفیزیکی سنگ مخزن</td>
-                                    <td>Python (NumPy, Pandas)</td>
-                                    <td class="status-online">● عملیاتی و آنلاین</td>
-                                </tr>
-                                <tr>
-                                    <td>طراحی پورتفولیو شخصی واکنش‌گرا و توسعه فرانت‌اند</td>
-                                    <td>HTML5 / CSS3 / Netlify</td>
-                                    <td class="status-online">● عملیاتی و آنلاین</td>
-                                </tr>
-                                <tr>
-                                    <td>شبیه‌سازی الگوریتم جابجایی سیالات و محاسبات جریان دارسی</td>
-                                    <td>Python / Advanced Physics Concepts</td>
-                                    <td class="status-progress">● در حال توسعه و عیب‌یابی</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h2 id="title-mission">اهداف و پروژه‌ها</h2>
+                    <p id="txt-mission">توسعه کدهای شبیه‌سازی مخازن و مدل‌سازی ریاضی جریان سیالات بالادستی.</p>
                 </div>
             </section>
 
-            <section id="tech" class="tab-content" data-aos="fade-up" data-aos-duration="800">
+            <section id="tech" class="tab-content">
                 <div class="card">
-                    <h2 id="title-skills">جعبه‌ابزار تخصصی و مهارت‌های فنی</h2>
-                    <p style="margin-bottom:20px; color:#94a3b8;" id="txt-skills">سطح مهارت‌های تخصصی و کاربردی در بخش‌های فنی، محاسباتی و طراحی گرافیک:</p>
-                    
+                    <h2 id="title-tech">مهارت‌های مهندسی و نرم‌افزاری</h2>
                     <div class="grid-container">
-                        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                            <h3>🐍 زبان برنامه‌نویسی پایتون (Python)</h3>
-                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">توسعه اسکریپت‌های اتوماسیون، تحلیل مهندسی و محاسبات عددی فیزیک</p>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 75%;"></div>
-                            </div>
-                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Intermediate - 75%</span>
+                        <div class="project-card">
+                            <h3>Python Programming</h3>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 80%;"></div></div>
                         </div>
-
-                        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-                            <h3>🎨 ادوبی فتوشاپ (Adobe Photoshop)</h3>
-                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">طراحی گرافیک خلاقانه، ادیت تخصصی تصاویر، پوستر و هویت بصری</p>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 70%;"></div>
-                            </div>
-                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Advanced - 70%</span>
-                        </div>
-
-                        <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-                            <h3>🌐 توسعه فرانت‌اند (HTML5 / CSS3)</h3>
-                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">طراحی ساختار صفحات وب، استایل‌دهی مدرن و رابط‌های کاربری واکنش‌گرا</p>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 65%;"></div>
-                            </div>
-                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Skillful - 65%</span>
-                        </div>
-
-                        <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
-                            <h3>📊 مایکروسافت آفیس (Excel, PowerPoint, Word)</h3>
-                            <p style="font-size:0.85rem; color:#94a3b8; margin-top:5px;">مستندسازی اسناد مهندسی، رسم نمودارها و ارائه‌های پیشرفته دانشگاهی</p>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 80%;"></div>
-                            </div>
-                            <span style="font-size:0.8rem; color:#38bdf8; display:block; margin-top:5px; text-align:left; direction:ltr;">Proficient - 80%</span>
+                        <div class="project-card">
+                            <h3>Darcy Flow Modeling</h3>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 75%;"></div></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="darcy-calculator" data-aos="fade-up">
-                    <h3 style="color:#ffffff; font-size:1.15rem; display:flex; align-items:center; gap:8px;" id="title-calc">
-                        ⚙️ شبیه‌ساز محاسباتی جریان سیال خطی (قانون دارسی)
-                    </h3>
-                    <p style="font-size:0.85rem; color:#94a3b8; margin-top:4px;" id="txt-calc">ابزار شبیه‌سازی مهندسی بالادستی جهت محاسبه دبی جریان سیال تک‌فاز بر اساس قانون Darcy:</p>
-                    <div class="calc-grid">
-                        <div class="calc-group">
-                            <label>تراوایی (Permeability - md)</label>
-                            <input type="number" id="calcK" class="calc-input" value="150">
-                        </div>
-                        <div class="calc-group">
-                            <label>مساحت (Area - ft²)</label>
-                            <input type="number" id="calcA" class="calc-input" value="25">
-                        </div>
-                        <div class="calc-group">
-                            <label>افت فشار (ΔP - psi)</label>
-                            <input type="number" id="calcDP" class="calc-input" value="400">
-                        </div>
-                        <div class="calc-group">
-                            <label>گرانروی (Viscosity - cp)</label>
-                            <input type="number" id="calcMu" class="calc-input" value="2.5">
-                        </div>
-                        <div class="calc-group">
-                            <label>طول سنگ (Length - ft)</label>
-                            <input type="number" id="calcL" class="calc-input" value="60">
-                        </div>
-                    </div>
-                    <button class="calc-btn" onclick="executeDarcyCalculation()" id="btn-calc">محاسبه و تحلیل خروجی سیال</button>
-                    <div class="calc-result" id="darcyResultOutput">نتیجه محاسبات: منتظر تزریق پارامترها...</div>
-                </div>
-            </section>
-
-            <section id="docs" class="tab-content" data-aos="fade-up" data-aos-duration="800">
-                <div class="card">
-                    <h2 id="title-docs">مستندات، پروژه‌ها و مقالات علمی</h2>
-                    <p style="margin-bottom:20px; color:#94a3b8;" id="txt-docs">جهت پایش جزئیات، چکیده و متادیتاهای مقالات پژوهشی روی تب‌های زیر کلیک کنید:</p>
                     
-                    <div class="doc-navigation" id="dynamicDocNavBtnContainer">
-                        <button class="doc-nav-btn active" onclick="showScientificArticleWindow(0)">سند اول: تخلخل سنگ‌ها</button>
-                    </div>
-
-                    <div id="dynamicArticlesWindowsContainer">
-                        <div class="scientific-window active" id="sciWindow-0">
-                            <h3 style="color:#ffffff;" class="art-title-render">بررسی ساختار تخلخل (Porosity) و فیزیک سنگ‌های مخزن</h3>
-                            <div class="article-meta-grid">
-                                <div class="meta-item"><strong>نوع داکیومنت:</strong> پژوهش دانشگاهی / یادداشت علمی</div>
-                                <div class="meta-item"><strong>ناشر سیستم:</strong> شریف پورسیتی لب</div>
-                                <div class="meta-item"><strong>شناسه دسترسی:</strong> SRF-POR-2026</div>
-                            </div>
-                            <div class="abstract-section">
-                                <div class="abstract-title">🧬 چکیده مستندات مهندسی مخزن</div>
-                                <p class="abstract-text">
-                                    این داکیومنت علمی به تحلیل و بررسی انواع ساختارهای تخلخل در سنگ‌های کربناته و ماسه‌سنگی می‌پردازد. چگونگی محاسبه فضاهای خالی درون شبکه سنگ و ارتباط مستقیم آن با حجم ذخایر درجا و ضریب بازیافت سیال با استفاده از کدهای محاسباتی پایتون ارزیابی شده است.
-                                </p>
-                                <div class="keywords-box"><strong>کلمات کلیدی استراتژیک:</strong> سنگ مخزن، تخلخل سنجی، مهندسی نفت، برنامه‌نویسی محاسباتی</div>
-                            </div>
-                            <div style="margin-top:20px;">
-                                <span class="action-link-btn">🔒 درخواست دسترسی به نسخه کامل داکیومنت</span>
-                            </div>
+                    <div class="darcy-calculator">
+                        <h3 id="calcTitle">🧮 محاسبه‌گر هوشمند قانون دارسی (سیستم بالادستی)</h3>
+                        <div class="calc-grid">
+                            <div class="calc-group"><label>Permeability (mD)</label><input type="number" id="darcyK" class="calc-input" value="150"></div>
+                            <div class="calc-group"><label>Area (ft²)</label><input type="number" id="darcyA" class="calc-input" value="250"></div>
+                            <div class="calc-group"><label>ΔP (psi)</label><input type="number" id="darcydP" class="calc-input" value="400"></div>
+                            <div class="calc-group"><label>Viscosity (cp)</label><input type="number" id="darcymu" class="calc-input" value="2"></div>
+                            <div class="calc-group"><label>Length (ft)</label><input type="number" id="darcyL" class="calc-input" value="100"></div>
                         </div>
+                        <button class="calc-btn" onclick="computeDarcyFlow()">محاسبه نرخ جریان (q)</button>
+                        <div class="calc-result" id="darcyResultText">نرخ جریان نهایی: منتظر محاسبه...</div>
                     </div>
                 </div>
             </section>
 
-            <section id="contact" class="tab-content" data-aos="fade-up" data-aos-duration="800">
+            <section id="docs" class="tab-content">
                 <div class="card">
-                    <h2 id="title-contact">فرم تماس و ارتباط مستقیم الکترونیکی</h2>
-                    <p style="color:#94a3b8;" id="txt-contact">پیام خود را از طریق فرم زیر ارسال کنید تا به صورت مستقیم به صندوق ایمیل ادمین منتقل شود:</p>
-                    
-                    <form class="cyber-form" action="https://formspree.io/f/your_form_id_here" method="POST">
-                        <input type="text" name="name" class="cyber-input" placeholder="نام و نام خانوادگی" required>
-                        <input type="email" name="email" class="cyber-input" placeholder="آدرس ایمیل کاربر" required>
-                        <input type="text" name="subject" class="cyber-input full-width" placeholder="موضوع پیام" required>
-                        <textarea name="message" class="cyber-input full-width" placeholder="متن پیام شما..." rows="5" required></textarea>
-                        <button type="submit" class="cyber-submit full-width" id="btn-submit">⚡ ارسال امن پیام به سرور مرکزی</button>
-                    </form>
+                    <h2 id="title-docs">مستندات و مقالات پژوهشی شریف</h2>
+                    <p>پایگاه زنده ذخیره‌سازی مقالات تخصصی سنگ مخزن و سیالات بالادستی.</p>
                 </div>
+            </section>
 
+            <section id="contact" class="tab-content">
                 <div class="card">
-                    <h2 id="title-socials">شبکه‌های اجتماعی و راه‌های ارتباطی</h2>
+                    <h2 id="title-contact">درگاه مکاتبات الکترونیکی</h2>
                     <ul class="contact-list">
-                        <li>ایمیل دانشگاهی: <a href="mailto:abolfazl@sharif.edu">abolfazl@sharif.edu</a></li>
-                        <li>گیت‌هاب پورتفولیو: <a href="https://github.com" target="_blank">github.com/Seniorabolfazl</a></li>
-                        <li>پیام‌رسان تلگرام: <a href="https://t.me" target="_blank">t.me/Seniorabolfazl</a></li>
+                        <li><strong>ایمیل دانشگاهی:</strong> <a href="mailto:abolfazl.mirzaei@sharif.edu">abolfazl.mirzaei@sharif.edu</a></li>
+                        <li><strong>گیت‌هاب رسمی:</strong> <a href="https://github.com/seniorabolfazl" target="_blank">github.com/seniorabolfazl</a></li>
                     </ul>
                 </div>
             </section>
 
             <footer class="footer-text">
-                <p>© <span id="footerYear">2026</span> ابوالفضل میرزایی. کلیه حقوق محفوظ و تحت حفاظت سیستم سئو می‌باشد.</p>
-                <p style="font-size:0.75rem; margin-top:5px; color:#334155;">توسعه‌یافته با فرانت‌اند سفارشی بر روی پلتفرم خودکار Netlify</p>
+                <p>© <span id="footerCopy">وب‌سایت شخصی ابوالفضل میرزایی - محفوظ بر بستر GitHub Pages</span></p>
             </footer>
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // فعال‌سازی موتور انیمیشن‌ها زمان اسکرول صفحه وب
-        AOS.init({
-            once: true, // انیمیشن فقط یک‌بار زمان اسکرول اجرا شود
-            mirror: false
+        // ۱. تابع مدیریت تب‌ها
+        function openTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            const targetTab = document.getElementById(tabId);
+            if(targetTab) targetTab.classList.add('active');
+            
+            const activeBtn = document.querySelector(`button[onclick="openTab('${tabId}')"]`);
+            if(activeBtn) activeBtn.classList.add('active');
+            
+            // انیمیشن پیشرفت اسکیل بارها در تب مهارت‌ها
+            if (tabId === 'tech') {
+                setTimeout(() => {
+                    document.querySelectorAll('.skill-progress-fill').forEach(fill => {
+                        const width = fill.style.width;
+                        fill.style.width = '0';
+                        setTimeout(() => { fill.style.width = width; }, 100);
+                    });
+                }, 200);
+            }
+        }
+
+        // ۲. ماشین حساب قانون دارسی
+        function computeDarcyFlow() {
+            const k = parseFloat(document.getElementById('darcyK').value) || 0;
+            const a = parseFloat(document.getElementById('darcyA').value) || 0;
+            const dp = parseFloat(document.getElementById('darcydP').value) || 0;
+            const mu = parseFloat(document.getElementById('darcymu').value) || 1;
+            const l = parseFloat(document.getElementById('darcyL').value) || 1;
+            
+            // فرمول مهندسی مخزن دارسی
+            const q = (0.001127 * k * a * dp) / (mu * l);
+            document.getElementById('darcyResultText').innerText = `نرخ جریان نهایی (q): ${q.toFixed(5)} bbl/day`;
+        }
+
+        // ۳. سیستم صوتی بیپ (Web Audio API)
+        let audioActive = true;
+        function toggleAudioBeepSystem() {
+            audioActive = !audioActive;
+            const btn = document.getElementById('audioBeepBtn');
+            if(audioActive) {
+                btn.innerText = "🔊 صوتی سیستم: فعال";
+                btn.classList.add('active');
+            } else {
+                btn.innerText = "🔇 صوتی سیستم: غیرفعال";
+                btn.classList.remove('active');
+            }
+        }
+
+        function playBeep() {
+            if(!audioActive) return;
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.frequency.value = 900;
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.08);
+            } catch(e) {}
+        }
+
+        // ۴. سیستم سوئیچ زبان ساده
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-toggle-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            
+            const htmlNode = document.getElementById('siteHtml');
+            if(lang === 'en') {
+                htmlNode.setAttribute('dir', 'ltr');
+                htmlNode.style.fontFamily = "'Segoe UI', Tahoma, sans-serif";
+                document.getElementById('profileName').innerText = "Abolfazl Mirzaei";
+                document.getElementById('profileSub').innerText = "Petroleum Engineering Student | Sharif University";
+                document.getElementById('menuTitle').innerText = "SYSTEM MENU";
+                document.getElementById('btn-tab1').innerText = "⊙ Academic Identity";
+                document.getElementById('btn-tab2').innerText = "⊙ Projects & Visions";
+                document.getElementById('btn-tab3').innerText = "⊙ Engineering Skills";
+                document.getElementById('btn-tab4').innerText = "⊙ Scientific Docs";
+                document.getElementById('btn-tab5').innerText = "⊙ Electronic Portal";
+            } else {
+                htmlNode.setAttribute('dir', 'rtl');
+                htmlNode.style.fontFamily = "'Vazirmatn', sans-serif";
+                document.getElementById('profileName').innerText = "ابوالفضل میرزایی";
+                document.getElementById('profileSub').innerText = "دانشجوی مهندسی نفت | دانشگاه صنعتی شریف";
+                document.getElementById('menuTitle').innerText = "منو سیستم هوشمند";
+                document.getElementById('btn-tab1').innerText = "⊙ هویت دانشگاهی و فردی";
+                document.getElementById('btn-tab2').innerText = "⊙ اهداف، پروژه‌ها و چشم‌اندازها";
+                document.getElementById('btn-tab3').innerText = "⊙ مهارت‌ها و ابزارها";
+                document.getElementById('btn-tab4').innerText = "⊙ مستندات علمی و پژوهشی";
+                document.getElementById('btn-tab5').innerText = "⊙ درگاه ارتباطی الکترونیکی";
+            }
+        }
+
+        // ۵. سرچ باکس زنده پورتفولیو
+        function performLiveSearch() {
+            const query = document.getElementById('siteSearchInput').value.toLowerCase().trim();
+            document.querySelectorAll('.tab-content').forEach(section => {
+                if(query === "") {
+                    section.classList.remove('search-hidden');
+                    return;
+                }
+                if(section.innerText.toLowerCase().includes(query)) {
+                    section.classList.remove('search-hidden');
+                    openTab(section.id);
+                } else {
+                    section.classList.add('search-hidden');
+                }
+            });
+        }
+
+        // ۶. رفع باگ کنترلر صفحه لودینگ اولیه (Preloader)
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('security-loader');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.visibility = 'hidden';
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+                playBeep();
+            }, 1200); // پس از ۱.۲ ثانیه افکت کامل شده و سایت بدون گیر کردن بالا می‌آید
         });
-        
-        // ادامه کدهای جاوااسکریپت و اسکریپت‌های تب‌بندی، سیستم صوتی و Supabase خودت را به همین ترتیب قرار بده...
+
+        // کلیک راست را قفل می‌کند تا تم امنیتی پورتفولیو حفظ شود
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+</body>
+</html>
