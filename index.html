@@ -1755,27 +1755,37 @@
             });
         }
 
-        // رویدادهای زمان بارگذاری صفحه جهت هندل آدرس‌دهی هش و انیمیشن لودینگ
+        // رویدادهای زمان بارگذاری صفحه
         window.addEventListener('hashchange', function() {
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) openTab(hash, false);
         });
-
         window.addEventListener('load', function() {
+    // ۱. فوراً صفحه لودینگ را پس از ۱ ثانیه مخفی کن تا سایت باز شود
+            setTimeout(function() {
+                const loader = document.getElementById('security-loader');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    loader.style.visibility = 'hidden';
+                }
+        // اگر سیستم صوتی فعال بود بوق بزند
+                if (typeof playSystemBeep === "function") {
+                    playSystemBeep(800, 0.1, 'sine');
+                }
+            }, 1000);
+
+    // ۲. چک کردن مپینگ هش آدرس بار
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) openTab(hash, false);
 
-            setTimeout(function() {
-                const loader = document.getElementById('security-loader');
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                playSystemBeep(800, 0.1, 'sine');
-            }, 1000);
-
-            // اجرای عملیات واکشی اطلاعات داینامیک از پایگاه داده آنلاین (در صورت کانفیگ بودن)
-            fetchDynamicArticles();
-            fetchDynamicMonitorRows();
-        });
+    // ۳. کارهای مربوط به پایگاه داده را در یک بلاک امن اجرا کن تا اگر خطا داد سایت قفل نشود
+            try {
+                if (typeof fetchDynamicArticles === "function") fetchDynamicArticles();
+                if (typeof fetchDynamicMonitorRows === "function") fetchDynamicMonitorRows();
+            } catch (err) {
+                console.warn("Supabase Fetch Error: ", err);
+            }
+});
     </script>
 </body>
 </html>
