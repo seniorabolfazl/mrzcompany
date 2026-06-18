@@ -947,16 +947,15 @@
             <section id="identity" class="tab-content active">
                 <div class="profile-resume-box">
                     <div class="profile-img-container">
-                        <img src="assets/profile.jpg" alt="ابوالفضل میرزایی" class="profile-img" onerror="this.src='https://via.placeholder.com/170'">
+                        <div class="profile-img" style="display: flex; align-items: center; justify-content: center; background: #1e293b; color: #38bdf8; font-weight: bold; font-size: 3rem;">AM</div>
                     </div>
                     <div class="resume-details">
-                        <h1 class="glitch-text" id="profileName">ابوالفضل میرزایی</h1>
-                        <p class="title-sub" id="profileSub">دانشجوی مهندسی نفت | دانشگاه صنعتی شریف</p>
+                        <h1 class="glitch-text">ابوالفضل میرزایی</h1>
+                        <p class="title-sub">دانشجوی مهندسی نفت | دانشگاه صنعتی شریف</p>
                         <div class="info-grid">
-                            <div class="info-item"><strong id="lbl-uni">دانشگاه:</strong> <span id="val-uni">صنعتی شریف</span></div>
-                            <div class="info-item"><strong id="lbl-field">رشته:</strong> <span id="val-field">مهندسی نفت</span></div>
-                            <div class="info-item"><strong id="lbl-loc">موقعیت:</strong> <span id="val-loc">تهران / ارومیه</span></div>
-                            <div class="info-item"><strong id="lbl-mail">ایمیل:</strong> <span>abolfazl.mirzaei@sharif.edu</span></div>
+                            <div class="info-item"><strong>مقطع:</strong> کارشناسی (ترم دو)</div>
+                            <div class="info-item"><strong>محل تحصیل:</strong> دانشگاه صنعتی شریف</div>
+                            <div class="info-item"><strong>زادگاه:</strong> ارومیه</div>
                         </div>
                     </div>
                 </div>
@@ -964,194 +963,161 @@
 
             <section id="mission" class="tab-content">
                 <div class="card">
-                    <h2 id="title-mission">اهداف و پروژه‌ها</h2>
-                    <p id="txt-mission">توسعه کدهای شبیه‌سازی مخازن و مدل‌سازی ریاضی جریان سیالات بالادستی.</p>
+                    <h2>اهداف و چشم‌اندازها</h2>
+                    <p>توسعه شبیه‌سازهای پیشرفته مهندسی نفت، آنالیز داده‌های مخزن و بهینه‌سازی فرآیندهای بالادستی نفت و گاز با استفاده از کدهای محاسباتی متمرکز.</p>
                 </div>
             </section>
 
             <section id="tech" class="tab-content">
                 <div class="card">
-                    <h2 id="title-tech">مهارت‌های مهندسی و نرم‌افزاری</h2>
+                    <h2>مهارت‌های تخصصی و نرم‌افزاری</h2>
                     <div class="grid-container">
                         <div class="project-card">
                             <h3>Python Programming</h3>
-                            <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 80%;"></div></div>
-                        </div>
-                        <div class="project-card">
-                            <h3>Darcy Flow Modeling</h3>
                             <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 75%;"></div></div>
                         </div>
-                    </div>
-                    
-                    <div class="darcy-calculator">
-                        <h3 id="calcTitle">🧮 محاسبه‌گر هوشمند قانون دارسی (سیستم بالادستی)</h3>
-                        <div class="calc-grid">
-                            <div class="calc-group"><label>Permeability (mD)</label><input type="number" id="darcyK" class="calc-input" value="150"></div>
-                            <div class="calc-group"><label>Area (ft²)</label><input type="number" id="darcyA" class="calc-input" value="250"></div>
-                            <div class="calc-group"><label>ΔP (psi)</label><input type="number" id="darcydP" class="calc-input" value="400"></div>
-                            <div class="calc-group"><label>Viscosity (cp)</label><input type="number" id="darcymu" class="calc-input" value="2"></div>
-                            <div class="calc-group"><label>Length (ft)</label><input type="number" id="darcyL" class="calc-input" value="100"></div>
+                        <div class="project-card">
+                            <h3>Adobe Photoshop</h3>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 70%;"></div></div>
                         </div>
-                        <button class="calc-btn" onclick="computeDarcyFlow()">محاسبه نرخ جریان (q)</button>
-                        <div class="calc-result" id="darcyResultText">نرخ جریان نهایی: منتظر محاسبه...</div>
+                        <div class="project-card">
+                            <h3>Microsoft Office Tools</h3>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="docs" class="tab-content">
                 <div class="card">
-                    <h2 id="title-docs">مستندات و مقالات پژوهشی شریف</h2>
-                    <p>پایگاه زنده ذخیره‌سازی مقالات تخصصی سنگ مخزن و سیالات بالادستی.</p>
+                    <h2>مستندات و محاسبات مهندسی</h2>
+                    
+                    <div class="darcy-calculator">
+                        <h3>🧮 ماشین حساب پیشرفته هیدرودینامیک مخازن (قانون Darcy)</h3>
+                        <div class="calc-grid">
+                            <div class="calc-group"><label>تراوایی (mD)</label><input type="number" id="calcK" class="calc-input" value="150"></div>
+                            <div class="calc-group"><label>سطح مقطع (ft²)</label><input type="number" id="calcA" class="calc-input" value="25"></div>
+                            <div class="calc-group"><label>افت فشار (psi)</label><input type="number" id="calcP" class="calc-input" value="400"></div>
+                            <div class="calc-group"><label>گرانروی (cP)</label><input type="number" id="calcM" class="calc-input" value="2"></div>
+                        </div>
+                        <button class="calc-btn" onclick="calculateDarcyFlow()">⚡ محاسبه دبی جریان سیال مخزن</button>
+                        <div id="calcResult" class="calc-result">خروجی سیستم محاسباتی: آماده دریافت مقادیر ورودی جهت آنالیز جریان دارسی.</div>
+                    </div>
                 </div>
             </section>
 
             <section id="contact" class="tab-content">
                 <div class="card">
-                    <h2 id="title-contact">درگاه مکاتبات الکترونیکی</h2>
+                    <h2>درگاه ارتباطی الکترونیکی</h2>
                     <ul class="contact-list">
-                        <li><strong>ایمیل دانشگاهی:</strong> <a href="mailto:abolfazl.mirzaei@sharif.edu">abolfazl.mirzaei@sharif.edu</a></li>
-                        <li><strong>گیت‌هاب رسمی:</strong> <a href="https://github.com/seniorabolfazl" target="_blank">github.com/seniorabolfazl</a></li>
+                        <li>ایمیل آکادمیک: <a href="mailto:abolfazl.mirzayi@sharif.edu">abolfazl.mirzayi@sharif.edu</a></li>
                     </ul>
                 </div>
             </section>
 
-            <footer class="footer-text">
-                <p>© <span id="footerCopy">وب‌سایت شخصی ابوالفضل میرزایی - محفوظ بر بستر GitHub Pages</span></p>
-            </footer>
         </main>
     </div>
 
-    <script>
-        // ۱. تابع مدیریت تب‌ها
-        function openTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
-            const targetTab = document.getElementById(tabId);
-            if(targetTab) targetTab.classList.add('active');
-            
-            const activeBtn = document.querySelector(`button[onclick="openTab('${tabId}')"]`);
-            if(activeBtn) activeBtn.classList.add('active');
-            
-            // انیمیشن پیشرفت اسکیل بارها در تب مهارت‌ها
-            if (tabId === 'tech') {
-                setTimeout(() => {
-                    document.querySelectorAll('.skill-progress-fill').forEach(fill => {
-                        const width = fill.style.width;
-                        fill.style.width = '0';
-                        setTimeout(() => { fill.style.width = width; }, 100);
-                    });
-                }, 200);
-            }
-        }
+    <p class="footer-text">
+        © 2026 | طراحی و توسعه یافته با معماری امنیت سایبری توسط ابوالفضل میرزایی. تمامی حقوق مادی و معنوی محفوظ است.
+    </p>
 
-        // ۲. ماشین حساب قانون دارسی
-        function computeDarcyFlow() {
-            const k = parseFloat(document.getElementById('darcyK').value) || 0;
-            const a = parseFloat(document.getElementById('darcyA').value) || 0;
-            const dp = parseFloat(document.getElementById('darcydP').value) || 0;
-            const mu = parseFloat(document.getElementById('darcymu').value) || 1;
-            const l = parseFloat(document.getElementById('darcyL').value) || 1;
-            
-            // فرمول مهندسی مخزن دارسی
-            const q = (0.001127 * k * a * dp) / (mu * l);
-            document.getElementById('darcyResultText').innerText = `نرخ جریان نهایی (q): ${q.toFixed(5)} bbl/day`;
-        }
-
-        // ۳. سیستم صوتی بیپ (Web Audio API)
-        let audioActive = true;
-        function toggleAudioBeepSystem() {
-            audioActive = !audioActive;
-            const btn = document.getElementById('audioBeepBtn');
-            if(audioActive) {
-                btn.innerText = "🔊 صوتی سیستم: فعال";
-                btn.classList.add('active');
-            } else {
-                btn.innerText = "🔇 صوتی سیستم: غیرفعال";
-                btn.classList.remove('active');
-            }
-        }
-
-        function playBeep() {
-            if(!audioActive) return;
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.frequency.value = 900;
-                gain.gain.setValueAtTime(0.08, ctx.currentTime);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.08);
-            } catch(e) {}
-        }
-
-        // ۴. سیستم سوئیچ زبان ساده
-        function switchLanguage(lang) {
-            document.querySelectorAll('.lang-toggle-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(`lang-${lang}`).classList.add('active');
-            
-            const htmlNode = document.getElementById('siteHtml');
-            if(lang === 'en') {
-                htmlNode.setAttribute('dir', 'ltr');
-                htmlNode.style.fontFamily = "'Segoe UI', Tahoma, sans-serif";
-                document.getElementById('profileName').innerText = "Abolfazl Mirzaei";
-                document.getElementById('profileSub').innerText = "Petroleum Engineering Student | Sharif University";
-                document.getElementById('menuTitle').innerText = "SYSTEM MENU";
-                document.getElementById('btn-tab1').innerText = "⊙ Academic Identity";
-                document.getElementById('btn-tab2').innerText = "⊙ Projects & Visions";
-                document.getElementById('btn-tab3').innerText = "⊙ Engineering Skills";
-                document.getElementById('btn-tab4').innerText = "⊙ Scientific Docs";
-                document.getElementById('btn-tab5').innerText = "⊙ Electronic Portal";
-            } else {
-                htmlNode.setAttribute('dir', 'rtl');
-                htmlNode.style.fontFamily = "'Vazirmatn', sans-serif";
-                document.getElementById('profileName').innerText = "ابوالفضل میرزایی";
-                document.getElementById('profileSub').innerText = "دانشجوی مهندسی نفت | دانشگاه صنعتی شریف";
-                document.getElementById('menuTitle').innerText = "منو سیستم هوشمند";
-                document.getElementById('btn-tab1').innerText = "⊙ هویت دانشگاهی و فردی";
-                document.getElementById('btn-tab2').innerText = "⊙ اهداف، پروژه‌ها و چشم‌اندازها";
-                document.getElementById('btn-tab3').innerText = "⊙ مهارت‌ها و ابزارها";
-                document.getElementById('btn-tab4').innerText = "⊙ مستندات علمی و پژوهشی";
-                document.getElementById('btn-tab5').innerText = "⊙ درگاه ارتباطی الکترونیکی";
-            }
-        }
-
-        // ۵. سرچ باکس زنده پورتفولیو
-        function performLiveSearch() {
-            const query = document.getElementById('siteSearchInput').value.toLowerCase().trim();
-            document.querySelectorAll('.tab-content').forEach(section => {
-                if(query === "") {
-                    section.classList.remove('search-hidden');
-                    return;
-                }
-                if(section.innerText.toLowerCase().includes(query)) {
-                    section.classList.remove('search-hidden');
-                    openTab(section.id);
-                } else {
-                    section.classList.add('search-hidden');
-                }
-            });
-        }
-
-        // ۶. رفع باگ کنترلر صفحه لودینگ اولیه (Preloader)
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const loader = document.getElementById('security-loader');
-                if (loader) {
-                    loader.style.opacity = '0';
-                    setTimeout(() => {
-                        loader.style.visibility = 'hidden';
-                        loader.style.display = 'none';
-                    }, 500);
-                }
-                playBeep();
-            }, 1200); // پس از ۱.۲ ثانیه افکت کامل شده و سایت بدون گیر کردن بالا می‌آید
+<script>
+    // سیستم باز شدن و سوئیچ منوها
+    function openTab(tabId) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
         });
 
-        // کلیک راست را قفل می‌کند تا تم امنیتی پورتفولیو حفظ شود
-        document.addEventListener('contextmenu', e => e.preventDefault());
-    </script>
+        const activeContent = document.getElementById(tabId);
+        if(activeContent) activeContent.classList.add('active');
+
+        const activeBtn = document.querySelector(`[onclick="openTab('${tabId}')"]`);
+        if(activeBtn) {
+            activeBtn.classList.add('active');
+            activeBtn.setAttribute('aria-selected', 'true');
+        }
+    }
+
+    // لودینگ اولیه ایمن وبسایت
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            const loader = document.getElementById('security-loader');
+            if(loader) {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }
+        }, 1500);
+    });
+
+    // سوییچ صوتی سیستم
+    function toggleAudioBeepSystem() {
+        const btn = document.getElementById('audioBeepBtn');
+        if(btn.classList.contains('active')) {
+            btn.classList.remove('active');
+            btn.innerText = "🔇 صوتی سیستم: غیرفعال";
+        } else {
+            btn.classList.add('active');
+            btn.innerText = "🔊 صوتی سیستم: فعال";
+        }
+    }
+
+    // سوییچ زبان
+    function switchLanguage(lang) {
+        const htmlTag = document.getElementById('siteHtml');
+        const faBtn = document.getElementById('lang-fa');
+        const enBtn = document.getElementById('lang-en');
+        
+        if(lang === 'fa') {
+            htmlTag.setAttribute('dir', 'rtl');
+            htmlTag.setAttribute('lang', 'fa');
+            faBtn.classList.add('active');
+            enBtn.classList.remove('active');
+        } else {
+            htmlTag.setAttribute('dir', 'ltr');
+            htmlTag.setAttribute('lang', 'en');
+            enBtn.classList.add('active');
+            faBtn.classList.remove('active');
+        }
+    }
+
+    // محاسبات قانون دارسی
+    function calculateDarcyFlow() {
+        const k = parseFloat(document.getElementById('calcK').value) || 0;
+        const a = parseFloat(document.getElementById('calcA').value) || 0;
+        const p = parseFloat(document.getElementById('calcP').value) || 0;
+        const m = parseFloat(document.getElementById('calcM').value) || 1;
+        
+        const q = (k * a * p) / (m * 1000); 
+        document.getElementById('calcResult').innerText = "خروجی سیستم محاسباتی: دبی جریان برابر با " + q.toFixed(3) + " bbl/day محاسبه شد.";
+    }
+
+    // جستجوی زنده در پورتفولیو
+    function performLiveSearch() {
+        const query = document.getElementById('siteSearchInput').value.toLowerCase();
+        const items = document.querySelectorAll('.searchable-item');
+        
+        items.forEach(item => {
+            if(item.textContent.toLowerCase().includes(query)) {
+                item.classList.remove('search-hidden');
+            } else {
+                item.classList.add('search-hidden');
+            }
+        });
+    }
+
+    // پنجره مخفی مدیریت
+    function toggleAdminPanel(show) {
+        const adminOverlay = document.getElementById('admin-panel-overlay');
+        if(adminOverlay) {
+            adminOverlay.style.display = show ? 'flex' : 'none';
+        }
+    }
+</script>
 </body>
 </html>
