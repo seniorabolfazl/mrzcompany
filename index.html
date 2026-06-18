@@ -1080,7 +1080,7 @@
                         جهت پایش ساختاریافته فرآیندهای علمی، مقالات و مستندات تخصصی ذیل بازنویسی و دسته‌بندی شده‌اند. از ناوبری مینیاتوری زیر جهت تغییر مقالات فعال سیستم استفاده کنید:
                     </p>
 
-                    <div class="doc-navigation">
+                    <div class="doc-navigation" id="docNavContainer">
                         <button class="doc-nav-btn active" onclick="showArticleWindow(1)">Doc 101: Core Flooding</button>
                         <button class="doc-nav-btn" onclick="showArticleWindow(2)">Doc 102: Gas Lift</button>
                         <button class="doc-nav-btn" onclick="showArticleWindow(3)">Doc 103: Carbon Sequestration</button>
@@ -1088,82 +1088,82 @@
                     </div>
 
                     <div id="artWindow-1" class="scientific-window active">
-                        <h3 style="color:#fff;">تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)</h3>
+                        <h3 id="art1_h3" style="color:#fff;">تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)</h3>
                         <div class="article-meta-grid">
-                            <div class="meta-item"><strong>شناسه دسترسی:</strong> AR-CORE-001</div>
-                            <div class="meta-item"><strong>پایشگاه علمی:</strong> دپارتمان نفت شریف</div>
-                            <div class="meta-item"><strong>وضعیت سند:</strong> بازنگری نهایی شده</div>
+                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-CORE-001</div>
+                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> دپارتمان نفت شریف</div>
+                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> بازنگری نهایی شده</div>
                         </div>
                         <div class="abstract-section">
-                            <div class="abstract-title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text">
+                            <div class="abstract-title" id="art1_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                            <p class="abstract-text" id="art1_abs_txt">
                                 فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود. این مستند به بررسی جامع متدولوژی اندازه‌گیری تراوایی نسبی، شبیه‌سازی مکانیزم‌های بازیافت ثانویه و ثالثه نفت، تعادل فازی سیالات در شرایط فشار و دمای بالا (HPHT) و ارزیابی آسیب سازند (Formation Damage) ناشی از مهاجرت ذرات ریزدانه می‌پردازد. داده‌های حاصل مستقیماً در نرم‌افزارهای شبیه‌ساز مخزن تزریق می‌شوند.
                             </p>
-                            <div class="keywords-box"><strong>کلیدواژه‌های کلیدی:</strong> سیلاب‌زنی مغزه، نفوذپذیری نسبی، آسیب سازند، شرایط کریتیکال مخزن.</div>
+                            <div class="keywords-box" id="art1_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> سیلاب‌زنی مغزه، نفوذپذیری نسبی، آسیب سازند، شرایط کریتیکال مخزن.</div>
                         </div>
                         <div class="file-legal-overlay">
-                            <strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong> این مستند با پروتکل هش توزیع‌شده قفل شده است. کدهای الحاقی اسکریپت در دیتابیس متمرکز ثبت شده‌اند.
+                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong></span> <span class="legal-desc-art1">این مستند با پروتکل هش توزیع‌شده قفل شده است. کدهای الحاقی اسکریپت در دیتابیس متمرکز ثبت شده‌اند.</span>
                             <br>
-                            <a href="#" class="action-link-btn" onclick="alert('لینک مستقیم دانلود فایل PDF پس از تایید نهایی از سمت اراِئه‌دهنده فعال خواهد شد.'); return false;">📥 دریافت فایل کامل PDF</a>
+                            <a href="#" class="action-link-btn art-dl-btn">📥 دریافت فایل کامل PDF</a>
                         </div>
                     </div>
 
                     <div id="artWindow-2" class="scientific-window">
-                        <h3 style="color:#fff;">بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift Systems) در چاه‌های کم‌فشار</h3>
+                        <h3 id="art2_h3" style="color:#fff;">بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift Systems) در چاه‌های کم‌فشار</h3>
                         <div class="article-meta-grid">
-                            <div class="meta-item"><strong>شناسه دسترسی:</strong> AR-GLIFT-002</div>
-                            <div class="meta-item"><strong>پایشگاه علمی:</strong> سمینار مدلسازی هیدرولیکی سیالات</div>
-                            <div class="meta-item"><strong>وضعیت سند:</strong> پیش‌نویس تحقیقاتی</div>
+                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-GLIFT-002</div>
+                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> سمینار مدلسازی هیدرولیکی سیالات</div>
+                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> پیش‌نویس تحقیقاتی</div>
                         </div>
                         <div class="abstract-section">
-                            <div class="abstract-title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text">
+                            <div class="abstract-title" id="art2_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                            <p class="abstract-text" id="art2_abs_txt">
                                 هنگامی که انرژی طبیعی مخزن جهت انتقال سیال به سطح کافی نباشد، مکانیزم‌های فرازآوری مصنوعی وارد مدار می‌شوند. این پژوهش متمرکز بر تعیین عمق بهینه تزریق گاز، نرخ دبی بهینه تزریق تجمعی و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه با استفاده از مدل‌های جریان چندفازی اولدمن است. تحلیل‌های اقتصادی نشان می‌دهد پیاده‌سازی این الگو افت تولید چاه‌های پیر را تا ۲۸٪ جبران می‌سازد.
                             </p>
-                            <div class="keywords-box"><strong>کلیدواژه‌های کلیدی:</strong> فرازآوری با گاز، جریان دوفازی، لوله مغزی تولیدی، مدل افت فشار.</div>
+                            <div class="keywords-box" id="art2_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> فرازآوری با گاز، جریان دوفازی، لوله مغزی تولیدی، مدل افت فشار.</div>
                         </div>
                         <div class="file-legal-overlay">
-                            <strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong> حقوق معنوی اثر متعلق به پدیدآورنده و دانشگاه صنعتی شریف می‌باشد.
+                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong></span> <span class="legal-desc-art2">حقوق معنوی اثر متعلق به پدیدآورنده و دانشگاه صنعتی شریف می‌باشد.</span>
                             <br>
-                            <a href="#" class="action-link-btn" onclick="alert('فایل پیش‌نویس موقتاً غیرقابل دسترس است.'); return false;">📥 درخواست دسترسی علمی</a>
+                            <a href="#" class="action-link-btn art-req-btn">📥 درخواست دسترسی علمی</a>
                         </div>
                     </div>
 
                     <div id="artWindow-3" class="scientific-window">
-                        <h3 style="color:#fff;">ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق</h3>
+                        <h3 id="art3_h3" style="color:#fff;">ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق</h3>
                         <div class="article-meta-grid">
-                            <div class="meta-item"><strong>شناسه دسترسی:</strong> AR-SEQ-003</div>
-                            <div class="meta-item"><strong>پایشگاه علمی:</strong> کارگروه انرژی‌های پایدار و محیط زیست</div>
-                            <div class="meta-item"><strong>وضعیت سند:</strong> تحت داوری ژورنال</div>
+                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-SEQ-003</div>
+                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> کارگروه انرژی‌های پایدار و محیط زیست</div>
+                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> تحت داوری ژورنال</div>
                         </div>
                         <div class="abstract-section">
-                            <div class="abstract-title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text">
-                                تزریق کربن دی‌اکسید به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.
+                            <div class="abstract-title" id="art3_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                            <p class="abstract-text" id="art3_abs_txt">
+                                تزریق کربن دی‌آمادگی به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.
                             </p>
-                            <div class="keywords-box"><strong>کلیدواژه‌های کلیدی:</strong> ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.</div>
+                            <div class="keywords-box" id="art3_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.</div>
                         </div>
                         <div class="file-legal-overlay">
-                            <strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong> کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد.
+                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong></span> <span class="legal-desc-art3">کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد.</span>
                         </div>
                     </div>
 
                     <div id="artWindow-4" class="scientific-window">
-                        <h3 style="color:#fff;">بررسی رئولوژی سیالات پلیمری در فرآیندهای بهبود بازیافت نفت (EOR)</h3>
+                        <h3 id="art4_h3" style="color:#fff;">بررسی رئولوژی سیالات پلیمری در فرآیندهای بهبود بازیافت نفت (EOR)</h3>
                         <div class="article-meta-grid">
-                            <div class="meta-item"><strong>شناسه دسترسی:</strong> AR-POLY-004</div>
-                            <div class="meta-item"><strong>پایشگاه علمی:</strong> آزمایشگاه پیشرفته ازدیاد برداشت سیالات</div>
-                            <div class="meta-item"><strong>وضعیت سند:</strong> تایید شده برای ارائه</div>
+                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-POLY-004</div>
+                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> آزمایشگاه پیشرفته ازدیاد برداشت سیالات</div>
+                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> تایید شده برای ارائه</div>
                         </div>
                         <div class="abstract-section">
-                            <div class="abstract-title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text">
+                            <div class="abstract-title" id="art4_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                            <p class="abstract-text" id="art4_abs_txt">
                                 تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی (Mobility Ratio) را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال (Viscous Fingering) می‌گردد. این پژوهش تجربی به مطالعه رفتار غیرنیوتنی محلول‌های پلیمری هیدرولیز شده پلی‌اکریل‌آمید (HPAM)، میزان پایداری حرارتی آن‌ها و پدیده تخریب مکانیکی در نرخ‌های برشی بالا درون مغزه‌های شبیه‌سازی شده می‌پردازد.
                             </p>
-                            <div class="keywords-box"><strong>کلیدواژه‌های کلیدی:</strong> تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.</div>
+                            <div class="keywords-box" id="art4_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.</div>
                         </div>
                         <div class="file-legal-overlay">
-                            <strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong> اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است.
+                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong></span> <span class="legal-desc-art4">اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است.</span>
                         </div>
                     </div>
 
@@ -1219,8 +1219,8 @@
                     <h2 id="contTitle">پل‌های ارتباطی صوتی و متنی ادمین</h2>
                     <p id="contDesc" style="color:#cbd5e1; font-size:0.95rem; margin-bottom:15px;">جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:</p>
                     <ul class="contact-list">
-                        <li><strong>پست الکترونیک رسمی دانشگاهی:</strong> <a href="mailto:abolfazl.mirzayi@sharif.edu">abolfazl.mirzayi@sharif.edu</a></li>
-                        <li><strong>تلگرام ادمین سیستم:</strong> <a href="https://t.me/Abolfazl_mirzayi_sh" target="_blank">@Abolfazl_mirzayi_sh</a></li>
+                        <li><strong id="emailLabel">پست الکترونیک رسمی دانشگاهی:</strong> <a href="mailto:abolfazl.mirzayi@sharif.edu">abolfazl.mirzayi@sharif.edu</a></li>
+                        <li><strong id="telegramLabel">تلگرام ادمین سیستم:</strong> <a href="https://t.me/Abolfazl_mirzayi_sh" target="_blank">@Abolfazl_mirzayi_sh</a></li>
                     </ul>
 
                     <form class="cyber-form" onsubmit="handleContactSubmit(event)">
@@ -1241,7 +1241,7 @@
     <script>
         // ۱. پیکربندی و اتصال اولیه Supabase با کلیدهای از پیش تایید شده عمومی پروژه شما
         const SUPABASE_URL = "https://eqmo9x-eegnafwllng-sbyncnovoxekgov7exh4uqo.supabase.co"; 
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxbW85eC1lZWduYWZ3bGxuZy1zYnluY25vdm94ZWtnb3Y3ZXhoNHVxb8IsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzE3MTExMTExLCJleHAiOjIwMTcxMTExMTF9.placeholder"; 
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxbW85eC1lZWduYWZ3bGxuZy1zYnluY25vdm94ZWtnb3Y3ZXhoNHVxb8IsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzE3MTExMTExLCJleHAiOjIwMTcxMTExMTEx... placeholder"; 
         
         let supabase = null;
         try {
@@ -1286,7 +1286,45 @@
                 contTitle: "پل‌های ارتباطی صوتی و متنی ادمین",
                 contDesc: "جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:",
                 formBtn: "📡 ارسال ایمن سیگنال ارتباطی",
-                footerCopyright: "© وب‌سایت رسمی ابوالفضل میرزایی - پایگاه مهندسی نفت دانشگاه صنعتی شریف. تمامی حقوق مادی و معنوی محفوظ است."
+                footerCopyright: "© وب‌سایت رسمی ابوالفضل میرزایی - پایگاه مهندسی نفت دانشگاه صنعتی شریف. تمامی حقوق مادی و معنوی محفوظ است.",
+                emailLabel: "پست الکترونیک رسمی دانشگاهی:",
+                telegramLabel: "تلگرام ادمین سیستم:",
+                
+                // بومی‌سازی داینامیک فیلدهای مقالات علمی ثابت
+                metaLabels: { id: "شناسه دسترسی:", dep: "پایشگاه علمی:", stat: "وضعیت سند:" },
+                legalTitle: "🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:",
+                kwTitle: "کلیدواژه‌های کلیدی:",
+                
+                art1: {
+                    h3: "تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)",
+                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
+                    absTxt: "فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود. این مستند به بررسی جامع متدولوژی اندازه‌گیری تراوایی نسبی، شبیه‌سازی مکانیزم‌های بازیافت ثانویه و ثالثه نفت، تعادل فازی سیالات در شرایط فشار و دمای بالا (HPHT) و ارزیابی آسیب سازند (Formation Damage) ناشی از مهاجرت ذرات ریزدانه می‌پردازد. داده‌های حاصل مستقیماً در نرم‌افزارهای شبیه‌ساز مخزن تزریق می‌شوند.",
+                    kw: "سیلاب‌زنی مغزه، نفوذپذیری نسبی، آسیب سازند، شرایط کریتیکال مخزن.",
+                    legalDesc: "این مستند با پروتکل هش توزیع‌شده قفل شده است. کدهای الحاقی اسکریپت در دیتابیس متمرکز ثبت شده‌اند.",
+                    btn: "📥 دریافت فایل کامل PDF"
+                },
+                art2: {
+                    h3: "بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift Systems) در چاه‌های کم‌فشار",
+                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
+                    absTxt: "هنگامی که انرژی طبیعی مخزن جهت انتقال سیال به سطح کافی نباشد، مکانیزم‌های فرازآوری مصنوعی وارد مدار می‌شوند. این پژوهش متمرکز بر تعیین عمق بهینه تزریق گاز، نرخ دبی بهینه تزریق تجمعی و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه با استفاده از مدل‌های جریان چندفازی اولدمن است. تحلیل‌های اقتصادی نشان می‌دهد پیاده‌سازی این الگو افت تولید چاه‌های پیر را تا ۲۸٪ جبران می‌سازد.",
+                    kw: "فرازآوری با گاز، جریان دوفازی، لوله مغزی تولیدی، مدل افت فشار.",
+                    legalDesc: "حقوق معنوی اثر متعلق به پدیدآورنده و دانشگاه صنعتی شریف می‌باشد.",
+                    btn: "📥 درخواست دسترسی علمی"
+                },
+                art3: {
+                    h3: "ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق",
+                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
+                    absTxt: "تزریق کربن دی‌اکسید به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.",
+                    kw: "ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.",
+                    legalDesc: "کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد."
+                },
+                art4: {
+                    h3: "بررسی رئولوژی سیالات پلیمری در فرآیندهای بهبود بازیافت نفت (EOR)",
+                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
+                    absTxt: "تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی (Mobility Ratio) را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال (Viscous Fingering) می‌گردد. این پژوهش تجربی به مطالعه رفتار غیرنیوتنی محلول‌های پلیمری هیدرولیز شده پلی‌اکریل‌آمید (HPAM)، میزان پایداری حرارتی آن‌ها و پدیده تخریب مکانیکی در نرخ‌های برشی بالا درون مغزه‌های شبیه‌سازی شده می‌پردازد.",
+                    kw: "تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.",
+                    legalDesc: "اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است."
+                }
             },
             en: {
                 menuTitle: "SMART MENU CORE",
@@ -1317,7 +1355,43 @@
                 contTitle: "Secure Communications & Signaling Hub",
                 contDesc: "To establish verified secure audio-textual loops, routing queries via approved corporate vectors is required:",
                 formBtn: "📡 Broadcast Secured Signal Packet",
-                footerCopyright: "© Official Hub | Abolfazl Mirzayi - Petroleum Engineering SUT. All Rights Reserved."
+                footerCopyright: "© Official Hub | Abolfazl Mirzayi - Petroleum Engineering SUT. All Rights Reserved.",
+                emailLabel: "Official Academic Email:",
+                telegramLabel: "System Admin Telegram:",
+                
+                // بومی‌سازی داینامیک فیلدهای مقالات علمی ثابت
+                metaLabels: { id: "Access ID:", dep: "Research Center:", stat: "Document Status:" },
+                legalTitle: "🔒 Cybersecurity & Academic Copyright Protocol:",
+                kwTitle: "Keywords Index:",
+                
+                art1: {
+                    h3: "Advanced Laboratory Techniques in Core Drilling and Linear Core Flooding Simulation",
+                    absTitle: "🧬 Structural Engineering Abstract:",
+                    absTxt: "Core flooding operations represent a primary milestone for reservoir valuation. This documentation provides a comprehensive view into relative permeability logs, secondary/tertiary oil recovery mechanisms, high-pressure high-temperature (HPHT) phase behaviors, and formation damage appraisal derived from fine particle migration.",
+                    kw: "Core Flooding, Relative Permeability, Formation Damage, Critical Reservoir Conditions.",
+                    legalDesc: "This node is locked with distributed hash routing. Supplementary script codes are securely cached in the primary database ledger.",
+                    btn: "📥 Download Full PDF"
+                },
+                art2: {
+                    h3: "Optimization Matrices for Gas Lift Systems in Low-Pressure Hydrocarbon Wells",
+                    absTitle: "🧬 Structural Engineering Abstract:",
+                    absTxt: "When natural reservoir energy degrades below lifting threshold, artificial lift mechanisms are deployed. This workflow targets optimal gas injection depth calculations, customized cumulative volumetric injection routing, and multi-phase flow modeling inside the production string using advanced pressure drop frameworks.",
+                    kw: "Gas Lift Optimization, Two-Phase Flow, Production Tubing, Pressure Gradient Models.",
+                    legalDesc: "Intellectual property metrics remain solely assigned to the author and Sharif University of Technology.",
+                    btn: "📥 Request Academic Access"
+                },
+                art3: {
+                    h3: "Carbon Dioxide (CO2 Sequestration) Stabilization Vectors inside Deep Saline Aquifers",
+                    absTitle: "🧬 Structural Engineering Abstract:",
+                    absTxt: "Injecting CO2 into deep saline geological formations stands as a premier strategy for atmospheric greenhouse abatement. This structural brief reviews structural caprock integrity, dissolution trapping dynamics, and geochemical reactions mapping structural rock-fluid interaction patterns.",
+                    kw: "Carbon Sequestration, Dissolution Trapping, Porous Saline Media, Geochemical Modeling."
+                },
+                art4: {
+                    h3: "Rheological Assessment of Polymer Fluids inside Enhanced Oil Recovery (EOR) Workflows",
+                    absTitle: "🧬 Structural Engineering Abstract:",
+                    absTxt: "Polymer injections optimize mobility ratios by augmenting water-phase viscosity, preventing detrimental viscous fingering behaviors. This experimental overview maps the non-Newtonian dynamics of hydrolyzed polyacrylamide (HPAM) solutions under elevated shear stress indices.",
+                    kw: "Polymer Injection, Mobility Ratio, Non-Newtonian Behavior, Thermal Stability Indices."
+                }
             }
         };
 
@@ -1430,6 +1504,7 @@
 
             const dict = localization[lang];
             Object.keys(dict).forEach(key => {
+                if (['art1', 'art2', 'art3', 'art4', 'metaLabels', 'legalTitle', 'kwTitle'].includes(key)) return;
                 const element = document.getElementById(key);
                 if(element) {
                     if(element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
@@ -1439,6 +1514,41 @@
                     }
                 }
             });
+
+            // ترجمه و بومی‌سازی بخش مقالات علمی ثابت بر اساس زبان انتخاب‌شده
+            document.querySelectorAll('.meta-lbl-id').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.id}</strong>`);
+            document.querySelectorAll('.meta-lbl-dep').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.dep}</strong>`);
+            document.querySelectorAll('.meta-lbl-stat').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.stat}</strong>`);
+            document.querySelectorAll('.legal-title-art').forEach(el => el.innerHTML = `<strong>${dict.legalTitle}</strong>`);
+            document.querySelectorAll('.kw-title').forEach(el => el.innerHTML = `${dict.kwTitle}`);
+
+            for (let i = 1; i <= 4; i++) {
+                const art = dict[`art${i}`];
+                if (document.getElementById(`art${i}_h3`)) document.getElementById(`art${i}_h3`).innerText = art.h3;
+                if (document.getElementById(`art${i}_abs_title`)) document.getElementById(`art${i}_abs_title`).innerText = art.absTitle;
+                if (document.getElementById(`art${i}_abs_txt`)) document.getElementById(`art${i}_abs_txt`).innerText = art.absTxt;
+                if (document.getElementById(`art${i}_key`)) {
+                    document.getElementById(`art${i}_key`).innerHTML = `<strong class="kw-title">${dict.kwTitle}</strong> ${art.kw}`;
+                }
+                if (document.querySelector(`.legal-desc-art${i}`)) document.querySelector(`.legal-desc-art${i}`).innerText = art.legalDesc;
+            }
+
+            if (document.querySelector('.art-dl-btn')) document.querySelector('.art-dl-btn').innerText = dict.art1.btn;
+            if (document.querySelector('.art-req-btn')) document.querySelector('.art-req-btn').innerText = dict.art2.btn;
+
+            // به روز رسانی منو ناوبری مقالات بر اساس زبان انتخاب شده
+            const navContainer = document.getElementById('docNavContainer');
+            if (navContainer) {
+                const currentActive = Array.from(navContainer.children).findIndex(b => b.classList.contains('active')) + 1;
+                navContainer.innerHTML = `
+                    <button class="doc-nav-btn ${currentActive === 1 ? 'active' : ''}" onclick="showArticleWindow(1)">Doc 101: ${lang === 'en' ? 'Core Flooding' : 'سیلاب‌زنی کُر'}</button>
+                    <button class="doc-nav-btn ${currentActive === 2 ? 'active' : ''}" onclick="showArticleWindow(2)">Doc 102: ${lang === 'en' ? 'Gas Lift' : 'فرازآوری گاز'}</button>
+                    <button class="doc-nav-btn ${currentActive === 3 ? 'active' : ''}" onclick="showArticleWindow(3)">Doc 103: ${lang === 'en' ? 'Carbon Sequest.' : 'ترسیب کربن'}</button>
+                    <button class="doc-nav-btn ${currentActive === 4 ? 'active' : ''}" onclick="showArticleWindow(4)">Doc 104: ${lang === 'en' ? 'Polymer Flood.' : 'سیلاب پلیمر'}</button>
+                `;
+                // اعمال وضعیت داینامیک برای دکمه‌های جدید اضافه شده احتمالی از سمت سابابیس
+                if (typeof fetchDynamicArticles === "function") fetchDynamicArticles();
+            }
 
             // به‌روزرسانی مکان‌نماها و فیلد متون فرم و منوها بر اساس زبان
             if(lang === 'en') {
@@ -1592,7 +1702,6 @@
             const password = document.getElementById('adminPassword').value;
 
             if(!supabase) {
-                // اگر اتصال سابابیس هنوز کانفیگ نشده باشد، برای تست به صورت دمو لاگین می‌شود
                 if(email === "admin@sharif.edu" && password === "sharif123") {
                     alert("🔓 لاگین آفلاین تستی با موفقیت انجام شد! دسترسی ادمین لوکال باز است.");
                     document.getElementById('adminLoginForm').style.display = 'none';
@@ -1621,7 +1730,6 @@
             const filename = document.getElementById('newArtFilename').value || '#';
 
             if(!supabase) {
-                // شبیه‌سازی افزودن به داکیومنت‌ها در صورت نبود دیتابیس آنلاین
                 const wrapper = document.getElementById('dynamicArticlesWrapper');
                 const uniqueId = Math.floor(Math.random() * 1000);
                 wrapper.innerHTML += `
@@ -1678,9 +1786,8 @@
             } else {
                 alert("📡 ردیف مانیتورینگ با موفقیت بر روی جدول آنلاین همگام‌سازی شد!");
                 e.target.reset();
-                // واکشی مجدد جدول
                 const tbody = document.getElementById('projectTableBody');
-                tbody.innerHTML = ''; // پاکسازی لوکال پیش‌فرض برای بارگذاری کامل سرور
+                tbody.innerHTML = ''; 
                 fetchDynamicMonitorRows();
             }
         }
@@ -1707,11 +1814,11 @@
             if (error || !articles) return;
 
             const wrapper = document.getElementById('dynamicArticlesWrapper');
-            wrapper.innerHTML = ''; // ریست کردن برای جلوگیری از تکرار
+            wrapper.innerHTML = ''; 
 
-            // به‌روزرسانی تعداد مقالات در هدر با محاسبات داینامیک
             const totalCount = 4 + articles.length;
-            document.getElementById('headerArticlesCount').innerText = `📝 مقالات ثبت شده: ${totalCount} مورد`;
+            const isEn = document.getElementById('siteHtml').getAttribute('lang') === 'en';
+            document.getElementById('headerArticlesCount').innerText = isEn ? `📝 Cached Docs: ${totalCount} Nodes` : `📝 مقالات ثبت شده: ${totalCount} مورد`;
 
             articles.forEach((art, index) => {
                 const globalIndex = 5 + index;
@@ -1719,25 +1826,23 @@
                     <div class="scientific-window" id="artWindow-${globalIndex}" style="margin-top:20px; border-top: 4px solid #0284c7;">
                         <h3 style="color:#fff;">${art.title}</h3>
                         <div class="article-meta-grid">
-                            <div class="meta-item"><strong>شناسه دسترسی:</strong> AR-DB-0${globalIndex}</div>
-                            <div class="meta-item"><strong>پایشگاه علمی:</strong> هسته ذخیره‌سازی ابری</div>
-                            <div class="meta-item"><strong>وضعیت سند:</strong> داینامیک و تایید شده</div>
+                            <div class="meta-item"><strong>${isEn ? 'Access ID:' : 'شناسه دسترسی:'}</strong> AR-DB-0${globalIndex}</div>
+                            <div class="meta-item"><strong>${isEn ? 'Research Hub:' : 'پایشگاه علمی:'}</strong> Cloud Vault Central</div>
+                            <div class="meta-item"><strong>${isEn ? 'Doc Status:' : 'وضعیت سند:'}</strong> Sync Verified</div>
                         </div>
                         <div class="abstract-section">
-                            <div class="abstract-title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                            <div class="abstract-title">🧬 ${isEn ? 'Engineering Abstract:' : 'خلاصه ساختار یافته مهندسی:'}</div>
                             <p class="abstract-text">${art.abstract}</p>
                         </div>
                         <div class="file-legal-overlay">
-                            <strong>🔒 پروتکل حفاظت ابری:</strong> جهت دسترسی به منبع متصل به شناسه ابری با ادمین ارتباط برقرار کنید.
+                            <strong>🔒 ${isEn ? 'Cloud Security Matrix:' : 'پروتکل حفاظت ابری:'}</strong> ${isEn ? 'To route this node source, request administrative validation.' : 'جهت دسترسی به منبع متصل به شناسه ابری با ادمین ارتباط برقرار کنید.'}
                         </div>
                     </div>
                 `;
 
-                // افزودن دکمه ناوبری برای مقالات داینامیک جدید
-                const navContainer = document.querySelector('.doc-navigation');
-                // بررسی جهت جلوگیری از تکرار دکمه در بارگذاری‌های چندباره
-                if(!Array.from(document.querySelectorAll('.doc-nav-btn')).some(b => b.innerText.includes(`Doc ${globalIndex}`))) {
-                    navContainer.innerHTML += `<button class="doc-nav-btn" onclick="showArticleWindow(${globalIndex})">Doc ${globalIndex}: ${art.title.substring(0,12)}...</button>`;
+                const navContainer = document.getElementById('docNavContainer');
+                if(navContainer && !Array.from(navContainer.children).some(b => b.innerText.includes(`Doc ${globalIndex}`))) {
+                    navContainer.innerHTML += `<button class="doc-nav-btn" onclick="showArticleWindow(${globalIndex})">Doc ${globalIndex}: ${art.title.substring(0,10)}...</button>`;
                 }
             });
         }
@@ -1760,32 +1865,29 @@
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) openTab(hash, false);
         });
+
         window.addEventListener('load', function() {
-    // ۱. فوراً صفحه لودینگ را پس از ۱ ثانیه مخفی کن تا سایت باز شود
             setTimeout(function() {
                 const loader = document.getElementById('security-loader');
                 if (loader) {
                     loader.style.opacity = '0';
                     loader.style.visibility = 'hidden';
                 }
-        // اگر سیستم صوتی فعال بود بوق بزند
                 if (typeof playSystemBeep === "function") {
                     playSystemBeep(800, 0.1, 'sine');
                 }
             }, 1000);
 
-    // ۲. چک کردن مپینگ هش آدرس بار
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) openTab(hash, false);
 
-    // ۳. کارهای مربوط به پایگاه داده را در یک بلاک امن اجرا کن تا اگر خطا داد سایت قفل نشود
             try {
                 if (typeof fetchDynamicArticles === "function") fetchDynamicArticles();
                 if (typeof fetchDynamicMonitorRows === "function") fetchDynamicMonitorRows();
             } catch (err) {
                 console.warn("Supabase Fetch Error: ", err);
             }
-});
+        });
     </script>
 </body>
 </html>
