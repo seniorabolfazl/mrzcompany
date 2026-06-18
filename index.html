@@ -409,6 +409,12 @@
             gap: 15px;
             margin-top: 15px;
         }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
         .calc-group {
             display: flex;
             flex-direction: column;
@@ -1095,7 +1101,7 @@
                             <div class="keywords-box" id="art4_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.</div>
                         </div>
                         <div class="file-legal-overlay">
-                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong></span> <span class="legal-desc-art4">اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است.</span>
+                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:</strong></span> <span class="legal-desc-art4">اطلاوات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است.</span>
                         </div>
                     </div>
 
@@ -1222,6 +1228,14 @@
                 metaLabels: { id: "شناسه دسترسی:", dep: "پایشگاه علمی:", stat: "وضعیت سند:" },
                 legalTitle: "🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:",
                 kwTitle: "کلیدواژه‌های کلیدی:",
+                sidebarMenu: [
+                    "⊙ هویت دانشگاهی و فردی",
+                    "⊙ اهداف، پروژه‌ها و چشم‌اندازها",
+                    "⊙ مهارت‌ها و ابزارها",
+                    "⊙ مستندات علمی و پژوهشی",
+                    "⊙ مانیتورینگ فعالیت‌ها",
+                    "⊙ دپارتمان ارتباطات"
+                ],
                 art1: {
                     h3: "تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)",
                     absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
@@ -1288,6 +1302,14 @@
                 metaLabels: { id: "Access ID:", dep: "Research Center:", stat: "Document Status:" },
                 legalTitle: "🔒 Cybersecurity & Academic Copyright Protocol:",
                 kwTitle: "Keywords Index:",
+                sidebarMenu: [
+                    "⊙ Academic & Personal Identity",
+                    "⊙ Targets, Projects & Vision",
+                    "⊙ Technical Stack & Skills",
+                    "⊙ Scientific Documentation",
+                    "⊙ Process Infrastructure",
+                    "⊙ Communications Department"
+                ],
                 art1: {
                     h3: "Advanced Laboratory Techniques in Core Drilling and Linear Core Flooding Simulation",
                     absTitle: "🧬 Structural Engineering Abstract:",
@@ -1399,6 +1421,10 @@
             const faBtn = document.getElementById('langFaBtn');
             const langEnBtn = document.getElementById('langEnBtn');
 
+            // ذخیره تب فعال فعلی قبل از بازنویسی کدهای منو
+            const activeTabBtn = document.querySelector('.sidebar-menu .tab-btn.active');
+            const currentActiveTabId = activeTabBtn ? activeTabBtn.getAttribute('aria-controls') : 'identity';
+
             if(lang === 'fa') {
                 htmlTag.setAttribute('dir', 'rtl');
                 htmlTag.setAttribute('lang', 'fa');
@@ -1415,7 +1441,7 @@
 
             const dict = localization[lang];
             Object.keys(dict).forEach(key => {
-                if (['art1', 'art2', 'art3', 'art4', 'metaLabels', 'legalTitle', 'kwTitle'].includes(key)) return;
+                if (['art1', 'art2', 'art3', 'art4', 'metaLabels', 'legalTitle', 'kwTitle', 'sidebarMenu'].includes(key)) return;
                 const element = document.getElementById(key);
                 if(element) {
                     if(element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
@@ -1426,6 +1452,17 @@
                 }
             });
 
+            // بازنویسی و بومی‌سازی دکمه‌های سایدبار همراه با حفظ Event Listener ها
+            const sidebarButtons = document.querySelectorAll('.sidebar-menu .tab-btn');
+            sidebarButtons.forEach((btn, idx) => {
+                if (dict.sidebarMenu[idx]) {
+                    btn.innerHTML = dict.sidebarMenu[idx];
+                }
+            });
+
+            // همگام‌سازی و بازیابی تب فعال بعد از ترجمه سایدبار
+            openTab(currentActiveTabId, false);
+
             document.querySelectorAll('.meta-lbl-id').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.id}</strong>`);
             document.querySelectorAll('.meta-lbl-dep').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.dep}</strong>`);
             document.querySelectorAll('.meta-lbl-stat').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.stat}</strong>`);
@@ -1435,8 +1472,8 @@
             for (let i = 1; i <= 4; i++) {
                 const art = dict[`art${i}`];
                 if (document.getElementById(`art${i}_h3`)) document.getElementById(`art${i}_h3`).innerText = art.h3;
-                if (document.getElementById(`art${i}_abs_title`)) document.getElementById(`art${i}_abs_title`).innerText = art.absTitle;
-                if (document.getElementById(`art${i}_abs_txt`)) document.getElementById(`art${i}_abs_txt`).innerText = art.absTxt;
+                if (document.getElementById(`art${i}_abs_title`)) document.getElementById(`art` + i + `_abs_title`).innerText = art.absTitle;
+                if (document.getElementById(`art${i}_abs_txt`)) document.getElementById(`art` + i + `_abs_txt`).innerText = art.absTxt;
                 if (document.getElementById(`art${i}_key`)) {
                     document.getElementById(`art${i}_key`).innerHTML = `<strong class="kw-title">${dict.kwTitle}</strong> ${art.kw}`;
                 }
