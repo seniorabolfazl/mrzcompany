@@ -1314,7 +1314,7 @@
                 art3: {
                     h3: "ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق",
                     absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "تزریق کربن دی‌اکسید به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.",
+                    absTxt: "تزریق کربن دی‌آکمالات به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.",
                     kw: "ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.",
                     legalDesc: "کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد."
                 },
@@ -1469,19 +1469,6 @@
             }
         }
 
-        function toggleAudioSystem() {
-            isAudioEnabled = !isAudioEnabled;
-            const btn = document.getElementById('audioToggleBtn');
-            if (isAudioEnabled) {
-                btn.innerText = "🔊 SOUND: ON";
-                btn.classList.add('active');
-                playSystemBeep(600, 0.1, 'sine');
-            } else {
-                btn.innerText = "🔇 SOUND: MUTED";
-                btn.classList.remove('active');
-            }
-        }
-
         // ۵. مکانیزم بومی تغییر زبان پورتفولیو (فارسی / انگلیسی)
         function toggleLanguage(lang) {
             const htmlTag = document.getElementById('siteHtml');
@@ -1546,7 +1533,6 @@
                     <button class="doc-nav-btn ${currentActive === 3 ? 'active' : ''}" onclick="showArticleWindow(3)">Doc 103: ${lang === 'en' ? 'Carbon Sequest.' : 'ترسیب کربن'}</button>
                     <button class="doc-nav-btn ${currentActive === 4 ? 'active' : ''}" onclick="showArticleWindow(4)">Doc 104: ${lang === 'en' ? 'Polymer Flood.' : 'سیلاب پلیمر'}</button>
                 `;
-                // اعمال وضعیت داینامیک برای دکمه‌های جدید اضافه شده احتمالی از سمت سابابیس
                 if (typeof fetchDynamicArticles === "function") fetchDynamicArticles();
             }
 
@@ -1566,6 +1552,19 @@
             }
 
             playSystemBeep(440, 0.08, 'sawtooth');
+        }
+
+        function toggleAudioSystem() {
+            isAudioEnabled = !isAudioEnabled;
+            const btn = document.getElementById('audioToggleBtn');
+            if (isAudioEnabled) {
+                btn.innerText = "🔊 SOUND: ON";
+                btn.classList.add('active');
+                playSystemBeep(600, 0.1, 'sine');
+            } else {
+                btn.innerText = "🔇 SOUND: MUTED";
+                btn.classList.remove('active');
+            }
         }
 
         // ۶. الگوریتم شبیه‌ساز مهندسی نفت (معادله جریانات خطی دارسی)
@@ -1617,7 +1616,6 @@
                 const cmd = e.target.value.trim().toLowerCase();
                 const body = document.getElementById('termBody');
                 
-                // چاپ خط وارد شده
                 const userLine = document.createElement('p');
                 userLine.innerHTML = `<span style="color:#e11d48; font-weight:bold;">guest@void_net:~#</span> ${e.target.value}`;
                 body.insertBefore(userLine, this.parentNode);
@@ -1666,7 +1664,6 @@
             playSystemBeep(show ? 850 : 400, 0.1, 'sawtooth');
         }
 
-        // شنود میانبر کیبورد Ctrl+Shift+A جهت احضار یا بستن پنل مدیریت
         window.addEventListener('keydown', function(e) {
             if(e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
                 e.preventDefault();
@@ -1695,7 +1692,6 @@
             playSystemBeep(500, 0.05, 'sine');
         }
 
-        // احراز هویت ادمین پورتفولیو
         async function handleAdminLogin(e) {
             e.preventDefault();
             const email = document.getElementById('adminEmail').value;
@@ -1722,7 +1718,6 @@
             }
         }
 
-        // ارسال سند یا مقاله جدید به دیتابیس Supabase
         async function handleCreateArticle(e) {
             e.preventDefault();
             const title = document.getElementById('newArtTitle').value;
@@ -1761,7 +1756,6 @@
             }
         }
 
-        // ارسال ردیف مانیتورینگ جدید به دیتابیس Supabase
         async function handleCreateMonitor(e) {
             e.preventDefault();
             const title = document.getElementById('newMonTitle').value;
@@ -1792,7 +1786,6 @@
             }
         }
 
-        // ارسال پیغام در فرم ارتباطی
         function handleContactSubmit(e) {
             e.preventDefault();
             const name = document.getElementById('formName').value;
@@ -1806,7 +1799,6 @@
             playSystemBeep(1200, 0.25, 'sine');
         }
 
-        // واکشی پویای مقالات از دیتابیس آنلاین Supabase
         async function fetchDynamicArticles() {
             if(!supabase) return;
 
@@ -1847,7 +1839,6 @@
             });
         }
 
-        // واکشی ردیف‌های داینامیک جدول مانیتورینگ
         async function fetchDynamicMonitorRows() {
             if(!supabase) return;
 
@@ -1860,7 +1851,6 @@
             });
         }
 
-        // رویدادهای زمان بارگذاری صفحه
         window.addEventListener('hashchange', function() {
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) openTab(hash, false);
