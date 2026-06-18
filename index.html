@@ -37,6 +37,71 @@
             overflow-x: hidden;
         }
 
+        /* صفحه ورودی امنیتی سایت (Splash Screen) */
+        #security-splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #040811;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: monospace;
+            color: #38bdf8;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .security-container {
+            width: 90%;
+            max-width: 500px;
+            background: #0f1626;
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: right;
+            direction: rtl;
+        }
+        .security-title {
+            color: #2ecc71;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .security-logs {
+            background: #060b14;
+            padding: 15px;
+            border-radius: 8px;
+            height: 150px;
+            overflow-y: auto;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            border: 1px solid #1e293b;
+            text-align: left;
+            direction: ltr;
+        }
+        .security-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #1e293b;
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+        .security-progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #2ecc71);
+            transition: width 0.1s linear;
+        }
+
         .wrapper {
             display: flex;
             max-width: 1250px;
@@ -109,6 +174,7 @@
         html[dir="rtl"] .sidebar-menu button.active { border-right: 3px solid #38bdf8; padding-right: 16px; }
         html[dir="ltr"] .sidebar-menu button.active { border-left: 3px solid #38bdf8; padding-left: 16px; }
 
+        /* باکس وضعیت فرعی سایدبار */
         .sidebar-extra-box {
             margin-top: 20px;
             background: rgba(6, 10, 19, 0.6);
@@ -758,43 +824,34 @@
 
         .search-hidden { display: none !important; }
 
-        /* پنل مدیریت سایبرپانک و فیکس لایه ماتریکسی */
+        /* پنل مدیریت سایبرپانک */
         #admin-panel-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(3, 5, 10, 0.98);
-            backdrop-filter: blur(15px);
+            background: rgba(4, 8, 17, 0.95);
             z-index: 10000;
             display: none;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            transition: all 0.4s ease;
         }
         .admin-window {
-            border: 2px solid #38bdf8;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.25), inset 0 0 20px rgba(56, 189, 248, 0.05);
-            max-width: 500px;
-            width: 100%;
-            background: #070c16;
-            position: relative;
-            overflow: hidden;
+            background: #0f1626;
+            border: 2px solid #e11d48;
+            box-shadow: 0 0 30px rgba(225, 29, 72, 0.3);
             border-radius: 12px;
+            width: 100%;
+            max-width: 550px;
             padding: 25px;
-        }
-        @keyframes glitchGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         .admin-tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 15px;
-            border-bottom: 1px dashed rgba(56, 189, 248, 0.2);
+            border-bottom: 1px dashed #334155;
             padding-bottom: 10px;
         }
         .admin-tab-btn {
@@ -808,8 +865,8 @@
             font-size: 0.85rem;
         }
         .admin-tab-btn.active {
-            border-color: #38bdf8;
-            color: #38bdf8;
+            border-color: #e11d48;
+            color: #e11d48;
             font-weight: bold;
         }
 
@@ -834,6 +891,22 @@
 </head>
 <body>
 
+    <div id="security-splash">
+        <div class="security-container">
+            <div class="security-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>سیستم تایید هویت و امنیت پورتفولیو</span>
+            </div>
+            <div class="security-logs" id="securityLogs">
+                [SYSTEM] Initializing secure handshake...<br>
+                [INFO] Protocol TLS v1.3 handshake established.<br>
+            </div>
+            <div class="security-progress-bar">
+                <div class="security-progress-fill" id="securityProgress"></div>
+            </div>
+            <p style="font-size:0.8rem; color:#2ecc71; text-align:center; margin-top:10px;" id="securityStatus">در حال اسکن ماژول‌های حفاظتی...</p>
+        </div>
+    </div>
     <div id="admin-panel-overlay">
         <div class="admin-window">
             
@@ -1245,7 +1318,7 @@
                 thStack: "بستر و ابزار کلیدی استفاده شده",
                 thStatus: "وضعیت عملیاتی",
                 contTitle: "پل‌های ارتباطی صوتی و متنی ادمین",
-                contDesc: "جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:",
+                contDesc: "جهت برقراری هرگونه ارتباط کاری, آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:",
                 formBtn: "📡 ارسال ایمن سیگنال ارتباطی",
                 footerCopyright: "© وب‌سایت رسمی ابوالفضل میرزایی - پایگاه مهندسی نفت دانشگاه صنعتی شریف. تمامی حقوق مادی و معنوی محفوظ است.",
                 emailLabel: "پست الکترونیک رسمی دانشگاهی:",
@@ -1308,6 +1381,52 @@
             }
         };
 
+        // انیمیشن پیشرفته اسکن بارگذاری امنیتی پورتفولیو (Splash Screen)
+        function initSecuritySplash() {
+            const progressFill = document.getElementById('securityProgress');
+            const logsContainer = document.getElementById('securityLogs');
+            const statusText = document.getElementById('securityStatus');
+            const splashScreen = document.getElementById('security-splash');
+            
+            if(!splashScreen) return; // اگر لایه در بدنه HTML نباشد بدون خطا رد می‌شود
+
+            const logSteps = [
+                "[OK] Port scanning... No unauthorized nodes found.",
+                "[SECURE] Anti-Tamper Core loaded dynamically.",
+                "[FIREWALL] Integrity verification status: 100% Valid.",
+                "[SUCCESS] Access Granted. Redirecting to Sharif Net Core..."
+            ];
+
+            let currentWidth = 0;
+            let logIndex = 0;
+
+            const progressInterval = setInterval(() => {
+                currentWidth += 2;
+                if(progressFill) progressFill.style.width = currentWidth + '%';
+
+                if (currentWidth % 24 === 0 && logIndex < logSteps.length) {
+                    if(logsContainer) {
+                        logsContainer.innerHTML += `[INFO] ${logSteps[logIndex]}<br>`;
+                        logsContainer.scrollTop = logsContainer.scrollHeight;
+                    }
+                    logIndex++;
+                    playSystemBeep(700, 0.05, 'square');
+                }
+
+                if (currentWidth >= 100) {
+                    clearInterval(progressInterval);
+                    if(statusText) statusText.innerText = "سیستم ایمن است. ورود به پورتفولیو...";
+                    playSystemBeep(900, 0.15, 'sine');
+                    
+                    setTimeout(() => {
+                        splashScreen.style.opacity = '0';
+                        splashScreen.style.transform = 'scale(1.04)';
+                        setTimeout(() => splashScreen.style.display = 'none', 600);
+                    }, 400);
+                }
+            }, 35);
+        }
+
         // مدیریت تعویض تب‌ها (فیکس قطعی دپارتمان‌ها و کلیک تایتل‌ها)
         function openTab(tabId, playSound = true) {
             const contents = document.querySelectorAll('.tab-content');
@@ -1369,7 +1488,7 @@
                 oscillator.type = type;
                 oscillator.frequency.value = frequency;
                 
-                gainNode.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
                 gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + duration);
 
                 oscillator.connect(gainNode);
@@ -1389,17 +1508,17 @@
             const langEnBtn = document.getElementById('langEnBtn');
 
             if(lang === 'fa') {
-                htmlTag.setAttribute('dir', 'rtl');
-                htmlTag.setAttribute('lang', 'fa');
-                faBtn.classList.add('active');
-                langEnBtn.classList.remove('active');
-                document.getElementById('siteTitle').innerText = "وب‌سایت رسمی | ابوالفضل میرزایی";
+                if(htmlTag) { htmlTag.setAttribute('dir', 'rtl'); htmlTag.setAttribute('lang', 'fa'); }
+                if(faBtn) faBtn.classList.add('active');
+                if(langEnBtn) langEnBtn.classList.remove('active');
+                const titleEl = document.getElementById('siteTitle');
+                if(titleEl) titleEl.innerText = "وب‌سایت رسمی | ابوالفضل میرزایی";
             } else {
-                htmlTag.setAttribute('dir', 'ltr');
-                htmlTag.setAttribute('lang', 'en');
-                langEnBtn.classList.add('active');
-                faBtn.classList.remove('active');
-                document.getElementById('siteTitle').innerText = "Official Portfolio | Abolfazl Mirzayi";
+                if(htmlTag) { htmlTag.setAttribute('dir', 'ltr'); htmlTag.setAttribute('lang', 'en'); }
+                if(langEnBtn) langEnBtn.classList.add('active');
+                if(faBtn) faBtn.classList.remove('active');
+                const titleEl = document.getElementById('siteTitle');
+                if(titleEl) titleEl.innerText = "Official Portfolio | Abolfazl Mirzayi";
             }
 
             const dict = localization[lang];
@@ -1423,16 +1542,21 @@
                 }
             });
 
+            const siteSearchInput = document.getElementById('siteSearchInput');
+            const formName = document.getElementById('formName');
+            const formEmail = document.getElementById('formEmail');
+            const formMsg = document.getElementById('formMsg');
+
             if(lang === 'en') {
-                document.getElementById('siteSearchInput').placeholder = "Search internal system metrics...";
-                document.getElementById('formName').placeholder = "Full Name";
-                document.getElementById('formEmail').placeholder = "Signal Email Address";
-                document.getElementById('formMsg').placeholder = "Your encrypted message transmission to admin...";
+                if(siteSearchInput) siteSearchInput.placeholder = "Search internal system metrics...";
+                if(formName) formName.placeholder = "Full Name";
+                if(formEmail) formEmail.placeholder = "Signal Email Address";
+                if(formMsg) formMsg.placeholder = "Your encrypted message transmission to admin...";
             } else {
-                document.getElementById('siteSearchInput').placeholder = "جستجو در مطالب سایت...";
-                document.getElementById('formName').placeholder = "نام و نام خانوادگی";
-                document.getElementById('formEmail').placeholder = "آدرس ایمیل سیگنال";
-                document.getElementById('formMsg').placeholder = "متن پیام گام‌به‌گام شما به پروتکل ادمین...";
+                if(siteSearchInput) siteSearchInput.placeholder = "جستجو در مطالب سایت...";
+                if(formName) formName.placeholder = "نام و نام خانوادگی";
+                if(formEmail) formEmail.placeholder = "آدرس ایمیل سیگنال";
+                if(formMsg) formMsg.placeholder = "متن پیام گام‌به‌گام شما به پروتکل ادمین...";
             }
 
             playSystemBeep(440, 0.08, 'sawtooth');
@@ -1441,6 +1565,7 @@
         function toggleAudioSystem() {
             isAudioEnabled = !isAudioEnabled;
             const btn = document.getElementById('audioToggleBtn');
+            if(!btn) return;
             if (isAudioEnabled) {
                 btn.innerText = "🔊 SOUND: ON";
                 btn.classList.add('active');
@@ -1453,26 +1578,29 @@
 
         // محاسبات هیدرودینامیکی دارسی
         function calculateDarcyFlow() {
-            const k = parseFloat(document.getElementById('calcK').value);
-            const a = parseFloat(document.getElementById('calcA').value);
-            const dp = parseFloat(document.getElementById('calcP').value);
-            const mu = parseFloat(document.getElementById('calcM').value);
-            const L = parseFloat(document.getElementById('calcL').value);
-            const isRtl = document.getElementById('siteHtml').getAttribute('dir') === 'rtl';
+            const k = parseFloat(document.getElementById('calcK')?.value || 0);
+            const a = parseFloat(document.getElementById('calcA')?.value || 0);
+            const dp = parseFloat(document.getElementById('calcP')?.value || 0);
+            const mu = parseFloat(document.getElementById('calcM')?.value || 1);
+            const L = parseFloat(document.getElementById('calcL')?.value || 1);
+            
+            const htmlTag = document.getElementById('siteHtml');
+            const isRtl = htmlTag ? htmlTag.getAttribute('dir') === 'rtl' : true;
+            const calcResult = document.getElementById('calcResult');
 
             if(!k || !a || !dp || !mu || !L) {
-                document.getElementById('calcResult').innerText = isRtl ? "⚠️ خطا: تمامی متغیرها باید مقداردهی شوند." : "⚠️ Error: All fields required.";
+                if(calcResult) calcResult.innerText = isRtl ? "⚠️ خطا: تمامی متغیرها باید مقداردهی شوند." : "⚠️ Error: All fields required.";
                 playSystemBeep(250, 0.2, 'sawtooth');
                 return;
             }
 
             const q = (0.001127 * k * a * dp) / (mu * L);
-            document.getElementById('calcResult').innerText = isRtl ? `✅ نرخ جریان نهایی (Q): ${q.toFixed(5)} bbl/day` : `✅ Calculated Flow Rate (Q): ${q.toFixed(5)} bbl/day`;
+            if(calcResult) calcResult.innerText = isRtl ? `✅ نرخ جریان نهایی (Q): ${q.toFixed(5)} bbl/day` : `✅ Calculated Flow Rate (Q): ${q.toFixed(5)} bbl/day`;
             playSystemBeep(900, 0.15, 'sine');
         }
 
         // موتور جستجوی فیلترینگ کلمات کلیدی
-        document.getElementById('siteSearchInput').addEventListener('input', function(e) {
+        document.getElementById('siteSearchInput')?.addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
             const searchableCards = document.querySelectorAll('.searchable-item');
             searchableCards.forEach(card => {
@@ -1482,10 +1610,11 @@
         });
 
         // مینی ترمینال تعاملی وب
-        document.getElementById('termInput').addEventListener('keydown', function(e) {
+        document.getElementById('termInput')?.addEventListener('keydown', function(e) {
             if(e.key === 'Enter') {
                 const cmd = e.target.value.trim().toLowerCase();
                 const body = document.getElementById('termBody');
+                if(!body) return;
                 
                 const userLine = document.createElement('p');
                 userLine.innerHTML = `<span style="color:#e11d48; font-weight:bold;">guest@void_net:~#</span> ${e.target.value}`;
@@ -1535,16 +1664,21 @@
             if(e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
                 e.preventDefault();
                 const overlay = document.getElementById('admin-panel-overlay');
-                toggleAdminPanel(overlay.style.display !== 'flex');
+                if(overlay) toggleAdminPanel(overlay.style.display !== 'flex');
             }
         });
 
         function switchAdminAction(mode) {
-            document.getElementById('addArticleForm').style.display = mode === 'art' ? 'block' : 'none';
-            document.getElementById('addMonitorForm').style.display = mode === 'mon' ? 'block' : 'none';
+            const addArticleForm = document.getElementById('addArticleForm');
+            const addMonitorForm = document.getElementById('addMonitorForm');
+            if(addArticleForm) addArticleForm.style.display = mode === 'art' ? 'block' : 'none';
+            if(addMonitorForm) addMonitorForm.style.display = mode === 'mon' ? 'block' : 'none';
+            
             const btns = document.querySelectorAll('.admin-tab-btn');
-            btns[0].classList.toggle('active', mode === 'art');
-            btns[1].classList.toggle('active', mode === 'mon');
+            if(btns.length >= 2) {
+                btns[0].classList.toggle('active', mode === 'art');
+                btns[1].classList.toggle('active', mode === 'mon');
+            }
             playSystemBeep(500, 0.05, 'sine');
         }
 
@@ -1579,11 +1713,13 @@
 
             if(!supabase) {
                 const wrapper = document.getElementById('dynamicArticlesWrapper');
-                wrapper.innerHTML += `
-                    <div class="scientific-window active" style="margin-top:20px; border-top: 4px solid #e11d48;">
-                        <h3 style="color:#fff;">[لوکال] ${title}</h3>
-                        <div class="abstract-section"><p class="abstract-text">${abstract}</p></div>
-                    </div>`;
+                if(wrapper) {
+                    wrapper.innerHTML += `
+                        <div class="scientific-window active" style="margin-top:20px; border-top: 4px solid #e11d48;">
+                            <h3 style="color:#fff;">[لوکال] ${title}</h3>
+                            <div class="abstract-section"><p class="abstract-text">${abstract}</p></div>
+                        </div>`;
+                }
                 alert("🚀 مقاله به صورت محلی تزریق شد.");
                 e.target.reset();
                 return;
@@ -1599,10 +1735,13 @@
             const title = document.getElementById('newMonTitle').value;
             const stack = document.getElementById('newMonStack').value;
             const status = document.getElementById('newMonStatus').value;
+            
+            // تصحیح کلاس به status-progress جهت اعمال رنگ زرد در حالت محلی
             const statusHtml = status === 'online' ? '<span class="status-online">● عملیاتی و آنلاین</span>' : '<span class="status-progress">● در حال انجام</span>';
 
             if(!supabase) {
-                document.getElementById('projectTableBody').innerHTML += `<tr><td>${title}</td><td>${stack}</td><td>${statusHtml}</td></tr>`;
+                const tableBody = document.getElementById('projectTableBody');
+                if(tableBody) tableBody.innerHTML += `<tr><td>${title}</td><td>${stack}</td><td>${statusHtml}</td></tr>`;
                 e.target.reset();
                 return;
             }
@@ -1611,7 +1750,6 @@
             if(error) alert("❌ خطا: " + error.message);
             else { e.target.reset(); document.getElementById('projectTableBody').innerHTML = ''; fetchDynamicMonitorRows(); }
         }
-
         function handleContactSubmit(e) {
             e.preventDefault();
             alert("📡 سیگنال ارتباطی شما با موفقیت ارسال شد.");
@@ -1625,9 +1763,15 @@
             if (error || !articles) return;
 
             const wrapper = document.getElementById('dynamicArticlesWrapper');
+            if(!wrapper) return;
             wrapper.innerHTML = ''; 
-            const isEn = document.getElementById('siteHtml').getAttribute('lang') === 'en';
-            document.getElementById('headerArticlesCount').innerText = isEn ? `📝 Cached Docs: ${4 + articles.length}` : `📝 مقالات ثبت شده: ${4 + articles.length} مورد`;
+            
+            const htmlTag = document.getElementById('siteHtml');
+            const isEn = htmlTag ? htmlTag.getAttribute('lang') === 'en' : false;
+            const countEl = document.getElementById('headerArticlesCount');
+            if(countEl) {
+                countEl.innerText = isEn ? `📝 Cached Docs: ${4 + articles.length}` : `📝 مقالات ثبت شده: ${4 + articles.length} مورد`;
+            }
 
             articles.forEach((art, index) => {
                 const globalIndex = 5 + index;
@@ -1643,8 +1787,11 @@
             if(!supabase) return;
             const { data: rows, error } = await supabase.from('monitoring').select('*');
             if (error || !rows) return;
+            const tableBody = document.getElementById('projectTableBody');
+            if(!tableBody) return;
             rows.forEach(row => {
-                document.getElementById('projectTableBody').innerHTML += `<tr><td>${row.title}</td><td>${row.stack}</td>${row.status_html}</tr>`;
+                // اضافه شدن تگ td به دور ستون سوم وضعیت
+                tableBody.innerHTML += `<tr><td>${row.title}</td><td>${row.stack}</td><td>${row.status_html}</td></tr>`;
             });
         }
 
@@ -1653,11 +1800,20 @@
             if (hash && document.getElementById(hash)) openTab(hash, false);
         });
 
+        // لودینگ نهایی هماهنگ با انیمیشن صفحه امنیتی (Splash Screen)
         window.addEventListener('load', function() {
-            if (typeof playSystemBeep === "function") playSystemBeep(800, 0.1, 'sine');
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById(hash)) openTab(hash, false);
+            // ۱. راه‌اندازی و شروع پردازش انیمیشن صفحه لودینگ امنیتی اول سایت
+            initSecuritySplash();
 
+            // ۲. بررسی تب‌ها از روی هش URL
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                openTab(hash, false);
+            } else {
+                openTab('identity', false);
+            }
+
+            // ۳. همگام‌سازی و بارگذاری داده‌های ابری Supabase
             try {
                 fetchDynamicArticles();
                 fetchDynamicMonitorRows();
@@ -1666,5 +1822,4 @@
             }
         });
     </script>
-</body>
 </html>
