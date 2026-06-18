@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="EqmO9x-EEgNAfwLlnG-sbyNCNOVo2XEKgOv7EXH4Uqo" />
     
     <title id="siteTitle">وب‌سایت رسمی | ابوالفضل میرزایی</title>
-    <meta name="description" content="پورتفولیو و پایگاه رسمی مستندات علمی و پژوهشی ابوالفضل میرزایی، دانشجوی مهندسی نفت دانشگاه صنعتی شریف">
+    <meta name="description" content="پورتفولیو و پایگاه رسمی مستندات علمی و پژوهشی ابوالفضل میرزایی, دانشجوی مهندسی نفت دانشگاه صنعتی شریف">
     <meta property="og:title" content="وب‌سایت رسمی | ابوالفضل میرزایی">
     <meta property="og:description" content="پایگاه رسمی مستندات علمی، اسکریپت‌های سیالات بالادستی و پورتفولیو فنی">
     <meta property="og:type" content="website">
@@ -109,7 +109,6 @@
         html[dir="rtl"] .sidebar-menu button.active { border-right: 3px solid #38bdf8; padding-right: 16px; }
         html[dir="ltr"] .sidebar-menu button.active { border-left: 3px solid #38bdf8; padding-left: 16px; }
 
-        /* باکس وضعیت فرعی سایدبار */
         .sidebar-extra-box {
             margin-top: 20px;
             background: rgba(6, 10, 19, 0.6);
@@ -402,12 +401,6 @@
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
-        }
-        .calc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
         }
         .calc-grid {
             display: grid;
@@ -765,34 +758,43 @@
 
         .search-hidden { display: none !important; }
 
-        /* پنل مدیریت سایبرپانک */
+        /* پنل مدیریت سایبرپانک و فیکس لایه ماتریکسی */
         #admin-panel-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(4, 8, 17, 0.95);
+            background: rgba(3, 5, 10, 0.98);
+            backdrop-filter: blur(15px);
             z-index: 10000;
             display: none;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            transition: all 0.4s ease;
         }
         .admin-window {
-            background: #0f1626;
-            border: 2px solid #e11d48;
-            box-shadow: 0 0 30px rgba(225, 29, 72, 0.3);
-            border-radius: 12px;
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.25), inset 0 0 20px rgba(56, 189, 248, 0.05);
+            max-width: 500px;
             width: 100%;
-            max-width: 550px;
+            background: #070c16;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
             padding: 25px;
+        }
+        @keyframes glitchGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .admin-tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 15px;
-            border-bottom: 1px dashed #334155;
+            border-bottom: 1px dashed rgba(56, 189, 248, 0.2);
             padding-bottom: 10px;
         }
         .admin-tab-btn {
@@ -806,8 +808,8 @@
             font-size: 0.85rem;
         }
         .admin-tab-btn.active {
-            border-color: #e11d48;
-            color: #e11d48;
+            border-color: #38bdf8;
+            color: #38bdf8;
             font-weight: bold;
         }
 
@@ -834,16 +836,39 @@
 
     <div id="admin-panel-overlay">
         <div class="admin-window">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                <h3 style="color:#e11d48; font-size:1.2rem;">⚡ هسته مدیریت مرکزی پورتفولیو</h3>
-                <button onclick="toggleAdminPanel(false)" style="background:none; border:none; color:#94a3b8; cursor:pointer; font-size:1.2rem;">✕</button>
+            
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #38bdf8, #e11d48, #38bdf8); background-size: 200% auto; animation: glitchGradient 3s linear infinite;"></div>
+            
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom: 12px; border-bottom: 1px solid rgba(56, 189, 248, 0.2);">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="display:inline-block; width:10px; height:10px; background:#e11d48; border-radius:50%; box-shadow: 0 0 10px #e11d48; animation: pulse 1s infinite;"></span>
+                    <h3 style="color:#38bdf8; font-size:1.15rem; font-family: monospace; letter-spacing: 1px; font-weight: 900;">⚡ CORE SECURITY ACCESS GATEWAY</h3>
+                </div>
+                <button onclick="toggleAdminPanel(false)" style="background: rgba(225, 29, 72, 0.1); border: 1px solid rgba(225, 29, 72, 0.3); color:#e11d48; cursor:pointer; font-size:0.85rem; padding: 4px 8px; border-radius: 4px; transition: all 0.2s;" onmouseover="this.style.background='#e11d48'; this.style.color='#fff';" onmouseout="this.style.background='rgba(225, 29, 72, 0.1)'; this.style.color='#e11d48';">✕ CLOSE</button>
             </div>
             
             <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
-                <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:12px;">جهت تزریق داده یا ویرایش پورتفولیو ابتدا باید توکن امنیتی ادمین را احراز کنید:</p>
-                <input type="email" id="adminEmail" class="cyber-input" placeholder="ایمیل ادمین" style="margin-bottom:10px;" required>
-                <input type="password" id="adminPassword" class="cyber-input" placeholder="گذرواژه امنیتی" style="margin-bottom:15px;" required>
-                <button type="submit" class="cyber-submit" style="width:100%; background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); border-color:#38bdf8;">🗝️ تایید هویت و ورود</button>
+                <div style="background: rgba(6, 10, 19, 0.8); border: 1px dashed rgba(56, 189, 248, 0.3); padding: 12px; border-radius: 8px; margin-bottom: 20px;">
+                    <p style="font-size:0.82rem; color:#94a3b8; line-height: 1.6; margin: 0;">
+                        <span style="color: #e11d48; font-weight: bold;">[پروتکل دسترسی]:</span> جهت تزریق اسناد علمی پایگاه مخازن یا پایش زنده ردیف‌های مانیتورینگ سیستم، لطفاً کلید امنیتی و اطلاعات ادمین هاب مرکزی را احراز هویت کنید.
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 15px; position: relative;">
+                    <label style="display:block; font-size:0.75rem; color:#38bdf8; font-weight:bold; margin-bottom:6px; letter-spacing:1px;">ADMIN SIGNAL IDENTIFIER</label>
+                    <input type="email" id="adminEmail" class="cyber-input" placeholder="name@sharif.edu" style="border-color: rgba(56, 189, 248, 0.3); padding-left: 35px; background: #040811; font-family: monospace;" required>
+                    <span style="position: absolute; left: 12px; bottom: 11px; color: rgba(56, 189, 248, 0.4); font-size: 0.9rem;">⌨</span>
+                </div>
+                
+                <div style="margin-bottom: 22px; position: relative;">
+                    <label style="display:block; font-size:0.75rem; color:#38bdf8; font-weight:bold; margin-bottom:6px; letter-spacing:1px;">ENCRYPTED SECURITY KEY</label>
+                    <input type="password" id="adminPassword" class="cyber-input" placeholder="••••••••••••" style="border-color: rgba(56, 189, 248, 0.3); padding-left: 35px; background: #040811; font-family: monospace;" required>
+                    <span style="position: absolute; left: 12px; bottom: 11px; color: rgba(56, 189, 248, 0.4); font-size: 0.9rem;">🔒</span>
+                </div>
+                
+                <button type="submit" class="cyber-submit" style="width:100%; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); border: 1px solid #38bdf8; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3); transition: all 0.3s ease; text-transform: uppercase; font-family: monospace; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span>🗝️ AUTHORIZE DECRYPT SYSTEM</span>
+                </button>
             </form>
 
             <div id="adminControlsArea" style="display:none;">
@@ -1077,7 +1102,7 @@
                         <div class="abstract-section">
                             <div class="abstract-title" id="art3_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
                             <p class="abstract-text" id="art3_abs_txt">
-                                تزریق کربن دی‌آمادگی به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آآید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.
+                                تزریق کربن دی‌آمادگی به آبده‌های شور عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای است. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2 ارزیابی شده است.
                             </p>
                             <div class="keywords-box" id="art3_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.</div>
                         </div>
@@ -1096,7 +1121,7 @@
                         <div class="abstract-section">
                             <div class="abstract-title" id="art4_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
                             <p class="abstract-text" id="art4_abs_txt">
-                                تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی (Mobility Ratio) را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال (Viscous Fingering) می‌گردد. این پژوهش تجربی به مطالعه رفتار غیرنیوتنی محلول‌های پلیمری هیدرولیز شده پلی‌اکریل‌آمید (HPAM)، میزان پایداری حرارتی آن‌ها و پدیده تخریب مکانیکی در نرخ‌های برشی بالا درون مغزه‌های شبیه‌سازی شده می‌پردازد.
+                                تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال می‌گردد. این پژوهش تجربی به مطالعه رفتار غیرنیوتنی محلول‌های پلیمری هیدرولیز شده پلی‌اکریل‌آمید (HPAM) می‌پردازد.
                             </p>
                             <div class="keywords-box" id="art4_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.</div>
                         </div>
@@ -1176,7 +1201,7 @@
     </div>
 
     <script>
-        // ۱. اتصال Supabase
+        // ۱. اتصال پایگاه داده Supabase
         const SUPABASE_URL = "https://eqmo9x-eegnafwllng-sbyncnovoxekgov7exh4uqo.supabase.co"; 
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxbW85eC1lZWduYWZ3bGxuZy1zYnluY25vdm94ZWtnb3Y3ZXhoNHVxb8IsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzE3MTExMTExLCJleHAiOjIwMTcxMTExMTEx... placeholder"; 
         
@@ -1220,7 +1245,7 @@
                 thStack: "بستر و ابزار کلیدی استفاده شده",
                 thStatus: "وضعیت عملیاتی",
                 contTitle: "پل‌های ارتباطی صوتی و متنی ادمین",
-                contDesc: "جهت برقراری هرگونه ارتباط کاری, آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:",
+                contDesc: "جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:",
                 formBtn: "📡 ارسال ایمن سیگنال ارتباطی",
                 footerCopyright: "© وب‌سایت رسمی ابوالفضل میرزایی - پایگاه مهندسی نفت دانشگاه صنعتی شریف. تمامی حقوق مادی و معنوی محفوظ است.",
                 emailLabel: "پست الکترونیک رسمی دانشگاهی:",
@@ -1235,37 +1260,7 @@
                     "⊙ مستندات علمی و پژوهشی",
                     "⊙ مانیتورینگ فعالیت‌ها",
                     "⊙ دپارتمان ارتباطات"
-                ],
-                art1: {
-                    h3: "تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)",
-                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود. این مستند به بررسی جامع متدولوژی اندازه‌گیری تراوایی نسبی، شبیه‌سازی مکانیزم‌های بازیافت ثانویه و ثالثه نفت، تعادل فازی سیالات در شرایط فشار و دمای بالا (HPHT) و ارزیابی آسیب سازند (Formation Damage) ناشی از مهاجرت ذرات ریزدانه می‌پردازد.",
-                    kw: "سیلاب‌زنی مغزه، نفوذپذیری نسبی، آسیب سازند، شرایط کریتیکال مخزن.",
-                    legalDesc: "این مستند با پروتکل هش توزیع‌شده قفل شده است.",
-                    btn: "📥 دریافت فایل کامل PDF"
-                },
-                art2: {
-                    h3: "بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift Systems) در چاه‌های کم‌فشار",
-                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "هنگامی که انرژی طبیعی مخزن جهت انتقال سیال به سطح کافی نباشد، مکانیزم‌های فرازآوری مصنوعی وارد مدار می‌شوند. این پژوهش متمرکز بر تعیین عمق بهینه تزریق گاز، نرخ دبی بهینه تزریق تجمعی و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه است.",
-                    kw: "فرازآوری با گاز، جریان دوفازی، لوله مغزی تولیدی، مدل افت فشار.",
-                    legalDesc: "حقوق معنوی اثر متعلق به پدیدآورنده و دانشگاه صنعتی شریف می‌باشد.",
-                    btn: "📥 درخواست دسترسی علمی"
-                },
-                art3: {
-                    h3: "ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق",
-                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "تزریق کربن دی‌آکمالات به آبده‌های شور عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای است. در این مستند، پایداری ساختاری کلاهک مخازن و مکانیزم‌های به تله‌اندازی ارزیابی شده است.",
-                    kw: "ترسیب کربن, تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.",
-                    legalDesc: "کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد."
-                },
-                art4: {
-                    h3: "بررسی رئولوژی سیالات پلیمری در فرآیندهای بهبود بازیافت نفت (EOR)",
-                    absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال می‌گردد.",
-                    kw: "تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.",
-                    legalDesc: "اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است."
-                }
+                ]
             },
             en: {
                 menuTitle: "SMART MENU CORE",
@@ -1309,39 +1304,11 @@
                     "⊙ Scientific Documentation",
                     "⊙ Process Infrastructure",
                     "⊙ Communications Department"
-                ],
-                art1: {
-                    h3: "Advanced Laboratory Techniques in Core Drilling and Linear Core Flooding Simulation",
-                    absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "Core flooding operations represent a primary milestone for reservoir valuation. This documentation provides a comprehensive view into relative permeability logs and fluid dynamics.",
-                    kw: "Core Flooding, Relative Permeability, Formation Damage, Critical Reservoir Conditions.",
-                    legalDesc: "This node is locked with distributed hash routing.",
-                    btn: "📥 Download Full PDF"
-                },
-                art2: {
-                    h3: "Optimization Matrices for Gas Lift Systems in Low-Pressure Hydrocarbon Wells",
-                    absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "When natural reservoir energy degrades below lifting threshold, artificial lift mechanisms are deployed.",
-                    kw: "Gas Lift Optimization, Two-Phase Flow, Production Tubing, Pressure Gradient Models.",
-                    legalDesc: "Intellectual property metrics remain solely assigned to the author and SUT.",
-                    btn: "📥 Request Academic Access"
-                },
-                art3: {
-                    h3: "Carbon Dioxide (CO2 Sequestration) Stabilization Vectors inside Deep Saline Aquifers",
-                    absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "Injecting CO2 into deep saline geological formations stands as a premier strategy for atmospheric greenhouse abatement.",
-                    kw: "Carbon Sequestration, Dissolution Trapping, Porous Saline Media, Geochemical Modeling."
-                },
-                art4: {
-                    h3: "Rheological Assessment of Polymer Fluids inside Enhanced Oil Recovery (EOR) Workflows",
-                    absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "Polymer injections optimize mobility ratios by augmenting water-phase viscosity, preventing detrimental viscous fingering behaviors.",
-                    kw: "Polymer Injection, Mobility Ratio, Non-Newtonian Behavior, Thermal Stability Indices."
-                }
+                ]
             }
         };
 
-        // مدیریت تب‌ها
+        // مدیریت تعویض تب‌ها (فیکس قطعی دپارتمان‌ها و کلیک تایتل‌ها)
         function openTab(tabId, playSound = true) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -1383,7 +1350,7 @@
             playSystemBeep(650, 0.05, 'sine');
         }
 
-        // افکت صوتی دیجیتال
+        // افکت صوتی دیجیتال پورتفولیو
         function initAudioContext() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1415,15 +1382,11 @@
             }
         }
 
-        // تغییر زبان سیستم
+        // تغییر زبان هوشمند (اصلاح شده بدون تخریب ساختار کلیک منو)
         function toggleLanguage(lang) {
             const htmlTag = document.getElementById('siteHtml');
             const faBtn = document.getElementById('langFaBtn');
             const langEnBtn = document.getElementById('langEnBtn');
-
-            // ذخیره تب فعال فعلی قبل از بازنویسی کدهای منو
-            const activeTabBtn = document.querySelector('.sidebar-menu .tab-btn.active');
-            const currentActiveTabId = activeTabBtn ? activeTabBtn.getAttribute('aria-controls') : 'identity';
 
             if(lang === 'fa') {
                 htmlTag.setAttribute('dir', 'rtl');
@@ -1441,7 +1404,7 @@
 
             const dict = localization[lang];
             Object.keys(dict).forEach(key => {
-                if (['art1', 'art2', 'art3', 'art4', 'metaLabels', 'legalTitle', 'kwTitle', 'sidebarMenu'].includes(key)) return;
+                if (['sidebarMenu', 'metaLabels', 'legalTitle', 'kwTitle'].includes(key)) return;
                 const element = document.getElementById(key);
                 if(element) {
                     if(element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
@@ -1452,48 +1415,13 @@
                 }
             });
 
-            // بازنویسی و بومی‌سازی دکمه‌های سایدبار همراه با حفظ Event Listener ها
+            // ترجمه هوشمند بدون دستکاری و ریست کردن دکمه‌ها
             const sidebarButtons = document.querySelectorAll('.sidebar-menu .tab-btn');
             sidebarButtons.forEach((btn, idx) => {
                 if (dict.sidebarMenu[idx]) {
                     btn.innerHTML = dict.sidebarMenu[idx];
                 }
             });
-
-            // همگام‌سازی و بازیابی تب فعال بعد از ترجمه سایدبار
-            openTab(currentActiveTabId, false);
-
-            document.querySelectorAll('.meta-lbl-id').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.id}</strong>`);
-            document.querySelectorAll('.meta-lbl-dep').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.dep}</strong>`);
-            document.querySelectorAll('.meta-lbl-stat').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.stat}</strong>`);
-            document.querySelectorAll('.legal-title-art').forEach(el => el.innerHTML = `<strong>${dict.legalTitle}</strong>`);
-            document.querySelectorAll('.kw-title').forEach(el => el.innerHTML = `${dict.kwTitle}`);
-
-            for (let i = 1; i <= 4; i++) {
-                const art = dict[`art${i}`];
-                if (document.getElementById(`art${i}_h3`)) document.getElementById(`art${i}_h3`).innerText = art.h3;
-                if (document.getElementById(`art${i}_abs_title`)) document.getElementById(`art` + i + `_abs_title`).innerText = art.absTitle;
-                if (document.getElementById(`art${i}_abs_txt`)) document.getElementById(`art` + i + `_abs_txt`).innerText = art.absTxt;
-                if (document.getElementById(`art${i}_key`)) {
-                    document.getElementById(`art${i}_key`).innerHTML = `<strong class="kw-title">${dict.kwTitle}</strong> ${art.kw}`;
-                }
-                if (document.querySelector(`.legal-desc-art${i}`)) document.querySelector(`.legal-desc-art${i}`).innerText = art.legalDesc;
-            }
-
-            if (document.querySelector('.art-dl-btn')) document.querySelector('.art-dl-btn').innerText = dict.art1.btn;
-            if (document.querySelector('.art-req-btn')) document.querySelector('.art-req-btn').innerText = dict.art2.btn;
-
-            const navContainer = document.getElementById('docNavContainer');
-            if (navContainer) {
-                const currentActive = Array.from(navContainer.children).findIndex(b => b.classList.contains('active')) + 1;
-                navContainer.innerHTML = `
-                    <button class="doc-nav-btn ${currentActive === 1 ? 'active' : ''}" onclick="showArticleWindow(1)">Doc 101: ${lang === 'en' ? 'Core Flooding' : 'سیلاب‌زنی کُر'}</button>
-                    <button class="doc-nav-btn ${currentActive === 2 ? 'active' : ''}" onclick="showArticleWindow(2)">Doc 102: ${lang === 'en' ? 'Gas Lift' : 'فرازآوری گاز'}</button>
-                    <button class="doc-nav-btn ${currentActive === 3 ? 'active' : ''}" onclick="showArticleWindow(3)">Doc 103: ${lang === 'en' ? 'Carbon Sequest.' : 'ترسیب کربن'}</button>
-                    <button class="doc-nav-btn ${currentActive === 4 ? 'active' : ''}" onclick="showArticleWindow(4)">Doc 104: ${lang === 'en' ? 'Polymer Flood.' : 'سیلاب پلیمر'}</button>
-                `;
-                if (typeof fetchDynamicArticles === "function") fetchDynamicArticles();
-            }
 
             if(lang === 'en') {
                 document.getElementById('siteSearchInput').placeholder = "Search internal system metrics...";
@@ -1523,7 +1451,7 @@
             }
         }
 
-        // شبیه‌ساز قانون دارسی
+        // محاسبات هیدرودینامیکی دارسی
         function calculateDarcyFlow() {
             const k = parseFloat(document.getElementById('calcK').value);
             const a = parseFloat(document.getElementById('calcA').value);
@@ -1543,7 +1471,7 @@
             playSystemBeep(900, 0.15, 'sine');
         }
 
-        // موتور جستجو
+        // موتور جستجوی فیلترینگ کلمات کلیدی
         document.getElementById('siteSearchInput').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
             const searchableCards = document.querySelectorAll('.searchable-item');
@@ -1553,7 +1481,7 @@
             });
         });
 
-        // خط فرمان ترمینال
+        // مینی ترمینال تعاملی وب
         document.getElementById('termInput').addEventListener('keydown', function(e) {
             if(e.key === 'Enter') {
                 const cmd = e.target.value.trim().toLowerCase();
@@ -1593,11 +1521,16 @@
             }
         });
 
+        // توابع باز و بسته شدن اصولی پنل سکوریتی جدید
         function toggleAdminPanel(show) {
-            document.getElementById('admin-panel-overlay').style.display = show ? 'flex' : 'none';
-            playSystemBeep(show ? 850 : 400, 0.1, 'sawtooth');
+            const overlay = document.getElementById('admin-panel-overlay');
+            if(overlay) {
+                overlay.style.display = show ? 'flex' : 'none';
+                playSystemBeep(show ? 850 : 400, 0.1, 'sawtooth');
+            }
         }
 
+        // دکمه میانبر کیبورد (Ctrl + Shift + A) برای بالا آوردن آنی صفحه ورود سکوریتی
         window.addEventListener('keydown', function(e) {
             if(e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
                 e.preventDefault();
@@ -1626,7 +1559,7 @@
                     document.getElementById('adminLoginForm').style.display = 'none';
                     document.getElementById('adminControlsArea').style.display = 'block';
                 } else {
-                    alert("❌ خطا در ورود! رمز پیش‌فرض: admin@sharif.edu / sharif123");
+                    alert("❌ خطا در ورود! رمز پیش‌فرض آزمایشی: admin@sharif.edu / sharif123");
                 }
                 return;
             }
@@ -1643,7 +1576,6 @@
             e.preventDefault();
             const title = document.getElementById('newArtTitle').value;
             const abstract = document.getElementById('newArtAbstract').value;
-            const filename = document.getElementById('newArtFilename').value || '#';
 
             if(!supabase) {
                 const wrapper = document.getElementById('dynamicArticlesWrapper');
@@ -1657,8 +1589,8 @@
                 return;
             }
 
-            const { error } = await supabase.from('articles').insert([{ title, abstract, filename }]);
-            if(error) alert("❌ خطا در Supabase: " + error.message);
+            const { error } = await supabase.from('articles').insert([{ title, abstract }]);
+            if(error) alert("❌ خطا در مخزن دیتابیس: " + error.message);
             else { alert("🚀 داکیومنت آنلاین منتشر شد!"); e.target.reset(); fetchDynamicArticles(); }
         }
 
@@ -1704,10 +1636,6 @@
                         <h3 style="color:#fff;">${art.title}</h3>
                         <div class="abstract-section"><p class="abstract-text">${art.abstract}</p></div>
                     </div>`;
-                const navContainer = document.getElementById('docNavContainer');
-                if(navContainer && !Array.from(navContainer.children).some(b => b.innerText.includes(`Doc ${globalIndex}`))) {
-                    navContainer.innerHTML += `<button class="doc-nav-btn" onclick="showArticleWindow(${globalIndex})">Doc ${globalIndex}: ${art.title.substring(0,10)}...</button>`;
-                }
             });
         }
 
@@ -1726,7 +1654,6 @@
         });
 
         window.addEventListener('load', function() {
-            // وب‌سایت فوراً و بدون صفحه لودینگ بالا می‌آید
             if (typeof playSystemBeep === "function") playSystemBeep(800, 0.1, 'sine');
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) openTab(hash, false);
@@ -1735,7 +1662,7 @@
                 fetchDynamicArticles();
                 fetchDynamicMonitorRows();
             } catch (err) {
-                console.warn("Supabase integration skipped or delayed.", err);
+                console.warn("Supabase integration deferred.", err);
             }
         });
     </script>
