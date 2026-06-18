@@ -37,54 +37,6 @@
             overflow-x: hidden;
         }
 
-        /* صفحه لودینگ امنیتی با افکت تایپ */
-        #security-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #060a13;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid #1e293b;
-            border-top: 4px solid #38bdf8;
-            border-bottom: 4px solid #e11d48;
-            border-radius: 50%;
-            animation: spin 1.2s linear infinite;
-        }
-
-        .loader-text {
-            margin-top: 20px;
-            font-size: 0.95rem;
-            color: #38bdf8;
-            font-weight: bold;
-            letter-spacing: 1px;
-            font-family: monospace;
-            border-left: 2px solid #38bdf8;
-            padding-left: 5px;
-            animation: blink 0.75s step-end infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: #38bdf8; }
-        }
-
         .wrapper {
             display: flex;
             max-width: 1250px;
@@ -157,7 +109,7 @@
         html[dir="rtl"] .sidebar-menu button.active { border-right: 3px solid #38bdf8; padding-right: 16px; }
         html[dir="ltr"] .sidebar-menu button.active { border-left: 3px solid #38bdf8; padding-left: 16px; }
 
-        /* باکس گیمینگ */
+        /* باکس وضعیت فرعی سایدبار */
         .sidebar-extra-box {
             margin-top: 20px;
             background: rgba(6, 10, 19, 0.6);
@@ -576,7 +528,7 @@
             box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
         }
 
-        /* استایل‌های اختصاصی ارتقایافته برای مقالات آکادمیک */
+        /* بخش مقالات علمی */
         .scientific-window {
             display: none;
             background-color: #0b111f;
@@ -645,20 +597,6 @@
         }
         .keywords-box strong { color: #e11d48; }
 
-        .article-mini-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.85rem;
-        }
-        .article-mini-table th, .article-mini-table td {
-            border: 1px solid #1e293b;
-            padding: 8px 12px;
-        }
-        .article-mini-table th { background: #060b14; color: #38bdf8; text-align: center; }
-        .article-mini-table td { background: #0d1527; text-align: center; }
-
-        /* لایه حفاظت حقوقی */
         .file-legal-overlay {
             margin-top: 25px;
             background: linear-gradient(90deg, #131926 0%, #070b14 100%);
@@ -705,7 +643,7 @@
             font-weight: bold;
         }
 
-        /* ساختار واکنش‌گرا جداول */
+        /* ساختار جداول */
         .table-responsive-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -821,7 +759,7 @@
 
         .search-hidden { display: none !important; }
 
-        /* استایل اختصاصی پنجره مدیریت مخفی (سایبرپانک) */
+        /* پنل مدیریت سایبرپانک */
         #admin-panel-overlay {
             position: fixed;
             top: 0;
@@ -867,7 +805,6 @@
             font-weight: bold;
         }
 
-        /* ریسپانسیو سازی */
         @media (max-width: 992px) {
             .wrapper { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
@@ -888,11 +825,6 @@
     </style>
 </head>
 <body>
-
-    <div id="security-loader">
-        <div class="loader-spinner"></div>
-        <div class="loader-text" id="loaderText">SYSTEM SECURITY CHECK: ACTIVE...</div>
-    </div>
 
     <div id="admin-panel-overlay">
         <div class="admin-window">
@@ -1139,7 +1071,7 @@
                         <div class="abstract-section">
                             <div class="abstract-title" id="art3_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
                             <p class="abstract-text" id="art3_abs_txt">
-                                تزریق کربن دی‌آمادگی به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.
+                                تزریق کربن دی‌آمادگی به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آآید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.
                             </p>
                             <div class="keywords-box" id="art3_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.</div>
                         </div>
@@ -1168,7 +1100,6 @@
                     </div>
 
                     <div id="dynamicArticlesWrapper"></div>
-
                 </section>
             </div>
 
@@ -1239,7 +1170,7 @@
     </div>
 
     <script>
-        // ۱. پیکربندی و اتصال اولیه Supabase با کلیدهای از پیش تایید شده عمومی پروژه شما
+        // ۱. اتصال Supabase
         const SUPABASE_URL = "https://eqmo9x-eegnafwllng-sbyncnovoxekgov7exh4uqo.supabase.co"; 
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxbW85eC1lZWduYWZ3bGxuZy1zYnluY25vdm94ZWtnb3Y3ZXhoNHVxb8IsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzE3MTExMTExLCJleHAiOjIwMTcxMTExMTEx... placeholder"; 
         
@@ -1249,10 +1180,9 @@
                 supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
             }
         } catch(e) {
-            console.log("Supabase Connection Delayed: Offline Mock Active.");
+            console.log("Supabase Offline Mode Active.");
         }
 
-        // ۲. متغیرهای عمومی سیستم و چندزبانی
         let audioCtx = null;
         let isAudioEnabled = true;
 
@@ -1284,29 +1214,26 @@
                 thStack: "بستر و ابزار کلیدی استفاده شده",
                 thStatus: "وضعیت عملیاتی",
                 contTitle: "پل‌های ارتباطی صوتی و متنی ادمین",
-                contDesc: "جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:",
+                contDesc: "جهت برقراری هرگونه ارتباط کاری, آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:",
                 formBtn: "📡 ارسال ایمن سیگنال ارتباطی",
                 footerCopyright: "© وب‌سایت رسمی ابوالفضل میرزایی - پایگاه مهندسی نفت دانشگاه صنعتی شریف. تمامی حقوق مادی و معنوی محفوظ است.",
                 emailLabel: "پست الکترونیک رسمی دانشگاهی:",
                 telegramLabel: "تلگرام ادمین سیستم:",
-                
-                // بومی‌سازی داینامیک فیلدهای مقالات علمی ثابت
                 metaLabels: { id: "شناسه دسترسی:", dep: "پایشگاه علمی:", stat: "وضعیت سند:" },
                 legalTitle: "🔒 لایه حفاظت امنیتی و کپی‌رایت دانشگاهی:",
                 kwTitle: "کلیدواژه‌های کلیدی:",
-                
                 art1: {
                     h3: "تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)",
                     absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود. این مستند به بررسی جامع متدولوژی اندازه‌گیری تراوایی نسبی، شبیه‌سازی مکانیزم‌های بازیافت ثانویه و ثالثه نفت، تعادل فازی سیالات در شرایط فشار و دمای بالا (HPHT) و ارزیابی آسیب سازند (Formation Damage) ناشی از مهاجرت ذرات ریزدانه می‌پردازد. داده‌های حاصل مستقیماً در نرم‌افزارهای شبیه‌ساز مخزن تزریق می‌شوند.",
+                    absTxt: "فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود. این مستند به بررسی جامع متدولوژی اندازه‌گیری تراوایی نسبی، شبیه‌سازی مکانیزم‌های بازیافت ثانویه و ثالثه نفت، تعادل فازی سیالات در شرایط فشار و دمای بالا (HPHT) و ارزیابی آسیب سازند (Formation Damage) ناشی از مهاجرت ذرات ریزدانه می‌پردازد.",
                     kw: "سیلاب‌زنی مغزه، نفوذپذیری نسبی، آسیب سازند، شرایط کریتیکال مخزن.",
-                    legalDesc: "این مستند با پروتکل هش توزیع‌شده قفل شده است. کدهای الحاقی اسکریپت در دیتابیس متمرکز ثبت شده‌اند.",
+                    legalDesc: "این مستند با پروتکل هش توزیع‌شده قفل شده است.",
                     btn: "📥 دریافت فایل کامل PDF"
                 },
                 art2: {
                     h3: "بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift Systems) در چاه‌های کم‌فشار",
                     absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "هنگامی که انرژی طبیعی مخزن جهت انتقال سیال به سطح کافی نباشد، مکانیزم‌های فرازآوری مصنوعی وارد مدار می‌شوند. این پژوهش متمرکز بر تعیین عمق بهینه تزریق گاز، نرخ دبی بهینه تزریق تجمعی و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه با استفاده از مدل‌های جریان چندفازی اولدمن است. تحلیل‌های اقتصادی نشان می‌دهد پیاده‌سازی این الگو افت تولید چاه‌های پیر را تا ۲۸٪ جبران می‌سازد.",
+                    absTxt: "هنگامی که انرژی طبیعی مخزن جهت انتقال سیال به سطح کافی نباشد، مکانیزم‌های فرازآوری مصنوعی وارد مدار می‌شوند. این پژوهش متمرکز بر تعیین عمق بهینه تزریق گاز، نرخ دبی بهینه تزریق تجمعی و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه است.",
                     kw: "فرازآوری با گاز، جریان دوفازی، لوله مغزی تولیدی، مدل افت فشار.",
                     legalDesc: "حقوق معنوی اثر متعلق به پدیدآورنده و دانشگاه صنعتی شریف می‌باشد.",
                     btn: "📥 درخواست دسترسی علمی"
@@ -1314,14 +1241,14 @@
                 art3: {
                     h3: "ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق",
                     absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "تزریق کربن دی‌آکمالات به آبده‌های شور اشباع از نمک عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای اتمسفر به شمار می‌آید. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2، و تاثیر متقابل آن بر سنگ مخزن با استفاده از مدل‌های تعادلی ژئوشیمیایی ارزیابی شده است.",
-                    kw: "ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.",
+                    absTxt: "تزریق کربن دی‌آکمالات به آبده‌های شور عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای است. در این مستند، پایداری ساختاری کلاهک مخازن و مکانیزم‌های به تله‌اندازی ارزیابی شده است.",
+                    kw: "ترسیب کربن, تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.",
                     legalDesc: "کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد."
                 },
                 art4: {
                     h3: "بررسی رئولوژی سیالات پلیمری در فرآیندهای بهبود بازیافت نفت (EOR)",
                     absTitle: "🧬 خلاصه ساختار یافته مهندسی:",
-                    absTxt: "تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی (Mobility Ratio) را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال (Viscous Fingering) می‌گردد. این پژوهش تجربی به مطالعه رفتار غیرنیوتنی محلول‌های پلیمری هیدرولیز شده پلی‌اکریل‌آمید (HPAM)، میزان پایداری حرارتی آن‌ها و پدیده تخریب مکانیکی در نرخ‌های برشی بالا درون مغزه‌های شبیه‌سازی شده می‌پردازد.",
+                    absTxt: "تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال می‌گردد.",
                     kw: "تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.",
                     legalDesc: "اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است."
                 }
@@ -1332,7 +1259,7 @@
                 recDesc: "Tactical Comms & Strategy: Active Node<br>Status: Analyzing Market Patterns",
                 profName: "Abolfazl Mirzayi",
                 profSub: "Petroleum Engineering Student at Sharif University of Technology",
-                profAbout: "Welcome to my official technical hub. I am a 2nd-semester undergraduate petroleum engineering student at SUT. My operational focus centers on merging foundational academic engineering with high-fidelity digital simulation, custom web infrastructure, and strategic automation to craft scalable solutions.",
+                profAbout: "Welcome to my official technical hub. I am a 2nd-semester undergraduate petroleum engineering student at SUT. My operational focus centers on merging foundational academic engineering with high-fidelity digital simulation, custom web infrastructure, and strategic automation.",
                 infoInst: "<strong>Institution:</strong> Sharif University of Tech",
                 infoTerm: "<strong>Academic Standing:</strong> Undergrad (Term 2)",
                 infoField: "<strong>Specialization:</strong> General Petroleum",
@@ -1346,56 +1273,53 @@
                 calcSub: "Calculates steady-state volumetric flow rate (Q) through porous geological media.",
                 calcBtn: "⚡ Execute Hydrodynamic Equations",
                 artTitleMain: "Scientific Documentation & Research Depository",
-                artDescMain: "Systematized repository of engineering documents. Use the micro-navigation matrix below to trigger terminal tab visualization:",
+                artDescMain: "Systematized repository of engineering documents. Use the micro-navigation matrix below:",
                 monTitleMain: "System Infrastructure & Active Process Monitoring",
-                monDescMain: "Live tracking array outlining completed infrastructure deployments and active system modules:",
+                monDescMain: "Live tracking array outlining completed infrastructure deployments:",
                 thTask: "Operational Process / Project Title",
                 thStack: "Core Technology Substrate",
                 thStatus: "Operational Status Matrix",
                 contTitle: "Secure Communications & Signaling Hub",
-                contDesc: "To establish verified secure audio-textual loops, routing queries via approved corporate vectors is required:",
+                contDesc: "To establish verified secure loops, routing queries via approved channels is required:",
                 formBtn: "📡 Broadcast Secured Signal Packet",
                 footerCopyright: "© Official Hub | Abolfazl Mirzayi - Petroleum Engineering SUT. All Rights Reserved.",
                 emailLabel: "Official Academic Email:",
                 telegramLabel: "System Admin Telegram:",
-                
-                // بومی‌سازی داینامیک فیلدهای مقالات علمی ثابت
                 metaLabels: { id: "Access ID:", dep: "Research Center:", stat: "Document Status:" },
                 legalTitle: "🔒 Cybersecurity & Academic Copyright Protocol:",
                 kwTitle: "Keywords Index:",
-                
                 art1: {
                     h3: "Advanced Laboratory Techniques in Core Drilling and Linear Core Flooding Simulation",
                     absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "Core flooding operations represent a primary milestone for reservoir valuation. This documentation provides a comprehensive view into relative permeability logs, secondary/tertiary oil recovery mechanisms, high-pressure high-temperature (HPHT) phase behaviors, and formation damage appraisal derived from fine particle migration.",
+                    absTxt: "Core flooding operations represent a primary milestone for reservoir valuation. This documentation provides a comprehensive view into relative permeability logs and fluid dynamics.",
                     kw: "Core Flooding, Relative Permeability, Formation Damage, Critical Reservoir Conditions.",
-                    legalDesc: "This node is locked with distributed hash routing. Supplementary script codes are securely cached in the primary database ledger.",
+                    legalDesc: "This node is locked with distributed hash routing.",
                     btn: "📥 Download Full PDF"
                 },
                 art2: {
                     h3: "Optimization Matrices for Gas Lift Systems in Low-Pressure Hydrocarbon Wells",
                     absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "When natural reservoir energy degrades below lifting threshold, artificial lift mechanisms are deployed. This workflow targets optimal gas injection depth calculations, customized cumulative volumetric injection routing, and multi-phase flow modeling inside the production string using advanced pressure drop frameworks.",
+                    absTxt: "When natural reservoir energy degrades below lifting threshold, artificial lift mechanisms are deployed.",
                     kw: "Gas Lift Optimization, Two-Phase Flow, Production Tubing, Pressure Gradient Models.",
-                    legalDesc: "Intellectual property metrics remain solely assigned to the author and Sharif University of Technology.",
+                    legalDesc: "Intellectual property metrics remain solely assigned to the author and SUT.",
                     btn: "📥 Request Academic Access"
                 },
                 art3: {
                     h3: "Carbon Dioxide (CO2 Sequestration) Stabilization Vectors inside Deep Saline Aquifers",
                     absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "Injecting CO2 into deep saline geological formations stands as a premier strategy for atmospheric greenhouse abatement. This structural brief reviews structural caprock integrity, dissolution trapping dynamics, and geochemical reactions mapping structural rock-fluid interaction patterns.",
+                    absTxt: "Injecting CO2 into deep saline geological formations stands as a premier strategy for atmospheric greenhouse abatement.",
                     kw: "Carbon Sequestration, Dissolution Trapping, Porous Saline Media, Geochemical Modeling."
                 },
                 art4: {
                     h3: "Rheological Assessment of Polymer Fluids inside Enhanced Oil Recovery (EOR) Workflows",
                     absTitle: "🧬 Structural Engineering Abstract:",
-                    absTxt: "Polymer injections optimize mobility ratios by augmenting water-phase viscosity, preventing detrimental viscous fingering behaviors. This experimental overview maps the non-Newtonian dynamics of hydrolyzed polyacrylamide (HPAM) solutions under elevated shear stress indices.",
+                    absTxt: "Polymer injections optimize mobility ratios by augmenting water-phase viscosity, preventing detrimental viscous fingering behaviors.",
                     kw: "Polymer Injection, Mobility Ratio, Non-Newtonian Behavior, Thermal Stability Indices."
                 }
             }
         };
 
-        // ۳. سیستم مدیریت تب‌ها و ناوبری صفحات پورتفولیو
+        // مدیریت تب‌ها
         function openTab(tabId, playSound = true) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -1437,7 +1361,7 @@
             playSystemBeep(650, 0.05, 'sine');
         }
 
-        // ۴. سیستم صوتی بیپ فرکانسی دیجیتال (Web Audio API)
+        // افکت صوتی دیجیتال
         function initAudioContext() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1465,11 +1389,11 @@
                 oscillator.start();
                 oscillator.stop(audioCtx.currentTime + duration);
             } catch(e) {
-                console.log("Audio node execution blocked by browser security guidelines.");
+                console.log("Audio contextual block caught.");
             }
         }
 
-        // ۵. مکانیزم بومی تغییر زبان پورتفولیو (فارسی / انگلیسی)
+        // تغییر زبان سیستم
         function toggleLanguage(lang) {
             const htmlTag = document.getElementById('siteHtml');
             const faBtn = document.getElementById('langFaBtn');
@@ -1502,7 +1426,6 @@
                 }
             });
 
-            // ترجمه و بومی‌سازی بخش مقالات علمی ثابت بر اساس زبان انتخاب‌شده
             document.querySelectorAll('.meta-lbl-id').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.id}</strong>`);
             document.querySelectorAll('.meta-lbl-dep').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.dep}</strong>`);
             document.querySelectorAll('.meta-lbl-stat').forEach(el => el.innerHTML = `<strong>${dict.metaLabels.stat}</strong>`);
@@ -1523,7 +1446,6 @@
             if (document.querySelector('.art-dl-btn')) document.querySelector('.art-dl-btn').innerText = dict.art1.btn;
             if (document.querySelector('.art-req-btn')) document.querySelector('.art-req-btn').innerText = dict.art2.btn;
 
-            // به روز رسانی منو ناوبری مقالات بر اساس زبان انتخاب شده
             const navContainer = document.getElementById('docNavContainer');
             if (navContainer) {
                 const currentActive = Array.from(navContainer.children).findIndex(b => b.classList.contains('active')) + 1;
@@ -1536,19 +1458,16 @@
                 if (typeof fetchDynamicArticles === "function") fetchDynamicArticles();
             }
 
-            // به‌روزرسانی مکان‌نماها و فیلد متون فرم و منوها بر اساس زبان
             if(lang === 'en') {
                 document.getElementById('siteSearchInput').placeholder = "Search internal system metrics...";
                 document.getElementById('formName').placeholder = "Full Name";
                 document.getElementById('formEmail').placeholder = "Signal Email Address";
                 document.getElementById('formMsg').placeholder = "Your encrypted message transmission to admin...";
-                document.getElementById('termInput').parentNode.firstElementChild.innerText = "guest@void_net:~#";
             } else {
                 document.getElementById('siteSearchInput').placeholder = "جستجو در مطالب سایت...";
                 document.getElementById('formName').placeholder = "نام و نام خانوادگی";
                 document.getElementById('formEmail').placeholder = "آدرس ایمیل سیگنال";
                 document.getElementById('formMsg').placeholder = "متن پیام گام‌به‌گام شما به پروتکل ادمین...";
-                document.getElementById('termInput').parentNode.firstElementChild.innerText = "guest@void_net:~#";
             }
 
             playSystemBeep(440, 0.08, 'sawtooth');
@@ -1567,50 +1486,37 @@
             }
         }
 
-        // ۶. الگوریتم شبیه‌ساز مهندسی نفت (معادله جریانات خطی دارسی)
+        // شبیه‌ساز قانون دارسی
         function calculateDarcyFlow() {
             const k = parseFloat(document.getElementById('calcK').value);
             const a = parseFloat(document.getElementById('calcA').value);
             const dp = parseFloat(document.getElementById('calcP').value);
             const mu = parseFloat(document.getElementById('calcM').value);
             const L = parseFloat(document.getElementById('calcL').value);
-
             const isRtl = document.getElementById('siteHtml').getAttribute('dir') === 'rtl';
 
             if(!k || !a || !dp || !mu || !L) {
-                document.getElementById('calcResult').innerText = isRtl ? 
-                    "⚠️ خطا: تمامی متغیرهای پتروفیزیکی سنگ و سیال باید مقداردهی شوند." : 
-                    "⚠️ Error: All rock & fluid petrophysical parameters must be populated.";
+                document.getElementById('calcResult').innerText = isRtl ? "⚠️ خطا: تمامی متغیرها باید مقداردهی شوند." : "⚠️ Error: All fields required.";
                 playSystemBeep(250, 0.2, 'sawtooth');
                 return;
             }
 
-            // فرمول محاسبه دبی با ضریب تبدیل رایج مهندسی نفت مخازن (دارسی): Q = 0.001127 * k * A * ΔP / (μ * L)
             const q = (0.001127 * k * a * dp) / (mu * L);
-            
-            document.getElementById('calcResult').innerText = isRtl ?
-                `✅ نرخ جریان نهایی محاسبه شده (Q): ${q.toFixed(5)} bbl/day (بشکه در روز)` :
-                `✅ Calculated Flow Rate (Q): ${q.toFixed(5)} bbl/day`;
-            
+            document.getElementById('calcResult').innerText = isRtl ? `✅ نرخ جریان نهایی (Q): ${q.toFixed(5)} bbl/day` : `✅ Calculated Flow Rate (Q): ${q.toFixed(5)} bbl/day`;
             playSystemBeep(900, 0.15, 'sine');
         }
 
-        // ۷. موتور جستجوی در لحظه و کلمه‌ای پورتفولیو (Real-time Filtering Engine)
+        // موتور جستجو
         document.getElementById('siteSearchInput').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
             const searchableCards = document.querySelectorAll('.searchable-item');
-
             searchableCards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                if(text.includes(query)) {
-                    card.classList.remove('search-hidden');
-                } else {
-                    card.classList.add('search-hidden');
-                }
+                if(card.innerText.toLowerCase().includes(query)) card.classList.remove('search-hidden');
+                else card.classList.add('search-hidden');
             });
         });
 
-        // ۸. مینی ترمینال تعاملی متنی (Interactive Terminal Emulation)
+        // خط فرمان ترمینال
         document.getElementById('termInput').addEventListener('keydown', function(e) {
             if(e.key === 'Enter') {
                 const cmd = e.target.value.trim().toLowerCase();
@@ -1622,12 +1528,11 @@
 
                 const response = document.createElement('p');
                 response.style.color = "#94a3b8";
-                response.style.marginBottom = "8px";
 
                 if(cmd === 'help') {
-                    response.innerHTML = "Available Modules:<br>- <b>about</b>: Outputs active bio data matrix.<br>- <b>clear</b>: Purges console buffer.<br>- <b>admin</b>: Invokes hidden master gateway credentials window.<br>- <b>beep</b>: Tests system fundamental audio wave output.";
+                    response.innerHTML = "Available Modules:<br>- <b>about</b>: Outputs active bio data.<br>- <b>clear</b>: Purges console buffer.<br>- <b>admin</b>: Invokes gateway login panel.<br>- <b>beep</b>: Tests system audio wave output.";
                 } else if(cmd === 'about') {
-                    response.innerHTML = "Subject Profile: Abolfazl Mirzayi<br>Affiliation: Sharif University of Technology, Petroleum Engineering Dept.<br>Status: Term 2 Undergraduate Student.";
+                    response.innerHTML = "Subject Profile: Abolfazl Mirzayi | SUT Petroleum Engineering.";
                 } else if(cmd === 'clear') {
                     body.innerHTML = '';
                     body.appendChild(this.parentNode);
@@ -1635,32 +1540,24 @@
                     return;
                 } else if(cmd === 'admin') {
                     toggleAdminPanel(true);
-                    response.innerHTML = "-> Central admin control cluster initialized via manual override.";
-                    response.style.color = "#e11d48";
+                    response.innerHTML = "-> Central admin control cluster initialized.";
                 } else if(cmd === 'beep') {
                     playSystemBeep(1000, 0.3, 'sine');
                     response.innerHTML = "-> Pulse signal dispatched.";
-                } else if(cmd === '') {
-                    response.innerHTML = "";
-                } else {
-                    response.innerHTML = `command not found: ${cmd}. Type 'help' for core subsystem lookup instructions.`;
+                } else if(cmd !== '') {
+                    response.innerHTML = `command not found: ${cmd}`;
                     response.style.color = "#e11d48";
                 }
 
-                if(response.innerHTML !== "") {
-                    body.insertBefore(response, this.parentNode);
-                }
-
+                if(response.innerHTML !== "") body.insertBefore(response, this.parentNode);
                 e.target.value = '';
                 body.scrollTop = body.scrollHeight;
                 playSystemBeep(700, 0.05, 'triangle');
             }
         });
 
-        // ۹. توابع و اسکریپت‌های پردازش پنل مدیریت مخفی و اتصال به Supabase
         function toggleAdminPanel(show) {
-            const overlay = document.getElementById('admin-panel-overlay');
-            overlay.style.display = show ? 'flex' : 'none';
+            document.getElementById('admin-panel-overlay').style.display = show ? 'flex' : 'none';
             playSystemBeep(show ? 850 : 400, 0.1, 'sawtooth');
         }
 
@@ -1668,27 +1565,16 @@
             if(e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
                 e.preventDefault();
                 const overlay = document.getElementById('admin-panel-overlay');
-                const isCurrentlyVisible = overlay.style.display === 'flex';
-                toggleAdminPanel(!isCurrentlyVisible);
+                toggleAdminPanel(overlay.style.display !== 'flex');
             }
         });
 
         function switchAdminAction(mode) {
-            const artForm = document.getElementById('addArticleForm');
-            const monForm = document.getElementById('addMonitorForm');
+            document.getElementById('addArticleForm').style.display = mode === 'art' ? 'block' : 'none';
+            document.getElementById('addMonitorForm').style.display = mode === 'mon' ? 'block' : 'none';
             const btns = document.querySelectorAll('.admin-tab-btn');
-
-            if(mode === 'art') {
-                artForm.style.display = 'block';
-                monForm.style.display = 'none';
-                btns[0].classList.add('active');
-                btns[1].classList.remove('active');
-            } else {
-                artForm.style.display = 'none';
-                monForm.style.display = 'block';
-                btns[1].classList.add('active');
-                btns[0].classList.remove('active');
-            }
+            btns[0].classList.toggle('active', mode === 'art');
+            btns[1].classList.toggle('active', mode === 'mon');
             playSystemBeep(500, 0.05, 'sine');
         }
 
@@ -1699,20 +1585,18 @@
 
             if(!supabase) {
                 if(email === "admin@sharif.edu" && password === "sharif123") {
-                    alert("🔓 لاگین آفلاین تستی با موفقیت انجام شد! دسترسی ادمین لوکال باز است.");
+                    alert("🔓 لاگین آفلاین تستی با موفقیت انجام شد!");
                     document.getElementById('adminLoginForm').style.display = 'none';
                     document.getElementById('adminControlsArea').style.display = 'block';
                 } else {
-                    alert("❌ خطا در ورود ادمین آفلاین! رمز پیش‌فرض: admin@sharif.edu / sharif123");
+                    alert("❌ خطا در ورود! رمز پیش‌فرض: admin@sharif.edu / sharif123");
                 }
                 return;
             }
 
             const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-            if (error) {
-                alert(`❌ سیستم احراز هویت مرکزی ارور داد: ${error.message}`);
-            } else {
-                alert("🔓 ورود موفقیت‌آمیز ادمین! دسترسی تزریق و ویرایش آنی دیتابیس فعال شد.");
+            if (error) alert(`❌ خطا: ${error.message}`);
+            else {
                 document.getElementById('adminLoginForm').style.display = 'none';
                 document.getElementById('adminControlsArea').style.display = 'block';
             }
@@ -1726,34 +1610,19 @@
 
             if(!supabase) {
                 const wrapper = document.getElementById('dynamicArticlesWrapper');
-                const uniqueId = Math.floor(Math.random() * 1000);
                 wrapper.innerHTML += `
                     <div class="scientific-window active" style="margin-top:20px; border-top: 4px solid #e11d48;">
                         <h3 style="color:#fff;">[لوکال] ${title}</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><strong>شناسه دسترسی:</strong> AR-LOCAL-${uniqueId}</div>
-                            <div class="meta-item"><strong>پایشگاه علمی:</strong> ثبت محلی (آفلاین)</div>
-                            <div class="meta-item"><strong>وضعیت سند:</strong> انتشار یافته آنی</div>
-                        </div>
-                        <div class="abstract-section">
-                            <div class="abstract-title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text">${abstract}</p>
-                        </div>
-                    </div>
-                `;
-                alert("🚀 مقاله با موفقیت به صورت محلی تزریق شد! (جهت مشاهده به بخش مستندات مراجعه فرمایید)");
+                        <div class="abstract-section"><p class="abstract-text">${abstract}</p></div>
+                    </div>`;
+                alert("🚀 مقاله به صورت محلی تزریق شد.");
                 e.target.reset();
                 return;
             }
 
-            const { data, error } = await supabase.from('articles').insert([{ title, abstract, filename }]);
-            if(error) {
-                alert("❌ ارور در ذخیره‌سازی داده در Supabase: " + error.message);
-            } else {
-                alert("🚀 داکیومنت جدید با موفقیت به سرور آنلاین ارسال و منتشر شد!");
-                e.target.reset();
-                fetchDynamicArticles();
-            }
+            const { error } = await supabase.from('articles').insert([{ title, abstract, filename }]);
+            if(error) alert("❌ خطا در Supabase: " + error.message);
+            else { alert("🚀 داکیومنت آنلاین منتشر شد!"); e.target.reset(); fetchDynamicArticles(); }
         }
 
         async function handleCreateMonitor(e) {
@@ -1761,77 +1630,43 @@
             const title = document.getElementById('newMonTitle').value;
             const stack = document.getElementById('newMonStack').value;
             const status = document.getElementById('newMonStatus').value;
-
-            const statusHtml = status === 'online' ? 
-                '<span class="status-online">● عملیاتی و آنلاین</span>' : 
-                '<span class="status-progress">● در حال انجام و عیب‌یابی</span>';
+            const statusHtml = status === 'online' ? '<span class="status-online">● عملیاتی و آنلاین</span>' : '<span class="status-progress">● در حال انجام</span>';
 
             if(!supabase) {
-                const tbody = document.getElementById('projectTableBody');
-                tbody.innerHTML += `<tr><td>${title}</td><td>${stack}</td><td>${statusHtml}</td></tr>`;
-                alert("📡 ردیف مانیتورینگ به صورت محلی به انتهای جدول تزریق شد!");
+                document.getElementById('projectTableBody').innerHTML += `<tr><td>${title}</td><td>${stack}</td><td>${statusHtml}</td></tr>`;
                 e.target.reset();
                 return;
             }
 
-            const { data, error } = await supabase.from('monitoring').insert([{ title, stack, status_html: statusHtml }]);
-            if(error) {
-                alert("❌ ارور در افزودن ردیف مانیتورینگ: " + error.message);
-            } else {
-                alert("📡 ردیف مانیتورینگ با موفقیت بر روی جدول آنلاین همگام‌سازی شد!");
-                e.target.reset();
-                const tbody = document.getElementById('projectTableBody');
-                tbody.innerHTML = ''; 
-                fetchDynamicMonitorRows();
-            }
+            const { error } = await supabase.from('monitoring').insert([{ title, stack, status_html: statusHtml }]);
+            if(error) alert("❌ خطا: " + error.message);
+            else { e.target.reset(); document.getElementById('projectTableBody').innerHTML = ''; fetchDynamicMonitorRows(); }
         }
 
         function handleContactSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('formName').value;
-            const isRtl = document.getElementById('siteHtml').getAttribute('dir') === 'rtl';
-            
-            alert(isRtl ? 
-                `📡 سیگنال ارتباطی شما با موفقیت به پروتکل ادمین ارسال شد، با تشکر از شما آقای/خانم ${name}.` : 
-                `📡 Communication signal successfully dispatched to admin network protocols. Thank you, ${name}.`
-            );
+            alert("📡 سیگنال ارتباطی شما با موفقیت ارسال شد.");
             e.target.reset();
             playSystemBeep(1200, 0.25, 'sine');
         }
 
         async function fetchDynamicArticles() {
             if(!supabase) return;
-
             const { data: articles, error } = await supabase.from('articles').select('*');
             if (error || !articles) return;
 
             const wrapper = document.getElementById('dynamicArticlesWrapper');
             wrapper.innerHTML = ''; 
-
-            const totalCount = 4 + articles.length;
             const isEn = document.getElementById('siteHtml').getAttribute('lang') === 'en';
-            document.getElementById('headerArticlesCount').innerText = isEn ? `📝 Cached Docs: ${totalCount} Nodes` : `📝 مقالات ثبت شده: ${totalCount} مورد`;
+            document.getElementById('headerArticlesCount').innerText = isEn ? `📝 Cached Docs: ${4 + articles.length}` : `📝 مقالات ثبت شده: ${4 + articles.length} مورد`;
 
             articles.forEach((art, index) => {
                 const globalIndex = 5 + index;
                 wrapper.innerHTML += `
                     <div class="scientific-window" id="artWindow-${globalIndex}" style="margin-top:20px; border-top: 4px solid #0284c7;">
                         <h3 style="color:#fff;">${art.title}</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><strong>${isEn ? 'Access ID:' : 'شناسه دسترسی:'}</strong> AR-DB-0${globalIndex}</div>
-                            <div class="meta-item"><strong>${isEn ? 'Research Hub:' : 'پایشگاه علمی:'}</strong> Cloud Vault Central</div>
-                            <div class="meta-item"><strong>${isEn ? 'Doc Status:' : 'وضعیت سند:'}</strong> Sync Verified</div>
-                        </div>
-                        <div class="abstract-section">
-                            <div class="abstract-title">🧬 ${isEn ? 'Engineering Abstract:' : 'خلاصه ساختار یافته مهندسی:'}</div>
-                            <p class="abstract-text">${art.abstract}</p>
-                        </div>
-                        <div class="file-legal-overlay">
-                            <strong>🔒 ${isEn ? 'Cloud Security Matrix:' : 'پروتکل حفاظت ابری:'}</strong> ${isEn ? 'To route this node source, request administrative validation.' : 'جهت دسترسی به منبع متصل به شناسه ابری با ادمین ارتباط برقرار کنید.'}
-                        </div>
-                    </div>
-                `;
-
+                        <div class="abstract-section"><p class="abstract-text">${art.abstract}</p></div>
+                    </div>`;
                 const navContainer = document.getElementById('docNavContainer');
                 if(navContainer && !Array.from(navContainer.children).some(b => b.innerText.includes(`Doc ${globalIndex}`))) {
                     navContainer.innerHTML += `<button class="doc-nav-btn" onclick="showArticleWindow(${globalIndex})">Doc ${globalIndex}: ${art.title.substring(0,10)}...</button>`;
@@ -1841,13 +1676,10 @@
 
         async function fetchDynamicMonitorRows() {
             if(!supabase) return;
-
             const { data: rows, error } = await supabase.from('monitoring').select('*');
             if (error || !rows) return;
-
-            const tbody = document.getElementById('projectTableBody');
             rows.forEach(row => {
-                tbody.innerHTML += `<tr><td>${row.title}</td><td>${row.stack}</td>${row.status_html}</tr>`;
+                document.getElementById('projectTableBody').innerHTML += `<tr><td>${row.title}</td><td>${row.stack}</td>${row.status_html}</tr>`;
             });
         }
 
@@ -1857,25 +1689,16 @@
         });
 
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                const loader = document.getElementById('security-loader');
-                if (loader) {
-                    loader.style.opacity = '0';
-                    loader.style.visibility = 'hidden';
-                }
-                if (typeof playSystemBeep === "function") {
-                    playSystemBeep(800, 0.1, 'sine');
-                }
-            }, 1000);
-
+            // وب‌سایت فوراً و بدون صفحه لودینگ بالا می‌آید
+            if (typeof playSystemBeep === "function") playSystemBeep(800, 0.1, 'sine');
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) openTab(hash, false);
 
             try {
-                if (typeof fetchDynamicArticles === "function") fetchDynamicArticles();
-                if (typeof fetchDynamicMonitorRows === "function") fetchDynamicMonitorRows();
+                fetchDynamicArticles();
+                fetchDynamicMonitorRows();
             } catch (err) {
-                console.warn("Supabase Fetch Error: ", err);
+                console.warn("Supabase integration skipped or delayed.", err);
             }
         });
     </script>
