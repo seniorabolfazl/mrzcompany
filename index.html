@@ -1111,9 +1111,11 @@
             </div>
             </div>
             <div id="python-repo" class="tab-content">
-                <div class="card"> <div class="searchable-item" style="border: 1px solid #38bdf8; background: rgba(6, 10, 19, 0.8); padding: 25px; border-radius: 10px; margin-bottom: 20px;">
+            <div class="card"> 
+                <div class="searchable-item" style="border: 1px solid #38bdf8; background: rgba(6, 10, 19, 0.8); padding: 25px; border-radius: 10px; margin-bottom: 20px;">
                     <h3 style="color: #38bdf8; margin-top: 0; margin-bottom: 15px;">💻 مخزن اسکریپت‌های پایتون | محاسبات بالادستی نفت</h3>
                     <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 15px;">اسکریپت پایتون جهت محاسبه دبی جریان سیال در محیط متخلخل (قانون دارسی خطی):</p>
+                    
                     <div style="position: relative; background: #040811; border-left: 4px solid #2ecc71; padding: 15px; border-radius: 8px; direction: ltr; text-align: left; font-family: monospace; overflow-x: auto; margin: 15px 0; border-top: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b;">
                         <button onclick="copyPythonCode(this)" style="position: absolute; right: 10px; top: 10px; background: rgba(56, 189, 248, 0.1); border: 1px solid #334155; color: #38bdf8; padding: 4px 10px; font-size: 11px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.2s;">کپی کد</button>
                         <pre style="margin: 0; color: #38bdf8; padding-top: 25px; font-size: 0.9rem; line-height: 1.5;">
@@ -1123,6 +1125,7 @@
                     return q
                 except ZeroDivisionError:
                     return "Error: Length or viscosity cannot be zero."
+
             # Test Calculation
             result = calculate_darcy_flow(k=0.5, h=2000, p1=150, p2=100, mu=2.0, L=5000)
             print(f"Flow Rate (q): {result} cm3/s")
@@ -1130,6 +1133,7 @@
                     </div>
                 </div>
             </div>
+        </div>
             <div id="articles" class="tab-content">
                 <section class="card searchable-item">
                     <h2 id="artTitleMain">پایگاه رسمی مستندات و مقالات علمی پژوهشی</h2>
