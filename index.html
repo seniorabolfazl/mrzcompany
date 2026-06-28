@@ -977,9 +977,10 @@
                 <li class="searchable-item"><button class="tab-btn active" id="btn-tab1" aria-controls="identity" aria-selected="true" onclick="openTab('identity')">⊙ هویت دانشگاهی و فردی</button></li>
                 <li class="searchable-item"><button class="tab-btn" id="btn-tab2" aria-controls="mission" aria-selected="false" onclick="openTab('mission')">⊙ اهداف، پروژه‌ها و چشم‌اندازها</button></li>
                 <li class="searchable-item"><button class="tab-btn" id="btn-tab3" aria-controls="tech" aria-selected="false" onclick="openTab('tech')">⊙ مهارت‌ها و ابزارها</button></li>
-                <li class="searchable-item"><button class="tab-btn" id="btn-tab4" aria-controls="articles" aria-selected="false" onclick="openTab('articles')">⊙ مستندات علمی و پژوهشی</button></li>
-                <li class="searchable-item"><button class="tab-btn" id="btn-tab5" aria-controls="projects" aria-selected="false" onclick="openTab('projects')">⊙ مانیتورینگ فعالیت‌ها</button></li>
-                <li class="searchable-item"><button class="tab-btn" id="btn-tab6" aria-controls="contact" aria-selected="false" onclick="openTab('contact')">⊙ دپارتمان ارتباطات</button></li>
+                <li class="searchable-item"><button class="tab-btn" id="btn-tab4" aria-controls="python-repo" aria-selected="false" onclick="openTab('python-repo')">⊙ مخزن پایتون و محاسبات نفت</button></li>
+                <li class="searchable-item"><button class="tab-btn" id="btn-tab5" aria-controls="articles" aria-selected="false" onclick="openTab('articles')">⊙ مستندات علمی و پژوهشی</button></li>
+                <li class="searchable-item"><button class="tab-btn" id="btn-tab6" aria-controls="projects" aria-selected="false" onclick="openTab('projects')">⊙ مانیتورینگ فعالیت‌ها</button></li>
+                <li class="searchable-item"><button class="tab-btn" id="btn-tab7" aria-controls="contact" aria-selected="false" onclick="openTab('contact')">⊙ دپارتمان ارتباطات</button></li>
             </ul>
             <div class="sidebar-extra-box searchable-item">
                 <div style="display:flex; align-items:center; margin-bottom:5px;">
@@ -1108,7 +1109,27 @@
                     </div>
                 </section>
             </div>
-
+            </div>
+            <div id="python-repo" class="tab-content">
+                <div class="searchable-item" style="border: 1px solid var(--neon-cyan, #00f3ff); background: rgba(0,0,0,0.6); padding: 20px; margin-bottom: 20px; border-radius: 4px;">
+                    <h3 style="color: var(--neon-cyan, #00f3ff); margin-top: 0;">💻 مخزن اسکریپت‌های پایتون | محاسبات بالادستی نفت</h3>
+                    <p style="font-size: 14px; color: #ccc;">اسکریپت پایتون جهت محاسبه دبی جریان سیال در محیط متخلخل (قانون دارسی خطی):</p>
+                    <div style="position: relative; background: #111; border-left: 3px solid var(--neon-green, #39ff14); padding: 15px; border-radius: 4px; direction: ltr; text-align: left; font-family: monospace; overflow-x: auto; margin: 15px 0;">
+                        <button onclick="copyPythonCode(this)" style="position: absolute; right: 10px; top: 10px; background: rgba(255,255,255,0.1); border: 1px solid #555; color: #fff; padding: 3px 8px; font-size: 11px; cursor: pointer; border-radius: 3px;">کپی کد</button>
+                        <pre style="margin: 0; color: #a9ffb4;">
+            def calculate_darcy_flow(k, h, p1, p2, mu, L):
+                try:
+                    q = (k * h * (p1 - p2)) / (mu * L)
+                    return q
+                except ZeroDivisionError:
+                    return "Error: Length or viscosity cannot be zero."
+            # Test Calculation
+            result = calculate_darcy_flow(k=0.5, h=2000, p1=150, p2=100, mu=2.0, L=5000)
+            print(f"Flow Rate (q): {result} cm3/s")
+                        </pre>
+                    </div>
+                </div>
+            </div>
             <div id="articles" class="tab-content">
                 <section class="card searchable-item">
                     <h2 id="artTitleMain">پایگاه رسمی مستندات و مقالات علمی پژوهشی</h2>
@@ -1605,13 +1626,38 @@
         // موتور جستجوی فیلترینگ کلمات کلیدی
         document.getElementById('siteSearchInput')?.addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
+            const htmlTag = document.getElementById('siteHtml');
             const searchableCards = document.querySelectorAll('.searchable-item');
+            const isRtl = htmlTag ? htmlTag.getAttribute('dir') === 'rtl' : true;
+            if (query === '') {
+        // اگر کادر جستجو خالی شد، همه آیتم‌ها به حالت عادی برگردند
+                searchableCards.forEach(card => card.classList.remove('search-hidden'));
+                return;
+            }
             searchableCards.forEach(card => {
-                if(card.innerText.toLowerCase().includes(query)) card.classList.remove('search-hidden');
-                else card.classList.add('search-hidden');
+                if (card.innerText.toLowerCase().includes(query)) {
+                    card.classList.remove('search-hidden');
+            
+                    // پیدا کردن تب مادری که این کارت درون آن قرار دارد و فعال کردن آن برای نمایش نتیجه
+                    const parentTab = card.closest('.tab-content');
+                    if (parentTab && !parentTab.classList.contains('active')) {
+                        const tabId = parentTab.getAttribute('id');
+                        // فراخوانی تابع باز کردن تب بدون تغییر هش در صورت تمایل، یا فعال کردن دستی کلاس
+                        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                        parentTab.classList.add('active');
+                        // فعال کردن دکمه سایدبار مربوط به این تب
+                        document.querySelectorAll('.sidebar-menu button').forEach(btn => {
+                            btn.classList.remove('active');
+                            if (btn.getAttribute('onclick')?.includes(tabId)) {
+                                btn.classList.add('active');
+                            }
+                        });
+                    }
+                } else {
+                    card.classList.add('search-hidden');
+                }
             });
         });
-
         // مینی ترمینال تعاملی وب
         document.getElementById('termInput')?.addEventListener('keydown', function(e) {
             if(e.key === 'Enter') {
@@ -1656,9 +1702,8 @@
         // توابع باز و بسته شدن اصولی پنل سکوریتی جدید
         function toggleAdminPanel(show) {
             const overlay = document.getElementById('admin-panel-overlay');
-            if(overlay) {
+            if (overlay) {
                 overlay.style.display = show ? 'flex' : 'none';
-                playSystemBeep(show ? 850 : 400, 0.1, 'sawtooth');
             }
         }
 
@@ -1671,87 +1716,115 @@
             }
         });
 
-        function switchAdminAction(mode) {
-            const addArticleForm = document.getElementById('addArticleForm');
-            const addMonitorForm = document.getElementById('addMonitorForm');
-            if(addArticleForm) addArticleForm.style.display = mode === 'art' ? 'block' : 'none';
-            if(addMonitorForm) addMonitorForm.style.display = mode === 'mon' ? 'block' : 'none';
-            
-            const btns = document.querySelectorAll('.admin-tab-btn');
-            if(btns.length >= 2) {
-                btns[0].classList.toggle('active', mode === 'art');
-                btns[1].classList.toggle('active', mode === 'mon');
+        function switchAdminAction(type) {
+            const artForm = document.getElementById('addArticleForm');
+            const monForm = document.getElementById('addMonitorForm');
+            const tabs = document.querySelectorAll('.admin-tab-btn');
+    
+    // بازنشانی دکمه‌ها
+            tabs.forEach(btn => btn.classList.remove('active'));
+
+            if (type === 'art') {
+                artForm.style.display = 'block';
+                monForm.style.display = 'none';
+                event.target.classList.add('active');
+            } else if (type === 'mon') {
+                artForm.style.display = 'none';
+                monForm.style.display = 'block';
+                event.target.classList.add('active');
             }
-            playSystemBeep(500, 0.05, 'sine');
         }
-
-        async function handleAdminLogin(e) {
-            e.preventDefault();
-            const email = document.getElementById('adminEmail').value;
+        function copyPythonCode(button) {
+            const preTag = button.nextElementSibling;
+            if (preTag) {
+                navigator.clipboard.writeText(preTag.innerText.trim()).then(() => {
+                    const originalText = button.innerText;
+                    button.innerText = "کپی شد! ✔";
+                    button.style.borderColor = "var(--neon-green, #39ff14)";
+                    // اگر تابع افکت صوتی داری آن را اجرا می‌کند
+                    if (typeof playSystemBeep === 'function') playSystemBeep(1000, 0.1, 'sine');
+                    setTimeout(() => {
+                        button.innerText = originalText;
+                        button.style.borderColor = "#555";
+                    }, 2000);
+                }).catch(err => console.error("خطا در کپی کدهای پایتون:", err));
+            }
+        }
+        async function handleAdminLogin(event) {
+            event.preventDefault(); // جلوگیری از رفرش صفحه
+            const email = document.getElementById('adminEmail').value.trim();
             const password = document.getElementById('adminPassword').value;
-
-            if(!supabase) {
-                if(email === "admin@sharif.edu" && password === "sharif123") {
-                    alert("🔓 لاگین آفلاین تستی با موفقیت انجام شد!");
-                    document.getElementById('adminLoginForm').style.display = 'none';
-                    document.getElementById('adminControlsArea').style.display = 'block';
-                } else {
-                    alert("❌ خطا در ورود! رمز پیش‌فرض آزمایشی: admin@sharif.edu / sharif123");
-                }
+            if (!supabase) {
+                alert("سیستم اتصال Supabase به درستی بارگذاری نشده است!");
                 return;
             }
 
-            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-            if (error) alert(`❌ خطا: ${error.message}`);
-            else {
-                document.getElementById('adminLoginForm').style.display = 'none';
-                document.getElementById('adminControlsArea').style.display = 'block';
+            try {
+                // ساختار استاندارد دسترسی در Supabase v2
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+                if (error) {
+                    alert("خطا در احراز هویت: " + error.message);
+                    playSystemBeep(250, 0.4, 'sawtooth'); // افکت صوتی خطا
+                    return;
+                }
+                if (data && data.user) {
+                    alert("احراز هویت با موفقیت انجام شد. دسترسی به پنل مرکزی صادر گردید.");
+                    playSystemBeep(900, 0.2, 'sine'); // افکت صوتی موفقیت
+                    // مخفی کردن فرم لاگین و نمایش بخش کنترل‌ها و دکمه‌های مدیریت
+                    const loginForm = document.getElementById('adminLoginForm');
+                    const controlsArea = document.getElementById('adminControlsArea');
+                    if (loginForm) loginForm.style.style.display = 'none';
+                    if (controlsArea) controlsArea.style.display = 'block';
+                }
+            } catch (err) {
+                console.error("Admin Auth Error:", err);
+                alert("خطای سیستمی در برقراری ارتباط با هسته مرکزی دیتابیس!");
             }
         }
-
-        async function handleCreateArticle(e) {
-            e.preventDefault();
+        async function handleCreateArticle(event) {
+            event.preventDefault();
             const title = document.getElementById('newArtTitle').value;
             const abstract = document.getElementById('newArtAbstract').value;
+            const filename = document.getElementById('newArtFilename').value;
 
-            if(!supabase) {
-                const wrapper = document.getElementById('dynamicArticlesWrapper');
-                if(wrapper) {
-                    wrapper.innerHTML += `
-                        <div class="scientific-window active" style="margin-top:20px; border-top: 4px solid #e11d48;">
-                            <h3 style="color:#fff;">[لوکال] ${title}</h3>
-                            <div class="abstract-section"><p class="abstract-text">${abstract}</p></div>
-                        </div>`;
-                }
-                alert("🚀 مقاله به صورت محلی تزریق شد.");
-                e.target.reset();
-                return;
+            const { data, error } = await supabase
+                .from('articles') // نام جدول شما در سوپابیس
+                .insert([{ title, abstract, filename }]);
+
+            if (error) {
+                alert("خطا در ثبت سند علمی: " + error.message);
+            } else {
+                alert("داکیومنت علمی جدید با موفقیت تزریق و منتشر شد!");
+                document.getElementById('addArticleForm').reset();
+                fetchDynamicArticles(); // بازنشانی لیست مقالات در سایت
             }
-
-            const { error } = await supabase.from('articles').insert([{ title, abstract }]);
-            if(error) alert("❌ خطا در مخزن دیتابیس: " + error.message);
-            else { alert("🚀 داکیومنت آنلاین منتشر شد!"); e.target.reset(); fetchDynamicArticles(); }
         }
 
-        async function handleCreateMonitor(e) {
-            e.preventDefault();
+        async function handleCreateMonitor(event) {
+            event.preventDefault();
             const title = document.getElementById('newMonTitle').value;
             const stack = document.getElementById('newMonStack').value;
             const status = document.getElementById('newMonStatus').value;
-            
-            // تصحیح کلاس به status-progress جهت اعمال رنگ زرد در حالت محلی
-            const statusHtml = status === 'online' ? '<span class="status-online">● عملیاتی و آنلاین</span>' : '<span class="status-progress">● در حال انجام</span>';
+    
+    // ساخت ساختار HTML برای وضعیت بر اساس انتخاب شما
+            const status_html = status === 'online' 
+            ? `<span class="status-online">● عملیاتی و آنلاین</span>` 
+            : `<span class="status-progress">● در حال انجام و عیب‌یابی</span>`;
 
-            if(!supabase) {
-                const tableBody = document.getElementById('projectTableBody');
-                if(tableBody) tableBody.innerHTML += `<tr><td>${title}</td><td>${stack}</td><td>${statusHtml}</td></tr>`;
-                e.target.reset();
-                return;
+            const { data, error } = await supabase
+                .from('monitoring') // نام جدول مانیتورینگ شما
+                .insert([{ title, stack, status_html }]);
+
+            if (error) {
+                alert("خطا در ثبت ردیف مانیتورینگ: " + error.message);
+            } else {
+                alert("ردیف جدید به بخش مانیتورینگ زنده اضافه شد!");
+                document.getElementById('addMonitorForm').reset();
+                fetchDynamicMonitorRows(); // بازنشانی لیست مانیتورینگ در سایت
             }
-
-            const { error } = await supabase.from('monitoring').insert([{ title, stack, status_html: statusHtml }]);
-            if(error) alert("❌ خطا: " + error.message);
-            else { e.target.reset(); document.getElementById('projectTableBody').innerHTML = ''; fetchDynamicMonitorRows(); }
         }
         function handleContactSubmit(e) {
             e.preventDefault();
@@ -1819,6 +1892,20 @@
             // ۳. همگام‌سازی و بارگذاری داده‌های ابری Supabase
             try {
                 fetchDynamicArticles();
+                if (typeof supabase !== 'undefined') {
+                    supabase.auth.onAuthStateChange((event, session) => {
+                        const loginForm = document.getElementById('adminLoginForm');
+                        const controlsArea = document.getElementById('adminControlsArea');
+                        if (session && session.user) {
+                            console.log("نشست ادمین فعال است:", session.user.email);
+                            if (loginForm) loginForm.style.display = 'none';
+                            if (controlsArea) controlsArea.style.display = 'block';
+                        } else {
+                            if (loginForm) loginForm.style.display = 'block';
+                            if (controlsArea) controlsArea.style.display = 'none';
+                        }
+                    });
+                }
                 fetchDynamicMonitorRows();
             } catch (err) {
                 console.warn("Supabase integration deferred.", err);
