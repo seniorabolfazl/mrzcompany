@@ -992,309 +992,311 @@
         </aside>
 
         <main class="main-content">
-            <div class="site-header-tools">
-                <div class="search-box-container">
-                    <input type="text" id="siteSearchInput" class="search-field" placeholder="جستجو در مطالب سایت...">
+        <div class="site-header-tools">
+            <div class="search-box-container">
+                <input type="text" id="siteSearchInput" class="search-field" placeholder="جستجو در مطالب سایت...">
+            </div>
+            <div class="header-controls-right">
+                <button class="audio-toggle-btn active" id="audioToggleBtn" onclick="toggleAudioSystem()">🔊 SOUND: ON</button>
+                <div class="header-counter-badge" id="headerArticlesCount">
+                    📝 مقالات ثبت شده: ۴ مورد
                 </div>
-                <div class="header-controls-right">
-                    <button class="audio-toggle-btn active" id="audioToggleBtn" onclick="toggleAudioSystem()">🔊 SOUND: ON</button>
-                    <div class="header-counter-badge" id="headerArticlesCount">
-                        📝 مقالات ثبت شده: ۴ مورد
+                <div class="lang-switcher-window">
+                    <button class="lang-toggle-btn active" id="langFaBtn" onclick="toggleLanguage('fa')">FA</button>
+                    <button class="lang-toggle-btn" id="langEnBtn" onclick="toggleLanguage('en')">EN</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="identity" class="tab-content active">
+            <section class="profile-resume-box searchable-item">
+                <div class="profile-img-container">
+                    <img src="me.png" alt="ابوالفضل میرزایی" class="profile-img" onerror="this.style.display='none'; document.getElementById('fallback-avatar-box').style.display='flex';">
+                    <div id="fallback-avatar-box" class="profile-fallback-avatar" style="display:none;">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                     </div>
-                    <div class="lang-switcher-window">
-                        <button class="lang-toggle-btn active" id="langFaBtn" onclick="toggleLanguage('fa')">FA</button>
-                        <button class="lang-toggle-btn" id="langEnBtn" onclick="toggleLanguage('en')">EN</button>
+                </div>
+                <div class="resume-details">
+                    <h1 id="profName" class="glitch-text">ابوالفضل میرزایی</h1>
+                    <p class="title-sub" id="profSub">دانشجوی مهندسی نفت دانشگاه صنعتی شریف</p>
+                    <p id="profAbout" style="color: #cbd5e1; text-align: justify; font-size: 0.95rem;">
+                        به پایگاه رسمی و رزومه فنی من خوش آمدید. اینجانب دانشجوی ترم دوم رشته مهندسی نفت در دانشگاه صنعتی شریف هستم. تمرکز فعلی من بر تلفیق مبانی علوم آکادمیک با ابزارهای شبیه‌سازی دیجیتال، پیاده‌سازی اتوماسیون‌های نرم‌افزاری و تحلیل مکانیزم‌های کاربردی در راستای خلق دستاوردهای علمی و پژوهشی ملموس است.
+                    </p>
+                    <div class="info-grid">
+                        <div class="info-item" id="infoInst"><strong>موسسه تخصصی:</strong> دانشگاه صنعتی شریف</div>
+                        <div class="info-item" id="infoTerm"><strong>موقعیت تحصیلی:</strong> کارشناسی (ترم ۲)</div>
+                        <div class="info-item" id="infoField"><strong>گرایش متمرکز:</strong> عمومی</div>
+                        <div class="info-item" id="infoDev"><strong>محیط توسعه:</strong> فعالیت در زمینه پژوهش های نفتی</div>
+                    </div>
+                    <a href="#" class="cv-download-btn" id="cvDownloadBtn" onclick="alert('فایل رزومه نهایی در حال حاضر در دیتابیس لوکال سرور در حال کامپایل است.'); return false;">
+                        📥 دریافت نسخه رسمی رزومه (PDF) 
+                    </a>
+                </div>
+            </section>
+
+            <div class="terminal-box searchable-item">
+                <div class="terminal-header">
+                    <span>🔴 🟡 🟢 mrz_console.sh</span>
+                    <span style="font-family:inherit;">v2.0.26</span>
+                </div>
+                <div class="terminal-body" id="termBody">
+                    <p>[SYSTEM ENVIRONMENT INITIALIZED SUCCESSFULLY]</p>
+                    <p>Welcome to mrz company Interactive Node. Type 'help' to see system commands. Try pressing Ctrl+Shift+A on your keyboard.</p>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">guest@mrzcompany_net:~#</span>
+                        <input type="text" id="termInput" class="terminal-input" autocomplete="off" spellcheck="false">
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div id="identity" class="tab-content active">
-                <section class="profile-resume-box searchable-item">
-                    <div class="profile-img-container">
-                        <img src="me.png" alt="ابوالفضل میرزایی" class="profile-img" onerror="this.style.display='none'; document.getElementById('fallback-avatar-box').style.display='flex';">
-                        <div id="fallback-avatar-box" class="profile-fallback-avatar" style="display:none;">
-                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <div id="mission" class="tab-content">
+            <section class="card searchable-item">
+                <h2 id="mishTitle">اهداف، پروژه‌ها و چشم‌اندازها</h2>
+                <p id="mishDesc" style="margin-bottom: 15px; text-align: justify; color: #cbd5e1;">
+                    برنامه‌ریزی راهبردی من برای آینده، توسعه مهارت‌های همه‌جانبه و ثبت دستاوردهای علمی معتبر است. در حال حاضر کارهای زیر در دستور کار قرار دارند:
+                </p>
+                <div id="mishList" style="padding-right: 15px; color: #cbd5e1; font-size: 0.95rem;">
+                    <p style="margin-bottom: 10px;">⚡ <b>پژوهش و نگارش مقالات تخصصی:</b> آغاز فعالیت روی یک سری از مستندات و مقالات علمی در حوزه مهندسی نفت به منظور ثبت دستاوردهای نوین دانشگاهی.</p>
+                    <p style="margin-bottom: 10px;">⚡ <b>توسعه راهکارهای مثبت مبتنی بر داده:</b> بهره‌گیری از پایتون جهت شبیه‌سازی عددی و تحلیل داده‌های نموداری مربوط به فرآیندهای بالادستی نفت.</p>
+                    <p style="margin-bottom: 10px;">⚡ <b>تلفیق تجارب بازار آزاد و خلاقیت:</b> اعمال استراتژی‌های تحلیلی مارکت بر روی پروژه‌های شخصی جهت افزایش بازدهی عملکردی سیستم.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="tech" class="tab-content">
+            <section class="card searchable-item">
+                <h2 id="techTitle">سطح تخصص و مهارت‌های کاربردی</h2>
+                <p id="techDesc" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 12px;">پشته ابزارها و مهارت‌های توسعه‌یافته بر اساس ساختار رزومه:</p>
+                <div class="badge-container">
+                    <span class="badge">Python (Intermediate)</span>
+                    <span class="badge">Matlab (Basic)</span>
+                    <span class="badge">Darcy Hydrodynamics Fluid Modeling(Intermediate)</span>
+                    <span class="badge">HTML5 / CSS3 Cyberpunk Architecture(basic)</span>
+                    <span class="badge">Vanilla JavaScript (basic)</span>
+                    <span class="badge">Supabase (BaaS Integration)</span>
+                    <span class="badge">Git / Version Control Core Concepts(run page)</span>
+                    <span class="badge">Algorithmic Financial Analysis(medium)</span>
+                </div>
+                <div class="darcy-calculator">
+                    <h3 id="calcHead">⚙️ شبیه‌ساز جریانات خطی تک‌فاز (قانون دارسی)</h3>
+                    <p id="calcSub" style="font-size:0.8rem; color:#cbd5e1; margin-top:4px;">محاسبه نرخ دبی عبوری سیال (Q) از محیط متخلخل رسوباتی با فرضیات خطی افقی</p>
+                    <div class="calc-grid">
+                        <div class="calc-group">
+                            <label>Permeability (k, mD)</label>
+                            <input type="number" id="calcK" class="calc-input" value="150">
+                        </div>
+                        <div class="calc-group">
+                            <label>Area (A, ft²)</label>
+                            <input type="number" id="calcA" class="calc-input" value="25">
+                        </div>
+                        <div class="calc-group">
+                            <label>Pressure Drop (ΔP, psi)</label>
+                            <input type="number" id="calcP" class="calc-input" value="400">
+                        </div>
+                        <div class="calc-group">
+                            <label>Viscosity (μ, cP)</label>
+                            <input type="number" id="calcM" class="calc-input" value="2.5">
+                        </div>
+                        <div class="calc-group">
+                            <label>Length (L, ft)</label>
+                            <input type="number" id="calcL" class="calc-input" value="120">
                         </div>
                     </div>
-                    <div class="resume-details">
-                        <h1 id="profName" class="glitch-text">ابوالفضل میرزایی</h1>
-                        <p class="title-sub" id="profSub">دانشجوی مهندسی نفت دانشگاه صنعتی شریف</p>
-                        <p id="profAbout" style="color: #cbd5e1; text-align: justify; font-size: 0.95rem;">
-                            به پایگاه رسمی  و رزومه فنی من خوش آمدید. اینجانب دانشجوی ترم دوم رشته مهندسی نفت در دانشگاه صنعتی شریف هستم. تمرکز فعلی من بر تلفیق مبانی علوم آکادمیک با ابزارهای شبیه‌سازی دیجیتال، پیاده‌سازی اتوماسیون‌های نرم‌افزاری و تحلیل مکانیزم‌های کاربردی در راستای خلق دستاوردهای علمی و پژوهشی ملموس است.
+                    <button class="calc-btn" id="calcBtn" onclick="calculateDarcyFlow()">⚡ پردازش معادلات هیدرودینامیکی</button>
+                    <div class="calc-result" id="calcResult">نرخ جریان نهایی (Q): در انتظار ورود داده‌ها...</div>
+                </div>
+            </section>
+        </div>
+
+        <div id="python-repo" class="tab-content">
+            <div class="card"> 
+                <div class="searchable-item" style="border: 1px solid #38bdf8; background: rgba(6, 10, 19, 0.8); padding: 25px; border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: #38bdf8; margin-top: 0; margin-bottom: 15px;">💻 مخزن اسکریپت‌های پایتون | محاسبات بالادستی نفت</h3>
+                    <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 15px;">اسکریپت پایتون جهت محاسبه دبی جریان سیال در محیط متخلخل (قانون دارسی خطی):</p>
+                    
+                    <div style="position: relative; background: #040811; border-left: 4px solid #2ecc71; padding: 15px; border-radius: 8px; direction: ltr; text-align: left; font-family: monospace; overflow-x: auto; margin: 15px 0; border-top: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b;">
+                        <button onclick="copyPythonCode(this)" style="position: absolute; right: 10px; top: 10px; background: rgba(56, 189, 248, 0.1); border: 1px solid #334155; color: #38bdf8; padding: 4px 10px; font-size: 11px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.2s;">کپی کد</button>
+                        <pre style="margin: 0; color: #38bdf8; padding-top: 25px; font-size: 0.9rem; line-height: 1.5;">
+def calculate_darcy_flow(k, h, p1, p2, mu, L):
+    try:
+        q = (k * h * (p1 - p2)) / (mu * L)
+        return q
+    except ZeroDivisionError:
+        return "Error: Length or viscosity cannot be zero."
+
+# Test Calculation
+result = calculate_darcy_flow(k=0.5, h=2000, p1=150, p2=100, mu=2.0, L=5000)
+print(f"Flow Rate (q): {result} cm3/s")
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="articles" class="tab-content">
+            <section class="card searchable-item">
+                <h2 id="artTitleMain">پایگاه رسمی مستندات و مقالات علمی پژوهشی</h2>
+                <p id="artDescMain" style="color:#cbd5e1; font-size:0.95rem; margin-bottom:20px;">
+                    جهت پایش ساختاریافته فرآیندهای علمی، مقالات و مستندات تخصصی ذیل بازنویسی و دسته‌بندی شده‌اند. از ناوبری مینیاتوری زیر جهت تغییر مقالات فعال سیستم استفاده کنید:
+                </p>
+
+                <div class="doc-navigation" id="docNavContainer">
+                    <button class="doc-nav-btn active" onclick="showArticleWindow(1)">Doc 101: Core Flooding</button>
+                    <button class="doc-nav-btn" onclick="showArticleWindow(2)">Doc 102: Gas Lift</button>
+                    <button class="doc-nav-btn" onclick="showArticleWindow(3)">Doc 103: Carbon Sequestration</button>
+                    <button class="doc-nav-btn" onclick="showArticleWindow(4)">Doc 104: Polymer Flooding</button>
+                </div>
+
+                <div id="artWindow-1" class="scientific-window active">
+                    <h3 id="art1_h3" style="color:#fff;">تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)</h3>
+                    <div class="article-meta-grid">
+                        <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-CORE-001</div>
+                        <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> دپارتمان نفت شریف</div>
+                        <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> بازنگری نهایی شده</div>
+                    </div>
+                    <div class="abstract-section">
+                        <div class="abstract-title" id="art1_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                        <p class="abstract-text" id="art1_abs_txt">
+                            فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود. این مستند به بررسی جامع متدولوژی اندازه‌گیری تراوایی نسبی، شبیه‌سازی مکانیزم‌های بازیافت ثانویه و ثالثه نفت، تعادل فازی سیالات در شرایط فشار و دمای بالا (HPHT) و ارزیابی آسیب سازند (Formation Damage) ناشی از مهاجرت ذرات ریزدانه می‌پردازد. داده‌های حاصل مستقیماً در نرم‌افزارهای شبیه‌ساز مخزن تزریق می‌شوند.
                         </p>
-                        <div class="info-grid">
-                            <div class="info-item" id="infoInst"><strong>موسسه تخصصی:</strong> دانشگاه صنعتی شریف</div>
-                            <div class="info-item" id="infoTerm"><strong>موقعیت تحصیلی:</strong> کارشناسی (ترم ۲)</div>
-                            <div class="info-item" id="infoField"><strong>گرایش متمرکز:</strong> عمومی</div>
-                            <div class="info-item" id="infoDev"><strong>محیط توسعه:</strong> فعالیت در زمینه پژوهش های نفتی</div>
-                        </div>
-                        <a href="#" class="cv-download-btn" id="cvDownloadBtn" onclick="alert('فایل رزومه نهایی در حال حاضر در دیتابیس لوکال سرور در حال کامپایل است.'); return false;">
-                            📥 دریافت نسخه رسمی رزومه (PDF) 
-                        </a>
+                        <div class="keywords-box" id="art1_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> سیلاب‌زنی مغزه، نفوذپذیری نسبی، آسیب سازند، شرایط کریتیکال مخزن.</div>
                     </div>
-                </section>
-
-                <div class="terminal-box searchable-item">
-                    <div class="terminal-header">
-                        <span>🔴 🟡 🟢 mrz_console.sh</span>
-                        <span style="font-family:inherit;">v2.0.26</span>
-                    </div>
-                    <div class="terminal-body" id="termBody">
-                        <p>[SYSTEM ENVIRONMENT INITIALIZED SUCCESSFULLY]</p>
-                        <p>Welcome to mrz company Interactive Node. Type 'help' to see system commands. Try pressing Ctrl+Shift+A on your keyboard.</p>
-                        <div class="terminal-line">
-                            <span class="terminal-prompt">guest@mrzcompany_net:~#</span>
-                            <input type="text" id="termInput" class="terminal-input" autocomplete="off" spellcheck="false">
-                        </div>
+                    <div class="file-legal-overlay">
+                        <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art1">این مستند با پروتکل هش توزیع‌شده قفل شده است. کدهای الحاقی اسکریپت در دیتابیس متمرکز ثبت شده‌اند.</span>
+                        <br>
+                        <a href="#" class="action-link-btn art-dl-btn">📥 دریافت فایل کامل PDF</a>
                     </div>
                 </div>
-            </div>
 
-            <div id="mission" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="mishTitle">اهداف، پروژه‌ها و چشم‌اندازها</h2>
-                    <p id="mishDesc" style="margin-bottom: 15px; text-align: justify; color: #cbd5e1;">
-                        برنامه‌ریزی راهبردی من برای آینده، توسعه مهارت‌های همه‌جانبه و ثبت دستاوردهای علمی معتبر است. در حال حاضر کارهای زیر در دستور کار قرار دارند:
-                    </p>
-                    <div id="mishList" style="padding-right: 15px; color: #cbd5e1; font-size: 0.95rem;">
-                        <p style="margin-bottom: 10px;">⚡ <b>پژوهش و نگارش مقالات تخصصی:</b> آغاز فعالیت روی یک سری از مستندات و مقالات علمی در حوزه مهندسی نفت به منظور ثبت دستاوردهای نوین دانشگاهی.</p>
-                        <p style="margin-bottom: 10px;">⚡ <b>توسعه راهکارهای مثبت مبتنی بر داده:</b> بهره‌گیری از پایتون جهت شبیه‌سازی عددی و تحلیل داده‌های نموداری مربوط به فرآیندهای بالادستی نفت.</p>
-                        <p style="margin-bottom: 10px;">⚡ <b>تلفیق تجارب بازار آزاد و خلاقیت:</b> اعمال استراتژی‌های تحلیلی مارکت بر روی پروژه‌های شخصی جهت افزایش بازدهی عملکردی سیستم.</p>
+                <div id="artWindow-2" class="scientific-window">
+                    <h3 id="art2_h3" style="color:#fff;">بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift Systems) در چاه‌های کم‌فشار</h3>
+                    <div class="article-meta-grid">
+                        <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-GLIFT-002</div>
+                        <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> سمینار مدلسازی هیدرولیکی سیالات</div>
+                        <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> پیش‌نویس تحقیقاتی</div>
                     </div>
-                </section>
-            </div>
-
-            <div id="tech" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="techTitle">سطح تخصص و مهارت‌های کاربردی</h2>
-                    <p id="techDesc" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 12px;">پشته ابزارها و مهارت‌های توسعه‌یافته بر اساس ساختار رزومه:</p>
-                    <div class="badge-container">
-                        <span class="badge">Python (Intermediate)</span>
-                        <span class="badge">Matlab (Basic)</span>
-                        <span class="badge">Darcy Hydrodynamics Fluid Modeling(Intermediate)</span>
-                        <span class="badge">HTML5 / CSS3 Cyberpunk Architecture(basic)</span>
-                        <span class="badge">Vanilla JavaScript (basic)</span>
-                        <span class="badge">Supabase (BaaS Integration)</span>
-                        <span class="badge">Git / Version Control Core Concepts(run page)</span>
-                        <span class="badge">Algorithmic Financial Analysis(medium)</span>
+                    <div class="abstract-section">
+                        <div class="abstract-title" id="art2_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                        <p class="abstract-text" id="art2_abs_txt">
+                            هنگامی که انرژی طبیعی مخزن جهت انتقال سیال به سطح کافی نباشد، مکانیزم‌های فرازآوری مصنوعی وارد مدار می‌شوند. این پژوهش متمرکز بر تعیین عمق بهینه تزریق گاز، نرخ دبی بهینه تزریق تجمعی و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه با استفاده از مدل‌های جریان چندفازی اولدمن است. تحلیل‌های اقتصادی نشان می‌دهد پیاده‌سازی این الگو افت تولید چاه‌های پیر را تا ۲۸٪ جبران می‌سازد.
+                        </p>
+                        <div class="keywords-box" id="art2_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> فرازآوری با گاز، جریان دوفازی، لوله مغزی تولیدی، مدل افت فشار.</div>
                     </div>
-                    <div id="python-repo" class="tab-content">
-                        <div class="card"> 
-                            <div class="searchable-item" style="border: 1px solid #38bdf8; background: rgba(6, 10, 19, 0.8); padding: 25px; border-radius: 10px; margin-bottom: 20px;">
-                                <h3 style="color: #38bdf8; margin-top: 0; margin-bottom: 15px;">💻 مخزن اسکریپت‌های پایتون | محاسبات بالادستی نفت</h3>
-                                <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 15px;">اسکریپت پایتون جهت محاسبه دبی جریان سیال در محیط متخلخل (قانون دارسی خطی):</p>
-                                <div style="position: relative; background: #040811; border-left: 4px solid #2ecc71; padding: 15px; border-radius: 8px; direction: ltr; text-align: left; font-family: monospace; overflow-x: auto; margin: 15px 0; border-top: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b;">
-                                    <button onclick="copyPythonCode(this)" style="position: absolute; right: 10px; top: 10px; background: rgba(56, 189, 248, 0.1); border: 1px solid #334155; color: #38bdf8; padding: 4px 10px; font-size: 11px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.2s;">کپی کد</button>
-                                    <pre style="margin: 0; color: #38bdf8; padding-top: 25px; font-size: 0.9rem; line-height: 1.5;">
-                        def calculate_darcy_flow(k, h, p1, p2, mu, L):
-                            try:
-                                q = (k * h * (p1 - p2)) / (mu * L)
-                                return q
-                            except ZeroDivisionError:
-                                return "Error: Length or viscosity cannot be zero."
-
-                        # Test Calculation
-                        result = calculate_darcy_flow(k=0.5, h=2000, p1=150, p2=100, mu=2.0, L=5000)
-                        print(f"Flow Rate (q): {result} cm3/s")
-                                    </pre>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="file-legal-overlay">
+                        <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art2">حقوق معنوی اثر متعلق به پدیدآورنده و دانشگاه صنعتی شریف می‌باشد.</span>
+                        <br>
+                        <a href="#" class="action-link-btn art-req-btn">📥 درخواست دسترسی علمی</a>
                     </div>
+                </div>
 
-                    <div class="darcy-calculator">
-                        <h3 id="calcHead">⚙️ شبیه‌ساز جریانات خطی تک‌فاز (قانون دارسی)</h3>
-                        <p id="calcSub" style="font-size:0.8rem; color:#cbd5e1; margin-top:4px;">محاسبه نرخ دبی عبوری سیال (Q) از محیط متخلخل رسوباتی با فرضیات خطی افقی</p>
-                        <div class="calc-grid">
-                            <div class="calc-group">
-                                <label>Permeability (k, mD)</label>
-                                <input type="number" id="calcK" class="calc-input" value="150">
-                            </div>
-                            <div class="calc-group">
-                                <label>Area (A, ft²)</label>
-                                <input type="number" id="calcA" class="calc-input" value="25">
-                            </div>
-                            <div class="calc-group">
-                                <label>Pressure Drop (ΔP, psi)</label>
-                                <input type="number" id="calcP" class="calc-input" value="400">
-                            </div>
-                            <div class="calc-group">
-                                <label>Viscosity (μ, cP)</label>
-                                <input type="number" id="calcM" class="calc-input" value="2.5">
-                            </div>
-                            <div class="calc-group">
-                                <label>Length (L, ft)</label>
-                                <input type="number" id="calcL" class="calc-input" value="120">
-                            </div>
-                        </div>
-                        <button class="calc-btn" id="calcBtn" onclick="calculateDarcyFlow()">⚡ پردازش معادلات هیدرودینامیکی</button>
-                        <div class="calc-result" id="calcResult">نرخ جریان نهایی (Q): در انتظار ورود داده‌ها...</div>
+                <div id="artWindow-3" class="scientific-window">
+                    <h3 id="art3_h3" style="color:#fff;">ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق</h3>
+                    <div class="article-meta-grid">
+                        <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-SEQ-003</div>
+                        <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> کارگروه انرژی‌های پایدار و محیط زیست</div>
+                        <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> تحت داوری ژورنال</div>
                     </div>
-                </section>
-
-            <div id="articles" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="artTitleMain">پایگاه رسمی مستندات و مقالات علمی پژوهشی</h2>
-                    <p id="artDescMain" style="color:#cbd5e1; font-size:0.95rem; margin-bottom:20px;">
-                        جهت پایش ساختاریافته فرآیندهای علمی، مقالات و مستندات تخصصی ذیل بازنویسی و دسته‌بندی شده‌اند. از ناوبری مینیاتوری زیر جهت تغییر مقالات فعال سیستم استفاده کنید:
-                    </p>
-
-                    <div class="doc-navigation" id="docNavContainer">
-                        <button class="doc-nav-btn active" onclick="showArticleWindow(1)">Doc 101: Core Flooding</button>
-                        <button class="doc-nav-btn" onclick="showArticleWindow(2)">Doc 102: Gas Lift</button>
-                        <button class="doc-nav-btn" onclick="showArticleWindow(3)">Doc 103: Carbon Sequestration</button>
-                        <button class="doc-nav-btn" onclick="showArticleWindow(4)">Doc 104: Polymer Flooding</button>
+                    <div class="abstract-section">
+                        <div class="abstract-title" id="art3_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                        <p class="abstract-text" id="art3_abs_txt">
+                            تزریق کربن دی‌آمادگی به آبده‌های شور عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای است. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2 ارزیابی شده است.
+                        </p>
+                        <div class="keywords-box" id="art3_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.</div>
                     </div>
-
-                    <div id="artWindow-1" class="scientific-window active">
-                        <h3 id="art1_h3" style="color:#fff;">تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی کُر (Core Flooding Simulation)</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-CORE-001</div>
-                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> دپارتمان نفت شریف</div>
-                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> بازنگری نهایی شده</div>
-                        </div>
-                        <div class="abstract-section">
-                            <div class="abstract-title" id="art1_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text" id="art1_abs_txt">
-                                فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود. این مستند به بررسی جامع متدولوژی اندازه‌گیری تراوایی نسبی، شبیه‌سازی مکانیزم‌های بازیافت ثانویه و ثالثه نفت، تعادل فازی سیالات در شرایط فشار و دمای بالا (HPHT) و ارزیابی آسیب سازند (Formation Damage) ناشی از مهاجرت ذرات ریزدانه می‌پردازد. داده‌های حاصل مستقیماً در نرم‌افزارهای شبیه‌ساز مخزن تزریق می‌شوند.
-                            </p>
-                            <div class="keywords-box" id="art1_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> سیلاب‌زنی مغزه، نفوذپذیری نسبی، آسیب سازند، شرایط کریتیکال مخزن.</div>
-                        </div>
-                        <div class="file-legal-overlay">
-                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art1">این مستند با پروتکل هش توزیع‌شده قفل شده است. کدهای الحاقی اسکریپت در دیتابیس متمرکز ثبت شده‌اند.</span>
-                            <br>
-                            <a href="#" class="action-link-btn art-dl-btn">📥 دریافت فایل کامل PDF</a>
-                        </div>
+                    <div class="file-legal-overlay">
+                        <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art3">کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد.</span>
                     </div>
+                </div>
 
-                    <div id="artWindow-2" class="scientific-window">
-                        <h3 id="art2_h3" style="color:#fff;">بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift Systems) در چاه‌های کم‌فشار</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-GLIFT-002</div>
-                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> سمینار مدلسازی هیدرولیکی سیالات</div>
-                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> پیش‌نویس تحقیقاتی</div>
-                        </div>
-                        <div class="abstract-section">
-                            <div class="abstract-title" id="art2_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text" id="art2_abs_txt">
-                                هنگامی که انرژی طبیعی مخزن جهت انتقال سیال به سطح کافی نباشد، مکانیزم‌های فرازآوری مصنوعی وارد مدار می‌شوند. این پژوهش متمرکز بر تعیین عمق بهینه تزریق گاز، نرخ دبی بهینه تزریق تجمعی و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه با استفاده از مدل‌های جریان چندفازی اولدمن است. تحلیل‌های اقتصادی نشان می‌دهد پیاده‌سازی این الگو افت تولید چاه‌های پیر را تا ۲۸٪ جبران می‌سازد.
-                            </p>
-                            <div class="keywords-box" id="art2_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> فرازآوری با گاز، جریان دوفازی، لوله مغزی تولیدی، مدل افت فشار.</div>
-                        </div>
-                        <div class="file-legal-overlay">
-                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art2">حقوق معنوی اثر متعلق به پدیدآورنده و دانشگاه صنعتی شریف می‌باشد.</span>
-                            <br>
-                            <a href="#" class="action-link-btn art-req-btn">📥 درخواست دسترسی علمی</a>
-                        </div>
+                <div id="artWindow-4" class="scientific-window">
+                    <h3 id="art4_h3" style="color:#fff;">بررسی رئولوژی سیالات پلیمری در فرآیندهای بهبود بازیافت نفت (EOR)</h3>
+                    <div class="article-meta-grid">
+                        <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-POLY-004</div>
+                        <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> آزمایشگاه پیشرفته ازدیاد برداشت سیالات</div>
+                        <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> تایید شده برای ارائه</div>
                     </div>
-
-                    <div id="artWindow-3" class="scientific-window">
-                        <h3 id="art3_h3" style="color:#fff;">ترسیب کربن دی اکسید (CO2 Sequestration) در آبده‌های شور عمیق</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-SEQ-003</div>
-                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> کارگروه انرژی‌های پایدار و محیط زیست</div>
-                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> تحت داوری ژورنال</div>
-                        </div>
-                        <div class="abstract-section">
-                            <div class="abstract-title" id="art3_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text" id="art3_abs_txt">
-                                تزریق کربن دی‌آمادگی به آبده‌های شور عمیق، یکی از ایمن‌ترین روش‌های کاهش گازهای گلخانه‌ای است. در این مستند، پایداری ساختاری کلاهک مخازن، مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2 ارزیابی شده است.
-                            </p>
-                            <div class="keywords-box" id="art3_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> ترسیب کربن، تله‌اندازی انحلالی، محیط متخلخل شور، مدلسازی ژئوشیمیایی.</div>
-                        </div>
-                        <div class="file-legal-overlay">
-                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art3">کدهای الحاقی پایتون این سند در بخش اسکریپت‌های توزیع شده قرار دارد.</span>
-                        </div>
+                    <div class="abstract-section">
+                        <div class="abstract-title" id="art4_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
+                        <p class="abstract-text" id="art4_abs_txt">
+                            تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال می‌گردد. این پژوهش تجربی به مطالعه رفتار غیرنیوتنی محلول‌های پلیمری هیدرولیز شده پلی‌اکریل‌آمید (HPAM) می‌پردازد.
+                        </p>
+                        <div class="keywords-box" id="art4_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.</div>
                     </div>
-
-                    <div id="artWindow-4" class="scientific-window">
-                        <h3 id="art4_h3" style="color:#fff;">بررسی رئولوژی سیالات پلیمری در فرآیندهای بهبود بازیافت نفت (EOR)</h3>
-                        <div class="article-meta-grid">
-                            <div class="meta-item"><span class="meta-lbl-id"><strong>شناسه دسترسی:</strong></span> AR-POLY-004</div>
-                            <div class="meta-item"><span class="meta-lbl-dep"><strong>پایشگاه علمی:</strong></span> آزمایشگاه پیشرفته ازدیاد برداشت سیالات</div>
-                            <div class="meta-item"><span class="meta-lbl-stat"><strong>وضعیت سند:</strong></span> تایید شده برای ارائه</div>
-                        </div>
-                        <div class="abstract-section">
-                            <div class="abstract-title" id="art4_abs_title">🧬 خلاصه ساختار یافته مهندسی:</div>
-                            <p class="abstract-text" id="art4_abs_txt">
-                                تزریق پلیمر با افزایش گرانروی فاز آبی، نسبت پویایی جابجایی را بهبود بخشیده و مانع از پدیده انگشت‌شدگی سیال می‌گردد. این پژوهش تجربی به مطالعه رفتار غیرنیوتنی محلول‌های پلیمری هیدرولیز شده پلی‌اکریل‌آمید (HPAM) می‌پردازد.
-                            </p>
-                            <div class="keywords-box" id="art4_key"><strong class="kw-title">کلیدواژه‌های کلیدی:</strong> تزریق پلیمر، نسبت پویایی، رفتار غیرنیوتنی، پایداری حرارتی.</div>
-                        </div>
-                        <div class="file-legal-overlay">
-                            <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art4">اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است.</span>
-                        </div>
+                    <div class="file-legal-overlay">
+                        <span class="legal-title-art"><strong>🔒 لایه حفاظت امنیتی و کپی‌رایت :</strong></span> <span class="legal-desc-art4">اطلاعات تکمیلی شامل جداول آزمایشگاهی ضمیمه نسخه فیزیکی است.</span>
                     </div>
+                </div>
 
-                    <div id="dynamicArticlesWrapper"></div>
-                </section>
-            </div>
+                <div id="dynamicArticlesWrapper"></div>
+            </section>
+        </div>
 
-            <div id="projects" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="monTitleMain">مانیتورینگ و رهگیری زنده فعالیت‌های سیستمی</h2>
-                    <p id="monDescMain" style="color: #cbd5e1; font-size: 0.95rem;">
-                        جدول زیر وضعیت آنلاین فرآیندها، تسک‌های در حال توسعه و پروژه‌های اجرا شده من را با رویکرد پایش زنده نشان می‌دهد:
-                    </p>
-                    <div class="table-responsive-wrapper">
-                        <table class="project-table">
-                            <thead>
-                                <tr>
-                                    <th id="thTask">فرآیند / سابقه فعالیت</th>
-                                    <th id="thStack">بستر و ابزار کلیدی استفاده شده</th>
-                                    <th id="thStatus">وضعیت عملیاتی</th>
-                                </tr>
-                            </thead>
-                            <tbody id="projectTableBody">
-                                <tr>
-                                    <td>طراحی آکادمیک سایبرپانک زنده</td>
-                                    <td>HTML5 / CSS3 / Vanilla JS / Supabase API</td>
-                                    <td><span class="status-online">● عملیاتی و آنلاین</span></td>
-                                </tr>
-                                <tr>
-                                    <td>توسعه اسکریپت متحرک‌سازی کدهای هیدرودینامیک</td>
-                                    <td>Python / Matplotlib Animation Core</td>
-                                    <td><span class="status-progress">● در حال انجام و عیب‌یابی</span></td>
-                                </tr>
-                                <tr>
-                                    <td>تنظیم الگوریتم خودکار مینی‌ترمینال وب تعاملی</td>
-                                    <td>JavaScript Logic Engine</td>
-                                    <td><span class="status-online">● عملیاتی و آنلاین</span></td>
-                                </tr>
-                                <tr>
-                                    <td>اتصال پایگاه داده امنیتی با متدهای رمزنگاری توکن</td>
-                                    <td>Supabase Authentication System</td>
-                                    <td><span class="status-online">● عملیاتی و آنلاین</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
+        <div id="projects" class="tab-content">
+            <section class="card searchable-item">
+                <h2 id="monTitleMain">مانیتورینگ و رهگیری زنده فعالیت‌های سیستمی</h2>
+                <p id="monDescMain" style="color: #cbd5e1; font-size: 0.95rem;">
+                    جدول زیر وضعیت آنلاین فرآیندها، تسک‌های در حال توسعه و پروژه‌های اجرا شده من را با رویکرد پایش زنده نشان می‌دهد:
+                </p>
+                <div class="table-responsive-wrapper">
+                    <table class="project-table">
+                        <thead>
+                            <tr>
+                                <th id="thTask">فرآیند / سابقه فعالیت</th>
+                                <th id="thStack">بستر و ابزار کلیدی استفاده شده</th>
+                                <th id="thStatus">وضعیت عملیاتی</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectTableBody">
+                            <tr>
+                                <td>طراحی آکادمیک سایبرپانک زنده</td>
+                                <td>HTML5 / CSS3 / Vanilla JS / Supabase API</td>
+                                <td><span class="status-online">● عملیاتی و آنلاین</span></td>
+                            </tr>
+                            <tr>
+                                <td>توسعه اسکریپت متحرک‌سازی کدهای هیدرودینامیک</td>
+                                <td>Python / Matplotlib Animation Core</td>
+                                <td><span class="status-progress">● در حال انجام و عیب‌یابی</span></td>
+                            </tr>
+                            <tr>
+                                <td>تنظیم الگوریتم خودکار مینی‌ترمینال وب تعاملی</td>
+                                <td>JavaScript Logic Engine</td>
+                                <td><span class="status-online">● عملیاتی و آنلاین</span></td>
+                            </tr>
+                            <tr>
+                                <td>اتصال پایگاه داده امنیتی با متدهای رمزنگاری توکن</td>
+                                <td>Supabase Authentication System</td>
+                                <td><span class="status-online">● عملیاتی و آنلاین</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
 
-            <div id="contact" class="tab-content">
-                <section class="card searchable-item">
-                    <h2 id="contTitle">پل‌های ارتباطی </h2>
-                    <p id="contDesc" style="color:#cbd5e1; font-size:0.95rem; margin-bottom:15px;">جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:</p>
-                    <ul class="contact-list">
-                        <li><strong id="emailLabel">پست الکترونیکی رسمی :</strong> <a href="mailto:abolfazlmirzaie86@gmail.com"><abolfazl class="mirzaie 86"></abolfazl>abolfazlmirzaie86@gmail.com</a></li>
-                        <li><strong id="emailLabel">پست الکترونیک رسمی دانشگاهی:</strong> <a href="mailto:abolfazl.mirzaie.86@sharif.edu"><abolfazl class="mirzaie 86"></abolfazl>abolfazl.mirzaie.86@sharif.edu</a></li>
-                        <li><strong id="telegramLabel">تلگرام بنده:</strong> <a href="https://t.me/Senioramrz" target="_blank">Senioramrz@</a></li>
-                    </ul>
+        <div id="contact" class="tab-content">
+            <section class="card searchable-item">
+                <h2 id="contTitle">پل‌های ارتباطی</h2>
+                <p id="contDesc" style="color:#cbd5e1; font-size:0.95rem; margin-bottom:15px;">جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید:</p>
+                <ul class="contact-list">
+                    <li><strong id="emailLabelOfficial">پست الکترونیکی رسمی :</strong> <a href="mailto:abolfazlmirzaie86@gmail.com">abolfazlmirzaie86@gmail.com</a></li>
+                    <li><strong id="emailLabelUni">پست الکترونیک رسمی دانشگاهی:</strong> <a href="mailto:abolfazl.mirzaie.86@sharif.edu">abolfazl.mirzaie.86@sharif.edu</a></li>
+                    <li><strong id="telegramLabel">تلگرام بنده:</strong> <a href="https://t.me/Senioramrz" target="_blank">Senioramrz@</a></li>
+                </ul>
 
-                    <form class="cyber-form" onsubmit="handleContactSubmit(event)">
-                        <input type="text" id="formName" class="cyber-input" placeholder="نام و نام خانوادگی" required>
-                        <input type="email" id="formEmail" class="cyber-input" placeholder="آدرس ایمیل سیگنال" required>
-                        <textarea id="formMsg" class="cyber-input full-width" placeholder="متن پیام گام‌به‌گام شما به پروتکل ادمین..." rows="4" required></textarea>
-                        <button type="submit" class="cyber-submit full-width" id="formBtn">📡 ارسال ایمن سیگنال ارتباطی</button>
-                    </form>
-                </section>
-            </div>
+                <form class="cyber-form" onsubmit="handleContactSubmit(event)">
+                    <input type="text" id="formName" class="cyber-input" placeholder="نام و نام خانوادگی" required>
+                    <input type="email" id="formEmail" class="cyber-input" placeholder="آدرس ایمیل سیگنال" required>
+                    <textarea id="formMsg" class="cyber-input full-width" placeholder="متن پیام گام‌به‌گام شما به پروتکل ادمین..." rows="4" required></textarea>
+                    <button type="submit" class="cyber-submit full-width" id="formBtn">📡 ارسال ایمن سیگنال ارتباطی</button>
+                </form>
+            </section>
+        </div>
 
-            <footer class="footer-text searchable-item">
-                <p id="footerCopyright">© وب‌سایت رسمی ابوالفضل میرزایی - دانشجوی مهندسی نفت دانشگاه صنعتی شریف. تمامی حقوق مادی و معنوی محفوظ است.</p>
-                <p id="footerCopyright">محافظ سایت درحال چک کردن کاربران حاضر در سایت ©</p>
-            </footer>
+        <footer class="footer-text searchable-item">
+            <p id="footerCopyright">© وب‌سایت رسمی ابوالفضل میرزایی - دانشجوی مهندسی نفت دانشگاه صنعتی شریف. تمامی حقوق مادی و معنوی محفوظ است.</p>
+            <p id="footerCopyrightProtection">محافظ سایت درحال چک کردن کاربران حاضر در سایت ©</p>
+        </footer>
         </main>
     </div>
 
