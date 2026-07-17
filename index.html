@@ -44,20 +44,16 @@ input,textarea,select{font-family:inherit;background:rgba(20,20,20,.85);color:va
 input:focus,textarea:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
 h1,h2,h3,h4{font-family:var(--font-h);letter-spacing:-.015em;line-height:1.2}
 .container{max-width:1240px;margin:0 auto;padding:0 22px}
-.hidden{display:none!important}
 
 /* Header */
 .topbar{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.75);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid var(--border-gold)}
 .topbar::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1400px;margin:0 auto;gap:16px;flex-wrap:wrap}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1400px;margin:0 auto;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;font-family:var(--font-h);font-weight:700;font-size:1.2rem;letter-spacing:.18em}
 .brand-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold-2));display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;font-family:var(--font-h);font-size:1.1rem;box-shadow:0 0 20px rgba(212,175,55,.5);position:relative}
 .brand-mark::after{content:'';position:absolute;inset:-2px;border-radius:12px;background:linear-gradient(135deg,var(--gold),transparent,var(--gold-2));z-index:-1;filter:blur(8px);opacity:.7}
 .brand-txt{background:linear-gradient(90deg,var(--gold-2),var(--gold),var(--gold-2));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
 @keyframes shine{to{background-position:200% 0}}
-.nav-links{display:flex;gap:14px;align-items:center;font-size:.85rem}
-.nav-links a{color:var(--muted);transition:.2s;letter-spacing:.03em}
-.nav-links a:hover{color:var(--gold)}
 .top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 18px;border-radius:10px;font-size:.88rem;font-weight:600;border:1px solid var(--border);background:var(--panel);color:var(--text);transition:all .25s;position:relative;overflow:hidden}
 .btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
@@ -69,8 +65,6 @@ h1,h2,h3,h4{font-family:var(--font-h);letter-spacing:-.015em;line-height:1.2}
 .btn-lg{padding:14px 26px;font-size:1rem}
 .btn-danger{background:transparent;border-color:#3a1a1a;color:#f88}
 .btn-danger:hover{border-color:var(--danger);color:var(--danger)}
-.btn-google{background:#fff;color:#000;border-color:#fff;font-weight:600}
-.btn-google:hover{color:#000;filter:brightness(.94)}
 .lang-toggle{display:inline-flex;border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .lang-toggle button{padding:7px 13px;font-size:.8rem;color:var(--muted);background:transparent}
 .lang-toggle button.active{background:var(--gold-soft);color:var(--gold)}
@@ -91,12 +85,12 @@ html[dir="rtl"] .hero h1{font-family:var(--font-fa);font-weight:900}
 .search-bar svg{color:var(--gold);flex-shrink:0}
 .search-bar kbd{font-size:.7rem;padding:3px 8px;background:var(--panel-2);border:1px solid var(--border);border-radius:5px;color:var(--muted)}
 
-/* Stats */
+/* Stats strip */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:44px auto 20px;max-width:920px}
 .stat{background:linear-gradient(180deg,rgba(20,20,20,.7),rgba(10,10,10,.7));backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:14px;padding:20px 14px;text-align:center;position:relative;overflow:hidden;transition:.3s}
 .stat:hover{border-color:var(--gold);transform:translateY(-3px)}
 .stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.stat .num{font-family:var(--font-h);font-size:2rem;font-weight:700;background:linear-gradient(180deg,var(--gold-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .num{font-family:var(--font-h);font-size:2rem;font-weight:700;color:var(--gold-2);background:linear-gradient(180deg,var(--gold-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat .lbl{color:var(--muted);font-size:.78rem;margin-top:4px;letter-spacing:.05em}
 @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
 
@@ -104,231 +98,270 @@ html[dir="rtl"] .hero h1{font-family:var(--font-fa);font-weight:900}
 .marquee{margin:36px 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:rgba(0,0,0,.35);position:relative}
 .marquee-track{display:flex;gap:36px;animation:mScroll 32s linear infinite;white-space:nowrap;width:max-content}
 .marquee-track span{color:var(--muted);font-family:var(--font-h);font-size:.9rem;letter-spacing:.15em;display:inline-flex;align-items:center;gap:16px}
-.marquee-track span::after{content:'✦';color:var(--gold)}
+.marquee-track span::after{content:'✦';color:var(--gold);margin-left:36px}
 @keyframes mScroll{to{transform:translateX(-50%)}}
 
-/* Features */
-.features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:26px 0}
-.feat{background:linear-gradient(180deg,rgba(20,20,20,.6),rgba(10,10,10,.6));border:1px solid var(--border);border-radius:14px;padding:22px;transition:.3s;position:relative;overflow:hidden}
-.feat:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 30px -12px rgba(212,175,55,.35)}
-.feat .icon{font-size:1.7rem;margin-bottom:10px}
-.feat h4{color:var(--gold-2);font-size:1rem;margin-bottom:6px}
-.feat p{color:var(--muted);font-size:.85rem;line-height:1.6}
-@media(max-width:840px){.features{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.features{grid-template-columns:1fr}}
-
 /* Section titles */
-.section-title{text-align:center;margin:60px 0 24px}
-.section-title .kicker{color:var(--gold);font-family:var(--font-h);font-size:.75rem;letter-spacing:.35em;margin-bottom:10px}
-.section-title h2{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3rem);font-weight:700}
-html[dir="rtl"] .section-title h2{font-family:var(--font-fa);font-weight:800}
-.section-title .line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto 0}
+.section-title{text-align:center;margin:60px 0 30px}
+.section-title .kicker{color:var(--gold);letter-spacing:.25em;font-size:.75rem;font-weight:600;margin-bottom:10px}
+.section-title h2{font-family:var(--font-h);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700}
+.section-title .line{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
 
 /* Tabs */
-.tabs-wrap{margin:20px 0 40px}
-.tabs-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:22px}
-.tab-btn{padding:10px 18px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--muted);font-size:.85rem;font-weight:600;transition:.2s}
-.tab-btn:hover{border-color:var(--gold);color:var(--gold)}
-.tab-btn.active{background:linear-gradient(135deg,var(--gold-soft),transparent);border-color:var(--gold);color:var(--gold-2);box-shadow:0 0 20px -6px rgba(212,175,55,.5)}
-.tab-btn.locked::before{content:'🔒 ';font-size:.75em}
-.card{background:linear-gradient(180deg,rgba(20,20,20,.7),rgba(10,10,10,.8));border:1px solid var(--border);border-radius:16px;padding:30px;backdrop-filter:blur(10px)}
-.card h2{font-family:var(--font-display);color:var(--gold-2);font-size:1.7rem;margin-bottom:14px}
-html[dir="rtl"] .card h2{font-family:var(--font-fa);font-weight:800}
-.badge{display:inline-block;padding:5px 11px;margin:4px;background:var(--gold-soft);color:var(--gold-2);border:1px solid var(--border-gold);border-radius:999px;font-size:.78rem;font-weight:500}
-.code-box{background:#0a0a0a;border:1px solid var(--border);border-radius:10px;margin-top:14px;position:relative}
-.code-box pre{padding:16px;overflow-x:auto;font-family:'Courier New',monospace;font-size:.85rem;color:#eee;direction:ltr;text-align:left}
-.copy-btn{position:absolute;top:8px;left:8px;padding:4px 10px;font-size:.72rem;background:var(--gold-soft);border:1px solid var(--border-gold);border-radius:6px;color:var(--gold-2)}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
-.info-item{padding:12px 14px;background:var(--panel-2);border:1px solid var(--border);border-radius:10px}
-.info-item strong{color:var(--gold);display:block;margin-bottom:4px;font-size:.78rem;letter-spacing:.05em}
-.contact-item{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--panel-2);border:1px solid var(--border);border-radius:10px;margin-bottom:8px}
-.contact-item strong{color:var(--gold-2)}
-.contact-item span{color:var(--muted);font-family:'Courier New',monospace;font-size:.85rem}
+.tabs-wrap{margin-top:24px}
+.tabs-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px;padding:0 12px}
+.tab-btn{padding:11px 18px;border-radius:999px;background:rgba(20,20,20,.7);backdrop-filter:blur(8px);border:1px solid var(--border);color:var(--muted);font-size:.85rem;font-weight:600;transition:all .25s;letter-spacing:.02em}
+.tab-btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
+.tab-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#000;border-color:transparent;box-shadow:0 6px 18px -6px rgba(212,175,55,.7)}
+.tab-btn.locked::after{content:'🔒';margin-inline-start:6px;font-size:.75rem}
+.tab-panel{display:none;animation:fadeUp .4s ease}
+.tab-panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-/* Portfolio cards */
-.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:20px}
-.proj-card{background:linear-gradient(180deg,rgba(20,20,20,.7),rgba(10,10,10,.85));border:1px solid var(--border);border-radius:16px;padding:22px;transition:.3s;position:relative;overflow:hidden}
-.proj-card::before{content:'';position:absolute;inset:0;background:radial-gradient(400px 200px at 100% 0%,rgba(212,175,55,.09),transparent 60%);opacity:0;transition:.4s}
-.proj-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(212,175,55,.4)}
-.proj-card:hover::before{opacity:1}
-.proj-card h4{color:var(--gold-2);font-family:var(--font-display);font-size:1.35rem;margin-bottom:8px;position:relative}
-html[dir="rtl"] .proj-card h4{font-family:var(--font-fa);font-weight:800}
-.proj-card p{color:var(--muted);font-size:.9rem;margin-bottom:12px;position:relative;min-height:44px}
-.proj-tags{display:flex;flex-wrap:wrap;gap:6px;position:relative}
+.card{background:linear-gradient(180deg,rgba(24,24,24,.85),rgba(12,12,12,.85));backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:22px;position:relative;overflow:hidden;transition:.3s}
+.card:hover{border-color:var(--border-gold)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7}
+.card::after{content:'';position:absolute;top:-50%;right:-30%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,.1),transparent 60%);pointer-events:none}
+.card h2{color:var(--gold-2);margin-bottom:16px;font-size:1.5rem;font-weight:700}
+.card h3{color:var(--gold);margin-bottom:10px;font-size:1.15rem}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.badge{display:inline-block;padding:7px 14px;margin:4px;border-radius:999px;background:var(--gold-soft);border:1px solid var(--border-gold);color:var(--gold-2);font-size:.78rem;font-weight:600;transition:.2s}
+.badge:hover{background:var(--gold);color:#000;transform:translateY(-1px)}
+.info-item{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:12px;padding:14px;transition:.2s}
+.info-item:hover{border-color:var(--border-gold)}
+.info-item strong{color:var(--gold);display:block;font-size:.72rem;margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase}
 
-/* Testimonials */
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:20px}
-.testi{background:linear-gradient(180deg,rgba(20,20,20,.7),rgba(10,10,10,.85));border:1px solid var(--border);border-radius:16px;padding:24px;position:relative}
-.testi::before{content:'"';position:absolute;top:-16px;right:20px;font-size:5rem;color:var(--gold-soft);font-family:var(--font-display);line-height:1}
-html[dir="rtl"] .testi::before{right:auto;left:20px}
-.testi .quote{color:#e8e6db;font-size:.98rem;line-height:1.9;margin-bottom:16px;position:relative}
-.testi .author{color:var(--gold-2);font-weight:700;font-size:.9rem}
-.testi .role{color:var(--muted);font-size:.78rem;margin-top:2px}
-.testi .stars{color:var(--gold);margin-top:8px;letter-spacing:2px}
+/* Code block */
+.code-box{background:linear-gradient(180deg,#050505,#0a0a0a);border:1px solid var(--border);border-inline-start:3px solid var(--gold);border-radius:12px;padding:18px;direction:ltr;text-align:left;font-family:'Consolas',monospace;font-size:.86rem;color:#e0d8b0;overflow-x:auto;position:relative;margin:16px 0;box-shadow:inset 0 0 30px rgba(212,175,55,.05)}
+.code-box pre{white-space:pre;margin:0;padding-top:8px}
+.copy-btn{position:absolute;top:10px;right:10px;background:var(--gold-soft);border:1px solid var(--border-gold);color:var(--gold);padding:5px 12px;font-size:.72rem;border-radius:7px;font-weight:600;transition:.2s}
+.copy-btn:hover{background:var(--gold);color:#000}
 
-/* FAQ */
-.faq-list{max-width:820px;margin:20px auto 0}
-.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:.3s}
-.faq-item:hover{border-color:var(--border-gold)}
-.faq-item[open]{border-color:var(--gold);box-shadow:0 4px 20px -8px rgba(212,175,55,.3)}
-.faq-item summary{padding:16px 20px;cursor:pointer;color:var(--gold-2);font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';color:var(--gold);font-size:1.4rem;font-weight:300;transition:.3s}
-.faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item .ans{padding:0 20px 18px;color:var(--muted);line-height:1.9;font-size:.92rem}
-
-/* Blog */
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:20px}
-.blog-card{background:linear-gradient(180deg,rgba(20,20,20,.7),rgba(10,10,10,.85));border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.3s;cursor:pointer}
-.blog-card:hover{border-color:var(--gold);transform:translateY(-4px)}
-.blog-card .cover{aspect-ratio:16/9;background:linear-gradient(135deg,var(--gold-soft),var(--panel-2));display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--gold-2)}
-.blog-card .body{padding:18px}
-.blog-card h4{color:var(--gold-2);margin-bottom:8px}
-.blog-card p{color:var(--muted);font-size:.88rem;line-height:1.7}
-.blog-card .date{color:var(--gold);font-size:.72rem;margin-top:10px;letter-spacing:.05em}
-
-/* Contact form */
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
-@media(max-width:820px){.contact-wrap{grid-template-columns:1fr}}
-.contact-form .field{margin-bottom:14px}
-.contact-form label{display:block;color:var(--gold-2);font-size:.82rem;margin-bottom:6px;font-weight:500}
+/* Feature strip */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:40px 0}
+.feat{background:rgba(20,20,20,.6);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;padding:22px;transition:.3s;position:relative;overflow:hidden}
+.feat:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:var(--shadow-gold)}
+.feat .icon{width:44px;height:44px;border-radius:10px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1.3rem}
+.feat h4{color:var(--gold-2);margin-bottom:6px;font-size:1rem}
+.feat p{color:var(--muted);font-size:.85rem}
 
 /* Quote */
-.quote{padding:60px 0;text-align:center;margin:40px 0;position:relative}
-.quote::before,.quote::after{content:'';position:absolute;left:50%;transform:translateX(-50%);width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.quote::before{top:0}.quote::after{bottom:0}
-.quote blockquote{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.2rem);color:var(--gold-2);max-width:900px;margin:0 auto;line-height:1.5}
-html[dir="rtl"] .quote blockquote{font-family:var(--font-fa);font-weight:600}
-.quote cite{display:block;margin-top:20px;color:var(--muted);font-size:.85rem;letter-spacing:.2em;font-style:normal}
+.quote{text-align:center;padding:60px 20px;position:relative}
+.quote blockquote{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.2rem);color:var(--gold-2);max-width:820px;margin:0 auto;line-height:1.4;font-style:italic}
+html[dir="rtl"] .quote blockquote{font-family:var(--font-fa);font-weight:600;font-style:normal}
+.quote cite{display:block;margin-top:18px;color:var(--muted);font-style:normal;font-size:.85rem;letter-spacing:.1em}
 
-/* Footer */
-.footer{background:linear-gradient(180deg,var(--bg-2),#000);border-top:1px solid var(--border-gold);padding:60px 22px 30px;margin-top:50px}
-.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px}
-@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}
-.footer h5{color:var(--gold);font-family:var(--font-h);font-size:.88rem;letter-spacing:.15em;margin-bottom:14px}
-.footer a{display:block;color:var(--muted);font-size:.85rem;padding:5px 0;transition:.2s}
-.footer a:hover{color:var(--gold)}
-.footer .muted{color:var(--muted)}
-.footer-bottom{max-width:1200px;margin:34px auto 0;padding-top:20px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.82rem}
-.secret-link{position:absolute;left:14px;bottom:6px;font-size:.68rem;opacity:.16;transition:.3s;color:var(--muted)!important}
-html[dir="rtl"] .secret-link{left:auto;right:14px}
-.secret-link:hover{opacity:1;color:var(--gold)!important}
-
-/* Overlay + Modal */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);z-index:1000;display:none;align-items:center;justify-content:center;padding:22px;overflow-y:auto}
-.overlay.show{display:flex;animation:fadeIn .3s ease}
+/* Auth / Modals */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.show{display:flex;animation:fadeIn .25s}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--border-gold);border-radius:18px;padding:34px;max-width:520px;width:100%;position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 30px 80px -20px rgba(212,175,55,.3)}
+.modal{background:linear-gradient(180deg,rgba(24,24,24,.98),rgba(14,14,14,.98));border:1px solid var(--border-gold);border-radius:20px;padding:32px;max-width:480px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 60px rgba(212,175,55,.15);position:relative}
+.modal::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .modal-lg{max-width:900px}
-.modal h2{color:var(--gold-2);font-family:var(--font-display);margin-bottom:6px;font-size:1.7rem}
-html[dir="rtl"] .modal h2{font-family:var(--font-fa);font-weight:800}
-.modal .sub{color:var(--muted);margin-bottom:20px;font-size:.9rem}
+.modal h2{color:var(--gold);margin-bottom:6px;font-family:var(--font-h)}
+.modal .sub{color:var(--muted);font-size:.88rem;margin-bottom:20px}
 .field{margin-bottom:14px}
-.field label{display:block;color:var(--gold-2);font-size:.82rem;margin-bottom:6px;font-weight:500}
-.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;flex-wrap:wrap}
-.tabs-mini{display:flex;gap:6px;margin-bottom:20px;background:var(--panel-2);padding:5px;border-radius:10px}
-.tabs-mini button{flex:1;padding:9px;border-radius:8px;color:var(--muted);transition:.2s;font-weight:500;font-size:.88rem}
-.tabs-mini button.active{background:var(--gold-soft);color:var(--gold-2)}
+.field label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:6px;font-weight:600}
+.tabs-mini{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:18px}
+.tabs-mini button{flex:1;padding:12px;color:var(--muted);font-weight:600;font-size:.88rem;border-bottom:2px solid transparent;transition:.2s}
+.tabs-mini button.active{color:var(--gold);border-bottom-color:var(--gold)}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}
 
-/* Plans */
-.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:14px}
-.plan-card{padding:22px 18px;background:linear-gradient(180deg,var(--panel-2),var(--bg-2));border:1px solid var(--border);border-radius:14px;position:relative;transition:.3s}
+/* Subscriptions */
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:16px}
+.plan-card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:16px;padding:26px;position:relative;transition:all .3s;overflow:hidden}
 .plan-card:hover{border-color:var(--gold);transform:translateY(-4px)}
-.plan-card.featured{border-color:var(--gold);box-shadow:var(--shadow-gold)}
-.plan-card.featured::before{content:'محبوب ✦';position:absolute;top:-11px;right:16px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#000;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700}
-.plan-card h3{color:var(--gold-2);margin-bottom:10px;font-size:1.25rem}
-.plan-price{font-family:var(--font-h);font-size:1.9rem;color:var(--gold);font-weight:700;margin:8px 0}
-.plan-features{list-style:none;padding:0;margin:14px 0}
-.plan-features li{padding:6px 0;color:var(--muted);font-size:.85rem;border-bottom:1px solid var(--border)}
-.plan-features li::before{content:'✓';color:var(--gold);margin-inline-end:8px;font-weight:700}
-
-/* Admin Portal */
-.admin-portal{position:fixed;inset:0;background:radial-gradient(ellipse at center,#1a1005 0%,#050505 70%);z-index:2000;display:none;align-items:center;justify-content:center;padding:22px}
-.admin-portal.show{display:flex;animation:fadeIn .4s ease}
-.admin-portal-box{background:linear-gradient(180deg,var(--panel),#050505);border:1px solid var(--gold);border-radius:20px;padding:44px;max-width:440px;width:100%;text-align:center;box-shadow:0 40px 100px -20px rgba(212,175,55,.5);position:relative;overflow:hidden}
-.admin-portal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-2),var(--gold),transparent)}
-.badge-secure{background:var(--gold-soft);color:var(--gold-2);padding:6px 16px;border-radius:999px;font-size:.72rem;letter-spacing:.15em;display:inline-block;margin-bottom:16px;border:1px solid var(--border-gold)}
-.admin-portal-crest{font-size:3rem;margin-bottom:16px}
-.admin-portal-box h1{font-family:var(--font-display);color:var(--gold-2);font-size:1.9rem;margin-bottom:6px}
-html[dir="rtl"] .admin-portal-box h1{font-family:var(--font-fa);font-weight:800}
-.admin-portal-box .tagline{color:var(--muted);font-size:.85rem;margin-bottom:26px}
-.admin-portal-box .field{text-align:start}
-.admin-portal-box .back{margin-top:18px}
-.admin-portal-box .back a{color:var(--muted);font-size:.85rem}
+.plan-card.featured{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold-soft), 0 20px 50px -20px rgba(212,175,55,.5)}
+.plan-card.featured::before{content:'⭐ محبوب';position:absolute;top:14px;left:14px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#000;padding:4px 12px;border-radius:999px;font-size:.7rem;font-weight:700}
+.plan-price{font-size:2.2rem;color:var(--gold);font-weight:800;margin:12px 0;font-family:var(--font-h)}
+.plan-features{list-style:none;margin:16px 0}
+.plan-features li{padding:7px 0;color:var(--muted);font-size:.88rem;display:flex;gap:8px}
+.plan-features li::before{content:'✦';color:var(--gold)}
 
 /* Admin */
-.admin-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;padding:6px;background:var(--panel-2);border-radius:12px}
-.admin-nav button{flex:1;min-width:110px;padding:9px 12px;color:var(--muted);border-radius:8px;font-size:.82rem;font-weight:500}
-.admin-nav button.active{background:var(--gold-soft);color:var(--gold-2)}
-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.85rem}
-table th,table td{padding:9px;border:1px solid var(--border);text-align:start;vertical-align:top}
-table th{background:var(--panel-2);color:var(--gold-2);font-weight:600;font-size:.78rem;letter-spacing:.05em}
-table input,table select{padding:6px 8px;font-size:.8rem}
-.status-pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:600}
-.status-pending{background:rgba(234,179,8,.15);color:#fde047;border:1px solid rgba(234,179,8,.4)}
-.status-delivered{background:rgba(34,197,94,.15);color:#86efac;border:1px solid rgba(34,197,94,.4)}
-.status-cancelled{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.4)}
+.admin-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:14px}
+.admin-nav button{padding:9px 15px;font-size:.83rem;color:var(--muted);border-radius:9px;font-weight:600;transition:.2s}
+.admin-nav button:hover{color:var(--gold)}
+.admin-nav button.active{background:var(--gold-soft);color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th,td{padding:11px;text-align:start;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--gold);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+.status-pill{padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:600}
+.status-pending{background:#3a2a10;color:#f5c568}
+.status-delivered{background:#0f2f1f;color:#68f5a0}
+
+/* Contact list */
+.contact-item{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;transition:.2s}
+.contact-item:hover{border-color:var(--border-gold)}
+.contact-item strong{color:var(--gold-2)}
 
 /* Toast */
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#000;padding:12px 22px;border-radius:12px;font-weight:700;font-size:.88rem;box-shadow:0 20px 40px -10px rgba(212,175,55,.6);z-index:3000;display:none;animation:slideUp .3s ease}
-@keyframes slideUp{from{transform:translate(-50%,20px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+.toast{position:fixed;bottom:24px;inset-inline-start:50%;transform:translateX(50%);background:linear-gradient(135deg,var(--panel),var(--panel-2));border:1px solid var(--gold);color:var(--gold-2);padding:14px 24px;border-radius:12px;z-index:200;display:none;animation:fadeUp .3s;box-shadow:var(--shadow-gold)}
+html[dir="ltr"] .toast{transform:translateX(-50%)}
+.footer{padding:60px 20px 30px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:60px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.5))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;max-width:1200px;margin:0 auto 30px}
+.footer-grid h5{color:var(--gold);font-family:var(--font-h);margin-bottom:14px;font-size:.9rem;letter-spacing:.05em}
+.footer-grid a{display:block;color:var(--muted);padding:4px 0;transition:.2s}
+.footer-grid a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr;text-align:center}}
+.hidden{display:none !important}
+.secret-link{position:absolute;bottom:8px;right:12px;font-size:.65rem;color:var(--border);opacity:.4;transition:.3s}
+.secret-link:hover{opacity:1;color:var(--gold)}
 
-/* Auth hero card */
-.oauth-divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.78rem;margin:14px 0}
-.oauth-divider::before,.oauth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+/* Admin Login Full-Page */
+.admin-portal{position:fixed;inset:0;background:radial-gradient(circle at 30% 20%,rgba(212,175,55,.15),transparent 50%),radial-gradient(circle at 70% 80%,rgba(212,175,55,.1),transparent 50%),#030303;z-index:150;display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn .4s}
+.admin-portal.show{display:flex}
+.admin-portal-box{max-width:440px;width:100%;background:linear-gradient(180deg,rgba(20,20,20,.95),rgba(8,8,8,.95));border:1px solid var(--border-gold);border-radius:24px;padding:44px 36px;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 80px rgba(212,175,55,.2)}
+.admin-portal-box::before{content:'';position:absolute;inset:-2px;border-radius:24px;background:linear-gradient(135deg,var(--gold),transparent 40%,transparent 60%,var(--gold));z-index:-1;filter:blur(20px);opacity:.4}
+.admin-portal-crest{width:70px;height:70px;margin:0 auto 20px;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--gold-2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 0 30px rgba(212,175,55,.6);position:relative}
+.admin-portal-crest::after{content:'';position:absolute;inset:-4px;border:1px solid var(--gold);border-radius:20px;opacity:.5;animation:ringPulse 2s ease-in-out infinite}
+@keyframes ringPulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.15);opacity:0}}
+.admin-portal h1{text-align:center;font-size:1.4rem;color:var(--gold-2);margin-bottom:6px;letter-spacing:.05em}
+.admin-portal .tagline{text-align:center;color:var(--muted);font-size:.82rem;margin-bottom:28px;letter-spacing:.15em;text-transform:uppercase}
+.admin-portal .back{text-align:center;margin-top:20px}
+.admin-portal .back a{font-size:.8rem;color:var(--muted)}
+.admin-portal .badge-secure{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#68f5a0;border-radius:999px;font-size:.7rem;margin:0 auto 22px;position:absolute;top:16px;left:50%;transform:translateX(-50%)}
 
-/* Shop filter chips */
-.shop-filters{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px;padding:8px;background:var(--panel-2);border:1px solid var(--border);border-radius:12px}
-.shop-filters button{padding:7px 14px;font-size:.8rem;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--muted);transition:.2s;letter-spacing:.03em}
-.shop-filters button:hover{color:var(--gold);border-color:var(--border-gold)}
-.shop-filters button.active{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#000;border-color:transparent;font-weight:700;box-shadow:0 4px 14px -4px rgba(212,175,55,.6)}
-.product-cat-tag{display:inline-block;font-size:.68rem;padding:3px 9px;border-radius:999px;background:var(--gold-soft);color:var(--gold-2);border:1px solid var(--border-gold);letter-spacing:.05em;margin-bottom:8px}
+@media (max-width:640px){
+  .hero{padding:50px 0 20px}
+  .card{padding:22px}
+  .top-actions .btn{padding:8px 12px;font-size:.78rem}
+  .brand{font-size:1rem}
+  .stat .num{font-size:1.5rem}
+}
 
-/* Delivered download button */
-.dl-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#000;font-weight:700;font-size:.85rem;text-decoration:none;border:1px solid transparent;box-shadow:0 6px 18px -6px rgba(212,175,55,.6);transition:.2s;position:relative;overflow:hidden}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px);color:#000;box-shadow:0 10px 28px -6px rgba(212,175,55,.8)}
-.dl-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transition:.6s}
-.dl-btn:hover::before{left:100%}
-.dl-code{display:inline-block;font-family:var(--font-h);background:var(--bg-2);color:var(--gold-2);padding:6px 12px;border-radius:8px;border:1px dashed var(--border-gold);letter-spacing:.1em;font-size:.82rem;user-select:all}
+/* ===== Shop filter bar & enhanced product cards ===== */
+.shop-toolbar{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:10px;margin:8px 0 18px}
+.shop-toolbar input,.shop-toolbar select{padding:9px 12px;font-size:.85rem}
+.shop-range{display:flex;align-items:center;gap:6px;background:rgba(20,20,20,.85);border:1px solid var(--border);border-radius:10px;padding:4px 10px}
+.shop-range input{background:transparent;border:none;padding:6px 4px;width:100%;font-size:.82rem}
+.shop-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.shop-chip{padding:6px 12px;border-radius:999px;background:rgba(20,20,20,.7);border:1px solid var(--border);color:var(--muted);font-size:.75rem;cursor:pointer;font-weight:600;transition:.2s}
+.shop-chip:hover{border-color:var(--gold);color:var(--gold)}
+.shop-chip.active{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#000;border-color:transparent}
+.shop-empty{text-align:center;padding:40px 20px;color:var(--muted)}
+.product-thumb{width:100%;height:130px;border-radius:12px;background:linear-gradient(135deg,rgba(212,175,55,.15),rgba(212,175,55,.05));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:2.6rem;margin-bottom:12px;overflow:hidden;position:relative}
+.product-thumb img{width:100%;height:100%;object-fit:cover}
+.product-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 10px}
+.product-tags span{font-size:.68rem;padding:2px 8px;border-radius:999px;background:var(--gold-soft);color:var(--gold-2);border:1px solid var(--border-gold)}
+.plan-card .cat-tag{position:absolute;top:12px;inset-inline-end:12px;font-size:.65rem;padding:3px 9px;background:rgba(0,0,0,.55);color:var(--gold);border:1px solid var(--border-gold);border-radius:999px;letter-spacing:.05em}
+.shop-count{font-size:.8rem;color:var(--muted);margin-bottom:8px}
+@media(max-width:720px){.shop-toolbar{grid-template-columns:1fr 1fr}}
 
-/* Zarinpal-style payment simulator */
-.pay-sim{max-width:520px}
-.pay-sim-header{background:linear-gradient(135deg,#1a1005,#0a0603);border:1px solid var(--gold);border-radius:14px;padding:18px;margin-bottom:16px;position:relative;overflow:hidden}
-.pay-sim-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-2),var(--gold),transparent)}
-.pay-sim-brand{display:flex;align-items:center;gap:10px;margin-bottom:6px;color:var(--gold-2);font-family:var(--font-h);font-weight:700;letter-spacing:.08em;font-size:.95rem}
-.pay-sim-brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--gold-2));display:flex;align-items:center;justify-content:center;color:#000;font-weight:900}
-.pay-sim-secure{font-size:.72rem;color:var(--muted);letter-spacing:.1em}
-.pay-sim-secure .lock{color:var(--gold);margin-inline-end:6px}
-.pay-amount{font-family:var(--font-h);font-size:2.2rem;font-weight:800;background:linear-gradient(180deg,var(--gold-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center;margin:14px 0 4px}
-.pay-amount-lbl{text-align:center;color:var(--muted);font-size:.8rem;margin-bottom:14px}
-.pay-card{background:linear-gradient(135deg,#1a1408,#0d0904);border:1px solid var(--border-gold);border-radius:14px;padding:18px;margin:14px 0;box-shadow:inset 0 1px 0 rgba(212,175,55,.15)}
-.pay-card-num{display:flex;gap:10px;justify-content:space-between;font-family:var(--font-h);font-size:1.15rem;letter-spacing:.15em;color:var(--gold-2);margin-bottom:14px}
-.pay-card-num span{background:var(--bg-2);padding:8px 10px;border-radius:6px;flex:1;text-align:center;border:1px solid var(--border)}
-.pay-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pay-item-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border);font-size:.88rem}
-.pay-item-row:last-child{border:none;color:var(--gold);font-weight:700}
-.pay-actions{display:flex;gap:10px;margin-top:16px}
-.pay-actions button{flex:1}
-.btn-success{background:linear-gradient(135deg,#22c55e,#4ade80);color:#000;border:none;font-weight:700;box-shadow:0 6px 20px -6px rgba(34,197,94,.6)}
-.btn-success:hover{filter:brightness(1.1);color:#000}
+/* ===== Admin portal hardening visuals ===== */
+.captcha-box{background:rgba(212,175,55,.08);border:1px solid var(--border-gold);border-radius:10px;padding:12px;margin:10px 0;font-family:var(--font-h);text-align:center;color:var(--gold-2);font-size:1.05rem;letter-spacing:.1em}
+.captcha-box small{display:block;color:var(--muted);font-size:.7rem;margin-bottom:6px;letter-spacing:.15em}
+.lock-banner{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.4);color:#fca5a5;border-radius:10px;padding:10px;font-size:.78rem;text-align:center;margin-bottom:10px}
+.cloud-status{position:fixed;bottom:14px;inset-inline-end:14px;font-size:.7rem;padding:6px 12px;border-radius:999px;background:rgba(20,20,20,.85);border:1px solid var(--border);color:var(--muted);z-index:80;backdrop-filter:blur(8px);letter-spacing:.05em}
+.cloud-status.on{border-color:rgba(34,197,94,.5);color:#68f5a0}
+.cloud-status.off{border-color:var(--border);color:var(--muted)}
 
-/* Floating chat button */
-.fab{position:fixed;bottom:26px;z-index:1500;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-2));display:flex;align-items:center;justify-content:center;color:#000;box-shadow:0 12px 30px -6px rgba(212,175,55,.7);text-decoration:none;transition:.3s;border:2px solid rgba(255,255,255,.15)}
-html[dir="rtl"] .fab{left:26px}
-html[dir="ltr"] .fab{right:26px}
-.fab:hover{transform:translateY(-4px) scale(1.06);color:#000;box-shadow:0 18px 40px -6px rgba(212,175,55,.9)}
-.fab svg{width:28px;height:28px}
-.fab::before,.fab::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--gold);opacity:.7;animation:fabPulse 2.4s ease-out infinite}
-.fab::after{animation-delay:1.2s}
-@keyframes fabPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
-.fab-label{position:absolute;bottom:70px;background:var(--panel);border:1px solid var(--border-gold);color:var(--gold-2);padding:8px 14px;border-radius:10px;font-size:.78rem;white-space:nowrap;opacity:0;transform:translateY(6px);transition:.25s;pointer-events:none;font-weight:600;letter-spacing:.05em}
-html[dir="rtl"] .fab-label{left:0}
-html[dir="ltr"] .fab-label{right:0}
-.fab:hover .fab-label{opacity:1;transform:translateY(0)}
+/* ========== Zarinpal Simulation ========== */
+.zp-modal{max-width:520px;background:linear-gradient(180deg,#fefefe,#f5f5f0);color:#111;border:1px solid #e6d99a;border-radius:16px;overflow:hidden;padding:0;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.zp-head{background:linear-gradient(135deg,#ffd700,#f5c518);color:#111;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;font-weight:800;font-family:var(--font-h)}
+.zp-head .zp-logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;letter-spacing:.5px}
+.zp-head .zp-logo .zp-dot{width:12px;height:12px;background:#111;border-radius:50%}
+.zp-body{padding:22px}
+.zp-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #d5c780;font-size:.95rem}
+.zp-row strong{color:#0a0a0a}
+.zp-amount{font-size:1.4rem;color:#8a6d00;font-weight:800;text-align:center;margin:14px 0;font-family:var(--font-h)}
+.zp-cardbox{background:#fff;border:1px solid #e5e5c8;border-radius:12px;padding:14px;margin-top:10px}
+.zp-cardbox label{display:block;font-size:.75rem;color:#666;margin-bottom:4px}
+.zp-cardbox input{background:#faf9ef;color:#111;border:1px solid #e5e5c8;font-family:monospace;letter-spacing:2px;text-align:center;font-size:1rem}
+.zp-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zp-actions{padding:14px 22px 22px;display:flex;gap:10px;background:#faf7e6}
+.zp-btn{flex:1;padding:12px;border-radius:10px;font-weight:700;cursor:pointer;border:none;font-family:var(--font-h)}
+.zp-btn-pay{background:#111;color:#ffd700}
+.zp-btn-pay:hover{background:#000}
+.zp-btn-cancel{background:#fff;color:#111;border:1px solid #d5c780}
+.zp-spinner{width:60px;height:60px;border:5px solid #f2e089;border-top-color:#111;border-radius:50%;animation:zp-spin 1s linear infinite;margin:22px auto}
+@keyframes zp-spin{to{transform:rotate(360deg)}}
+.zp-success{text-align:center;padding:20px}
+.zp-success .zp-check{width:80px;height:80px;background:#22c55e;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:44px;color:#fff;animation:zp-pop .4s ease}
+@keyframes zp-pop{0%{transform:scale(0)}80%{transform:scale(1.15)}100%{transform:scale(1)}}
+.zp-code{background:#0d0d0d;color:#d4af37;font-family:monospace;padding:12px;border-radius:10px;margin:12px 0;word-break:break-all;font-size:.95rem;border:1px dashed #d4af37}
+.zp-dl{display:inline-block;background:linear-gradient(135deg,#d4af37,#f5d97a);color:#0a0a0a;padding:10px 18px;border-radius:10px;font-weight:800;margin-top:8px}
+
+/* ========== Floating Action Button ========== */
+#fab{position:fixed;bottom:24px;left:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+html[dir="ltr"] #fab{left:auto;right:24px;align-items:flex-end}
+#fab .fab-main{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-3));color:#0a0a0a;font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(212,175,55,.55),0 0 0 0 rgba(212,175,55,.6);cursor:pointer;transition:.3s;animation:fab-pulse 2.2s infinite}
+#fab .fab-main:hover{transform:scale(1.08) rotate(8deg)}
+@keyframes fab-pulse{0%{box-shadow:0 10px 30px rgba(212,175,55,.55),0 0 0 0 rgba(212,175,55,.55)}70%{box-shadow:0 10px 30px rgba(212,175,55,.55),0 0 0 20px rgba(212,175,55,0)}100%{box-shadow:0 10px 30px rgba(212,175,55,.55),0 0 0 0 rgba(212,175,55,0)}}
+#fab .fab-menu{display:none;flex-direction:column;gap:8px;margin-bottom:6px}
+#fab.open .fab-menu{display:flex;animation:fab-in .25s ease}
+@keyframes fab-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#fab .fab-item{display:flex;align-items:center;gap:10px;background:rgba(20,20,20,.95);border:1px solid var(--border-gold);color:var(--text);padding:10px 14px;border-radius:30px;font-size:.85rem;font-family:var(--font-fa);text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.4);transition:.2s;white-space:nowrap}
+#fab .fab-item:hover{background:rgba(212,175,55,.15);border-color:var(--gold);transform:translateX(4px)}
+html[dir="ltr"] #fab .fab-item:hover{transform:translateX(-4px)}
+#fab .fab-item .fab-ic{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.fab-wa{background:#25D366;color:#fff}
+.fab-tg{background:#26A5E4;color:#fff}
+.fab-em{background:#EA4335;color:#fff}
+.fab-ph{background:#d4af37;color:#0a0a0a}
+
+
+/* ========== License & Detail & Email additions ========== */
+.detail-modal .modal-content{max-width:900px;background:linear-gradient(135deg,#0d0d0d,#1a1a1a);border:1px solid rgba(212,175,55,.35);animation:detailIn .55s cubic-bezier(.16,1,.3,1)}
+@keyframes detailIn{0%{opacity:0;transform:translateY(60px) scale(.85);filter:blur(8px)}60%{filter:blur(0)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.detail-hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+@media(max-width:720px){.detail-hero{grid-template-columns:1fr}}
+.detail-thumb{aspect-ratio:1;border-radius:18px;background:radial-gradient(circle at 30% 20%,rgba(212,175,55,.25),transparent 60%),#111;display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden;border:1px solid rgba(212,175,55,.25);animation:thumbPop .8s cubic-bezier(.16,1,.3,1) .1s both}
+.detail-thumb img{width:100%;height:100%;object-fit:cover}
+@keyframes thumbPop{0%{transform:scale(.6) rotate(-6deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+.detail-info h2{font-family:var(--font-h);font-size:2rem;color:#d4af37;margin:0 0 8px}
+.detail-info .price{font-size:1.6rem;color:#f0d97a;font-weight:800;margin:14px 0}
+.detail-info .price small{font-size:.7em;color:var(--muted);font-weight:400}
+.detail-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.detail-badges span{background:rgba(212,175,55,.12);color:#f0d97a;padding:4px 10px;border-radius:20px;font-size:.75rem;border:1px solid rgba(212,175,55,.3)}
+.detail-feat{margin:16px 0}
+.detail-feat li{padding:6px 0;color:#d8d8ce;font-size:.9rem;list-style:none;position:relative;padding-inline-start:20px}
+.detail-feat li:before{content:"✦";color:#d4af37;position:absolute;inset-inline-start:0}
+.detail-anim-in>*{animation:fadeUp .5s cubic-bezier(.16,1,.3,1) both}
+.detail-anim-in>*:nth-child(1){animation-delay:.15s}.detail-anim-in>*:nth-child(2){animation-delay:.25s}
+.detail-anim-in>*:nth-child(3){animation-delay:.35s}.detail-anim-in>*:nth-child(4){animation-delay:.45s}
+.detail-anim-in>*:nth-child(5){animation-delay:.55s}.detail-anim-in>*:nth-child(6){animation-delay:.65s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.plan-card{cursor:pointer;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s}
+.plan-card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 20px 40px -20px rgba(212,175,55,.45);border-color:rgba(212,175,55,.55)}
+.plan-card:active{transform:scale(.985)}
+/* Email preview */
+.email-preview{background:#fafafa;color:#222;border-radius:14px;padding:18px;font-family:'Segoe UI',Tahoma,sans-serif;border:1px solid #e5e5e5;max-height:60vh;overflow:auto}
+.email-preview .eh{border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:12px;font-size:.85rem;color:#555}
+.email-preview .eh b{color:#111}
+.email-preview h3{color:#0a0a0a;margin:4px 0}
+.email-preview .lic{display:inline-block;background:linear-gradient(135deg,#d4af37,#f0d97a);color:#111;padding:10px 18px;border-radius:10px;font-family:monospace;font-weight:800;letter-spacing:2px;margin:10px 0;font-size:1.05rem}
+.email-preview .btn-dl{display:inline-block;background:#0a0a0a;color:#d4af37;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:8px}
+.email-preview .note{background:#fff8e1;border-inline-start:3px solid #d4af37;padding:10px 14px;border-radius:8px;font-size:.85rem;color:#5a4a10;margin-top:12px}
+/* License check */
+.lic-check{padding:20px}
+.lic-check input{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(212,175,55,.35);background:rgba(255,255,255,.05);color:#f0d97a;font-family:monospace;letter-spacing:2px;font-size:1rem;text-align:center;text-transform:uppercase}
+.lic-result{margin-top:16px;padding:16px;border-radius:12px;animation:fadeUp .4s ease}
+.lic-ok{background:linear-gradient(135deg,rgba(80,180,90,.15),rgba(80,180,90,.05));border:1px solid rgba(80,180,90,.5);color:#a5e6a8}
+.lic-bad{background:linear-gradient(135deg,rgba(220,60,60,.15),rgba(220,60,60,.05));border:1px solid rgba(220,60,60,.5);color:#f5a5a5}
+.lic-expired{background:linear-gradient(135deg,rgba(230,140,40,.15),rgba(230,140,40,.05));border:1px solid rgba(230,140,40,.5);color:#f5cf9a}
+.lic-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.08);font-size:.9rem}
+.lic-row:last-child{border:none}
+.mask-code{cursor:pointer;user-select:none;position:relative}
+.mask-code.hidden{filter:blur(6px);opacity:.6}
+.mask-code.hidden:hover{filter:blur(3px)}
+.zp-dl{display:inline-block;margin-top:10px;background:#0a0a0a;color:#d4af37;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:700;border:1px solid #d4af37}
+.zp-dl:hover{background:#d4af37;color:#0a0a0a}
+.expiry-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-top:8px}
+.expiry-bar>div{height:100%;background:linear-gradient(90deg,#50b45a,#d4af37,#e63946);transition:width .6s}
+
 </style>
+
+
+<!-- Supabase JS (CDN). Comment this line to disable Supabase entirely. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+
 <canvas id="bgCanvas"></canvas>
+
 <div class="wrap">
 
 <!-- Header -->
@@ -338,13 +371,6 @@ html[dir="ltr"] .fab-label{right:0}
       <span class="brand-mark">M</span>
       <span class="brand-txt">MRZ COMPANY</span>
     </div>
-    <nav class="nav-links">
-      <a href="#tabsSection" data-i18n="nav_content">محتوا</a>
-      <a href="#portfolioSection" data-i18n="nav_portfolio">پروژه‌ها</a>
-      <a href="#testiSection" data-i18n="nav_testi">نظرات</a>
-      <a href="#faqSection" data-i18n="nav_faq">سوالات</a>
-      <a href="#contactSection" data-i18n="nav_contact">تماس</a>
-    </nav>
     <div class="top-actions">
       <div class="lang-toggle">
         <button id="langFa" class="active" onclick="setLang('fa')">FA</button>
@@ -352,6 +378,7 @@ html[dir="ltr"] .fab-label{right:0}
       </div>
       <button class="btn btn-ghost btn-sm" onclick="openModal('subsModal')" data-i18n="nav_subs">اشتراک‌ها</button>
       <button class="btn btn-ghost btn-sm" onclick="openModal('shopModal')" data-i18n="nav_shop">فروشگاه</button>
+      <button class="btn btn-ghost btn-sm" onclick="openLicenseCheck()" title="بررسی اعتبار لایسنس">🔐 لایسنس</button>
       <button id="loginBtn" class="btn btn-outline btn-sm" onclick="openModal('authModal')" data-i18n="nav_login">ورود / ثبت‌نام</button>
       <button id="dashBtn" class="btn btn-outline btn-sm hidden" onclick="openModal('dashModal')" data-i18n="nav_dash">پنل کاربری</button>
       <button id="adminBtn" class="btn btn-primary btn-sm hidden" onclick="openModal('adminModal')" data-i18n="nav_admin">پنل ادمین</button>
@@ -375,6 +402,7 @@ html[dir="ltr"] .fab-label{right:0}
     <kbd>Ctrl K</kbd>
   </div>
 
+  <!-- Stats -->
   <div class="stats">
     <div class="stat"><div class="num" data-count="12">0</div><div class="lbl" data-i18n="s_projects">پروژه فعال</div></div>
     <div class="stat"><div class="num" data-count="24">0</div><div class="lbl" data-i18n="s_articles">مقاله علمی</div></div>
@@ -383,6 +411,7 @@ html[dir="ltr"] .fab-label{right:0}
   </div>
 </section>
 
+<!-- Marquee -->
 <div class="marquee">
   <div class="marquee-track">
     <span>PETROLEUM ENGINEERING</span><span>DARCY HYDRODYNAMICS</span><span>PYTHON AUTOMATION</span><span>GAS LIFT OPTIMIZATION</span><span>EOR &amp; POLYMER FLOODING</span><span>CO2 SEQUESTRATION</span><span>CORE FLOODING LAB</span><span>NUMERICAL SIMULATION</span>
@@ -390,6 +419,7 @@ html[dir="ltr"] .fab-label{right:0}
   </div>
 </div>
 
+<!-- Feature strip -->
 <div class="container">
   <div class="features">
     <div class="feat"><div class="icon">⚡</div><h4 data-i18n="ft1_t">دسترسی سریع</h4><p data-i18n="ft1_d">جستجوی فوری در کل محتوای سایت با یک کلیک.</p></div>
@@ -411,76 +441,7 @@ html[dir="ltr"] .fab-label{right:0}
   <div id="searchResults" class="hidden"></div>
 </section>
 
-<!-- Portfolio -->
-<section class="container" id="portfolioSection">
-  <div class="section-title">
-    <div class="kicker">PORTFOLIO</div>
-    <h2 data-i18n="h_portfolio">پروژه‌های شاخص</h2>
-    <div class="line"></div>
-  </div>
-  <div id="portfolioGrid" class="portfolio-grid"></div>
-</section>
-
-<!-- Testimonials -->
-<section class="container" id="testiSection">
-  <div class="section-title">
-    <div class="kicker">TESTIMONIALS</div>
-    <h2 data-i18n="h_testi">آنچه دیگران می‌گویند</h2>
-    <div class="line"></div>
-  </div>
-  <div id="testiGrid" class="testi-grid"></div>
-</section>
-
-<!-- Blog -->
-<section class="container" id="blogSection">
-  <div class="section-title">
-    <div class="kicker">JOURNAL</div>
-    <h2 data-i18n="h_blog">یادداشت‌های علمی</h2>
-    <div class="line"></div>
-  </div>
-  <div id="blogGrid" class="blog-grid"></div>
-</section>
-
-<!-- FAQ -->
-<section class="container" id="faqSection">
-  <div class="section-title">
-    <div class="kicker">FAQ</div>
-    <h2 data-i18n="h_faq">پرسش‌های متداول</h2>
-    <div class="line"></div>
-  </div>
-  <div id="faqList" class="faq-list"></div>
-</section>
-
-<!-- Contact -->
-<section class="container" id="contactSection">
-  <div class="section-title">
-    <div class="kicker">GET IN TOUCH</div>
-    <h2 data-i18n="h_contact_form">تماس با ما</h2>
-    <div class="line"></div>
-  </div>
-  <div class="contact-wrap">
-    <div class="card">
-      <h2 style="font-size:1.3rem" data-i18n="contact_lead">پیام مستقیم</h2>
-      <p class="muted" style="color:var(--muted);font-size:.9rem;margin-bottom:16px" data-i18n="contact_lead_d">پیام‌های شما مستقیماً به دست تیم می‌رسد و در پنل مدیریت ثبت می‌شود.</p>
-      <form class="contact-form" onsubmit="submitContact(event)">
-        <div class="field"><label data-i18n="f_name">نام</label><input id="cfName" required></div>
-        <div class="field"><label data-i18n="f_email">ایمیل</label><input id="cfEmail" type="email" required></div>
-        <div class="field"><label data-i18n="f_subject">موضوع</label><input id="cfSubject"></div>
-        <div class="field"><label data-i18n="f_msg">پیام</label><textarea id="cfMsg" rows="4" required></textarea></div>
-        <button type="submit" class="btn btn-primary btn-lg" style="width:100%" data-i18n="send">ارسال پیام</button>
-      </form>
-    </div>
-    <div class="card">
-      <h2 style="font-size:1.3rem" data-i18n="contact_bridges">پل‌های ارتباطی</h2>
-      <div class="contact-item"><strong data-i18n="c_email">ایمیل شخصی</strong><span dir="ltr">abolfazlmirzaie86@gmail.com</span></div>
-      <div class="contact-item"><strong data-i18n="c_email_u">ایمیل دانشگاهی</strong><span dir="ltr">abolfazl.mirzaie.86@sharif.edu</span></div>
-      <div class="contact-item"><strong data-i18n="c_tel">تلگرام</strong><span dir="ltr">@Senioramrz</span></div>
-      <div class="contact-item"><strong data-i18n="c_loc">موقعیت</strong><span data-i18n="c_loc_v">تهران — دانشگاه صنعتی شریف</span></div>
-      <div class="contact-item"><strong data-i18n="c_hours">ساعات پاسخگویی</strong><span data-i18n="c_hours_v">شنبه تا چهارشنبه، ۹ تا ۱۸</span></div>
-    </div>
-  </div>
-</section>
-
+<!-- Quote -->
 <section class="quote container">
   <blockquote data-i18n="quote">«دقت علمی، اجرای مهندسی، ارائه لوکس — این چیزی است که MRZ COMPANY را متمایز می‌کند.»</blockquote>
   <cite>— ABOLFAZL MIRZAIE · SHARIF UNIVERSITY</cite>
@@ -494,14 +455,9 @@ html[dir="ltr"] .fab-label{right:0}
     </div>
     <div>
       <h5 data-i18n="foot_links">لینک‌ها</h5>
-      <a href="#tabsSection" data-i18n="nav_content">محتوا</a>
-      <a href="#portfolioSection" data-i18n="nav_portfolio">پروژه‌ها</a>
-      <a href="#faqSection" data-i18n="nav_faq">سوالات</a>
-    </div>
-    <div>
-      <h5 data-i18n="foot_shop">خرید</h5>
       <a href="javascript:void(0)" onclick="openModal('subsModal')" data-i18n="nav_subs">اشتراک‌ها</a>
       <a href="javascript:void(0)" onclick="openModal('shopModal')" data-i18n="nav_shop">فروشگاه</a>
+      <a href="javascript:void(0)" onclick="openModal('authModal')" data-i18n="nav_login">ورود / ثبت‌نام</a>
     </div>
     <div>
       <h5 data-i18n="foot_contact">ارتباط</h5>
@@ -515,18 +471,24 @@ html[dir="ltr"] .fab-label{right:0}
   </div>
 </footer>
 
-</div>
+<div id="cloudStatus" class="cloud-status off" title="Supabase status">◌ LOCAL</div>
+</div><!-- /wrap -->
 
-<!-- Admin Portal -->
+<!-- Admin Portal (dedicated login page) -->
 <div id="adminPortal" class="admin-portal">
   <div class="admin-portal-box">
     <div class="badge-secure">🔒 SECURE CHANNEL</div>
     <div class="admin-portal-crest">🛡</div>
     <h1 data-i18n="ap_title">پورتال مدیریت MRZ</h1>
     <div class="tagline" data-i18n="ap_tag">ورود ویژه مدیران</div>
-    <div class="field"><label data-i18n="f_user">ایمیل</label><input id="apUser" type="email" autocomplete="username" placeholder="admin@example.com"></div>
+    <div id="apLockBanner" class="lock-banner hidden"></div>
+    <div class="field"><label data-i18n="f_user">نام کاربری</label><input id="apUser" autocomplete="username" placeholder="admin username"></div>
     <div class="field"><label data-i18n="f_pass">رمز عبور</label><input id="apPass" type="password" autocomplete="current-password" placeholder="••••••••"></div>
-    <button class="btn btn-primary btn-lg" style="width:100%;margin-top:8px" onclick="adminPortalLogin()"><span data-i18n="ap_enter">ورود به پنل</span> →</button>
+    <div id="apCaptchaWrap" class="hidden">
+      <div class="captcha-box"><small>CAPTCHA</small><span id="apCaptchaQ">— + — = ?</span></div>
+      <div class="field"><input id="apCaptchaA" placeholder="پاسخ محاسبه بالا"></div>
+    </div>
+    <button id="apSubmitBtn" class="btn btn-primary btn-lg" style="width:100%;margin-top:8px" onclick="adminPortalLogin()"><span data-i18n="ap_enter">ورود به پنل</span> →</button>
     <div class="back"><a href="javascript:void(0)" onclick="closeAdminPortal()" data-i18n="ap_back">← بازگشت به سایت</a></div>
   </div>
 </div>
@@ -540,20 +502,12 @@ html[dir="ltr"] .fab-label{right:0}
     </div>
     <h2 id="authTitle" data-i18n="auth_login">ورود</h2>
     <p class="sub" data-i18n="auth_sub">به پنل کاربری خود دسترسی پیدا کنید</p>
-
-    <button class="btn btn-google" style="width:100%;margin-bottom:6px" onclick="googleSignIn()">
-      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285f4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34a853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#fbbc04" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#ea4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-      <span data-i18n="google_signin">ادامه با گوگل</span>
-    </button>
-    <div class="oauth-divider" data-i18n="or_email">یا با ایمیل</div>
-
     <div id="signupFields" class="hidden">
       <div class="field"><label data-i18n="f_name">نام و نام خانوادگی</label><input id="suName"></div>
       <div class="field"><label data-i18n="f_phone">شماره تماس</label><input id="suPhone"></div>
     </div>
-    <div class="field"><label data-i18n="f_email">ایمیل</label><input id="authUser" type="email"></div>
+    <div class="field"><label data-i18n="f_user">نام کاربری یا ایمیل</label><input id="authUser"></div>
     <div class="field"><label data-i18n="f_pass">رمز عبور</label><input id="authPass" type="password"></div>
-    <div style="text-align:end;margin-bottom:8px"><a href="javascript:void(0)" onclick="forgotPassword()" style="font-size:.8rem" data-i18n="forgot">رمز را فراموش کردم</a></div>
     <div class="modal-actions">
       <button class="btn btn-ghost" onclick="closeModal('authModal')" data-i18n="cancel">انصراف</button>
       <button id="authSubmit" class="btn btn-primary" onclick="doAuth()" data-i18n="submit">تایید</button>
@@ -561,14 +515,14 @@ html[dir="ltr"] .fab-label{right:0}
   </div>
 </div>
 
-<!-- Dashboard -->
+<!-- Dashboard Modal -->
 <div id="dashModal" class="overlay">
   <div class="modal modal-lg">
     <h2 data-i18n="dash_title">پنل کاربری</h2>
     <p class="sub" id="dashHello"></p>
     <div class="field"><label data-i18n="f_name">نام و نام خانوادگی</label><input id="pfName"></div>
     <div class="field"><label data-i18n="f_phone">شماره تماس</label><input id="pfPhone"></div>
-    <div class="field"><label data-i18n="f_email">ایمیل</label><input id="pfEmail" disabled></div>
+    <div class="field"><label data-i18n="f_email">ایمیل</label><input id="pfEmail"></div>
     <h3 style="margin-top:16px;color:var(--gold)" data-i18n="dash_subs">اشتراک‌های من</h3>
     <div id="dashSubs" class="muted"></div>
     <h3 style="margin-top:16px;color:var(--gold)" data-i18n="dash_orders">سفارش‌های من</h3>
@@ -580,7 +534,7 @@ html[dir="ltr"] .fab-label{right:0}
   </div>
 </div>
 
-<!-- Subscriptions -->
+<!-- Subscriptions Modal -->
 <div id="subsModal" class="overlay">
   <div class="modal modal-lg">
     <h2 data-i18n="subs_title">پلن‌های اشتراک</h2>
@@ -590,46 +544,49 @@ html[dir="ltr"] .fab-label{right:0}
   </div>
 </div>
 
-<!-- Shop -->
+<!-- Shop Modal (enhanced with filters) -->
 <div id="shopModal" class="overlay">
   <div class="modal modal-lg">
     <h2 data-i18n="shop_title">فروشگاه کدها و اسکریپت‌ها</h2>
     <p class="sub" data-i18n="shop_sub">اسکریپت‌ها و ابزارهای تخصصی مهندسی نفت</p>
-    <div id="shopFilters" class="shop-filters"></div>
+    <div class="shop-toolbar">
+      <input id="shopSearch" placeholder="🔍 جستجوی محصول..." oninput="renderProducts()">
+      <select id="shopSort" onchange="renderProducts()">
+        <option value="new">جدیدترین</option>
+        <option value="priceAsc">ارزان‌ترین</option>
+        <option value="priceDesc">گران‌ترین</option>
+        <option value="name">الفبایی</option>
+      </select>
+      <div class="shop-range">
+        <input id="shopMinP" type="number" placeholder="حداقل قیمت" oninput="renderProducts()">
+        <span style="color:var(--muted)">—</span>
+        <input id="shopMaxP" type="number" placeholder="حداکثر قیمت" oninput="renderProducts()">
+      </div>
+      <select id="shopCatSel" onchange="renderProducts()"><option value="">همه دسته‌ها</option></select>
+    </div>
+    <div id="shopChips" class="shop-chips"></div>
+    <div id="shopCount" class="shop-count"></div>
     <div id="productsGrid" class="plans-grid"></div>
     <div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal('shopModal')" data-i18n="close">بستن</button></div>
   </div>
 </div>
 
-<!-- Checkout -->
+<!-- Checkout Modal -->
 <div id="checkoutModal" class="overlay">
-  <div class="modal pay-sim">
-    <div class="pay-sim-header">
-      <div class="pay-sim-brand"><span class="logo">ز</span> <span>ZARINPAL · درگاه پرداخت امن</span></div>
-      <div class="pay-sim-secure"><span class="lock">🔒</span> اتصال رمزنگاری‌شده SSL — شبیه‌ساز نمایشی</div>
-    </div>
-    <div class="pay-amount-lbl" data-i18n="pay_amount_lbl">مبلغ قابل پرداخت</div>
-    <div class="pay-amount" id="paySimAmount">0 تومان</div>
-    <div class="pay-card">
-      <div class="pay-card-num"><span>6104</span><span>337•</span><span>••••</span><span>MRZ</span></div>
-      <div class="pay-row">
-        <div class="field" style="margin:0"><label style="font-size:.7rem" data-i18n="pay_cvv">CVV2</label><input value="•••" disabled></div>
-        <div class="field" style="margin:0"><label style="font-size:.7rem" data-i18n="pay_exp">تاریخ انقضا</label><input value="12/06" disabled></div>
-      </div>
-    </div>
-    <div id="paySimSummary" style="background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:6px"></div>
+  <div class="modal">
+    <h2 data-i18n="chk_title">تکمیل خرید</h2>
+    <p class="sub" id="chkItemName"></p>
     <div class="field"><label data-i18n="f_name">نام و نام خانوادگی *</label><input id="chkName" required></div>
     <div class="field"><label data-i18n="f_phone">شماره تماس *</label><input id="chkPhone" required></div>
     <div class="field"><label data-i18n="f_email">ایمیل *</label><input id="chkEmail" type="email" required></div>
-    <div class="pay-actions">
-      <button class="btn btn-danger" onclick="closeModal('checkoutModal')" data-i18n="pay_cancel">✕ لغو پرداخت</button>
-      <button class="btn btn-success" onclick="submitOrder()" data-i18n="pay_success">✓ پرداخت موفق</button>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('checkoutModal')" data-i18n="cancel">انصراف</button>
+      <button class="btn btn-primary" onclick="submitOrder()" data-i18n="chk_pay">ثبت سفارش</button>
     </div>
-    <div style="text-align:center;margin-top:12px;color:var(--muted);font-size:.72rem;letter-spacing:.05em" data-i18n="pay_note">شبیه‌ساز درگاه پرداخت — MRZ COMPANY · تراکنش واقعی انجام نمی‌شود</div>
   </div>
 </div>
 
-<!-- Admin -->
+<!-- Admin Modal -->
 <div id="adminModal" class="overlay">
   <div class="modal modal-lg" style="max-width:1100px">
     <h2 style="color:var(--gold)">🛡 پنل مدیریت — MRZ COMPANY</h2>
@@ -638,768 +595,422 @@ html[dir="ltr"] .fab-label{right:0}
       <button class="active" onclick="showAdmin('content',this)">محتوای تب‌ها</button>
       <button onclick="showAdmin('plans',this)">اشتراک‌ها</button>
       <button onclick="showAdmin('products',this)">محصولات</button>
-      <button onclick="showAdmin('projects',this)">پروژه‌ها</button>
-      <button onclick="showAdmin('testi',this)">نظرات</button>
-      <button onclick="showAdmin('faqs',this)">FAQ</button>
-      <button onclick="showAdmin('blog',this)">بلاگ</button>
-      <button onclick="showAdmin('messages',this)">پیام‌ها</button>
-      <button onclick="showAdmin('orders',this)">سفارش‌ها</button>
+      <button onclick="showAdmin('sub_content',this)">محتوای اشتراکی</button>
+      <button onclick="showAdmin('orders',this)">گزارش فروش</button>
       <button onclick="showAdmin('users',this)">کاربران</button>
-      <button onclick="showAdmin('events',this)">لاگ رویدادها</button>
-      <button onclick="showAdmin('settings',this)">تنظیمات</button>
     </nav>
     <div id="adminView"></div>
     <div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal('adminModal')" data-i18n="close">بستن</button></div>
   </div>
 </div>
 
+
+<!-- Zarinpal Simulation Modal -->
+<div id="zarinpalModal" class="overlay">
+  <div class="modal zp-modal">
+    <div class="zp-head">
+      <div class="zp-logo"><span class="zp-dot"></span> ZarinPal • درگاه پرداخت امن</div>
+      <div style="font-size:.75rem;opacity:.75">SSL 🔒</div>
+    </div>
+    <div class="zp-body" id="zpBody">
+      <div class="zp-row"><span>پذیرنده</span><strong>MRZ COMPANY</strong></div>
+      <div class="zp-row"><span>شماره پیگیری</span><strong id="zpTrack">-</strong></div>
+      <div class="zp-row"><span>محصول</span><strong id="zpItem">-</strong></div>
+      <div class="zp-amount" id="zpAmount">0 تومان</div>
+      <div class="zp-cardbox">
+        <label>شماره کارت شبیه‌سازی</label>
+        <input id="zpCard" maxlength="19" value="6037-9911-2233-4455">
+        <div class="zp-grid2" style="margin-top:10px">
+          <div><label>CVV2</label><input id="zpCvv" maxlength="4" value="1234"></div>
+          <div><label>انقضا</label><input id="zpExp" value="04/07"></div>
+        </div>
+        <div style="margin-top:10px"><label>رمز پویا</label><input id="zpOtp" maxlength="8" value="847391"></div>
+        <p style="font-size:.7rem;color:#777;margin-top:8px">این یک درگاه شبیه‌سازی شده است. هیچ مبلغی از کارت شما کسر نمی‌شود.</p>
+      </div>
+    </div>
+    <div class="zp-actions" id="zpActions">
+      <button class="zp-btn zp-btn-cancel" onclick="cancelZarinpal()">انصراف و بازگشت</button>
+      <button class="zp-btn zp-btn-pay" onclick="processZarinpal()">تایید و پرداخت</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Action Button -->
+<div id="fab">
+  <div class="fab-menu">
+    <a class="fab-item" href="https://wa.me/989000000000" target="_blank" rel="noopener"><span class="fab-ic fab-wa">💬</span><span>واتساپ مستقیم</span></a>
+    <a class="fab-item" href="https://t.me/mrz_company" target="_blank" rel="noopener"><span class="fab-ic fab-tg">✈</span><span>تلگرام رسمی</span></a>
+    <a class="fab-item" href="mailto:info@mrzcompany.ir"><span class="fab-ic fab-em">✉</span><span>ایمیل پشتیبانی</span></a>
+    <a class="fab-item" href="tel:+989000000000"><span class="fab-ic fab-ph">📞</span><span>تماس تلفنی</span></a>
+  </div>
+  <button class="fab-main" onclick="document.getElementById('fab').classList.toggle('open')" aria-label="Contact">💎</button>
+</div>
+
+
+
+<div id="detailModal" class="modal detail-modal"><div class="modal-content"><button class="modal-close" onclick="closeModal('detailModal')">✕</button><div id="detailBody"></div></div></div>
+<div id="emailModal" class="modal"><div class="modal-content" style="max-width:640px"><button class="modal-close" onclick="closeModal('emailModal')">✕</button><h2 style="font-family:var(--font-h);color:#d4af37">📧 ایمیل ارسالی</h2><p class="muted" style="font-size:.85rem;margin-bottom:12px">پیش‌نمایش ایمیلی که به کاربر ارسال شد (شبیه‌سازی SMTP).</p><div id="emailBody"></div><div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-primary" onclick="openMailClient()">📨 باز کردن در نرم‌افزار ایمیل</button><button class="btn" onclick="closeModal('emailModal')">بستن</button></div></div></div>
+<div id="licenseModal" class="modal"><div class="modal-content" style="max-width:560px"><button class="modal-close" onclick="closeModal('licenseModal')">✕</button><h2 style="font-family:var(--font-h);color:#d4af37;text-align:center">🔐 بررسی اعتبار لایسنس</h2><p class="muted" style="text-align:center;font-size:.85rem">کد لایسنس یا رهگیری را وارد کنید تا وضعیت انقضا و صحت آن را ببینید.</p><div class="lic-check"><input id="licInput" placeholder="MRZ-XXXX-XXXX-XXXX-XXXX" oninput="this.value=this.value.toUpperCase()"><button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="checkLicense()">بررسی و تایید</button><div id="licResult"></div></div></div></div>
+
 <div id="toast" class="toast"></div>
 
-<!-- Floating chat / Telegram FAB -->
-<a id="fabChat" class="fab" href="https://t.me/Senioramrz" target="_blank" rel="noopener" aria-label="Telegram">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.87.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-  <span class="fab-label" data-i18n="fab_chat">💬 ارتباط سریع در تلگرام</span>
-</a>
+<script>
 
-<!-- __SUPABASE_CONFIG__ -->
+/* =================== SUPABASE CONFIG =================== */
+/*
+  برای فعال‌سازی Supabase مقادیر زیر را از داشبورد پروژه‌ی خود وارد کنید.
+  اگر خالی بمانند، اپلیکیشن به صورت آفلاین با localStorage کار می‌کند.
+  SQL جداول در فایل supabase_schema.sql کنار همین فایل قرار دارد.
+*/
+const SUPABASE_URL = ''; // e.g. 'https://xxxx.supabase.co'
+const SUPABASE_ANON_KEY = ''; // e.g. 'eyJ...'
 
-<script type="module">
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-const CFG = window.__SB;
-const supa = createClient(CFG.url, CFG.key, { auth: { persistSession: true, autoRefreshToken: true, storageKey: 'mrz-auth' } });
-window.supa = supa;
-window.__SUPA_URL__ = CFG.url;
+let SB = null;
+const CLOUD_ON = !!(SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase);
+if(CLOUD_ON){
+  try{ SB = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); }
+  catch(e){ console.warn('Supabase init failed', e); }
+}
+function updateCloudBadge(){
+  const el=document.getElementById('cloudStatus');if(!el)return;
+  if(SB){el.className='cloud-status on';el.textContent='☁ CLOUD';}
+  else{el.className='cloud-status off';el.textContent='◌ LOCAL';}
+}
 
-/* ============ I18N ============ */
+/* Cloud API: mirror mutations. Fire-and-forget (local remains source of truth in UI). */
+const Cloud = {
+  async upsert(table, row){ if(!SB)return; try{ await SB.from(table).upsert(row); }catch(e){console.warn('cloud upsert',table,e);} },
+  async remove(table, match){ if(!SB)return; try{ await SB.from(table).delete().match(match); }catch(e){console.warn('cloud delete',table,e);} },
+  async pull(){
+    if(!SB)return null;
+    try{
+      const [tabs,content,plans,products,orders]=await Promise.all([
+        SB.from('mrz_tabs').select('*'),
+        SB.from('mrz_content').select('*'),
+        SB.from('mrz_plans').select('*'),
+        SB.from('mrz_products').select('*'),
+        SB.from('mrz_orders').select('*')
+      ]);
+      return {tabs:tabs.data,content:content.data,plans:plans.data,products:products.data,orders:orders.data};
+    }catch(e){console.warn('cloud pull',e);return null;}
+  }
+};
+
+/* =================== SECURITY: HASH + RATE LIMIT =================== */
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function hashPass(pass, salt){ return await sha256((salt||'mrz-salt-v1')+'::'+pass); }
+
+const RL_KEY='mrz_admin_rl';
+function rlGet(){ try{return JSON.parse(localStorage.getItem(RL_KEY)||'{}');}catch{return{};} }
+function rlSave(s){ localStorage.setItem(RL_KEY, JSON.stringify(s)); }
+function rlIsLocked(){
+  const s=rlGet(); if(!s.lockUntil)return 0;
+  const left=s.lockUntil-Date.now();
+  return left>0?left:0;
+}
+function rlRecordFail(){
+  const s=rlGet(); s.fails=(s.fails||0)+1; s.lastFail=Date.now();
+  if(s.fails>=5){ s.lockUntil=Date.now()+15*60*1000; s.fails=0; }
+  rlSave(s); return s;
+}
+function rlReset(){ rlSave({}); }
+function rlNeedCaptcha(){ return (rlGet().fails||0)>=3; }
+
+let CAPTCHA_ANS=null;
+function genCaptcha(){
+  const a=2+Math.floor(Math.random()*9), b=2+Math.floor(Math.random()*9);
+  CAPTCHA_ANS=a+b;
+  const el=document.getElementById('apCaptchaQ');
+  if(el)el.textContent=`${a} + ${b} = ?`;
+}
+
+/* Session inactivity timeout: 30 min */
+const IDLE_KEY='mrz_last_activity';
+const IDLE_MS=30*60*1000;
+function touchIdle(){ localStorage.setItem(IDLE_KEY, String(Date.now())); }
+function checkIdle(){
+  if(!SESSION)return;
+  const last=Number(localStorage.getItem(IDLE_KEY)||0);
+  if(last && Date.now()-last>IDLE_MS){
+    SESSION=null; localStorage.removeItem(SESSION_KEY);
+    toast(LANG==='fa'?'به دلیل عدم فعالیت خارج شدید':'Signed out due to inactivity');
+    renderAuthUI();
+  }
+}
+['click','keydown','mousemove','touchstart'].forEach(ev=>document.addEventListener(ev,touchIdle,{passive:true}));
+setInterval(checkIdle, 30000);
+
+/* Audit log for admin login attempts */
+function logAdminAttempt(user, ok){
+  const key='mrz_admin_log'; let arr=[];
+  try{arr=JSON.parse(localStorage.getItem(key)||'[]');}catch{}
+  arr.unshift({user,ok,ts:new Date().toISOString(),ua:navigator.userAgent.slice(0,80)});
+  localStorage.setItem(key, JSON.stringify(arr.slice(0,200)));
+}
+
+/* =================== I18N =================== */
 const I18N = {
-  fa:{nav_content:'محتوا',nav_portfolio:'پروژه‌ها',nav_testi:'نظرات',nav_faq:'سوالات',nav_contact:'تماس',nav_subs:'اشتراک‌ها',nav_shop:'فروشگاه',nav_login:'ورود / ثبت‌نام',nav_dash:'پنل کاربری',nav_admin:'پنل ادمین',nav_logout:'خروج',
-    hero_badge:'پایگاه رسمی مهندسی نفت — دانشگاه صنعتی شریف',hero_title:'ابوالفضل میرزایی',hero_sub:'مستندات علمی، اسکریپت‌های سیالات بالادستی نفت، پروژه‌های پایتون و فروشگاه تخصصی مهندسی نفت — همه در یک پایگاه لوکس و امن.',
-    cta_join:'عضویت VIP',cta_explore:'کاوش محتوا →',s_projects:'پروژه فعال',s_articles:'مقاله علمی',s_users:'کاربر ثبت‌نامی',s_uptime:'آپ‌تایم',
-    ft1_t:'دسترسی سریع',ft1_d:'جستجوی فوری در کل محتوای سایت با یک کلیک.',ft2_t:'محتوای VIP',ft2_d:'دسترسی اختصاصی به کدها و مستندات پیشرفته.',ft3_t:'اسکریپت پایتون',ft3_d:'ابزارهای عددی برای محاسبات بالادستی نفت.',ft4_t:'فروشگاه کد',ft4_d:'خرید امن با تحویل مستقیم در پنل کاربری.',
-    k_content:'محتوای اصلی',h_content:'محتوای تخصصی',h_portfolio:'پروژه‌های شاخص',h_testi:'آنچه دیگران می‌گویند',h_blog:'یادداشت‌های علمی',h_faq:'پرسش‌های متداول',h_contact_form:'تماس با ما',
-    contact_lead:'پیام مستقیم',contact_lead_d:'پیام‌های شما مستقیماً به دست تیم می‌رسد و در پنل مدیریت ثبت می‌شود.',contact_bridges:'پل‌های ارتباطی',c_email:'ایمیل شخصی',c_email_u:'ایمیل دانشگاهی',c_tel:'تلگرام',c_loc:'موقعیت',c_loc_v:'تهران — دانشگاه صنعتی شریف',c_hours:'ساعات پاسخگویی',c_hours_v:'شنبه تا چهارشنبه، ۹ تا ۱۸',f_subject:'موضوع',f_msg:'پیام',send:'ارسال پیام',
+  fa:{nav_subs:'اشتراک‌ها',nav_shop:'فروشگاه',nav_login:'ورود / ثبت‌نام',nav_dash:'پنل کاربری',nav_admin:'پنل ادمین',nav_logout:'خروج',
+    hero_badge:'پایگاه رسمی مهندسی نفت — دانشگاه صنعتی شریف',
+    hero_title:'ابوالفضل میرزایی',hero_sub:'مستندات علمی، اسکریپت‌های سیالات بالادستی نفت، پروژه‌های پایتون و فروشگاه تخصصی مهندسی نفت — همه در یک پایگاه لوکس و امن.',
+    cta_join:'عضویت VIP',cta_explore:'کاوش محتوا →',
+    s_projects:'پروژه فعال',s_articles:'مقاله علمی',s_users:'کاربر ثبت‌نامی',s_uptime:'آپ‌تایم',
+    ft1_t:'دسترسی سریع',ft1_d:'جستجوی فوری در کل محتوای سایت با یک کلیک.',
+    ft2_t:'محتوای VIP',ft2_d:'دسترسی اختصاصی به کدها و مستندات پیشرفته.',
+    ft3_t:'اسکریپت پایتون',ft3_d:'ابزارهای عددی برای محاسبات بالادستی نفت.',
+    ft4_t:'فروشگاه کد',ft4_d:'خرید امن با تحویل مستقیم در پنل کاربری.',
+    k_content:'محتوای اصلی',h_content:'محتوای تخصصی',
     quote:'«دقت علمی، اجرای مهندسی، ارائه لوکس — این چیزی است که MRZ COMPANY را متمایز می‌کند.»',
-    foot_about:'پایگاه رسمی مستندات علمی و پروژه‌های مهندسی نفت. ساخته‌شده با دقت و کیفیت لوکس.',foot_links:'لینک‌ها',foot_shop:'خرید',foot_contact:'ارتباط',
-    auth_login:'ورود',auth_signup:'ثبت‌نام',auth_sub:'به پنل کاربری خود دسترسی پیدا کنید',google_signin:'ادامه با گوگل',or_email:'یا با ایمیل',forgot:'رمز را فراموش کردم',
-    f_name:'نام و نام خانوادگی',f_phone:'شماره تماس',f_user:'ایمیل',f_pass:'رمز عبور',f_email:'ایمیل',cancel:'انصراف',submit:'تایید',close:'بستن',save:'ذخیره',
+    foot_about:'پایگاه رسمی مستندات علمی و پروژه‌های مهندسی نفت. ساخته‌شده با دقت و کیفیت لوکس.',
+    foot_links:'لینک‌ها',foot_contact:'ارتباط',
+    auth_login:'ورود',auth_signup:'ثبت‌نام',auth_sub:'به پنل کاربری خود دسترسی پیدا کنید',
+    f_name:'نام و نام خانوادگی',f_phone:'شماره تماس',f_user:'نام کاربری یا ایمیل',f_pass:'رمز عبور',f_email:'ایمیل',
+    cancel:'انصراف',submit:'تایید',close:'بستن',save:'ذخیره',
     dash_title:'پنل کاربری',dash_subs:'اشتراک‌های من',dash_orders:'سفارش‌های من',
-    subs_title:'پلن‌های اشتراک',subs_sub:'با خرید اشتراک، به بخش ویژه مشترکین دسترسی پیدا کنید',shop_title:'فروشگاه کدها و اسکریپت‌ها',shop_sub:'اسکریپت‌ها و ابزارهای تخصصی مهندسی نفت',
+    subs_title:'پلن‌های اشتراک',subs_sub:'با خرید اشتراک، به بخش ویژه مشترکین دسترسی پیدا کنید',
+    shop_title:'فروشگاه کدها و اسکریپت‌ها',shop_sub:'اسکریپت‌ها و ابزارهای تخصصی مهندسی نفت',
     chk_title:'تکمیل خرید',chk_pay:'ثبت سفارش',admin_sub:'مدیریت کامل محتوا، اشتراک‌ها، محصولات و سفارش‌ها',
     ap_title:'پورتال مدیریت MRZ',ap_tag:'ورود ویژه مدیران',ap_enter:'ورود به پنل',ap_back:'← بازگشت به سایت',
-    footer:'تمام حقوق محفوظ است',search_ph:'جستجو در کل سایت…',
-    pay_amount_lbl:'مبلغ قابل پرداخت',pay_cvv:'CVV2',pay_exp:'تاریخ انقضا',pay_cancel:'✕ لغو پرداخت',pay_success:'✓ پرداخت موفق',pay_note:'شبیه‌ساز درگاه پرداخت — MRZ COMPANY · تراکنش واقعی انجام نمی‌شود',
-    fab_chat:'💬 ارتباط سریع در تلگرام',
-    cat_all:'همه',cat_python:'اسکریپت پایتون',cat_simulation:'شبیه‌سازی',cat_docs:'مستندات علمی',cat_dataset:'دیتاست',cat_other:'سایر',
-    download:'دانلود فایل',delivered_code:'کد تحویلی',shop_no:'محصولی در این دسته نیست'},
-  en:{nav_content:'Content',nav_portfolio:'Projects',nav_testi:'Reviews',nav_faq:'FAQ',nav_contact:'Contact',nav_subs:'Subscriptions',nav_shop:'Shop',nav_login:'Login / Sign up',nav_dash:'Dashboard',nav_admin:'Admin',nav_logout:'Logout',
-    hero_badge:'Official Petroleum Engineering Hub — Sharif University',hero_title:'Abolfazl Mirzaie',hero_sub:'Scientific docs, upstream petroleum scripts, Python projects and a specialised code shop — all in one luxurious secure hub.',
-    cta_join:'Join VIP',cta_explore:'Explore content →',s_projects:'Active Projects',s_articles:'Scientific Papers',s_users:'Registered Users',s_uptime:'Uptime',
-    ft1_t:'Instant Search',ft1_d:'Search all site content in one click.',ft2_t:'VIP Content',ft2_d:'Exclusive access to advanced codes & docs.',ft3_t:'Python Scripts',ft3_d:'Numerical tools for upstream petroleum calc.',ft4_t:'Code Shop',ft4_d:'Secure purchase with direct in-dashboard delivery.',
-    k_content:'CONTENT HUB',h_content:'Specialised Content',h_portfolio:'Featured Projects',h_testi:'What Others Say',h_blog:'Scientific Journal',h_faq:'Frequently Asked',h_contact_form:'Get in Touch',
-    contact_lead:'Direct message',contact_lead_d:'Messages reach the team directly and are logged in the admin panel.',contact_bridges:'Contact bridges',c_email:'Personal email',c_email_u:'University email',c_tel:'Telegram',c_loc:'Location',c_loc_v:'Tehran — Sharif University',c_hours:'Response hours',c_hours_v:'Sat–Wed, 9am–6pm',f_subject:'Subject',f_msg:'Message',send:'Send message',
+    footer:'تمام حقوق محفوظ است',search_ph:'جستجو در کل سایت…'},
+  en:{nav_subs:'Subscriptions',nav_shop:'Shop',nav_login:'Login / Sign up',nav_dash:'Dashboard',nav_admin:'Admin',nav_logout:'Logout',
+    hero_badge:'Official Petroleum Engineering Hub — Sharif University',
+    hero_title:'Abolfazl Mirzaie',hero_sub:'Scientific docs, upstream petroleum scripts, Python projects and a specialised code shop — all in one luxurious secure hub.',
+    cta_join:'Join VIP',cta_explore:'Explore content →',
+    s_projects:'Active Projects',s_articles:'Scientific Papers',s_users:'Registered Users',s_uptime:'Uptime',
+    ft1_t:'Instant Search',ft1_d:'Search all site content in one click.',
+    ft2_t:'VIP Content',ft2_d:'Exclusive access to advanced codes & docs.',
+    ft3_t:'Python Scripts',ft3_d:'Numerical tools for upstream petroleum calc.',
+    ft4_t:'Code Shop',ft4_d:'Secure purchase with direct in-dashboard delivery.',
+    k_content:'CONTENT HUB',h_content:'Specialised Content',
     quote:'"Scientific precision, engineering execution, luxurious delivery — that is what sets MRZ COMPANY apart."',
-    foot_about:'Official hub for scientific documentation and petroleum engineering projects.',foot_links:'Links',foot_shop:'Shop',foot_contact:'Contact',
-    auth_login:'Sign in',auth_signup:'Sign up',auth_sub:'Access your personal dashboard',google_signin:'Continue with Google',or_email:'or with email',forgot:'Forgot password',
-    f_name:'Full name',f_phone:'Phone',f_user:'Email',f_pass:'Password',f_email:'Email',cancel:'Cancel',submit:'Submit',close:'Close',save:'Save',
+    foot_about:'Official hub for scientific documentation and petroleum engineering projects. Crafted with precision and luxury.',
+    foot_links:'Links',foot_contact:'Contact',
+    auth_login:'Sign in',auth_signup:'Sign up',auth_sub:'Access your personal dashboard',
+    f_name:'Full name',f_phone:'Phone',f_user:'Username or email',f_pass:'Password',f_email:'Email',
+    cancel:'Cancel',submit:'Submit',close:'Close',save:'Save',
     dash_title:'Dashboard',dash_subs:'My subscriptions',dash_orders:'My orders',
-    subs_title:'Subscription plans',subs_sub:'Unlock the subscribers-only area',shop_title:'Code & script shop',shop_sub:'Specialized petroleum engineering tools',
+    subs_title:'Subscription plans',subs_sub:'Unlock the subscribers-only area',
+    shop_title:'Code & script shop',shop_sub:'Specialized petroleum engineering tools',
     chk_title:'Complete checkout',chk_pay:'Place order',admin_sub:'Full CRUD on content, plans, products and orders',
     ap_title:'MRZ Admin Portal',ap_tag:'Restricted admin access',ap_enter:'Enter panel',ap_back:'← Back to site',
-    footer:'All rights reserved',search_ph:'Search entire site…',
-    pay_amount_lbl:'Amount payable',pay_cvv:'CVV2',pay_exp:'Expiry',pay_cancel:'✕ Cancel',pay_success:'✓ Pay successfully',pay_note:'Payment gateway simulator — MRZ COMPANY · no real charge',
-    fab_chat:'💬 Quick chat on Telegram',
-    cat_all:'All',cat_python:'Python scripts',cat_simulation:'Simulation',cat_docs:'Scientific docs',cat_dataset:'Dataset',cat_other:'Other',
-    download:'Download file',delivered_code:'Delivery code',shop_no:'No products in this category'}
+    footer:'All rights reserved',search_ph:'Search entire site…'}
 };
 
-/* ============ STATE ============ */
-const STATE = {
-  lang: localStorage.getItem('mrz_lang') || 'fa',
-  session: null,
-  profile: null,
-  isAdmin: false,
-  hasSub: false,
-  tabs: [],
-  content: {}, // { tab_key: { fa: {...}, en: {...} } }
-  plans: [],
-  products: [],
-  projects: [],
-  testimonials: [],
-  faqs: [],
-  blog: [],
-  activeTab: 'identity',
-  authMode: 'login',
-  checkout: null,
-  shopCat: 'all'
+/* =================== DEFAULT DATA =================== */
+const DEFAULT_TABS = [
+  {key:'identity',fa:'هویت دانشگاهی',en:'Identity'},
+  {key:'mission',fa:'اهداف و چشم‌انداز',en:'Mission'},
+  {key:'tech',fa:'مهارت‌ها و ابزارها',en:'Skills'},
+  {key:'python',fa:'مخزن پایتون',en:'Python Repo'},
+  {key:'articles',fa:'مستندات علمی',en:'Articles'},
+  {key:'activity',fa:'مانیتورینگ فعالیت‌ها',en:'Activity'},
+  {key:'contact',fa:'ارتباطات',en:'Contact'},
+  {key:'subscriber',fa:'قسمت اشتراکی من',en:'Members Area', requiresSub:true}
+];
+
+const DEFAULT_CONTENT = {
+  identity:{
+    fa:{title:'ابوالفضل میرزایی',body:'دانشجوی مهندسی نفت دانشگاه صنعتی شریف. به پایگاه رسمی و رزومه فنی من خوش آمدید. تمرکز من بر تلفیق مبانی علوم آکادمیک با ابزارهای شبیه‌سازی دیجیتال، پیاده‌سازی اتوماسیون‌های نرم‌افزاری و تحلیل مکانیزم‌های کاربردی است.',
+      meta:{'موسسه':'دانشگاه صنعتی شریف','موقعیت':'کارشناسی (ترم ۲)','گرایش':'مهندسی نفت','محیط توسعه':'پژوهش‌های نفتی'}},
+    en:{title:'Abolfazl Mirzaie',body:'Petroleum Engineering student at Sharif University of Technology. Welcome to my official technical hub. My focus is merging academic science with digital simulation tools and automation.',
+      meta:{'Institution':'Sharif University of Technology','Position':'Undergrad (Term 2)','Field':'Petroleum Engineering','Focus':'Petroleum Research'}}
+  },
+  mission:{
+    fa:{title:'اهداف، پروژه‌ها و چشم‌اندازها',body:'⚡ پژوهش و نگارش مقالات تخصصی در حوزه مهندسی نفت.\n⚡ توسعه راهکارهای مبتنی بر داده با پایتون برای شبیه‌سازی عددی فرآیندهای بالادستی نفت.\n⚡ تلفیق تجارب بازار آزاد و خلاقیت در پروژه‌های شخصی.'},
+    en:{title:'Mission, projects & vision',body:'⚡ Research & authoring specialized petroleum papers.\n⚡ Data-driven Python solutions for upstream numerical simulation.\n⚡ Blending market experience with engineering creativity.'}
+  },
+  tech:{
+    fa:{title:'مهارت‌ها و ابزارها',body:'پشته ابزارها و مهارت‌های توسعه‌یافته:',
+      meta:{badges:['Python (Intermediate)','Matlab (Basic)','Darcy Hydrodynamics','HTML5 / CSS3','Vanilla JavaScript','Supabase (BaaS)','Git / Version Control','Algorithmic Analysis']}},
+    en:{title:'Skills & Tools',body:'Development stack and applied skills:',
+      meta:{badges:['Python (Intermediate)','Matlab (Basic)','Darcy Hydrodynamics','HTML5 / CSS3','Vanilla JavaScript','Supabase (BaaS)','Git / Version Control','Algorithmic Analysis']}}
+  },
+  python:{
+    fa:{title:'💻 مخزن اسکریپت‌های پایتون | محاسبات بالادستی نفت',body:'اسکریپت پایتون جهت محاسبه دبی جریان سیال در محیط متخلخل (قانون دارسی خطی):',
+      meta:{code:`def calculate_darcy_flow(k, h, p1, p2, mu, L):
+    try:
+        q = (k * h * (p1 - p2)) / (mu * L)
+        return q
+    except ZeroDivisionError:
+        return "Error: Length or viscosity cannot be zero."
+
+# Test Calculation
+result = calculate_darcy_flow(k=0.5, h=2000, p1=150, p2=100, mu=2.0, L=5000)
+print(f"Flow Rate (q): {result} cm3/s")`}},
+    en:{title:'💻 Python Repository | Upstream Petroleum Calculations',body:'Python script for computing single-phase Darcy flow in porous media:',
+      meta:{code:`def calculate_darcy_flow(k, h, p1, p2, mu, L):
+    try:
+        q = (k * h * (p1 - p2)) / (mu * L)
+        return q
+    except ZeroDivisionError:
+        return "Error: Length or viscosity cannot be zero."
+
+result = calculate_darcy_flow(k=0.5, h=2000, p1=150, p2=100, mu=2.0, L=5000)
+print(f"Flow Rate (q): {result} cm3/s")`}}
+  },
+  articles:{
+    fa:{title:'مستندات علمی',body:'مقالات و مستندات تخصصی مهندسی نفت',
+      meta:{docs:[
+        {id:'AR-CORE-001',title:'تکنیک‌های پیشرفته آزمایشگاهی مغزه‌گیری و سیلاب‌زنی خطی (Core Flooding)',status:'بازنگری نهایی شده',abs:'فرآیند سیلاب‌زنی مغزه به عنوان یکی از ستون‌های ارزیابی آزمایشگاهی در مهندسی مخازن هیدروکربوری شناخته می‌شود.'},
+        {id:'AR-GLIFT-002',title:'بهینه‌سازی سیستم‌های فرازآوری با گاز (Gas Lift) در چاه‌های کم‌فشار',status:'پیش‌نویس تحقیقاتی',abs:'تعیین عمق بهینه تزریق گاز و شبیه‌سازی رفتار جریان دوفازی درون لوله مغزی چاه.'},
+        {id:'AR-SEQ-003',title:'ترسیب کربن دی‌اکسید (CO2 Sequestration) در آبده‌های شور عمیق',status:'تحت داوری ژورنال',abs:'ارزیابی پایداری ساختاری کلاهک مخازن و مکانیزم‌های به تله‌اندازی انحلالی و معدنی سیال فوق بحرانی CO2.'},
+        {id:'AR-POLY-004',title:'رئولوژی سیالات پلیمری در فرآیندهای EOR',status:'تایید شده',abs:'مطالعه رفتار غیرنیوتنی محلول‌های پلیمری HPAM و تاثیر آن بر نسبت پویایی جابجایی.'}
+      ]}},
+    en:{title:'Scientific Documentation',body:'Petroleum engineering technical papers',
+      meta:{docs:[
+        {id:'AR-CORE-001',title:'Advanced Core Flooding Laboratory Techniques',status:'Final revision',abs:'Core flooding is a cornerstone of laboratory reservoir evaluation.'},
+        {id:'AR-GLIFT-002',title:'Gas Lift Optimization for Low-Pressure Wells',status:'Research draft',abs:'Optimal gas injection depth and two-phase flow simulation.'},
+        {id:'AR-SEQ-003',title:'CO2 Sequestration in Deep Saline Aquifers',status:'Under journal review',abs:'Cap-rock stability and trapping mechanisms of supercritical CO2.'},
+        {id:'AR-POLY-004',title:'Polymer Rheology in EOR Processes',status:'Approved',abs:'Non-Newtonian behavior of HPAM solutions and its effect on mobility ratio.'}
+      ]}}
+  },
+  activity:{
+    fa:{title:'مانیتورینگ فعالیت‌ها',body:'گزارش وضعیت پروژه‌های در حال اجرا:\n• شبیه‌سازی جریان دوفازی - در حال اجرا\n• مستندسازی مقاله Gas Lift - ۷۰٪ کامل\n• توسعه ماژول محاسبات دارسی - نسخه ۲ در آزمایش'},
+    en:{title:'Activity Monitor',body:'Running project status:\n• Two-phase flow simulation - running\n• Gas Lift paper - 70% complete\n• Darcy calc module - v2 in testing'}
+  },
+  contact:{
+    fa:{title:'پل‌های ارتباطی',body:'جهت برقراری هرگونه ارتباط کاری، آکادمیک یا تبادل مستندات، از کانال‌های تایید شده زیر استفاده نمایید.',
+      meta:{contacts:[{k:'ایمیل شخصی',v:'abolfazlmirzaie86@gmail.com'},{k:'ایمیل دانشگاهی',v:'abolfazl.mirzaie.86@sharif.edu'},{k:'تلگرام',v:'@Senioramrz'}]}},
+    en:{title:'Contact Bridges',body:'Please use the verified channels below for any professional, academic, or documentation exchange.',
+      meta:{contacts:[{k:'Personal Email',v:'abolfazlmirzaie86@gmail.com'},{k:'University Email',v:'abolfazl.mirzaie.86@sharif.edu'},{k:'Telegram',v:'@Senioramrz'}]}}
+  },
+  subscriber:{
+    fa:{title:'🌟 محتوای ویژه مشترکین',body:'به بخش ویژه مشترکین خوش آمدید. اینجا محتوای اختصاصی و کدهای پیشرفته قرار می‌گیرد.'},
+    en:{title:'🌟 Members Exclusive',body:'Welcome to the members-only area. Exclusive content and advanced scripts.'}
+  }
 };
 
-const PRODUCT_CATEGORIES = ['python','simulation','docs','dataset','other'];
-function catLabel(c){return tt('cat_'+(c||'other')) || c;}
+const DEFAULT_PLANS = [
+  {id:'p1',name:'برنزی',name_en:'Bronze',price:99000,period:'ماهانه',features:['دسترسی به تب اشتراکی','۱ کد اختصاصی در ماه','پشتیبانی ایمیلی']},
+  {id:'p2',name:'نقره‌ای',name_en:'Silver',price:249000,period:'ماهانه',featured:true,features:['همه امکانات برنزی','۵ کد اختصاصی در ماه','پشتیبانی تلگرام','دسترسی زودهنگام به مقالات']},
+  {id:'p3',name:'طلایی',name_en:'Gold',price:499000,period:'ماهانه',features:['همه امکانات نقره‌ای','کد نامحدود','مشاوره اختصاصی','دسترسی به کد منبع پروژه‌ها']}
+];
 
-const $ = (id) => document.getElementById(id);
+const DEFAULT_PRODUCTS = [
+  {id:'sp1',name:'اسکریپت محاسبات دارسی',name_en:'Darcy Flow Calculator',price:150000,desc:'اسکریپت کامل پایتون برای محاسبه جریان تک‌فاز',category:'python',icon:'🐍',tags:['Python','Darcy','Basic'],featured:false,createdAt:'2025-01-10'},
+  {id:'sp2',name:'شبیه‌ساز Gas Lift',name_en:'Gas Lift Simulator',price:350000,desc:'ماژول شبیه‌سازی سیستم فرازآوری با گاز',category:'simulation',icon:'⛽',tags:['Simulation','Two-phase'],featured:true,createdAt:'2025-03-05'},
+  {id:'sp3',name:'پکیج EOR کامل',name_en:'Full EOR Package',price:890000,desc:'مجموعه اسکریپت‌های تخصصی ازدیاد برداشت نفت',category:'package',icon:'📦',tags:['EOR','Polymer','Bundle'],featured:true,createdAt:'2025-05-01'},
+  {id:'sp4',name:'ماشین‌حساب PVT',name_en:'PVT Calculator',price:220000,desc:'محاسبه خصوصیات PVT سیالات مخزن',category:'python',icon:'🧪',tags:['PVT','Reservoir'],featured:false,createdAt:'2025-02-20'},
+  {id:'sp5',name:'داشبورد Well Test',name_en:'Well Test Dashboard',price:640000,desc:'تحلیل داده‌های چاه‌آزمایی به صورت تعاملی',category:'dashboard',icon:'📊',tags:['Well Test','Analytics','UI'],featured:false,createdAt:'2025-04-12'}
+];
+
+const PRODUCT_CATEGORIES = [
+  {id:'python',fa:'اسکریپت پایتون',en:'Python Scripts'},
+  {id:'simulation',fa:'شبیه‌سازی',en:'Simulation'},
+  {id:'package',fa:'پکیج کامل',en:'Full Package'},
+  {id:'dashboard',fa:'داشبورد',en:'Dashboard'}
+];
+
+/* =================== STATE / STORAGE =================== */
+const STORE_KEY='mrz_company_db_v2';
+const SESSION_KEY='mrz_session';
+
+function loadDB(){
+  const raw=localStorage.getItem(STORE_KEY);
+  if(raw){try{return JSON.parse(raw);}catch{}}
+  const db={
+    tabs:DEFAULT_TABS,content:DEFAULT_CONTENT,plans:DEFAULT_PLANS,products:DEFAULT_PRODUCTS,
+    users:[
+      {u:'abol1386',pass:'abol8685@',name:'ابوالفضل میرزایی',phone:'',email:'abol1386@mrz.local',role:'admin',subs:[]},
+      {u:'kimia1385',pass:'kimia8586@',name:'کیمیا',phone:'',email:'kimia1385@mrz.local',role:'admin',subs:[]}
+    ],
+    orders:[]
+  };
+  saveDB(db);return db;
+}
+function saveDB(db){localStorage.setItem(STORE_KEY,JSON.stringify(db));}
+let DB=loadDB();
+if(DB.users&&DB.users.some(u=>u.pass&&!u.passHash)){
+  console.warn('%c[MRZ Security] Legacy plain-text passwords detected. They will be hashed on next successful login. Change default admin passwords immediately.','color:#f5c568;font-weight:bold');
+}
+let LANG=localStorage.getItem('mrz_lang')||'fa';
+let SESSION=JSON.parse(localStorage.getItem(SESSION_KEY)||'null');
+let ACTIVE_TAB='identity';
+let AUTH_MODE='login';
+let CHECKOUT_ITEM=null;
+
+/* =================== HELPERS =================== */
+const $=(id)=>document.getElementById(id);
 function toast(msg){const t=$('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2600);}
-function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
-function tt(k){return I18N[STATE.lang][k]||k;}
+function openModal(id){$(id).classList.add('show');if(id==='dashModal')renderDash();if(id==='subsModal')renderPlans();if(id==='shopModal')renderProducts();if(id==='adminModal')showAdmin('content');}
+function closeModal(id){$(id).classList.remove('show');}
+function currentUser(){return SESSION?DB.users.find(u=>u.u===SESSION.u):null;}
+function isAdmin(){const u=currentUser();return u&&u.role==='admin';}
+function hasActiveSub(){const u=currentUser();return u&&u.subs&&u.subs.length>0;}
+function scrollToTabs(){$('tabsSection').scrollIntoView({behavior:'smooth'});}
 
-/* ============ AUTH ============ */
-async function refreshSession(){
-  const { data } = await supa.auth.getSession();
-  STATE.session = data.session;
-  if (data.session) {
-    const uid = data.session.user.id;
-    const [{ data: prof }, { data: roles }, { data: subs }] = await Promise.all([
-      supa.from('profiles').select('*').eq('id', uid).maybeSingle(),
-      supa.from('user_roles').select('role').eq('user_id', uid),
-      supa.from('subscriptions').select('*').eq('user_id', uid).eq('active', true)
-    ]);
-    STATE.profile = prof;
-    STATE.isAdmin = (roles || []).some(r => r.role === 'admin');
-    STATE.hasSub = (subs || []).some(s => !s.expires_at || new Date(s.expires_at) > new Date());
-    // Refetch content in case subscriber tabs are now visible
-    await loadContent();
-  } else {
-    STATE.profile = null; STATE.isAdmin = false; STATE.hasSub = false;
-  }
-  renderAuthUI();
-}
-
-async function googleSignIn(){
-  try {
-    // Load lovable auth SDK on demand (managed google flow)
-    const mod = await import('https://esm.sh/@lovable.dev/cloud-auth-js@1');
-    const auth = mod.createLovableAuth();
-    const res = await auth.signInWithOAuth('google', { redirect_uri: window.location.origin });
-    if (res.error) { toast('خطای گوگل: ' + res.error.message); return; }
-    if (res.redirected) return;
-    if (res.tokens) { await supa.auth.setSession(res.tokens); await refreshSession(); closeModal('authModal'); toast(tt('auth_login') + ' ✓'); }
-  } catch (e) { console.error(e); toast('خطا در ورود با گوگل'); }
-}
-
-function switchAuth(mode){
-  STATE.authMode = mode;
-  $('tabLogin').classList.toggle('active', mode==='login');
-  $('tabSignup').classList.toggle('active', mode==='signup');
-  $('signupFields').classList.toggle('hidden', mode!=='signup');
-  $('authTitle').textContent = tt(mode==='login'?'auth_login':'auth_signup');
-}
-
-async function doAuth(){
-  const email = $('authUser').value.trim();
-  const password = $('authPass').value;
-  if (!email || !password) { toast(STATE.lang==='fa'?'همه فیلدها الزامی است':'All fields required'); return; }
-  if (STATE.authMode === 'signup'){
-    const name = $('suName').value.trim();
-    const phone = $('suPhone').value.trim();
-    if (!name) { toast(STATE.lang==='fa'?'نام الزامی است':'Name required'); return; }
-    const { data, error } = await supa.auth.signUp({
-      email, password,
-      options: { emailRedirectTo: window.location.origin, data: { name, phone } }
-    });
-    if (error) { toast(error.message); return; }
-    // Update profile with phone if user was created
-    if (data.user) {
-      await supa.from('profiles').upsert({ id: data.user.id, name, phone, email });
+/* =================== ADMIN PORTAL =================== */
+function openAdminPortal(){$('adminPortal').classList.add('show');setTimeout(()=>$('apUser').focus(),100);}
+function closeAdminPortal(){$('adminPortal').classList.remove('show');if(location.hash==='#admin')history.replaceState(null,'',location.pathname);}
+async function verifyUserPassword(user, plain){
+  if(!user)return false;
+  // migrate old plain-text password → hash on first successful match
+  if(user.pass && !user.passHash){
+    if(user.pass===plain){
+      user.passHash=await hashPass(plain,user.u);
+      delete user.pass; saveDB(DB); return true;
     }
-    toast(STATE.lang==='fa'?'ثبت‌نام موفق':'Signed up'); closeModal('authModal');
-    await refreshSession();
-  } else {
-    const { error } = await supa.auth.signInWithPassword({ email, password });
-    if (error) { toast(error.message); return; }
-    toast(STATE.lang==='fa'?'خوش آمدید':'Welcome'); closeModal('authModal');
-    await refreshSession();
+    return false;
   }
+  if(user.passHash){
+    const h=await hashPass(plain,user.u);
+    return h===user.passHash;
+  }
+  return false;
 }
-
-async function forgotPassword(){
-  const email = $('authUser').value.trim();
-  if (!email) { toast(STATE.lang==='fa'?'ابتدا ایمیل را وارد کنید':'Enter email first'); return; }
-  const { error } = await supa.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
-  if (error) { toast(error.message); return; }
-  toast(STATE.lang==='fa'?'لینک بازیابی ارسال شد':'Reset link sent');
+function updateAdminLockUI(){
+  const left=rlIsLocked();
+  const banner=$('apLockBanner'), btn=$('apSubmitBtn'), cw=$('apCaptchaWrap');
+  if(left>0){
+    banner.classList.remove('hidden');
+    banner.textContent=(LANG==='fa'?'🔒 دسترسی موقتاً قفل شده — ':'🔒 Temporarily locked — ')+Math.ceil(left/60000)+(LANG==='fa'?' دقیقه':' min');
+    btn.disabled=true; btn.style.opacity=.5;
+  }else{
+    banner.classList.add('hidden'); btn.disabled=false; btn.style.opacity=1;
+  }
+  if(rlNeedCaptcha()){cw.classList.remove('hidden');genCaptcha();}else{cw.classList.add('hidden');}
 }
-
-async function logout(){
-  await supa.auth.signOut();
-  STATE.session = null; STATE.profile = null; STATE.isAdmin = false; STATE.hasSub = false;
-  renderAuthUI(); toast(STATE.lang==='fa'?'خارج شدید':'Logged out');
-}
-
 async function adminPortalLogin(){
-  const email = $('apUser').value.trim(), password = $('apPass').value;
-  if (!email || !password) { toast(STATE.lang==='fa'?'همه فیلدها الزامی است':'All required'); return; }
-  const { error } = await supa.auth.signInWithPassword({ email, password });
-  if (error) { toast(error.message); return; }
-  await refreshSession();
-  if (!STATE.isAdmin) { toast(STATE.lang==='fa'?'دسترسی رد شد — فقط ادمین‌ها':'Admins only'); await supa.auth.signOut(); await refreshSession(); return; }
-  closeAdminPortal(); toast(STATE.lang==='fa'?'خوش آمدید، مدیر ✦':'Welcome, admin ✦');
+  const left=rlIsLocked();
+  if(left>0){toast((LANG==='fa'?'قفل تا ':'Locked for ')+Math.ceil(left/60000)+(LANG==='fa'?' دقیقه':' min'));return;}
+  const u=$('apUser').value.trim(),p=$('apPass').value;
+  if(!u||!p){toast(LANG==='fa'?'همه فیلدها الزامی است':'All fields required');return;}
+  if(rlNeedCaptcha()){
+    const a=Number($('apCaptchaA').value);
+    if(a!==CAPTCHA_ANS){genCaptcha();$('apCaptchaA').value='';toast(LANG==='fa'?'پاسخ CAPTCHA اشتباه':'Wrong CAPTCHA');return;}
+  }
+  const user=DB.users.find(x=>(x.u===u||x.email===u)&&x.role==='admin');
+  const ok=await verifyUserPassword(user,p);
+  if(!ok){
+    const s=rlRecordFail();
+    logAdminAttempt(u,false);
+    updateAdminLockUI();
+    const remaining=Math.max(0,5-(s.fails||0));
+    toast((LANG==='fa'?'دسترسی رد شد':'Access denied')+(s.lockUntil?'':' — '+remaining+(LANG==='fa'?' تلاش':' left')));
+    return;
+  }
+  rlReset(); logAdminAttempt(u,true);
+  SESSION={u:user.u,adminAt:Date.now()};
+  localStorage.setItem(SESSION_KEY,JSON.stringify(SESSION));
+  touchIdle();
+  closeAdminPortal();renderAuthUI();toast(LANG==='fa'?'خوش آمدید، مدیر ✦':'Welcome, admin ✦');
   setTimeout(()=>openModal('adminModal'),200);
 }
 
-function renderAuthUI(){
-  const authed = !!STATE.session;
-  $('loginBtn').classList.toggle('hidden', authed);
-  $('dashBtn').classList.toggle('hidden', !authed);
-  $('logoutBtn').classList.toggle('hidden', !authed);
-  $('adminBtn').classList.toggle('hidden', !STATE.isAdmin);
-  renderTabs();
-}
-
-/* ============ DATA LOADING ============ */
-async function loadContent(){
-  const [tabs, content, plans, products, projects, testi, faqs, blog] = await Promise.all([
-    supa.from('site_tabs').select('*').order('sort_order'),
-    supa.from('tab_content').select('*'),
-    supa.from('plans').select('*').order('sort_order'),
-    supa.from('products').select('*').order('sort_order'),
-    supa.from('projects').select('*').order('sort_order'),
-    supa.from('testimonials').select('*').eq('approved',true).order('created_at',{ascending:false}),
-    supa.from('faqs').select('*').order('sort_order'),
-    supa.from('blog_posts').select('*').order('created_at',{ascending:false})
-  ]);
-  STATE.tabs = tabs.data || [];
-  STATE.content = {};
-  (content.data || []).forEach(row => {
-    STATE.content[row.tab_key] = STATE.content[row.tab_key] || {};
-    STATE.content[row.tab_key][row.lang] = { title: row.title, body: row.body, meta: row.meta };
-  });
-  STATE.plans = plans.data || [];
-  STATE.products = products.data || [];
-  STATE.projects = projects.data || [];
-  STATE.testimonials = testi.data || [];
-  STATE.faqs = faqs.data || [];
-  STATE.blog = blog.data || [];
-  renderTabs(); renderPanel(); renderPortfolio(); renderTestimonials(); renderFaqs(); renderBlog();
-}
-
-/* ============ LANG ============ */
+/* =================== LANG =================== */
 function setLang(l){
-  STATE.lang = l; localStorage.setItem('mrz_lang', l);
-  document.documentElement.lang = l; document.documentElement.dir = l==='fa'?'rtl':'ltr';
-  $('langFa').classList.toggle('active', l==='fa');
-  $('langEn').classList.toggle('active', l==='en');
+  LANG=l;localStorage.setItem('mrz_lang',l);
+  document.documentElement.lang=l;document.documentElement.dir=l==='fa'?'rtl':'ltr';
+  $('langFa').classList.toggle('active',l==='fa');$('langEn').classList.toggle('active',l==='en');
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(I18N[l][k])el.textContent=I18N[l][k];});
-  $('searchInput').placeholder = I18N[l].search_ph;
-  renderTabs(); renderPanel(); renderPortfolio(); renderTestimonials(); renderFaqs(); renderBlog();
+  $('searchInput').placeholder=I18N[l].search_ph;
+  renderTabs();renderPanel();
 }
 
-/* ============ TABS ============ */
-function renderTabs(){
-  const nav = $('tabsNav'); nav.innerHTML='';
-  STATE.tabs.forEach(t=>{
-    const locked = t.requires_sub && !STATE.hasSub && !STATE.isAdmin;
-    const b = document.createElement('button');
-    b.className = 'tab-btn' + (t.key===STATE.activeTab?' active':'') + (locked?' locked':'');
-    b.textContent = STATE.lang==='fa' ? t.fa : t.en;
-    b.onclick = () => {
-      if (locked) { toast(STATE.lang==='fa'?'برای دسترسی، اشتراک تهیه کنید':'Subscribe to unlock'); openModal('subsModal'); return; }
-      STATE.activeTab = t.key; renderTabs(); renderPanel();
-    };
-    nav.appendChild(b);
-  });
-}
-
-function renderPanel(){
-  const wrap = $('tabsContent'); wrap.innerHTML='';
-  $('searchResults').classList.add('hidden');
-  const c = STATE.content[STATE.activeTab];
-  if (!c) { wrap.innerHTML = '<div class="card muted">—</div>'; return; }
-  const data = c[STATE.lang] || c.fa || Object.values(c)[0];
-  if (!data) { wrap.innerHTML='<div class="card muted">🔒 محتوای ویژه — اشتراک تهیه کنید</div>'; return; }
-  let html = `<div class="card"><h2>${esc(data.title||'')}</h2>`;
-  if (data.body) html += `<p style="white-space:pre-line;color:#d8d8ce;font-size:1.02rem">${esc(data.body)}</p>`;
-  const meta = data.meta || {};
-  if (meta.badges) html += '<div style="margin-top:16px">' + meta.badges.map(b=>`<span class="badge">${esc(b)}</span>`).join('') + '</div>';
-  if (meta.code) html += `<div class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy</button><pre>${esc(meta.code)}</pre></div>`;
-  if (meta.docs) html += '<div class="grid" style="margin-top:18px">' + meta.docs.map(d=>`<div class="info-item"><strong>${esc(d.id)} · ${esc(d.status)}</strong><div style="color:var(--gold-2);font-weight:600;margin-bottom:6px">${esc(d.title)}</div><div style="font-size:.85rem;color:var(--muted)">${esc(d.abs)}</div></div>`).join('') + '</div>';
-  if (meta.contacts) html += '<div style="margin-top:16px">' + meta.contacts.map(c=>`<div class="contact-item"><strong>${esc(c.k)}</strong><span dir="ltr">${esc(c.v)}</span></div>`).join('') + '</div>';
-  const other = Object.keys(meta).filter(k=>!['badges','code','docs','contacts'].includes(k));
-  if (other.length) html += '<div class="grid" style="margin-top:14px">' + other.map(k=>`<div class="info-item"><strong>${esc(k)}</strong>${esc(meta[k])}</div>`).join('') + '</div>';
-  html += '</div>';
-  const div = document.createElement('div'); div.innerHTML = html; wrap.appendChild(div);
-}
-
-window.copyCode = (btn) => {const pre=btn.parentElement.querySelector('pre');navigator.clipboard.writeText(pre.textContent);btn.textContent='✓ Copied';setTimeout(()=>btn.textContent='Copy',1500);};
-
-/* ============ PORTFOLIO / TESTI / FAQ / BLOG ============ */
-function renderPortfolio(){
-  $('portfolioGrid').innerHTML = STATE.projects.map(p=>`
-    <div class="proj-card">
-      <h4>${esc(STATE.lang==='fa'?p.title:(p.title_en||p.title))}</h4>
-      <p>${esc(STATE.lang==='fa'?(p.summary||''):(p.summary_en||p.summary||''))}</p>
-      <div class="proj-tags">${(p.tags||[]).map(t=>`<span class="badge">${esc(t)}</span>`).join('')}</div>
-    </div>`).join('');
-}
-function renderTestimonials(){
-  $('testiGrid').innerHTML = STATE.testimonials.map(t=>`
-    <div class="testi">
-      <div class="quote">${esc(t.quote)}</div>
-      <div class="author">${esc(t.author)}</div>
-      <div class="role">${esc(t.role||'')}</div>
-      <div class="stars">${'★'.repeat(t.rating||5)}</div>
-    </div>`).join('');
-}
-function renderFaqs(){
-  $('faqList').innerHTML = STATE.faqs.map(f=>`
-    <details class="faq-item"><summary>${esc(STATE.lang==='fa'?f.question:(f.question_en||f.question))}</summary>
-    <div class="ans">${esc(STATE.lang==='fa'?f.answer:(f.answer_en||f.answer))}</div></details>`).join('');
-}
-function renderBlog(){
-  if (!STATE.blog.length){
-    $('blogGrid').innerHTML = `<div class="card muted" style="grid-column:1/-1;text-align:center">${STATE.lang==='fa'?'هنوز مقاله‌ای منتشر نشده — به‌زودی':'No posts yet — coming soon'}</div>`;
-    return;
-  }
-  $('blogGrid').innerHTML = STATE.blog.map(b=>`
-    <div class="blog-card">
-      <div class="cover">📄</div>
-      <div class="body">
-        <h4>${esc(STATE.lang==='fa'?b.title:(b.title_en||b.title))}</h4>
-        <p>${esc(b.excerpt||'')}</p>
-        <div class="date">${new Date(b.created_at).toLocaleDateString(STATE.lang==='fa'?'fa-IR':'en-US')}</div>
-      </div>
-    </div>`).join('');
-}
-
-/* ============ SEARCH ============ */
-function runSearch(){
-  const q = $('searchInput').value.trim().toLowerCase();
-  const res = $('searchResults'); const wrap = $('tabsContent');
-  if (!q) { res.classList.add('hidden'); wrap.style.display=''; return; }
-  wrap.style.display='none'; res.classList.remove('hidden');
-  const hits = [];
-  STATE.tabs.forEach(t=>{
-    const c = STATE.content[t.key]; if (!c) return;
-    ['fa','en'].forEach(lg=>{
-      const d = c[lg]; if (!d) return;
-      const hay = (d.title+' '+d.body+' '+JSON.stringify(d.meta||{})).toLowerCase();
-      if (hay.includes(q)) hits.push({tab:t, lang:lg, data:d});
-    });
-  });
-  res.innerHTML = hits.length ?
-    '<div class="card"><h2>' + (STATE.lang==='fa'?'نتایج جستجو':'Search results') + ` (${hits.length})</h2>` +
-    hits.map(h=>`<div class="info-item" style="margin-top:10px;cursor:pointer" onclick="jumpTo('${h.tab.key}')"><strong>${esc(STATE.lang==='fa'?h.tab.fa:h.tab.en)} · ${h.lang.toUpperCase()}</strong><div style="color:var(--gold-2)">${esc(h.data.title||'')}</div><div style="font-size:.85rem;color:var(--muted)">${esc((h.data.body||'').slice(0,180))}…</div></div>`).join('') + '</div>'
-    : '<div class="card muted">' + (STATE.lang==='fa'?'نتیجه‌ای یافت نشد':'No results') + '</div>';
-}
-window.jumpTo = (k) => { $('searchInput').value=''; runSearch(); STATE.activeTab=k; renderTabs(); renderPanel(); scrollToTabs(); };
-
-/* ============ DASHBOARD ============ */
-async function renderDash(){
-  if (!STATE.session) { closeModal('dashModal'); openModal('authModal'); return; }
-  const u = STATE.session.user;
-  $('dashHello').textContent = (STATE.lang==='fa'?'خوش آمدید، ':'Welcome, ') + (STATE.profile?.name || u.email);
-  $('pfName').value = STATE.profile?.name || '';
-  $('pfPhone').value = STATE.profile?.phone || '';
-  $('pfEmail').value = u.email || '';
-  const { data: subs } = await supa.from('subscriptions').select('*, plans(*)').eq('user_id', u.id).eq('active', true);
-  $('dashSubs').innerHTML = subs && subs.length ?
-    subs.map(s=>`<div class="contact-item"><strong>${esc(STATE.lang==='fa'?s.plans.name:s.plans.name_en)}</strong><span>${s.expires_at?new Date(s.expires_at).toLocaleDateString(STATE.lang==='fa'?'fa-IR':'en-US'):'—'}</span></div>`).join('')
-    : (STATE.lang==='fa'?'اشتراک فعالی ندارید':'No active subscription');
-  const { data: orders } = await supa.from('orders').select('*').eq('user_id', u.id).order('created_at',{ascending:false});
-  $('dashOrders').innerHTML = orders && orders.length ?
-    '<table><tr><th>#</th><th>'+(STATE.lang==='fa'?'مورد':'Item')+'</th><th>'+(STATE.lang==='fa'?'مبلغ':'Price')+'</th><th>'+(STATE.lang==='fa'?'وضعیت':'Status')+'</th><th>'+(STATE.lang==='fa'?'تحویل':'Delivery')+'</th></tr>' +
-    orders.map((o,i)=>{
-      let deliveryCell = '—';
-      if (o.status==='delivered') {
-        const parts = [];
-        if (o.delivered_file_url) parts.push(`<a class="dl-btn" href="${esc(o.delivered_file_url)}" target="_blank" rel="noopener">⬇ ${tt('download')}</a>`);
-        if (o.delivered_code) parts.push(`<div style="margin-top:6px"><span class="dl-code">${esc(o.delivered_code)}</span></div>`);
-        deliveryCell = parts.join('') || '—';
-      }
-      return `<tr><td>${i+1}</td><td>${esc(o.item_name)}</td><td>${Number(o.price).toLocaleString()}</td><td><span class="status-pill status-${o.status}">${o.status}</span></td><td>${deliveryCell}</td></tr>`;
-    }).join('') + '</table>'
-    : (STATE.lang==='fa'?'سفارشی ثبت نشده':'No orders');
-}
-async function saveProfile(){
-  if (!STATE.session) return;
-  const u = STATE.session.user;
-  const { error } = await supa.from('profiles').upsert({ id: u.id, name: $('pfName').value, phone: $('pfPhone').value, email: u.email });
-  if (error) { toast(error.message); return; }
-  await refreshSession();
-  toast(STATE.lang==='fa'?'ذخیره شد':'Saved');
-}
-
-/* ============ PLANS / SHOP / CHECKOUT ============ */
-function renderPlans(){
-  $('plansGrid').innerHTML = STATE.plans.map(p=>`
-    <div class="plan-card${p.featured?' featured':''}">
-      <h3>${esc(STATE.lang==='fa'?p.name:(p.name_en||p.name))}</h3>
-      <div class="plan-price">${Number(p.price).toLocaleString()} <span style="font-size:.7em;color:var(--muted)">تومان / ${p.period}</span></div>
-      <ul class="plan-features">${(p.features||[]).map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
-      <button class="btn btn-primary" style="width:100%" onclick="buyItem('plan','${p.id}')">${STATE.lang==='fa'?'خرید اشتراک':'Subscribe'}</button>
-    </div>`).join('');
-}
-function renderProducts(){
-  // Filters
-  const cats = ['all', ...PRODUCT_CATEGORIES];
-  $('shopFilters').innerHTML = cats.map(c=>{
-    const count = c==='all' ? STATE.products.length : STATE.products.filter(p=>(p.category||'other')===c).length;
-    return `<button class="${STATE.shopCat===c?'active':''}" onclick="setShopCat('${c}')">${esc(catLabel(c))} <span style="opacity:.7;font-size:.7rem">(${count})</span></button>`;
-  }).join('');
-  const list = STATE.shopCat==='all' ? STATE.products : STATE.products.filter(p=>(p.category||'other')===STATE.shopCat);
-  if (!list.length){ $('productsGrid').innerHTML = `<div class="card muted" style="grid-column:1/-1;text-align:center;color:var(--muted)">${tt('shop_no')}</div>`; return; }
-  $('productsGrid').innerHTML = list.map(p=>`
-    <div class="plan-card">
-      <span class="product-cat-tag">${esc(catLabel(p.category||'other'))}</span>
-      <h3>${esc(STATE.lang==='fa'?p.name:(p.name_en||p.name))}</h3>
-      <p class="muted" style="min-height:44px;color:var(--muted);font-size:.88rem">${esc(p.description||'')}</p>
-      <div class="plan-price">${Number(p.price).toLocaleString()} <span style="font-size:.7em;color:var(--muted)">تومان</span></div>
-      <button class="btn btn-primary" style="width:100%" onclick="buyItem('product','${p.id}')">${STATE.lang==='fa'?'خرید':'Buy'}</button>
-    </div>`).join('');
-}
-window.setShopCat = (c) => { STATE.shopCat = c; renderProducts(); };
-window.buyItem = (kind, id) => {
-  if (!STATE.session) { toast(STATE.lang==='fa'?'ابتدا وارد شوید':'Sign in first'); closeModal('subsModal'); closeModal('shopModal'); openModal('authModal'); return; }
-  STATE.checkout = { kind, id };
-  const item = kind==='plan' ? STATE.plans.find(p=>p.id===id) : STATE.products.find(p=>p.id===id);
-  const nm = STATE.lang==='fa'?item.name:(item.name_en||item.name);
-  const price = Number(item.price);
-  $('paySimAmount').textContent = price.toLocaleString() + (STATE.lang==='fa'?' تومان':' Toman');
-  $('paySimSummary').innerHTML = `
-    <div class="pay-item-row"><span>${STATE.lang==='fa'?'محصول':'Item'}</span><span>${esc(nm)}</span></div>
-    <div class="pay-item-row"><span>${STATE.lang==='fa'?'نوع':'Type'}</span><span>${kind==='plan'?(STATE.lang==='fa'?'اشتراک':'Subscription'):(STATE.lang==='fa'?'محصول دیجیتال':'Digital product')}</span></div>
-    <div class="pay-item-row"><span>${STATE.lang==='fa'?'مبلغ نهایی':'Total'}</span><span>${price.toLocaleString()} ${STATE.lang==='fa'?'تومان':'Toman'}</span></div>`;
-  $('chkName').value = STATE.profile?.name || '';
-  $('chkPhone').value = STATE.profile?.phone || '';
-  $('chkEmail').value = STATE.session.user.email || '';
-  openModal('checkoutModal');
-};
-async function submitOrder(){
-  const name=$('chkName').value.trim(), phone=$('chkPhone').value.trim(), email=$('chkEmail').value.trim();
-  if (!name||!phone||!email) { toast(STATE.lang==='fa'?'همه فیلدها الزامی':'All required'); return; }
-  const it = STATE.checkout;
-  const item = it.kind==='plan' ? STATE.plans.find(p=>p.id===it.id) : STATE.products.find(p=>p.id===it.id);
-  // Zarinpal simulator: instantly mark as delivered (subscription trigger activates automatically for plans)
-  const trackingCode = 'MRZ-' + Date.now().toString(36).toUpperCase();
-  const { error } = await supa.from('orders').insert({
-    user_id: STATE.session.user.id, name, phone, email,
-    kind: it.kind, item_id: it.id, item_name: STATE.lang==='fa'?item.name:(item.name_en||item.name),
-    price: item.price, status: 'delivered', delivered_code: trackingCode
-  });
-  if (error) { toast(error.message); return; }
-  closeModal('checkoutModal'); closeModal('subsModal'); closeModal('shopModal');
-  toast(STATE.lang==='fa'?('پرداخت موفق ✓ کد پیگیری: '+trackingCode):('Payment successful ✓ '+trackingCode));
-  await refreshSession();
-}
-
-/* ============ CONTACT ============ */
-async function submitContact(e){
-  e.preventDefault();
-  const payload = {
-    name: $('cfName').value.trim(),
-    email: $('cfEmail').value.trim(),
-    subject: $('cfSubject').value.trim() || null,
-    message: $('cfMsg').value.trim(),
-    user_id: STATE.session?.user?.id || null
-  };
-  if (!payload.name||!payload.email||!payload.message) { toast(STATE.lang==='fa'?'همه فیلدها الزامی':'All required'); return; }
-  const { error } = await supa.from('contact_messages').insert(payload);
-  if (error) { toast(error.message); return; }
-  e.target.reset();
-  toast(STATE.lang==='fa'?'پیام شما ارسال شد ✓':'Message sent ✓');
-}
-
-/* ============ ADMIN ============ */
-async function showAdmin(view, btn){
-  if (btn) { document.querySelectorAll('.admin-nav button').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
-  const v = $('adminView'); v.innerHTML = '<div class="muted">در حال بارگذاری…</div>';
-  if (view==='content') v.innerHTML = adminContent();
-  else if (view==='plans') v.innerHTML = await adminTable('plans', ['id','name','name_en','price','period','featured','sort_order'], {price:'number', featured:'bool', sort_order:'number'});
-  else if (view==='products') v.innerHTML = await adminTable('products', ['id','name','name_en','category','description','price','sort_order'], {price:'number', sort_order:'number', category:'category'});
-  else if (view==='projects') v.innerHTML = await adminTable('projects', ['title','title_en','summary','summary_en','sort_order','published'], {sort_order:'number', published:'bool'});
-  else if (view==='testi') v.innerHTML = await adminTable('testimonials', ['author','role','quote','rating','approved'], {rating:'number', approved:'bool'});
-  else if (view==='faqs') v.innerHTML = await adminTable('faqs', ['question','question_en','answer','answer_en','sort_order'], {sort_order:'number'});
-  else if (view==='blog') v.innerHTML = await adminTable('blog_posts', ['slug','title','title_en','excerpt','body','published'], {published:'bool'});
-  else if (view==='messages') v.innerHTML = await adminMessages();
-  else if (view==='orders') v.innerHTML = await adminOrders();
-  else if (view==='users') v.innerHTML = await adminUsers();
-  else if (view==='events') v.innerHTML = await adminEvents();
-  else if (view==='settings') v.innerHTML = await adminSettings();
-}
-
-function adminContent(){
-  let html = '<p class="muted" style="color:var(--muted);margin-bottom:10px">هر تب دو زبان دارد. تغییرات به‌طور خودکار در پایگاه ذخیره می‌شود.</p>';
-  STATE.tabs.forEach(t=>{
-    html += `<details style="margin-bottom:10px;background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:10px">
-      <summary style="cursor:pointer;color:var(--gold);font-weight:600">${esc(t.fa)} / ${esc(t.en)} <span class="muted" style="font-size:.75rem">(${esc(t.key)})</span></summary>`;
-    ['fa','en'].forEach(lg=>{
-      const c = (STATE.content[t.key]&&STATE.content[t.key][lg]) || {title:'',body:'',meta:{}};
-      html += `<div style="margin-top:10px;padding:10px;background:var(--bg-2);border-radius:8px">
-        <div style="color:var(--gold-2);font-size:.75rem;margin-bottom:6px">[${lg.toUpperCase()}]</div>
-        <div class="field"><label>عنوان</label><input onchange="updateContent('${t.key}','${lg}','title',this.value)" value="${esc(c.title||'')}"></div>
-        <div class="field"><label>متن</label><textarea rows="3" onchange="updateContent('${t.key}','${lg}','body',this.value)">${esc(c.body||'')}</textarea></div>
-        <div class="field"><label>Meta (JSON)</label><textarea rows="3" onchange="updateContent('${t.key}','${lg}','meta',this.value)">${esc(JSON.stringify(c.meta||{},null,2))}</textarea></div>
-      </div>`;
-    });
-    html += '</details>';
-  });
-  return html;
-}
-window.updateContent = async (key, lg, field, val) => {
-  const existing = STATE.content[key]?.[lg] || {};
-  const payload = { tab_key: key, lang: lg, title: existing.title||null, body: existing.body||null, meta: existing.meta||{} };
-  if (field==='meta') { try { payload.meta = JSON.parse(val||'{}'); } catch { toast('JSON نامعتبر'); return; } }
-  else payload[field] = val;
-  const { error } = await supa.from('tab_content').upsert(payload, { onConflict: 'tab_key,lang' });
-  if (error) { toast(error.message); return; }
-  STATE.content[key] = STATE.content[key] || {};
-  STATE.content[key][lg] = { title: payload.title, body: payload.body, meta: payload.meta };
-  renderPanel(); toast('ذخیره شد');
-};
-
-async function adminTable(table, fields, types = {}){
-  const { data, error } = await supa.from(table).select('*').order('created_at',{ascending:false});
-  if (error) return `<div class="muted" style="color:var(--muted)">${esc(error.message)}</div>`;
-  let html = `<button class="btn btn-primary btn-sm" onclick="adminAddRow('${table}')">+ افزودن</button>
-    <table style="margin-top:10px"><tr>${fields.map(f=>`<th>${f}</th>`).join('')}<th>عملیات</th></tr>`;
-  data.forEach(row=>{
-    html += '<tr>' + fields.map(f=>{
-      const t = types[f];
-      const v = row[f];
-      if (t==='bool') return `<td><select onchange="adminEdit('${table}','${row.id||row.slug||row.key}','${f}',this.value==='true')"><option value="true"${v?' selected':''}>✓</option><option value="false"${!v?' selected':''}>✗</option></select></td>`;
-      if (t==='category') return `<td><select onchange="adminEdit('${table}','${row.id||row.slug||row.key}','${f}',this.value)">${PRODUCT_CATEGORIES.map(cc=>`<option value="${cc}"${v===cc?' selected':''}>${esc(catLabel(cc))}</option>`).join('')}</select></td>`;
-      return `<td><input value="${esc(String(v??''))}" onchange="adminEdit('${table}','${row.id||row.slug||row.key}','${f}',${t==='number'?'Number(this.value)':'this.value'})"></td>`;
-    }).join('') + `<td><button class="btn btn-danger btn-sm" onclick="adminDelete('${table}','${row.id||row.slug||row.key}')">حذف</button></td></tr>`;
-  });
-  html += '</table>';
-  return html;
-}
-window.adminEdit = async (table, id, field, val) => {
-  const keyField = (table==='plans'||table==='products') ? 'id' : (table==='site_tabs' ? 'key' : 'id');
-  const { error } = await supa.from(table).update({ [field]: val }).eq(keyField, id);
-  if (error) toast(error.message); else toast('ذخیره شد');
-  if (table==='plans') { const {data}=await supa.from('plans').select('*').order('sort_order'); STATE.plans=data||[]; renderPlans(); }
-  if (table==='products') { const {data}=await supa.from('products').select('*').order('sort_order'); STATE.products=data||[]; renderProducts(); }
-  if (table==='projects') { const {data}=await supa.from('projects').select('*').order('sort_order'); STATE.projects=data||[]; renderPortfolio(); }
-  if (table==='faqs') { const {data}=await supa.from('faqs').select('*').order('sort_order'); STATE.faqs=data||[]; renderFaqs(); }
-  if (table==='testimonials') { const {data}=await supa.from('testimonials').select('*').eq('approved',true); STATE.testimonials=data||[]; renderTestimonials(); }
-  if (table==='blog_posts') { const {data}=await supa.from('blog_posts').select('*').order('created_at',{ascending:false}); STATE.blog=data||[]; renderBlog(); }
-};
-window.adminDelete = async (table, id) => {
-  if (!confirm('حذف شود؟')) return;
-  const keyField = (table==='plans'||table==='products') ? 'id' : 'id';
-  const { error } = await supa.from(table).delete().eq(keyField, id);
-  if (error) toast(error.message); else { toast('حذف شد'); showAdmin(table==='blog_posts'?'blog':(table==='testimonials'?'testi':table), document.querySelector('.admin-nav button.active')); }
-};
-window.adminAddRow = async (table) => {
-  const templates = {
-    plans: { id: 'p'+Date.now(), name:'پلن جدید', name_en:'New plan', price:0, period:'ماهانه', features:[], featured:false, sort_order:99 },
-    products: { id: 'sp'+Date.now(), name:'محصول جدید', name_en:'New', category:'python', price:0, description:'', sort_order:99 },
-    projects: { title:'پروژه جدید', title_en:'New project', summary:'', tags:[], sort_order:99 },
-    testimonials: { author:'', role:'', quote:'...', rating:5, approved:false },
-    faqs: { question:'سوال جدید', question_en:'', answer:'', answer_en:'', sort_order:99 },
-    blog_posts: { slug:'post-'+Date.now(), title:'مقاله جدید', excerpt:'', body:'' }
-  };
-  const { error } = await supa.from(table).insert(templates[table]);
-  if (error) { toast(error.message); return; }
-  showAdmin(table==='blog_posts'?'blog':(table==='testimonials'?'testi':table), document.querySelector('.admin-nav button.active'));
-};
-
-async function adminMessages(){
-  const { data } = await supa.from('contact_messages').select('*').order('created_at',{ascending:false});
-  if (!data?.length) return '<div class="muted" style="color:var(--muted)">پیامی نیست</div>';
-  return '<table><tr><th>تاریخ</th><th>نام</th><th>ایمیل</th><th>موضوع</th><th>پیام</th><th>وضعیت</th><th>عملیات</th></tr>' + data.map(m=>`
-    <tr>
-      <td>${new Date(m.created_at).toLocaleString('fa-IR')}</td>
-      <td>${esc(m.name)}</td>
-      <td dir="ltr">${esc(m.email)}</td>
-      <td>${esc(m.subject||'-')}</td>
-      <td style="max-width:280px;white-space:pre-line">${esc(m.message)}</td>
-      <td><span class="status-pill status-${m.handled?'delivered':'pending'}">${m.handled?'رسیدگی شد':'خوانده نشده'}</span></td>
-      <td>${!m.handled?`<button class="btn btn-primary btn-sm" onclick="markHandled('${m.id}')">علامت‌گذاری</button>`:''} <button class="btn btn-danger btn-sm" onclick="adminDelete('contact_messages','${m.id}')">حذف</button></td>
-    </tr>`).join('') + '</table>';
-}
-window.markHandled = async (id) => { await supa.from('contact_messages').update({handled:true}).eq('id',id); showAdmin('messages', document.querySelector('.admin-nav button.active')); };
-
-async function adminOrders(){
-  const { data: orders } = await supa.from('orders').select('*').order('created_at',{ascending:false});
-  if (!orders?.length) return '<div class="muted" style="color:var(--muted)">سفارشی نیست</div>';
-  const total = orders.filter(o=>o.status==='delivered').reduce((s,o)=>s+Number(o.price),0);
-  const pending = orders.filter(o=>o.status==='pending').length;
-  let html = `<div class="grid" style="margin-bottom:14px"><div class="info-item"><strong>مجموع تحویل شده</strong>${total.toLocaleString()} تومان</div><div class="info-item"><strong>در انتظار</strong>${pending}</div><div class="info-item"><strong>کل</strong>${orders.length}</div></div>`;
-  html += '<table><tr><th>تاریخ</th><th>مشتری</th><th>تماس</th><th>مورد</th><th>مبلغ</th><th>وضعیت</th><th>کد تحویلی</th><th>لینک فایل</th><th>عملیات</th></tr>';
-  orders.forEach(o=>{
-    const fileCell = o.status==='delivered'
-      ? `<input placeholder="https://..." value="${esc(o.delivered_file_url||'')}" onchange="setOrderFile('${o.id}',this.value)">`
-      : `<span class="muted" style="color:var(--muted);font-size:.75rem">—</span>`;
-    html += `<tr>
-      <td>${new Date(o.created_at).toLocaleString('fa-IR')}</td>
-      <td>${esc(o.name)}</td>
-      <td>${esc(o.phone)}<br><span class="muted" style="font-size:.75rem;color:var(--muted)" dir="ltr">${esc(o.email)}</span></td>
-      <td>${esc(o.item_name)}</td>
-      <td>${Number(o.price).toLocaleString()}</td>
-      <td><span class="status-pill status-${o.status}">${o.status}</span></td>
-      <td><input placeholder="کد" value="${esc(o.delivered_code||'')}" onchange="setOrderCode('${o.id}',this.value)"></td>
-      <td>${fileCell}</td>
-      <td>${o.status==='pending'?`<button class="btn btn-primary btn-sm" onclick="deliverOrder('${o.id}')">تحویل</button>`:''} <button class="btn btn-ghost btn-sm" onclick="showOrderHistory('${o.id}')">🕘 تاریخچه</button> <button class="btn btn-danger btn-sm" onclick="adminDelete('orders','${o.id}')">حذف</button></td>
-    </tr>`;
-  });
-  html += '</table>';
-  return html;
-}
-window.setOrderCode = async (id, code) => { await supa.from('orders').update({delivered_code:code}).eq('id',id); };
-window.setOrderFile = async (id, url) => { const {error} = await supa.from('orders').update({delivered_file_url:url}).eq('id',id); if (error) toast(error.message); else toast('لینک فایل ذخیره شد'); };
-window.deliverOrder = async (id) => {
-  const { error } = await supa.from('orders').update({status:'delivered'}).eq('id',id);
-  if (error) toast(error.message); else { toast('تحویل و اشتراک فعال شد'); showAdmin('orders', document.querySelector('.admin-nav button.active')); }
-};
-
-/* ============ EVENT LOG & VERSIONING ============ */
-const ACTION_LBL = { created:'ایجاد سفارش', status_changed:'تغییر وضعیت', file_updated:'به‌روزرسانی فایل', code_updated:'به‌روزرسانی کد تحویلی' };
-async function adminEvents(){
-  const { data: events, error } = await supa.from('order_events').select('*').order('created_at',{ascending:false}).limit(300);
-  if (error) return `<div class="muted" style="color:var(--muted)">${esc(error.message)}</div>`;
-  if (!events?.length) return '<div class="muted" style="color:var(--muted)">هنوز رویدادی ثبت نشده است</div>';
-  const orderIds = [...new Set(events.map(e=>e.order_id))];
-  const { data: orders } = await supa.from('orders').select('id,item_name,name,email').in('id', orderIds);
-  const oMap = {}; (orders||[]).forEach(o=>oMap[o.id]=o);
-  let html = `<div class="muted" style="color:var(--muted);font-size:.82rem;margin-bottom:10px">${events.length} رویداد اخیر — به‌روزرسانی خودکار توسط دیتابیس</div>`;
-  html += '<table><tr><th>زمان</th><th>سفارش</th><th>مشتری</th><th>عملیات</th><th>از → به</th><th>جزئیات</th></tr>';
-  events.forEach(ev=>{
-    const o = oMap[ev.order_id];
-    const trans = ev.from_status || ev.to_status ? `<span class="status-pill status-${ev.from_status||'pending'}">${ev.from_status||'—'}</span> → <span class="status-pill status-${ev.to_status||'pending'}">${ev.to_status||'—'}</span>` : '—';
-    html += `<tr>
-      <td style="white-space:nowrap">${new Date(ev.created_at).toLocaleString('fa-IR')}</td>
-      <td><button class="btn btn-ghost btn-sm" onclick="showOrderHistory('${ev.order_id}')">${esc((ev.order_id||'').slice(0,8))}…</button></td>
-      <td>${o?esc(o.item_name)+'<br><span class="muted" style="font-size:.72rem;color:var(--muted)">'+esc(o.name||'')+'</span>':'<span class="muted" style="color:var(--muted)">حذف شده</span>'}</td>
-      <td><span class="badge">${esc(ACTION_LBL[ev.action]||ev.action)}</span></td>
-      <td>${trans}</td>
-      <td style="max-width:240px;white-space:pre-wrap;font-family:ui-monospace,monospace;font-size:.72rem;direction:ltr">${esc(JSON.stringify(ev.meta||{}))}</td>
-    </tr>`;
-  });
-  html += '</table>';
-  return html;
-}
-window.showOrderHistory = async (orderId) => {
-  const { data: events } = await supa.from('order_events').select('*').eq('order_id',orderId).order('created_at',{ascending:true});
-  const { data: order } = await supa.from('orders').select('*').eq('id',orderId).maybeSingle();
-  const v = $('adminView');
-  let html = `<button class="btn btn-ghost btn-sm" onclick="showAdmin('orders',document.querySelectorAll('.admin-nav button')[8])">← بازگشت به سفارش‌ها</button>
-    <h3 style="margin:14px 0 6px;color:var(--gold-2)">تاریخچه سفارش</h3>
-    <div class="muted" style="color:var(--muted);font-size:.85rem;margin-bottom:12px">${order?esc(order.item_name)+' — '+esc(order.name||''):'سفارش یافت نشد'}</div>`;
-  if (!events?.length) { v.innerHTML = html+'<div class="muted" style="color:var(--muted)">رویدادی ثبت نشده</div>'; return; }
-  html += '<div style="display:flex;flex-direction:column;gap:10px">';
-  events.forEach((ev,i)=>{
-    html += `<div style="border:1px solid var(--gold-soft);border-radius:10px;padding:12px;background:var(--panel-2)">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
-        <div><span class="badge">v${i+1}</span> <strong style="color:var(--gold-2)">${esc(ACTION_LBL[ev.action]||ev.action)}</strong></div>
-        <div class="muted" style="color:var(--muted);font-size:.78rem">${new Date(ev.created_at).toLocaleString('fa-IR')}</div>
-      </div>
-      ${ev.from_status||ev.to_status?`<div style="margin-top:8px"><span class="status-pill status-${ev.from_status||'pending'}">${ev.from_status||'—'}</span> → <span class="status-pill status-${ev.to_status||'pending'}">${ev.to_status||'—'}</span></div>`:''}
-      ${Object.keys(ev.meta||{}).length?`<pre style="margin-top:8px;background:#050505;padding:8px;border-radius:6px;font-size:.72rem;direction:ltr;overflow:auto">${esc(JSON.stringify(ev.meta,null,2))}</pre>`:''}
-    </div>`;
-  });
-  html += '</div>';
-  v.innerHTML = html;
-};
-
-/* ============ SETTINGS ============ */
-async function adminSettings(){
-  const { data: rows } = await supa.from('site_settings').select('*');
-  const map = {}; (rows||[]).forEach(r=>map[r.key]=r.value||{});
-  const zp = map['zarinpal_public'] || {sandbox:true,callback_url:'',currency:'IRT'};
-  const ui = map['ui_config'] || {telegram_url:''};
-  const supaUrl = (window.__SUPA_URL__||'—');
-  return `
-  <div style="display:grid;gap:18px">
-    <div style="border:1px solid var(--gold-soft);border-radius:12px;padding:16px;background:var(--panel-2)">
-      <h3 style="color:var(--gold-2);margin-bottom:10px">☁️ پیکربندی Lovable Cloud / Supabase</h3>
-      <div class="muted" style="color:var(--muted);font-size:.82rem;margin-bottom:12px">این مقادیر توسط پلتفرم مدیریت می‌شوند و از طریق پنل ادمین قابل تغییر نیستند.</div>
-      <div class="grid">
-        <div class="info-item"><strong>Project URL</strong><span dir="ltr" style="font-family:ui-monospace,monospace;font-size:.78rem;word-break:break-all">${esc(supaUrl)}</span></div>
-        <div class="info-item"><strong>وضعیت اتصال</strong><span class="badge">✓ متصل</span></div>
-        <div class="info-item"><strong>Auth</strong><span>Email + Google OAuth</span></div>
-        <div class="info-item"><strong>Row Level Security</strong><span class="badge">فعال</span></div>
-      </div>
-    </div>
-
-    <div style="border:1px solid var(--gold-soft);border-radius:12px;padding:16px;background:var(--panel-2)">
-      <h3 style="color:var(--gold-2);margin-bottom:10px">💳 درگاه پرداخت زرین‌پال</h3>
-      <div class="muted" style="color:var(--muted);font-size:.82rem;margin-bottom:12px">Merchant ID به عنوان یک secret روی سرور نگهداری می‌شود؛ در این فرم فقط پارامترهای عمومی درگاه ذخیره می‌شوند.</div>
-      <div class="grid">
-        <div class="field"><label>حالت Sandbox (تست)</label>
-          <select id="zpSandbox"><option value="true"${zp.sandbox?' selected':''}>فعال — تست</option><option value="false"${!zp.sandbox?' selected':''}>غیرفعال — واقعی</option></select>
-        </div>
-        <div class="field"><label>ارز</label>
-          <select id="zpCurrency"><option value="IRT"${zp.currency==='IRT'?' selected':''}>تومان (IRT)</option><option value="IRR"${zp.currency==='IRR'?' selected':''}>ریال (IRR)</option></select>
-        </div>
-        <div class="field" style="grid-column:span 2"><label>Callback URL</label>
-          <input id="zpCallback" dir="ltr" placeholder="https://mrz.example.com/pay/verify" value="${esc(zp.callback_url||'')}">
-        </div>
-        <div class="field" style="grid-column:span 2"><label>لینک ارتباط تلگرام (دکمه شناور)</label>
-          <input id="uiTg" dir="ltr" placeholder="https://t.me/mrz_company" value="${esc(ui.telegram_url||'')}">
-        </div>
-      </div>
-      <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-primary btn-sm" onclick="saveSettings()">💾 ذخیره تنظیمات</button>
-        <button class="btn btn-ghost btn-sm" onclick="showAdmin('settings',document.querySelector('.admin-nav button.active'))">↻ بارگذاری مجدد</button>
-      </div>
-      <div class="muted" style="color:var(--muted);font-size:.78rem;margin-top:10px">🔒 برای فعال کردن پرداخت واقعی، Merchant ID زرین‌پال را به عنوان Secret با نام <code>ZARINPAL_MERCHANT_ID</code> در Backend اضافه کنید.</div>
-    </div>
-  </div>`;
-}
-window.saveSettings = async () => {
-  const zp = { sandbox: $('zpSandbox').value==='true', currency: $('zpCurrency').value, callback_url: $('zpCallback').value.trim() };
-  const ui = { telegram_url: $('uiTg').value.trim() };
-  const uid = STATE.user?.id;
-  const { error: e1 } = await supa.from('site_settings').upsert({ key:'zarinpal_public', value: zp, updated_by: uid });
-  const { error: e2 } = await supa.from('site_settings').upsert({ key:'ui_config', value: ui, updated_by: uid });
-  if (e1||e2) toast((e1||e2).message); else { toast('تنظیمات ذخیره شد ✓'); applyUiConfig(ui); }
-};
-function applyUiConfig(ui){
-  const fab = document.querySelector('.fab a, a.fab');
-  const link = document.querySelector('.fab');
-  if (link && ui.telegram_url) link.setAttribute('href', ui.telegram_url);
-}
-
-async function adminUsers(){
-  const { data: profiles } = await supa.from('profiles').select('*').order('created_at',{ascending:false});
-  const { data: roles } = await supa.from('user_roles').select('*');
-  if (!profiles?.length) return '<div class="muted" style="color:var(--muted)">کاربری نیست</div>';
-  const roleMap = {}; (roles||[]).forEach(r=>{ roleMap[r.user_id]=roleMap[r.user_id]||[]; roleMap[r.user_id].push(r.role); });
-  let html = '<table><tr><th>نام</th><th>ایمیل</th><th>تلفن</th><th>نقش‌ها</th><th>عملیات</th></tr>';
-  profiles.forEach(u=>{
-    const rs = roleMap[u.id]||['user'];
-    html += `<tr>
-      <td>${esc(u.name||'-')}</td>
-      <td dir="ltr">${esc(u.email||'-')}</td>
-      <td>${esc(u.phone||'-')}</td>
-      <td>${rs.map(r=>`<span class="badge">${esc(r)}</span>`).join(' ')}</td>
-      <td>${rs.includes('admin')?`<button class="btn btn-danger btn-sm" onclick="removeAdmin('${u.id}')">حذف ادمین</button>`:`<button class="btn btn-primary btn-sm" onclick="makeAdmin('${u.id}')">ارتقا به ادمین</button>`}</td>
-    </tr>`;
-  });
-  html += '</table>';
-  return html;
-}
-window.makeAdmin = async (uid) => { const {error}=await supa.from('user_roles').insert({user_id:uid, role:'admin'}); if (error) toast(error.message); else showAdmin('users', document.querySelector('.admin-nav button.active')); };
-window.removeAdmin = async (uid) => { const {error}=await supa.from('user_roles').delete().eq('user_id',uid).eq('role','admin'); if (error) toast(error.message); else showAdmin('users', document.querySelector('.admin-nav button.active')); };
-
-/* ============ HELPERS ============ */
-window.openModal = (id) => {
-  $(id).classList.add('show');
-  if (id==='dashModal') renderDash();
-  if (id==='subsModal') renderPlans();
-  if (id==='shopModal') renderProducts();
-  if (id==='adminModal') showAdmin('content', document.querySelector('.admin-nav button'));
-};
-window.closeModal = (id) => $(id).classList.remove('show');
-window.openAdminPortal = () => { $('adminPortal').classList.add('show'); setTimeout(()=>$('apUser').focus(),100); };
-window.closeAdminPortal = () => { $('adminPortal').classList.remove('show'); if (location.hash==='#admin') history.replaceState(null,'',location.pathname); };
-window.scrollToTabs = () => $('tabsSection').scrollIntoView({behavior:'smooth'});
-
-// Expose auth functions
-window.setLang = setLang;
-window.doAuth = doAuth;
-window.switchAuth = switchAuth;
-window.logout = logout;
-window.googleSignIn = googleSignIn;
-window.forgotPassword = forgotPassword;
-window.adminPortalLogin = adminPortalLogin;
-window.saveProfile = saveProfile;
-window.submitOrder = submitOrder;
-window.submitContact = submitContact;
-window.runSearch = runSearch;
-window.showAdmin = showAdmin;
-
-/* ============ BG CANVAS ============ */
+/* =================== ANIMATED BACKGROUND =================== */
 function initBg(){
   const c=$('bgCanvas');const ctx=c.getContext('2d');
   let W,H,particles=[];
@@ -1409,12 +1020,23 @@ function initBg(){
   for(let i=0;i<N;i++)particles.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.6+.4,a:Math.random()*.5+.2});
   function draw(){
     ctx.clearRect(0,0,W,H);
-    particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(212,175,55,${p.a})`;ctx.fill();});
-    for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const a=particles[i],b=particles[j];const dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);if(d<120){ctx.strokeStyle=`rgba(212,175,55,${.12*(1-d/120)})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(212,175,55,${p.a})`;ctx.fill();
+    });
+    // connect
+    for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+      const a=particles[i],b=particles[j];const dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+      if(d<120){ctx.strokeStyle=`rgba(212,175,55,${.12*(1-d/120)})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+    }
     requestAnimationFrame(draw);
   }
   draw();
 }
+
+/* =================== STATS COUNTER =================== */
 function animateStats(){
   document.querySelectorAll('.stat .num').forEach(el=>{
     const target=+el.dataset.count;const suffix=el.dataset.suffix||'';let cur=0;
@@ -1424,27 +1046,633 @@ function animateStats(){
   });
 }
 
-/* ============ INIT ============ */
+/* =================== TABS RENDER =================== */
+function renderTabs(){
+  const nav=$('tabsNav');nav.innerHTML='';
+  DB.tabs.forEach(t=>{
+    const locked=t.requiresSub&&!hasActiveSub()&&!isAdmin();
+    const b=document.createElement('button');
+    b.className='tab-btn'+(t.key===ACTIVE_TAB?' active':'')+(locked?' locked':'');
+    b.textContent=LANG==='fa'?t.fa:t.en;
+    b.onclick=()=>{
+      if(locked){toast(LANG==='fa'?'برای دسترسی، اشتراک تهیه کنید':'Subscribe to unlock');openModal('subsModal');return;}
+      ACTIVE_TAB=t.key;renderTabs();renderPanel();
+    };
+    nav.appendChild(b);
+  });
+}
+
+function renderPanel(){
+  const wrap=$('tabsContent');wrap.innerHTML='';
+  $('searchResults').classList.add('hidden');
+  const c=DB.content[ACTIVE_TAB];
+  if(!c){wrap.innerHTML='<div class="card muted">—</div>';return;}
+  const data=c[LANG]||c.fa;
+  const div=document.createElement('div');div.className='tab-panel active';
+  let html=`<div class="card"><h2>${escapeHtml(data.title||'')}</h2>`;
+  if(data.body)html+=`<p style="white-space:pre-line;color:#d8d8ce;font-size:1.02rem">${escapeHtml(data.body)}</p>`;
+  const meta=data.meta||{};
+  if(meta.badges){html+='<div style="margin-top:16px">'+meta.badges.map(b=>`<span class="badge">${escapeHtml(b)}</span>`).join('')+'</div>';}
+  if(meta.code){html+=`<div class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy</button><pre>${escapeHtml(meta.code)}</pre></div>`;}
+  if(meta.docs){html+='<div class="grid" style="margin-top:18px">'+meta.docs.map(d=>`
+    <div class="info-item"><strong>${escapeHtml(d.id)} · ${escapeHtml(d.status)}</strong>
+    <div style="color:var(--gold-2);font-weight:600;margin-bottom:6px">${escapeHtml(d.title)}</div>
+    <div style="font-size:.85rem;color:var(--muted)">${escapeHtml(d.abs)}</div></div>`).join('')+'</div>';}
+  if(meta.contacts){html+='<div style="margin-top:16px">'+meta.contacts.map(c=>`<div class="contact-item"><strong>${escapeHtml(c.k)}</strong><span dir="ltr">${escapeHtml(c.v)}</span></div>`).join('')+'</div>';}
+  const metaKeys=Object.keys(meta).filter(k=>!['badges','code','docs','contacts'].includes(k));
+  if(metaKeys.length){html+='<div class="grid" style="margin-top:14px">'+metaKeys.map(k=>`<div class="info-item"><strong>${escapeHtml(k)}</strong>${escapeHtml(meta[k])}</div>`).join('')+'</div>';}
+  html+='</div>';
+  div.innerHTML=html;wrap.appendChild(div);
+}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+function copyCode(btn){const pre=btn.parentElement.querySelector('pre');navigator.clipboard.writeText(pre.textContent);btn.textContent='✓ Copied';setTimeout(()=>btn.textContent='Copy',1500);}
+
+/* =================== SEARCH =================== */
+function runSearch(){
+  const q=$('searchInput').value.trim().toLowerCase();
+  const res=$('searchResults');const wrap=$('tabsContent');
+  if(!q){res.classList.add('hidden');wrap.style.display='';return;}
+  wrap.style.display='none';res.classList.remove('hidden');
+  const hits=[];
+  DB.tabs.forEach(t=>{
+    const c=DB.content[t.key];if(!c)return;
+    ['fa','en'].forEach(lg=>{
+      const d=c[lg];if(!d)return;
+      const hay=(d.title+' '+d.body+' '+JSON.stringify(d.meta||{})).toLowerCase();
+      if(hay.includes(q))hits.push({tab:t,lang:lg,data:d});
+    });
+  });
+  res.innerHTML=hits.length?
+    '<div class="card"><h2>'+(LANG==='fa'?'نتایج جستجو':'Search results')+` (${hits.length})</h2>`+
+    hits.map(h=>`<div class="info-item" style="margin-top:10px;cursor:pointer" onclick="jumpTo('${h.tab.key}')">
+      <strong>${escapeHtml(LANG==='fa'?h.tab.fa:h.tab.en)} · ${h.lang.toUpperCase()}</strong>
+      <div style="color:var(--gold-2)">${escapeHtml(h.data.title||'')}</div>
+      <div style="font-size:.85rem;color:var(--muted)">${escapeHtml((h.data.body||'').slice(0,180))}…</div></div>`).join('')+'</div>':
+    '<div class="card muted">'+(LANG==='fa'?'نتیجه‌ای یافت نشد':'No results')+'</div>';
+}
+function jumpTo(k){$('searchInput').value='';runSearch();ACTIVE_TAB=k;renderTabs();renderPanel();scrollToTabs();}
+
+/* =================== AUTH =================== */
+function switchAuth(mode){
+  AUTH_MODE=mode;
+  $('tabLogin').classList.toggle('active',mode==='login');$('tabSignup').classList.toggle('active',mode==='signup');
+  $('signupFields').classList.toggle('hidden',mode!=='signup');
+  $('authTitle').textContent=I18N[LANG][mode==='login'?'auth_login':'auth_signup'];
+}
+async function doAuth(){
+  const user=$('authUser').value.trim();const pass=$('authPass').value;
+  if(!user||!pass){toast(LANG==='fa'?'همه فیلدها الزامی است':'All fields required');return;}
+  if(pass.length<6){toast(LANG==='fa'?'رمز باید حداقل ۶ کاراکتر باشد':'Password must be ≥6 chars');return;}
+  if(AUTH_MODE==='signup'){
+    const name=$('suName').value.trim();const phone=$('suPhone').value.trim();
+    if(!name){toast(LANG==='fa'?'نام الزامی است':'Name required');return;}
+    if(DB.users.some(u=>u.u===user||u.email===user)){toast(LANG==='fa'?'کاربر تکراری است':'User exists');return;}
+    const email=user.includes('@')?user:user+'@mrz.local';
+    const uname=user.includes('@')?user.split('@')[0]:user;
+    const passHash=await hashPass(pass,uname);
+    const rec={u:uname,passHash,name,phone,email,role:'user',subs:[]};
+    DB.users.push(rec); saveDB(DB);
+    if(SB){ try{ await SB.auth.signUp({email,password:pass}); }catch(e){console.warn(e);} }
+    SESSION={u:uname};localStorage.setItem(SESSION_KEY,JSON.stringify(SESSION));touchIdle();
+    toast(LANG==='fa'?'ثبت‌نام موفق':'Signed up');closeModal('authModal');renderAuthUI();
+    return;
+  }
+  const u=DB.users.find(x=>x.u===user||x.email===user);
+  const ok=await verifyUserPassword(u,pass);
+  if(!ok){toast(LANG==='fa'?'نام کاربری یا رمز اشتباه است':'Invalid credentials');return;}
+  if(SB){ try{ await SB.auth.signInWithPassword({email:u.email,password:pass}); }catch(e){console.warn(e);} }
+  SESSION={u:u.u};localStorage.setItem(SESSION_KEY,JSON.stringify(SESSION));touchIdle();
+  toast(LANG==='fa'?'خوش آمدید':'Welcome');closeModal('authModal');renderAuthUI();
+}
+function logout(){SESSION=null;localStorage.removeItem(SESSION_KEY);renderAuthUI();toast(LANG==='fa'?'خارج شدید':'Logged out');}
+function renderAuthUI(){
+  const u=currentUser();
+  $('loginBtn').classList.toggle('hidden',!!u);
+  $('dashBtn').classList.toggle('hidden',!u);
+  $('logoutBtn').classList.toggle('hidden',!u);
+  $('adminBtn').classList.toggle('hidden',!isAdmin());
+  renderTabs();
+}
+
+/* =================== DASHBOARD =================== */
+function renderDash(){
+  const u=currentUser();if(!u){closeModal('dashModal');return openModal('authModal');}
+  $('dashHello').textContent=(LANG==='fa'?'خوش آمدید، ':'Welcome, ')+u.name;
+  $('pfName').value=u.name||'';$('pfPhone').value=u.phone||'';$('pfEmail').value=u.email||'';
+  $('dashSubs').innerHTML=(u.subs||[]).length?
+    u.subs.map(sid=>{const p=DB.plans.find(x=>x.id===sid);return p?`<div class="contact-item"><strong>${escapeHtml(LANG==='fa'?p.name:p.name_en)}</strong><span>${p.period}</span></div>`:'';}).join('')
+    :(LANG==='fa'?'اشتراک فعالی ندارید':'No active subscription');
+  const my=DB.orders.filter(o=>o.userId===u.u);
+  $('dashOrders').innerHTML=my.length?
+    '<table><tr><th>#</th><th>مورد</th><th>مبلغ</th><th>وضعیت</th><th>کد لایسنس</th><th>انقضا</th><th>عملیات</th></tr>'+
+    my.map((o,i)=>{
+      const exp=o.expiresAt?new Date(o.expiresAt):null;
+      const now=Date.now();
+      const isExp=exp&&exp.getTime()<now;
+      const expLbl=exp?(isExp?'<span style="color:#e63946">منقضی</span>':exp.toLocaleDateString('fa-IR')):'—';
+      const code=o.deliveredCode||'-';
+      const codeCell=code!=='-'?`<code class="mask-code hidden" onclick="this.classList.toggle('hidden')" title="کلیک برای نمایش">${escapeHtml(code)}</code>`:'-';
+      const dl=o.downloadUrl?`<a href="${escapeHtml(o.downloadUrl)}" target="_blank" download>⬇ دانلود</a> · `:'';
+      const em=o.emailSent?`<a href="javascript:showOrderEmail('${o.id}')">📧</a> · `:'';
+      const vf=code!=='-'?`<a href="javascript:openLicenseWith('${escapeHtml(code)}')">✓ بررسی</a>`:'';
+      return `<tr><td>${i+1}</td><td>${escapeHtml(o.itemName)}</td><td>${o.price.toLocaleString()}</td><td><span class="status-pill status-${o.status}">${o.status==='delivered'?'تحویل شده':'در انتظار'}</span></td><td>${codeCell}</td><td>${expLbl}</td><td>${dl}${em}${vf}</td></tr>`;
+    }).join('')+'</table>'
+    :(LANG==='fa'?'سفارشی ثبت نشده':'No orders');
+}
+function saveProfile(){const u=currentUser();if(!u)return;u.name=$('pfName').value;u.phone=$('pfPhone').value;u.email=$('pfEmail').value;saveDB(DB);toast(LANG==='fa'?'ذخیره شد':'Saved');}
+
+/* =================== SUBS / SHOP / CHECKOUT =================== */
+function renderPlans(){
+  $('plansGrid').innerHTML=DB.plans.map(p=>`
+    <div class="plan-card${p.featured?' featured':''}" onclick="openProductDetail('plan','${p.id}')">
+      <h3>${escapeHtml(LANG==='fa'?p.name:(p.name_en||p.name))}</h3>
+      <div class="plan-price">${p.price.toLocaleString()} <span style="font-size:.7em;color:var(--muted)">تومان / ${p.period}</span></div>
+      <ul class="plan-features">${(p.features||[]).map(f=>`<li>${escapeHtml(f)}</li>`).join('')}</ul>
+      <button class="btn btn-primary" style="width:100%" onclick="event.stopPropagation();buyItem('plan','${p.id}')">${LANG==='fa'?'خرید اشتراک':'Subscribe'}</button>
+    </div>`).join('');
+}
+let SHOP_ACTIVE_CAT='';
+function renderShopChips(){
+  const wrap=$('shopChips');const sel=$('shopCatSel');
+  if(!wrap)return;
+  const cats=[{id:'',fa:'همه',en:'All'},...PRODUCT_CATEGORIES];
+  wrap.innerHTML=cats.map(c=>`<span class="shop-chip${SHOP_ACTIVE_CAT===c.id?' active':''}" onclick="setShopCat('${c.id}')">${escapeHtml(LANG==='fa'?c.fa:c.en)}</span>`).join('');
+  if(sel){
+    sel.innerHTML='<option value="">'+(LANG==='fa'?'همه دسته‌ها':'All categories')+'</option>'+
+      PRODUCT_CATEGORIES.map(c=>`<option value="${c.id}"${SHOP_ACTIVE_CAT===c.id?' selected':''}>${escapeHtml(LANG==='fa'?c.fa:c.en)}</option>`).join('');
+  }
+}
+function setShopCat(c){SHOP_ACTIVE_CAT=c;renderProducts();}
+function renderProducts(){
+  renderShopChips();
+  const q=($('shopSearch')?.value||'').trim().toLowerCase();
+  const sort=$('shopSort')?.value||'new';
+  const minP=Number($('shopMinP')?.value)||0;
+  const maxP=Number($('shopMaxP')?.value)||Infinity;
+  const selCat=$('shopCatSel')?.value;
+  if(selCat!==undefined&&selCat!==SHOP_ACTIVE_CAT&&selCat!=='')SHOP_ACTIVE_CAT=selCat;
+  let list=(DB.products||[]).slice();
+  if(SHOP_ACTIVE_CAT)list=list.filter(p=>p.category===SHOP_ACTIVE_CAT);
+  if(q)list=list.filter(p=>{
+    const hay=[p.name,p.name_en,p.desc,(p.tags||[]).join(' '),p.category].join(' ').toLowerCase();
+    return hay.includes(q);
+  });
+  list=list.filter(p=>p.price>=minP&&p.price<=maxP);
+  const cmp={
+    new:(a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')),
+    priceAsc:(a,b)=>a.price-b.price,
+    priceDesc:(a,b)=>b.price-a.price,
+    name:(a,b)=>(LANG==='fa'?a.name:(a.name_en||a.name)).localeCompare(LANG==='fa'?b.name:(b.name_en||b.name))
+  }[sort]||(()=>0);
+  list.sort(cmp);
+  if($('shopCount'))$('shopCount').textContent=(LANG==='fa'?`${list.length} محصول یافت شد`:`${list.length} products found`);
+  if(!list.length){$('productsGrid').innerHTML='<div class="shop-empty">🕳 '+(LANG==='fa'?'محصولی با این فیلتر یافت نشد':'No products match your filters')+'</div>';return;}
+  $('productsGrid').innerHTML=list.map(p=>{
+    const cat=PRODUCT_CATEGORIES.find(c=>c.id===p.category);
+    const catLbl=cat?(LANG==='fa'?cat.fa:cat.en):'';
+    const thumb=p.imageUrl?`<img src="${escapeHtml(p.imageUrl)}" alt="">`:(p.icon||'📄');
+    return `<div class="plan-card${p.featured?' featured':''}" onclick="openProductDetail('product','${p.id}')">
+      ${catLbl?`<span class="cat-tag">${escapeHtml(catLbl)}</span>`:''}
+      <div class="product-thumb">${thumb}</div>
+      <h3>${escapeHtml(LANG==='fa'?p.name:(p.name_en||p.name))}</h3>
+      <p class="muted" style="min-height:44px;font-size:.85rem">${escapeHtml(p.desc||'')}</p>
+      ${(p.tags&&p.tags.length)?`<div class="product-tags">${p.tags.map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div>`:''}
+      <div class="plan-price">${p.price.toLocaleString()} <span style="font-size:.7em;color:var(--muted)">تومان</span></div>
+      <button class="btn btn-primary" style="width:100%" onclick="event.stopPropagation();buyItem('product','${p.id}')">${LANG==='fa'?'خرید':'Buy'}</button>
+    </div>`;
+  }).join('');
+}
+function buyItem(kind,id){
+  CHECKOUT_ITEM={kind,id};
+  const item=kind==='plan'?DB.plans.find(p=>p.id===id):DB.products.find(p=>p.id===id);
+  $('chkItemName').textContent=(LANG==='fa'?item.name:(item.name_en||item.name))+' — '+item.price.toLocaleString()+' تومان';
+  const u=currentUser();if(u){$('chkName').value=u.name||'';$('chkPhone').value=u.phone||'';$('chkEmail').value=u.email||'';}
+  openModal('checkoutModal');
+}
+function submitOrder(){
+  const name=$('chkName').value.trim(),phone=$('chkPhone').value.trim(),email=$('chkEmail').value.trim();
+  if(!name||!phone||!email){toast(LANG==='fa'?'نام، تلفن و ایمیل الزامی است':'All required');return;}
+  const u=currentUser();
+  const it=CHECKOUT_ITEM;const item=it.kind==='plan'?DB.plans.find(p=>p.id===it.id):DB.products.find(p=>p.id===it.id);
+  const order={id:'o'+Date.now(),userId:u?u.u:null,name,phone,email,kind:it.kind,itemId:it.id,itemName:LANG==='fa'?item.name:(item.name_en||item.name),price:item.price,status:'pending',date:new Date().toISOString(),deliveredCode:''};
+  PENDING_ORDER=order; PENDING_ITEM=item;
+  closeModal('checkoutModal');
+  openZarinpal(order,item);
+}
+
+/* =================== ADMIN =================== */
+function showAdmin(view,btn){
+  if(btn){document.querySelectorAll('.admin-nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+  const v=$('adminView');
+  if(view==='content')v.innerHTML=adminContent();
+  else if(view==='plans')v.innerHTML=adminList('plans',['id','name','name_en','price','period','featured','deliveryCode'],'اشتراک');
+  else if(view==='products')v.innerHTML=adminList('products',['id','name','name_en','price','desc','deliveryCode'],'محصول');
+  else if(view==='sub_content')v.innerHTML=adminSubContent();
+  else if(view==='orders')v.innerHTML=adminOrders();
+  else if(view==='users')v.innerHTML=adminUsers();
+}
+function adminContent(){
+  let html='<p class="muted" style="margin-bottom:10px">هر تب دو زبان دارد. برای ویرایش روی مقدار کلیک کنید.</p>';
+  DB.tabs.forEach(t=>{
+    html+=`<details style="margin-bottom:10px;background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:10px">
+      <summary style="cursor:pointer;color:var(--gold);font-weight:600">${t.fa} / ${t.en} <span class="muted" style="font-size:.75rem">(${t.key})</span></summary>`;
+    ['fa','en'].forEach(lg=>{
+      const c=(DB.content[t.key]&&DB.content[t.key][lg])||{title:'',body:'',meta:{}};
+      html+=`<div style="margin-top:10px;padding:10px;background:var(--bg-2);border-radius:8px">
+        <div style="color:var(--gold-2);font-size:.75rem;margin-bottom:6px">[${lg.toUpperCase()}]</div>
+        <div class="field"><label>عنوان</label><input onchange="updateContent('${t.key}','${lg}','title',this.value)" value="${escapeHtml(c.title||'')}"></div>
+        <div class="field"><label>متن</label><textarea rows="3" onchange="updateContent('${t.key}','${lg}','body',this.value)">${escapeHtml(c.body||'')}</textarea></div>
+        <div class="field"><label>Meta (JSON)</label><textarea rows="3" onchange="updateContent('${t.key}','${lg}','meta',this.value)">${escapeHtml(JSON.stringify(c.meta||{},null,2))}</textarea></div>
+      </div>`;
+    });
+    html+='</details>';
+  });
+  html+='<h3 style="margin-top:16px">افزودن تب جدید</h3><div class="field"><input id="newTabKey" placeholder="key (english, unique)"></div><div class="field"><input id="newTabFa" placeholder="نام فارسی"></div><div class="field"><input id="newTabEn" placeholder="English name"></div><label><input type="checkbox" id="newTabSub"> فقط برای مشترکین</label><br><button class="btn btn-primary" style="margin-top:10px" onclick="addTab()">افزودن تب</button>';
+  return html;
+}
+function updateContent(k,lg,f,v){
+  DB.content[k]=DB.content[k]||{};DB.content[k][lg]=DB.content[k][lg]||{};
+  if(f==='meta'){try{DB.content[k][lg].meta=JSON.parse(v||'{}');}catch{toast('JSON نامعتبر');return;}}
+  else DB.content[k][lg][f]=v;
+  saveDB(DB);toast('ذخیره شد');renderPanel();
+}
+function addTab(){
+  const k=$('newTabKey').value.trim(),fa=$('newTabFa').value.trim(),en=$('newTabEn').value.trim();
+  if(!k||!fa||!en){toast('همه فیلدها الزامی');return;}
+  if(DB.tabs.some(t=>t.key===k)){toast('کلید تکراری');return;}
+  DB.tabs.push({key:k,fa,en,requiresSub:$('newTabSub').checked});
+  DB.content[k]={fa:{title:fa,body:'',meta:{}},en:{title:en,body:'',meta:{}}};
+  saveDB(DB);renderTabs();showAdmin('content',document.querySelector('.admin-nav button.active'));
+}
+function adminList(coll,fields,label){
+  const list=DB[coll]||[];
+  let html=`<button class="btn btn-primary btn-sm" onclick="addRow('${coll}')">+ افزودن ${label}</button><table style="margin-top:10px"><tr>`+fields.map(f=>`<th>${f}</th>`).join('')+'<th>عملیات</th></tr>';
+  list.forEach((row,i)=>{
+    html+='<tr>'+fields.map(f=>`<td><input value="${escapeHtml(String(row[f]??''))}" onchange="editRow('${coll}',${i},'${f}',this.value)"></td>`).join('')+
+    `<td><button class="btn btn-danger btn-sm" onclick="deleteRow('${coll}',${i})">حذف</button></td></tr>`;
+  });
+  html+='</table>';
+  return html;
+}
+function addRow(coll){
+  const id=(coll==='plans'?'p':'sp')+Date.now();
+  const templates={plans:{id,name:'پلن جدید',name_en:'New plan',price:0,period:'ماهانه',features:[]},
+    products:{id,name:'محصول جدید',name_en:'New product',price:0,desc:''}};
+  DB[coll].push(templates[coll]);saveDB(DB);showAdmin(coll,document.querySelector('.admin-nav button.active'));
+}
+function editRow(coll,i,f,v){
+  const row=DB[coll][i];
+  if(f==='price')row[f]=Number(v)||0;
+  else if(f==='featured')row[f]=v==='true';
+  else row[f]=v;
+  saveDB(DB);
+  const map={plans:'mrz_plans',products:'mrz_products',orders:'mrz_orders'};
+  if(map[coll])Cloud.upsert(map[coll],row);
+}
+function deleteRow(coll,i){if(!confirm('حذف شود؟'))return;const row=DB[coll][i];DB[coll].splice(i,1);saveDB(DB);
+  const map={plans:'mrz_plans',products:'mrz_products',orders:'mrz_orders'};
+  if(map[coll]&&row&&row.id)Cloud.remove(map[coll],{id:row.id});
+  showAdmin(coll,document.querySelector('.admin-nav button.active'));}
+function adminSubContent(){
+  const c=DB.content.subscriber||{fa:{},en:{}};
+  return `<h3>محتوای اختصاصی مشترکین</h3>
+  <div class="field"><label>عنوان FA</label><input onchange="updateContent('subscriber','fa','title',this.value)" value="${escapeHtml(c.fa.title||'')}"></div>
+  <div class="field"><label>متن FA</label><textarea rows="4" onchange="updateContent('subscriber','fa','body',this.value)">${escapeHtml(c.fa.body||'')}</textarea></div>
+  <div class="field"><label>عنوان EN</label><input onchange="updateContent('subscriber','en','title',this.value)" value="${escapeHtml(c.en.title||'')}"></div>
+  <div class="field"><label>متن EN</label><textarea rows="4" onchange="updateContent('subscriber','en','body',this.value)">${escapeHtml(c.en.body||'')}</textarea></div>
+  <div class="field"><label>کدها / Meta JSON (FA)</label><textarea rows="4" onchange="updateContent('subscriber','fa','meta',this.value)">${escapeHtml(JSON.stringify(c.fa.meta||{},null,2))}</textarea></div>`;
+}
+function adminOrders(){
+  const orders=DB.orders.slice().reverse();
+  const total=DB.orders.filter(o=>o.status==='delivered').reduce((s,o)=>s+o.price,0);
+  const pending=DB.orders.filter(o=>o.status==='pending').length;
+  let html=`<div class="grid" style="margin-bottom:14px"><div class="info-item"><strong>مجموع فروش تایید شده</strong>${total.toLocaleString()} تومان</div><div class="info-item"><strong>در انتظار</strong>${pending}</div><div class="info-item"><strong>کل سفارش‌ها</strong>${DB.orders.length}</div></div>`;
+  html+='<table><tr><th>تاریخ</th><th>مشتری</th><th>تماس</th><th>مورد</th><th>مبلغ</th><th>وضعیت</th><th>کد تحویلی</th><th>عملیات</th></tr>';
+  orders.forEach(o=>{
+    const idx=DB.orders.indexOf(o);
+    html+=`<tr>
+      <td>${new Date(o.date).toLocaleString('fa-IR')}</td>
+      <td>${escapeHtml(o.name)}</td>
+      <td>${escapeHtml(o.phone)}<br><span class="muted" style="font-size:.75rem">${escapeHtml(o.email)}</span></td>
+      <td>${escapeHtml(o.itemName)}</td>
+      <td>${o.price.toLocaleString()}</td>
+      <td><span class="status-pill status-${o.status}">${o.status==='delivered'?'تحویل':'در انتظار'}</span></td>
+      <td><input placeholder="کد را وارد کنید" value="${escapeHtml(o.deliveredCode||'')}" onchange="setOrderCode(${idx},this.value)"></td>
+      <td>${o.status==='pending'?`<button class="btn btn-primary btn-sm" onclick="deliverOrder(${idx})">تحویل و فعال‌سازی</button>`:''}
+        <button class="btn btn-danger btn-sm" onclick="deleteRow('orders',${idx})">حذف</button></td>
+    </tr>`;
+  });
+  html+='</table>';return html;
+}
+function setOrderCode(i,v){DB.orders[i].deliveredCode=v;saveDB(DB);}
+function deliverOrder(i){
+  const o=DB.orders[i];if(!o.deliveredCode){if(!confirm('بدون کد ارسال شود؟'))return;}
+  o.status='delivered';
+  if(o.kind==='plan'&&o.userId){const u=DB.users.find(x=>x.u===o.userId);if(u){u.subs=u.subs||[];if(!u.subs.includes(o.itemId))u.subs.push(o.itemId);}}
+  saveDB(DB);showAdmin('orders',document.querySelector('.admin-nav button.active'));toast('سفارش تحویل و اشتراک فعال شد');
+}
+function adminUsers(){
+  let html='<table><tr><th>یوزر</th><th>نام</th><th>ایمیل</th><th>تلفن</th><th>نقش</th><th>اشتراک</th><th>عملیات</th></tr>';
+  DB.users.forEach((u,i)=>{
+    html+=`<tr>
+      <td><code>${escapeHtml(u.u)}</code></td>
+      <td>${escapeHtml(u.name||'')}</td>
+      <td>${escapeHtml(u.email||'')}</td>
+      <td>${escapeHtml(u.phone||'')}</td>
+      <td><select onchange="setUserRole(${i},this.value)"><option value="user"${u.role==='user'?' selected':''}>کاربر</option><option value="admin"${u.role==='admin'?' selected':''}>ادمین</option></select></td>
+      <td>
+        <select onchange="grantSub(${i},this.value)"><option value="">— افزودن —</option>${DB.plans.map(p=>`<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')}</select>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:4px">${(u.subs||[]).map(s=>{const p=DB.plans.find(x=>x.id===s);return p?`<span class="badge" style="font-size:.7rem">${escapeHtml(p.name)} <button style="color:#f88;margin-inline-start:4px" onclick="removeSub(${i},'${s}')">×</button></span>`:'';}).join(' ')}</div>
+      </td>
+      <td><button class="btn btn-danger btn-sm" onclick="deleteUser(${i})">حذف</button></td>
+    </tr>`;
+  });
+  html+='</table>';return html;
+}
+function setUserRole(i,r){DB.users[i].role=r;saveDB(DB);toast('نقش به‌روزرسانی شد');}
+function grantSub(i,pid){if(!pid)return;const u=DB.users[i];u.subs=u.subs||[];if(!u.subs.includes(pid))u.subs.push(pid);saveDB(DB);showAdmin('users',document.querySelector('.admin-nav button.active'));}
+function removeSub(i,pid){const u=DB.users[i];u.subs=(u.subs||[]).filter(s=>s!==pid);saveDB(DB);showAdmin('users',document.querySelector('.admin-nav button.active'));}
+function deleteUser(i){if(!confirm('حذف کاربر؟'))return;DB.users.splice(i,1);saveDB(DB);showAdmin('users',document.querySelector('.admin-nav button.active'));}
+
+/* =================== INIT =================== */
 document.addEventListener('click',e=>{if(e.target.classList.contains('overlay'))e.target.classList.remove('show');});
 document.addEventListener('keydown',e=>{
   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('searchInput').focus();}
   if(e.key==='Escape'){document.querySelectorAll('.overlay.show').forEach(o=>o.classList.remove('show'));closeAdminPortal();}
 });
 $('year').textContent=new Date().getFullYear();
-initBg(); animateStats(); setLang(STATE.lang);
+initBg();
+setLang(LANG);renderAuthUI();renderPanel();
+animateStats();
+updateCloudBadge();
+touchIdle();
 
-// Auth listener
-supa.auth.onAuthStateChange(async (event) => {
-  if (event === 'SIGNED_IN' || event === 'SIGNED_OUT' || event === 'USER_UPDATED') {
-    await refreshSession();
-  }
+// Secret keyboard combo: Ctrl+Shift+A opens admin portal (in addition to #admin)
+document.addEventListener('keydown',(e)=>{
+  if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key.toLowerCase()==='a'){e.preventDefault();openAdminPortal();}
 });
 
-// Bootstrap
-await loadContent();
-await refreshSession();
-if (location.hash==='#admin') openAdminPortal();
+// Rebuild rate-limit / captcha UI whenever portal opens
+(function(){
+  const _open=openAdminPortal;
+  window.openAdminPortal=function(){_open.apply(this,arguments);updateAdminLockUI();};
+})();
+
+// Cloud sync on load (products/plans/orders — only if cloud tables have data)
+(async()=>{
+  if(!SB)return;
+  const data=await Cloud.pull();
+  if(!data)return;
+  let changed=false;
+  if(data.products&&data.products.length){DB.products=data.products;changed=true;}
+  if(data.plans&&data.plans.length){DB.plans=data.plans;changed=true;}
+  if(data.orders&&data.orders.length){DB.orders=data.orders;changed=true;}
+  if(changed){saveDB(DB);renderProducts();renderPlans();toast(LANG==='fa'?'همگام با ابر':'Synced with cloud');}
+})();
+
+if(location.hash==='#admin')openAdminPortal();
 window.addEventListener('hashchange',()=>{if(location.hash==='#admin')openAdminPortal();});
+
+/* =================== ZARINPAL SIMULATION + AUTO-DELIVERY =================== */
+let PENDING_ORDER=null, PENDING_ITEM=null;
+function openZarinpal(order,item){
+  const track='ZP-'+Math.floor(Math.random()*9e8+1e8);
+  $('zpTrack').textContent=track;
+  $('zpItem').textContent=order.itemName;
+  $('zpAmount').textContent=order.price.toLocaleString()+' تومان';
+  // reset body if returning
+  const body=$('zpBody');
+  if(!body.querySelector('.zp-cardbox')){ location.reload(); return; }
+  $('zpActions').style.display='flex';
+  openModal('zarinpalModal');
+}
+function cancelZarinpal(){
+  closeModal('zarinpalModal');
+  PENDING_ORDER=null; PENDING_ITEM=null;
+  toast(LANG==='fa'?'پرداخت لغو شد':'Payment cancelled');
+}
+function processZarinpal(){
+  const card=($('zpCard').value||'').replace(/\D/g,'');
+  const cvv=$('zpCvv').value, otp=$('zpOtp').value;
+  if(card.length<16){toast('شماره کارت نامعتبر');return;}
+  if(!cvv||!otp){toast('CVV و رمز پویا الزامی است');return;}
+  const body=$('zpBody'); const acts=$('zpActions');
+  const originalBody=body.innerHTML;
+  acts.style.display='none';
+  body.innerHTML='<div style="text-align:center;padding:30px"><div class="zp-spinner"></div><p style="color:#333;font-weight:600">در حال اتصال به بانک صادرکننده...</p><p style="color:#666;font-size:.8rem;margin-top:6px">لطفاً منتظر بمانید</p></div>';
+  setTimeout(()=>{
+    body.innerHTML='<div style="text-align:center;padding:30px"><div class="zp-spinner"></div><p style="color:#333;font-weight:600">در حال تایید تراکنش و صدور رسید...</p></div>';
+    setTimeout(()=>{ finalizePayment(body,acts,originalBody); }, 1400);
+  }, 1400);
+}
+function finalizePayment(body,acts,originalBody){
+  const o=PENDING_ORDER, item=PENDING_ITEM;
+  if(!o||!item){ closeModal('zarinpalModal'); return; }
+  // Auto-deliver: secure signed license with expiry
+  const lic=generateLicense(o,item);
+  o.status='delivered';
+  o.deliveredCode=lic.code;
+  o.licenseSig=lic.sig;
+  o.issuedAt=lic.issuedAt;
+  o.expiresAt=lic.expiresAt;
+  o.downloadUrl=item.downloadUrl||'';
+  o.paidAt=new Date().toISOString();
+  o.gatewayRef=$('zpTrack').textContent;
+  // Simulate email send
+  const mail=buildReceiptEmail(o,item);
+  o.emailSent=true; o.emailTo=o.email; o.emailSubject=mail.subject; o.emailBody=mail.html;
+  window.LAST_EMAIL=mail;
+  // Activate plan for user
+  const u=currentUser();
+  if(o.kind==='plan'&&u){
+    const uu=DB.users.find(x=>x.u===u.u);
+    if(uu){uu.subs=uu.subs||[]; if(!uu.subs.includes(o.itemId))uu.subs.push(o.itemId);}
+  }
+  DB.orders.push(o);
+  saveDB(DB); try{Cloud.upsert('mrz_orders',o);}catch{}
+  // Success UI
+  const dlBtn = item.downloadUrl ? `<a class="zp-dl" href="${escapeHtml(item.downloadUrl)}" download target="_blank">⬇ دانلود فایل محصول</a>` : '';
+  const expDate=new Date(o.expiresAt).toLocaleDateString('fa-IR');
+  body.innerHTML = `<div class="zp-success">
+    <div class="zp-check">✓</div>
+    <h2 style="color:#0a0a0a;font-family:var(--font-h)">پرداخت موفق</h2>
+    <p style="color:#444;margin-top:6px">تراکنش شما با موفقیت انجام شد و ایمیل تحویل ارسال گردید.</p>
+    <div class="zp-row" style="margin-top:14px"><span>کد رهگیری</span><strong>${escapeHtml(o.gatewayRef)}</strong></div>
+    <div class="zp-row"><span>مبلغ</span><strong>${o.price.toLocaleString()} تومان</strong></div>
+    <div class="zp-row"><span>اعتبار تا</span><strong>${expDate}</strong></div>
+    <div class="zp-row"><span>ایمیل ارسال شد به</span><strong>${escapeHtml(o.email)}</strong></div>
+    <p style="margin-top:14px;color:#333;font-weight:700">🔐 لایسنس امضاء‌شده شما:</p>
+    <div class="zp-code">${escapeHtml(o.deliveredCode)}</div>
+    ${dlBtn}
+    <p style="margin-top:14px;color:#555;font-size:.8rem">این اطلاعات در «پنل کاربری → سفارش‌های من» ذخیره شد. کد لایسنس خصوصی است، آن را با کسی به اشتراک نگذارید.</p>
+  </div>`;
+  acts.style.display='flex';
+  acts.innerHTML='<button class="zp-btn zp-btn-cancel" onclick="closeZpAndReturn()">بستن</button><button class="zp-btn zp-btn-pay" onclick="showLastEmail()">📧 مشاهده ایمیل</button><button class="zp-btn zp-btn-pay" onclick="copyDelivered(\''+o.id+'\')">کپی کد</button>';
+  toast(LANG==='fa'?'پرداخت موفق و تحویل خودکار انجام شد':'Paid & delivered');
+  PENDING_ORDER=null; PENDING_ITEM=null;
+  // Refresh dashboard if open
+  try{ if(typeof renderPanel==='function') renderPanel(); }catch{}
+}
+function copyDelivered(id){
+  const o=DB.orders.find(x=>x.id===id); if(!o)return;
+  navigator.clipboard.writeText(o.deliveredCode).then(()=>toast('کد کپی شد'));
+}
+function closeZpAndReturn(){
+  closeModal('zarinpalModal');
+  // Restore modal body for next payment
+  setTimeout(()=>{
+    const body=$('zpBody');
+    body.innerHTML = `
+      <div class="zp-row"><span>پذیرنده</span><strong>MRZ COMPANY</strong></div>
+      <div class="zp-row"><span>شماره پیگیری</span><strong id="zpTrack">-</strong></div>
+      <div class="zp-row"><span>محصول</span><strong id="zpItem">-</strong></div>
+      <div class="zp-amount" id="zpAmount">0 تومان</div>
+      <div class="zp-cardbox">
+        <label>شماره کارت شبیه‌سازی</label>
+        <input id="zpCard" maxlength="19" value="6037-9911-2233-4455">
+        <div class="zp-grid2" style="margin-top:10px">
+          <div><label>CVV2</label><input id="zpCvv" maxlength="4" value="1234"></div>
+          <div><label>انقضا</label><input id="zpExp" value="04/07"></div>
+        </div>
+        <div style="margin-top:10px"><label>رمز پویا</label><input id="zpOtp" maxlength="8" value="847391"></div>
+        <p style="font-size:.7rem;color:#777;margin-top:8px">این یک درگاه شبیه‌سازی شده است.</p>
+      </div>`;
+    $('zpActions').innerHTML='<button class="zp-btn zp-btn-cancel" onclick="cancelZarinpal()">انصراف و بازگشت</button><button class="zp-btn zp-btn-pay" onclick="processZarinpal()">تایید و پرداخت</button>';
+  }, 400);
+}
+
+
+/* =================== SECURE LICENSE + EMAIL + DETAIL =================== */
+// Simple HMAC-like signature using a project pepper. NOT real crypto — sim only.
+const LIC_PEPPER='MRZ-COMPANY-SIG-2025';
+function _hash(str){let h=5381;for(let i=0;i<str.length;i++)h=((h<<5)+h+str.charCodeAt(i))>>>0;return h.toString(36).toUpperCase().padStart(6,'0').slice(0,6);}
+function _sig(payload){return _hash(payload+'|'+LIC_PEPPER)+_hash(LIC_PEPPER+'|'+payload).slice(0,4);}
+function _rand(n){const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let o='';for(let i=0;i<n;i++)o+=c[Math.floor(Math.random()*c.length)];return o;}
+function generateLicense(o,item){
+  const issuedAt=Date.now();
+  // license valid duration: plan.period days if plan, otherwise 365 days
+  let days=365;
+  if(o.kind==='plan'){const per=(item.period||'').toLowerCase();if(per.includes('month')||per.includes('ماه'))days=30;else if(per.includes('week')||per.includes('هفته'))days=7;else if(per.includes('life')||per.includes('همیشگی'))days=365*20;}
+  const expiresAt=issuedAt+days*86400000;
+  const base='MRZ-'+_rand(4)+'-'+_rand(4)+'-'+_rand(4);
+  const payload=base+'|'+o.itemId+'|'+issuedAt+'|'+expiresAt;
+  const sig=_sig(payload);
+  const code=base+'-'+sig;
+  return {code,sig,issuedAt,expiresAt,payload};
+}
+function verifyLicense(code){
+  if(!code)return{ok:false,reason:'کد وارد نشده'};
+  code=code.trim().toUpperCase();
+  // Look up in DB.orders
+  const o=(DB.orders||[]).find(x=>(x.deliveredCode||'').toUpperCase()===code);
+  if(!o)return{ok:false,reason:'کد در سامانه یافت نشد'};
+  const payload=code.substring(0,code.lastIndexOf('-'))+'|'+o.itemId+'|'+o.issuedAt+'|'+o.expiresAt;
+  const expected=_sig(payload);
+  const sigPart=code.split('-').pop();
+  if(sigPart!==expected)return{ok:false,reason:'امضای دیجیتال معتبر نیست (احتمال جعل)',order:o};
+  const now=Date.now();
+  if(o.expiresAt&&now>o.expiresAt)return{ok:false,expired:true,order:o,reason:'لایسنس منقضی شده است'};
+  return{ok:true,order:o};
+}
+function buildReceiptEmail(o,item){
+  const expDate=new Date(o.expiresAt).toLocaleDateString('fa-IR');
+  const issDate=new Date(o.issuedAt).toLocaleDateString('fa-IR');
+  const dl=o.downloadUrl?`<a class="btn-dl" href="${escapeHtml(o.downloadUrl)}" target="_blank">⬇ دانلود فایل محصول</a>`:'';
+  const subject='تحویل خرید و کد لایسنس — '+o.itemName;
+  const html=`<div class="eh"><b>از:</b> MRZ Company &lt;noreply@mrzcompany.ir&gt;<br><b>به:</b> ${escapeHtml(o.email)}<br><b>موضوع:</b> ${escapeHtml(subject)}<br><b>تاریخ:</b> ${new Date().toLocaleString('fa-IR')}</div>
+  <h3>سلام ${escapeHtml(o.name)} عزیز 👋</h3>
+  <p>پرداخت شما با موفقیت انجام شد و محصول <b>${escapeHtml(o.itemName)}</b> برای شما فعال گردید.</p>
+  <p><b>کد رهگیری تراکنش:</b> ${escapeHtml(o.gatewayRef||'-')}</p>
+  <p><b>کد لایسنس اختصاصی و امضاء‌شده شما:</b></p>
+  <div class="lic">${escapeHtml(o.deliveredCode)}</div>
+  <p><b>تاریخ صدور:</b> ${issDate} &nbsp;·&nbsp; <b>معتبر تا:</b> ${expDate}</p>
+  ${dl}
+  <div class="note">🔒 این کد به‌صورت خصوصی صادر شده و با امضای دیجیتال محافظت می‌شود. لطفاً آن را با کسی به اشتراک نگذارید. برای اعتبارسنجی می‌توانید از صفحه «بررسی لایسنس» استفاده کنید.</div>
+  <p style="margin-top:14px;color:#666;font-size:.8rem">با تشکر از خرید شما،<br>تیم MRZ Company</p>`;
+  return {to:o.email,subject,html,text:'کد لایسنس: '+o.deliveredCode+' — معتبر تا '+expDate};
+}
+function showLastEmail(){
+  if(!window.LAST_EMAIL)return;
+  $('emailBody').innerHTML='<div class="email-preview">'+window.LAST_EMAIL.html+'</div>';
+  openModal('emailModal');
+}
+function showOrderEmail(id){
+  const o=(DB.orders||[]).find(x=>x.id===id);if(!o||!o.emailBody)return toast('ایمیلی برای این سفارش ثبت نشده');
+  window.LAST_EMAIL={to:o.emailTo,subject:o.emailSubject,html:o.emailBody,text:''};
+  showLastEmail();
+}
+function openMailClient(){
+  const m=window.LAST_EMAIL;if(!m)return;
+  const body='کد لایسنس شما: '+((m.text)||'')+'\n\n(برای مشاهده کامل به پنل کاربری مراجعه کنید.)';
+  location.href='mailto:'+encodeURIComponent(m.to)+'?subject='+encodeURIComponent(m.subject)+'&body='+encodeURIComponent(body);
+}
+function openLicenseCheck(){$('licInput').value='';$('licResult').innerHTML='';openModal('licenseModal');}
+function openLicenseWith(code){openLicenseCheck();$('licInput').value=code;checkLicense();}
+function checkLicense(){
+  const v=$('licInput').value.trim().toUpperCase();
+  const r=verifyLicense(v);
+  const out=$('licResult');
+  if(r.ok){
+    const o=r.order;
+    const total=o.expiresAt-o.issuedAt;
+    const left=o.expiresAt-Date.now();
+    const pct=Math.max(0,Math.min(100,(left/total)*100));
+    const days=Math.ceil(left/86400000);
+    out.innerHTML=`<div class="lic-result lic-ok">
+      <div style="font-size:1.1rem;font-weight:800;margin-bottom:8px">✓ لایسنس معتبر است</div>
+      <div class="lic-row"><span>محصول</span><strong>${escapeHtml(o.itemName)}</strong></div>
+      <div class="lic-row"><span>مالک</span><strong>${escapeHtml(o.name)}</strong></div>
+      <div class="lic-row"><span>صادر شده در</span><strong>${new Date(o.issuedAt).toLocaleDateString('fa-IR')}</strong></div>
+      <div class="lic-row"><span>معتبر تا</span><strong>${new Date(o.expiresAt).toLocaleDateString('fa-IR')}</strong></div>
+      <div class="lic-row"><span>روزهای باقی‌مانده</span><strong>${days} روز</strong></div>
+      <div class="expiry-bar"><div style="width:${pct}%"></div></div>
+    </div>`;
+  }else if(r.expired){
+    const o=r.order;
+    out.innerHTML=`<div class="lic-result lic-expired">
+      <div style="font-size:1.1rem;font-weight:800;margin-bottom:8px">⚠ لایسنس منقضی شده است</div>
+      <div class="lic-row"><span>محصول</span><strong>${escapeHtml(o.itemName)}</strong></div>
+      <div class="lic-row"><span>تاریخ انقضا</span><strong>${new Date(o.expiresAt).toLocaleDateString('fa-IR')}</strong></div>
+      <div class="lic-row"><span>وضعیت</span><strong style="color:#e63946">EXPIRED</strong></div>
+      <p style="margin-top:10px;font-size:.85rem">برای ادامه استفاده، لطفاً لایسنس خود را تمدید کنید.</p>
+      <button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="closeModal('licenseModal');openModal('subsModal')">🔄 تمدید / خرید مجدد</button>
+    </div>`;
+  }else{
+    out.innerHTML=`<div class="lic-result lic-bad"><div style="font-size:1.05rem;font-weight:800">✗ نامعتبر</div><p style="margin-top:6px">${escapeHtml(r.reason||'کد اشتباه')}</p></div>`;
+  }
+}
+/* Animated Product/Plan Detail */
+function openProductDetail(kind,id){
+  const item=kind==='plan'?DB.plans.find(x=>x.id===id):DB.products.find(x=>x.id===id);
+  if(!item)return;
+  const cat=(typeof PRODUCT_CATEGORIES!=='undefined')?PRODUCT_CATEGORIES.find(c=>c.id===item.category):null;
+  const catLbl=cat?(LANG==='fa'?cat.fa:cat.en):'';
+  const thumb=item.imageUrl?`<img src="${escapeHtml(item.imageUrl)}" alt="">`:(item.icon||(kind==='plan'?'💎':'📦'));
+  const name=LANG==='fa'?item.name:(item.name_en||item.name);
+  const desc=item.desc||item.description||(kind==='plan'?'اشتراک ویژه با دسترسی کامل':'محصول دیجیتال با تحویل خودکار');
+  const features=item.features||[];
+  const tags=item.tags||[];
+  const period=item.period?` / ${item.period}`:'';
+  $('detailBody').innerHTML=`
+    <div class="detail-hero">
+      <div class="detail-thumb">${thumb}</div>
+      <div class="detail-info detail-anim-in">
+        ${catLbl?`<span class="cat-tag">${escapeHtml(catLbl)}</span>`:''}
+        <h2>${escapeHtml(name)}</h2>
+        <p style="color:#c8c8b8;line-height:1.7">${escapeHtml(desc)}</p>
+        ${tags.length?`<div class="detail-badges">${tags.map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div>`:''}
+        ${features.length?`<ul class="detail-feat">${features.map(f=>`<li>${escapeHtml(f)}</li>`).join('')}</ul>`:''}
+        <div class="price">${item.price.toLocaleString()} <small>تومان${period}</small></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" style="flex:1;min-width:160px" onclick="closeModal('detailModal');buyItem('${kind}','${item.id}')">🛒 ${kind==='plan'?'خرید اشتراک':'خرید و دریافت فوری'}</button>
+          <button class="btn" onclick="closeModal('detailModal')">بازگشت</button>
+        </div>
+        <p class="muted" style="font-size:.75rem;margin-top:10px">🔐 تحویل خودکار با لایسنس امضاء‌شده و ایمیل رسید</p>
+      </div>
+    </div>`;
+  openModal('detailModal');
+}
+
 </script>
 </body>
 </html>
